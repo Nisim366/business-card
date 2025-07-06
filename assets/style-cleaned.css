@@ -190,6 +190,16 @@ p {
   position: relative;
   z-index: 1;
 }
+.main-content {
+  background: linear-gradient(to bottom, #ffffff, #f6f6f6);
+}
+.about-parallax-wrapper {
+  background-image: url('../img/bg-about.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
 
 
 .about-parallax-wrapper::before {

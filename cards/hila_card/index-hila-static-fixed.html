@@ -1,66 +1,298 @@
-
 <!DOCTYPE html>
 <html lang="he">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>הילה לוי - כרטיס דיגיטלי</title>
-  <link rel="stylesheet" href="../../assets/style-cleaned.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-</head>
-<body>
-<div class="card">
-  <div class="header-top">
-    <img src="../../assets/logo-ortopok.png" class="logo-img" alt="לוגו" />
-  </div>
-  <div class="gold-line"></div>
-
-  <div class="main-content">
-    <img src="../../assets/profile.jpg" class="profile-img" alt="תמונת פרופיל" />
-    <div class="name-role turquoise">
-      <h1 class="main-title" data-field="fullName">הילה לוי</h1>
-      <h2 data-field="jobTitle">מטפלת רגשית ומדריכת הורים</h2>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   כרטיס ביקור דיגי
+   <span data-field="reviewName1">
+    שם ממליץ
+   </span>
+   - אורטופוק
+  </title>
+  <!-- ✅ קובץ העיצוב המרכזי -->
+  <link href="../../assets/style-cleaned.css" rel="stylesheet"/>
+  <!-- ✅ סווייפר להמלצות -->
+  <link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet"/>
+  <!-- ✅ קובץ הסקריפט הכללי -->
+  <script defer="" src="/assets/script-generic.js">
+  </script>
+ </head>
+ <body data-email="client@example.com" data-whatsapp="0500000000">
+  <div class="card">
+   <div class="top-section">
+    <div class="header-top">
+     <img alt="לוגו אורטופוק" class="logo-img" src="../../assets/logo-ortopok.png"/>
     </div>
-
-    <div class="icon-grid">
-      <div class="icon-item"><a href="tel:0521234567"><img src="../../assets/phone.svg" alt="טלפון" /></a><span>טלפון</span></div>
-      <div class="icon-item"><a href="https://wa.me/9720521234567"><img src="../../assets/whatsapp.svg" alt="וואטסאפ" /></a><span>וואטסאפ</span></div>
-      <div class="icon-item"><a href="mailto:hila@example.com"><img src="../../assets/email.svg" alt="אימייל" /></a><span>מייל</span></div>
-      <div class="icon-item"><a data-field="recommendations"><img src="../../assets/star.svg" alt="המלצות" /></a><span>המלצות</span></div>
-      <div class="icon-item"><a href="https://facebook.com/hila.page"><img src="../../assets/facebook.svg" alt="פייסבוק" /></a><span>פייסבוק</span></div>
-      <div class="icon-item"><a href="sms:0521234567"><img src="../../assets/sms.svg" alt="הודעה" /></a><span>הודעה</span></div>
+    <hr class="gold-line"/>
+    <img alt="תמונת פרופיל" class="profile-img" src="../../assets/profile.jpg"/>
+   </div>
+   <div class="bottom-section">
+    <div class="name-role gray">
+     <h1 class="main-title" data-field="fullName">
+      <span data-field="fullName">
+       שם מלא
+      </span>
+     </h1>
+     <h2 data-field="jobTitle">
+      <span data-field="jobTitle">
+       תיאור תפקיד
+      </span>
+     </h2>
     </div>
-
-    <a class="btn-contact pulse-once" href="#">הוסף לאנשי קשר <span>+</span></a>
-
-    <div class="about-parallax-wrapper">
-      <div class="about-section">
-        <h3 class="about-title">אודות</h3>
-        <div data-field="aboutParagraphs"><p><strong>הילה לוי</strong> מומחית בליווי רגשי והדרכת הורים בגישה מותאמת אישית.</p></div>
-
-        <h4 class="subsection-title">תהליך הליווי</h4>
-        <div data-field="parentingSection"><p>העצמה רגשית וכלים לתקשורת אפקטיבית.</p></div>
-
-        <h4 class="subsection-title">הגישה שלי</h4>
-        <div data-field="approachText"><p>הכלה, הקשבה וכלים פרקטיים.</p></div>
-
-        <h4 class="subsection-title">למי זה מיועד</h4>
-        <div data-field="targetAudienceText"><p>הורים, ילדים, מתבגרים עם אתגרים רגשיים.</p></div>
+    <div class="icons">
+     <div class="icon-item">
+      <a href="tel:0500000000">
+       <img alt="טלפון" src="../../assets/phone.svg"/>
+      </a>
+      <span>
+       טלפון
+      </span>
+     </div>
+     <div class="icon-item">
+      <a href="https://wa.me/972532407762">
+       <img alt="וואטסאפ" src="../../assets/whatsapp.svg"/>
+      </a>
+      <span>
+       וואטסאפ
+      </span>
+     </div>
+     <div class="icon-item">
+      <a href="mailto:client@example.com">
+       <img alt="מייל" src="../../assets/email.svg"/>
+      </a>
+      <span>
+       מייל
+      </span>
+     </div>
+     <div class="icon-item">
+      <a href="#">
+       <img alt="המלצות" src="../../assets/star.svg"/>
+      </a>
+      <span>
+       המלצות
+      </span>
+     </div>
+     <div class="icon-item">
+      <a href="https://facebook.com/facebook.page">
+       <img alt="פייסבוק" src="../../assets/facebook.svg"/>
+      </a>
+      <span>
+       פייסבוק
+      </span>
+     </div>
+     <div class="icon-item">
+      <a href="sms:0500000000">
+       <img alt="הודעת SMS" src="../../assets/sms.svg"/>
+      </a>
+      <span>
+       הודעה
+      </span>
+     </div>
+    </div>
+    <a class="btn-contact pulse-once" data-field="addContact" href="#">
+     ➕ הוסף לאנשי קשר
+    </a>
+    <!-- ✅ אודות -->
+    <div class="about-parallax-wrapper" data-field="aboutSection">
+     <div class="about-section">
+      <h3 class="main-title OTHER-title">
+       אודות
+      </h3>
+      <p>
+       <strong>
+        פסיכותרפיסטית, אימון אישי קוגניטיבי ריגשי...
+       </strong>
+      </p>
+      <p>
+       <strong>
+        מענה מיידי
+       </strong>
+       לתסמינים פיזיולוגיים...
+      </p>
+      <p>
+       סיוע באמצעות כלים וטכניקות...
+      </p>
+      <p>
+       אני מלווה אתכם באופן אישי...
+      </p>
+      <p>
+       התכלית שלי שאני מאמינה ביכולת...
+      </p>
+      <p>
+       <strong>
+        טור אישי בעיתון מוקד.
+       </strong>
+      </p>
+      <h4 class="subsection-title align-right">
+       הנחיית הורים:
+      </h4>
+      <p class="align-right">
+       אנחנו מוצאים את עצמנו עם אתגרים...
+      </p>
+      <p class="align-right">
+       לפעמים שלא משנה כמה ננסה...
+      </p>
+      <p class="highlight align-right">
+       הנחיית הורים בשילוב טיפול רגשי...
+      </p>
+      <!-- ✅ כותרת נפתחת: קרא עוד על הגישה שלי -->
+      <div class="elementor-toggle-wrapper">
+       <div aria-controls="elementor-tab-content-extra-about" aria-expanded="false" aria-selected="false" class="elementor-tab-title override-right" data-tab="extra-about" role="button" tabindex="0">
+        <span aria-hidden="true" class="elementor-toggle-icon elementor-toggle-icon-right">
+         <span class="elementor-toggle-icon-closed">
+          <i class="fas fa-caret-left">
+          </i>
+         </span>
+         <span class="elementor-toggle-icon-opened">
+          <i class="fas fa-caret-up">
+          </i>
+         </span>
+        </span>
+        <a class="elementor-toggle-title">
+         קרא עוד על הגישה שלי
+        </a>
+       </div>
+       <div class="elementor-tab-content" hidden="" id="elementor-tab-content-extra-about">
+        <div class="accordion-text-block">
+         <p>
+          הטיפול שלי משלב גישות של CBT ו־NLP יחד עם הקשבה רגשית עמוקה, כדי להביא אותך למקום מאוזן ובריא יותר מבפנים.
+         </p>
+         <p>
+          אני מאמינה שכל אחד ואחת יכולים לעשות שינוי אמיתי כשיש ליווי אמיתי, בגובה העיניים – בלי שיפוטיות, מתוך הבנה עמוקה של המקום בו אתה נמצא.
+         </p>
+        </div>
+       </div>
       </div>
+      <!-- ✅ כותרת נפתחת: למי זה מתאים -->
+      <div class="elementor-toggle-wrapper">
+       <div aria-controls="elementor-tab-content-target-audience" aria-expanded="false" aria-selected="false" class="elementor-tab-title override-right" data-tab="target-audience" role="button" tabindex="0">
+        <span aria-hidden="true" class="elementor-toggle-icon elementor-toggle-icon-right">
+         <span class="elementor-toggle-icon-closed">
+          <i class="fas fa-caret-left">
+          </i>
+         </span>
+         <span class="elementor-toggle-icon-opened">
+          <i class="fas fa-caret-up">
+          </i>
+         </span>
+        </span>
+        <a class="elementor-toggle-title">
+         למי זה מתאים?
+        </a>
+       </div>
+       <div class="elementor-tab-content" hidden="" id="elementor-tab-content-target-audience">
+        <div class="accordion-text-block">
+         <p>
+          הטיפול מתאים לנשים וגברים שמרגישים עומס רגשי, סטרס, תחושת תקיעות או אתגרים במערכות יחסים.
+         </p>
+         <p>
+          גם מתבגרים והורים לילדים יכולים להרוויח מהתהליך – עם כלים פרקטיים לשיפור הקשב, התקשורת והביטחון העצמי.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
     </div>
-
-    <div class="video-title">סרטון תדמית</div>
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/dMWZ3exnBy8" frameborder="0" allowfullscreen></iframe>
+    <!-- ✅ סרטון -->
+    <div class="video-wrapper">
+     <p class="video-title main-title OTHER-title">
+      ⬇️ לסרטון תדמית
+     </p>
+     <div class="video-container" data-field="youtubeLink">
+     </div>
     </div>
-
-    <h3 class="section-title-outside">לקוחות ממליצים</h3>
+    <!-- ✅ המלצות -->
+    <h3 class="section-title section-title-outside main-title OTHER-title">
+     המלצות
+    </h3>
     <div class="recommendations-section">
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper"><div class="swiper-slide"><p class="client-name">נועה</p><p class="client-text">הילה עזרה לי להבין את הילד שלי מחדש.</p></div>
-<div class="swiper-slide"><p class="client-name">רוני</p><p class="client-text">הגישה שלך שינתה לנו את הבית.</p></div></div>
-        <div class="swiper-pagination"></div>
+     <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+       <div class="swiper-slide">
+        <p class="client-name" data-field="reviewName1">
+         <span data-field="reviewName1">
+          שם ממליץ
+         </span>
+        </p>
+        <p class="client-text" data-field="reviewText1">
+         <span data-field="reviewText1">
+          טקסט המלצה
+         </span>
+        </p>
+       </div>
+       <div class="swiper-slide">
+        <p class="client-name" data-field="reviewName2">
+         <span data-field="reviewName2">
+          שם ממליץ
+         </span>
+        </p>
+        <p class="client-text" data-field="reviewText2">
+         <span data-field="reviewText2">
+          טקסט המלצה
+         </span>
+        </p>
+       </div>
+       <div class="swiper-slide">
+        <p class="client-name" data-field="reviewName3">
+         <span data-field="reviewName3">
+          שם ממליץ
+         </span>
+        </p>
+        <p class="client-text" data-field="reviewText3">
+         <span data-field="reviewText3">
+          טקסט המלצה
+         </span>
+        </p>
+       </div>
       </div>
+      <div class="swiper-pagination">
+      </div>
+     </div>
     </div>
+    <!-- ✅ טופס יצירת קשר -->
+    <h3 class="main-title">
+     השארת פרטים
+    </h3>
+    <div class="contact-form">
+     <form onsubmit="sendToWhatsapp(event)">
+      <div class="input-row">
+       <input id="fullName" placeholder="שם מלא" required="" type="text"/>
+       <input id="phoneNumber" placeholder="מספר טלפון" required="" type="tel"/>
+      </div>
+      <textarea id="message" placeholder="הודעה חופשית"></textarea>
+      <button type="submit">
+       שלח לוואטסאפ
+      </button>
+     </form>
+    </div>
+    <!-- ✅ שיתוף -->
+    <div class="share-section">
+     <h3 class="main-title OTHER-title">
+      שיתוף כרטיס הביקור
+     </h3>
+     <div class="share-buttons">
+      <a data-type="email" href="#">
+       <img alt="אימייל" src="../../assets/email.png"/>
+      </a>
+      <a data-type="whatsapp" href="#">
+       <img alt="וואטסאפ" src="../../assets/whatsapp.png"/>
+      </a>
+      <a data-type="linkedin" href="#">
+       <img alt="לינקדאין" src="../../assets/linkedin.png"/>
+      </a>
+      <a data-type="twitter" href="#">
+       <img alt="טוויטר" src="../../assets/twitter.png"/>
+      </a>
+      <a data-type="facebook" href="#">
+       <img alt="פייסבוק" src="../../assets/facebook.png"/>
+      </a>
+     </div>
+    </div>
+   </div>
   </div>
-</div>
+  <!-- סגירת .card -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js">
+  </script>
+ </body>
+</html>
