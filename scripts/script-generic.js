@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ✅ תמיכה באקורדיון בסגנון Elementor (כמו בדוגמה ששלחת)
+  // ✅ תמיכה באקורדיון בסגנון Elementor
   const tabToggles = document.querySelectorAll('.elementor-tab-title');
 
   tabToggles.forEach((toggle) => {
@@ -116,4 +116,62 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // ✅ הזרקת משתנים דינמית מהאובייקט window.cardData
+  const data = window.cardData;
+  const replaceAll = (selector, value) => {
+  document.querySelectorAll(selector).forEach(el => {
+    const isAnchor = el.tagName === "A";
+    const field = el.dataset.field;
+
+    if (el.tagName === "IMG") {
+      el.src = value;
+    } else if (isAnchor && el.href.includes("tel:")) {
+      el.href = `tel:${value}`;
+    } else if (isAnchor && el.href.includes("mailto:")) {
+      el.href = `mailto:${value}`;
+    } else if (isAnchor && el.href.includes("wa.me")) {
+      el.href = `https://wa.me/972${data.phoneDigits}`;
+    } else if (isAnchor && field === "whatsapp") {
+      el.href = `https://wa.me/972${data.phoneDigits}`;
+    } else if (isAnchor && field === "sms") {
+      el.href = `sms:${data.phone}`;
+    } else if (isAnchor && field === "addContact") {
+      el.href = data.vcardLink || "#";
+    } else if (isAnchor && field === "facebookLink") {
+      el.href = value;
+    } else if (!isAnchor) {
+      el.innerHTML = value;
+    }
+  });
+};
+
+
+  if (data) {
+    document.title = data.pageTitle;
+    document.body.dataset.whatsapp = data.phone;
+    document.body.dataset.email = data.email;
+
+    replaceAll('[data-field="fullName"]', data.fullName);
+    replaceAll('[data-field="jobTitle"]', data.jobTitle);
+    replaceAll('[data-field="email"]', data.email);
+    replaceAll('[data-field="phone"]', data.phone);
+    replaceAll('[data-field="logoSrc"]', data.logoSrc);
+    replaceAll('[data-field="profileImage"]', data.profileImage);
+    replaceAll('[data-field="facebookLink"]', data.facebookLink);
+    replaceAll('[data-field="youtubeLink"]', `<iframe src="${data.youtubeLink}" frameborder="0" allowfullscreen></iframe>`);
+    replaceAll('[data-field="aboutParagraphs"]', data.aboutParagraphs);
+    replaceAll('[data-field="parentingSection"]', data.parentingSection);
+    replaceAll('[data-field="approachText"]', data.approachText);
+    replaceAll('[data-field="targetAudienceText"]', data.targetAudienceText);
+
+    const recWrapper = document.querySelector('.swiper-wrapper');
+    if (recWrapper && data.recommendations?.length) {
+      recWrapper.innerHTML = data.recommendations.map(rec => `
+        <div class="swiper-slide">
+          <p class="client-name">${rec.name}</p>
+          <p class="client-text">${rec.text}</p>
+        </div>
+      `).join('');
+    }
+  }
 });

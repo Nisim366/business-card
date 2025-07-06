@@ -43,6 +43,9 @@ p {
 /* חלק עליון ותמונה */
 .top-section {
   position: relative;
+  height: 200px; /* קובע גובה קבוע לחלק העליון */
+  background-color: #ffffff;
+  text-align: center;
 }
 
 .logo-img {
@@ -59,11 +62,13 @@ p {
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 128, 128, 0.1);
   position: absolute;
-  top: 170px;
+  top: 145px; /* בדיוק איפה שביקשת */
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
 }
+
+
 
 .top-corner {
   position: absolute;
@@ -75,12 +80,15 @@ p {
 
 .gold-line {
   height: 2px;
+  width: 100%;
   background: linear-gradient(to left, #33cc99, #00aaff, #33cc99);
   border: none;
-  margin: 15px 0 35px;
   position: relative;
+  margin: -20px 0 0; /* מעלה את הקו */
   z-index: 2;
 }
+
+
 
 /* פרטי שם ותפקיד */
 .name-role {
@@ -174,10 +182,7 @@ p {
 
 /* אודות עם רקע פרלקסה */
 .about-parallax-wrapper {
-  background-image: url('../assets/background-gold-marble.jpg');
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
+  background-color: #f2fef6;
   border-radius: 25px;
   overflow: hidden;
   margin-top: 30px;
@@ -185,6 +190,7 @@ p {
   position: relative;
   z-index: 1;
 }
+
 
 .about-parallax-wrapper::before {
   content: '';
