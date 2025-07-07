@@ -1,4 +1,3 @@
-
 window.cardData = {
   fullName: "הילה לוי",
   jobTitle: "מטפלת רגשית ומדריכת הורים",
@@ -8,7 +7,7 @@ window.cardData = {
   logoSrc: "/assets/logo-ortopok.png",
   profileImage: "/assets/profile.jpg",
   facebookLink: "https://facebook.com/hila.page",
-  youtubeLink: "https://www.youtube.com/embed/dMWZ3exnBy8",
+  youtubeLink: "https://www.youtube.com/embed/ysz5S6PUM-U",
   aboutParagraphs: "<p><strong>הילה לוי</strong> מומחית בליווי רגשי והדרכת הורים בגישה מותאמת אישית.</p>",
   parentingSection: "<p>העצמה רגשית וכלים לתקשורת אפקטיבית.</p>",
   approachText: "<p>הכלה, הקשבה וכלים פרקטיים.</p>",
@@ -81,3 +80,8 @@ window.renderCard = function () {
     }
   }
 };
+
+
+window.addEventListener("DOMContentLoaded", function () {
+  if (window.renderCard) renderCard();
+});
