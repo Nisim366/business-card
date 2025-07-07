@@ -800,3 +800,35 @@ p {
   padding: 20px 15px;
 }
 }
+
+/* עיצוב נקודות הניווט של Swiper */
+.swiper-pagination {
+  position: relative;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  z-index: 10;
+}
+
+.swiper-pagination-bullet {
+  width: 14px;
+  height: 14px;
+  background: #ccc;
+  opacity: 1;
+  display: inline-block;
+  border-radius: 50%;
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.swiper-pagination-bullet:hover {
+  background: #666;
+  transform: scale(1.2);
+}
+
+.swiper-pagination-bullet-active {
+  background: #007d84;
+  box-shadow: 0 0 8px #007d84;
+  transform: scale(1.3);
+}
