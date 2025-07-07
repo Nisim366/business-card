@@ -26,7 +26,17 @@ window.renderCard = function () {
     document.querySelectorAll(selector).forEach(el => {
       if (el.tagName === "IMG") {
         el.src = value;
-      } else if (el.tagName === "A" && el.href.includes("tel:")) {
+      
+
+    const swiper = new Swiper(".swiper", {
+      slidesPerView: 1,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      }
+    });
+    } else if (el.tagName === "A" && el.href.includes("tel:")) {
         el.href = `tel:${value}`;
       } else if (el.tagName === "A" && el.href.includes("mailto:")) {
         el.href = `mailto:${value}`;

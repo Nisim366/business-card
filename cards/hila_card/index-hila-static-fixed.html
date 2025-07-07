@@ -15,7 +15,7 @@
   <!-- ✅ סווייפר להמלצות -->
   <link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet"/>
   <!-- ✅ קובץ הסקריפט הכללי -->
-  <script defer="" src="/assets/script-generic.js">
+  <script src="/scripts/script-generic.js">
   </script>
  </head>
  <body data-email="client@example.com" data-whatsapp="0500000000">
@@ -201,7 +201,7 @@
      המלצות
     </h3>
     <div class="recommendations-section">
-     <div class="swiper mySwiper">
+     <div class="swiper">
       <div class="swiper-wrapper">
        <div class="swiper-slide">
         <p class="client-name" data-field="reviewName1">
@@ -313,14 +313,12 @@
   });
 });
   </script>
- 
-<script src="data-hila-final.js"></script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
+  <script src="data-hila-final.js">
+  </script>
+  <script>
+   document.addEventListener("DOMContentLoaded", function () {
     if (window.renderCard) window.renderCard();
   });
-</script>
-
-</body>
+  </script>
+ </body>
 </html>
