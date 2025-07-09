@@ -32,8 +32,8 @@ p {
 .card {
   max-width: 380px;
   margin: 30px auto;
+  padding: 20px 20px;
   background-color: #ffffff;
-  padding: 25px 20px;
   border-radius: 30px;
   box-shadow: 0 0 20px rgba(0, 128, 128, 0.15);
   position: relative;
@@ -84,7 +84,7 @@ p {
   background: linear-gradient(to left, #33cc99, #00aaff, #33cc99);
   border: none;
   position: relative;
-  margin: -20px 0 0; /* מעלה את הקו */
+  margin: 00px 0 0; /* מעלה את הקו */
   z-index: 2;
 }
 
