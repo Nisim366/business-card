@@ -1,0 +1,17 @@
+.name-role {
+  background-color: rgba(255, 230, 250, 0.4);
+  color: #9b59b6;
+}
+
+.main-title {
+  color: #8e44ad !important;
+}
+
+
+
+.btn-contact {
+  background-color: #f9c7e6;
+  color: #5e005e;
+  border: none;
+  border-radius: 12px;
+}
