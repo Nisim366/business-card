@@ -24,7 +24,7 @@
      <img alt="לוגו אורטופוק" class="logo-img" src="../../assets/logo-ortopok.png"/>
     </div>
     <hr class="gold-line"/>
-    <img alt="תמונת פרופיל" class="profile-img" src="../../assets/profile.jpg"/>
+            <img alt="תמונת פרופיל" class="profile-img" src="../../assets/profile.jpg"/>
    </div>
    <div class="bottom-section">
     <div class="name-role gray">
@@ -39,27 +39,27 @@
       </span>
      </h2>
     </div>
-    <div class="icons">
-     <div class="icon-item">
-      <a href="tel:0500000000">
-       <img alt="טלפון" src="../../assets/phone.svg"/>
+    <div class="icons icon-grid">
+  <div class="icon-item">
+      <a href="tel:0500000000" data-field="phone">
+  <img alt="טלפון" src="../../assets/phone.svg"/>
       </a>
       <span>
        טלפון
       </span>
      </div>
      <div class="icon-item">
-      <a href="https://wa.me/972532407762">
-       <img alt="וואטסאפ" src="../../assets/whatsapp.svg"/>
-      </a>
+      <a href="https://wa.me/972532407762" data-field="whatsapp">
+  <img alt="וואטסאפ" src="../../assets/whatsapp.svg" />
+</a>
       <span>
        וואטסאפ
       </span>
      </div>
      <div class="icon-item">
-      <a href="mailto:client@example.com">
-       <img alt="מייל" src="../../assets/email.svg"/>
-      </a>
+      <a href="mailto:client@example.com" data-field="email">
+  <img alt="מייל" src="../../assets/email.svg" />
+</a>
       <span>
        מייל
       </span>
@@ -93,100 +93,46 @@
      ➕ הוסף לאנשי קשר
     </a>
     <!-- ✅ אודות -->
-    <div class="about-parallax-wrapper" data-field="aboutSection">
-     <div class="about-section">
-      <h3 class="main-title OTHER-title">
-       אודות
-      </h3>
-      <p>
-       <strong>
-        פסיכותרפיסטית, אימון אישי קוגניטיבי ריגשי...
-       </strong>
-      </p>
-      <p>
-       <strong>
-        מענה מיידי
-       </strong>
-       לתסמינים פיזיולוגיים...
-      </p>
-      <p>
-       סיוע באמצעות כלים וטכניקות...
-      </p>
-      <p>
-       אני מלווה אתכם באופן אישי...
-      </p>
-      <p>
-       התכלית שלי שאני מאמינה ביכולת...
-      </p>
-      <p>
-       <strong>
-        טור אישי בעיתון מוקד.
-       </strong>
-      </p>
-      <h4 class="subsection-title align-right">
-       הנחיית הורים:
-      </h4>
-      <p class="align-right">
-       אנחנו מוצאים את עצמנו עם אתגרים...
-      </p>
-      <p class="align-right">
-       לפעמים שלא משנה כמה ננסה...
-      </p>
-      <p class="highlight align-right">
-       הנחיית הורים בשילוב טיפול רגשי...
-      </p>
-      <!-- ✅ כותרת נפתחת: קרא עוד על הגישה שלי -->
-      <!-- ✅ כותרת נפתחת: למי זה מתאים -->
-      <div class="elementor-toggle-wrapper">
-       <div aria-controls="elementor-tab-content-generic1" aria-expanded="false" aria-selected="false" class="elementor-tab-title override-right" data-tab="generic1" role="button" tabindex="0">
+     <!-- ✅ אודות -->
+<div class="about-parallax-wrapper">
+  <div class="about-section">
+    <h3 class="main-title OTHER-title">אודות</h3>
+    <div data-field="aboutParagraphs"></div>
+    
+    <!-- ✅ כותרת נפתחת: קרא עוד על הגישה שלי -->
+    <div class="elementor-toggle-wrapper">
+      <div aria-controls="elementor-tab-content-generic1" aria-expanded="false" aria-selected="false" class="elementor-tab-title override-right" data-tab="generic1" role="button" tabindex="0">
         <span aria-hidden="true" class="elementor-toggle-icon elementor-toggle-icon-right">
-         <span class="elementor-toggle-icon-closed">
-          <i class="fas fa-caret-left">
-          </i>
-         </span>
-         <span class="elementor-toggle-icon-opened">
-          <i class="fas fa-caret-up">
-          </i>
-         </span>
+          <span class="elementor-toggle-icon-closed"><i class="fas fa-caret-left"></i></span>
+          <span class="elementor-toggle-icon-opened"><i class="fas fa-caret-up"></i></span>
         </span>
-        <a class="elementor-toggle-title" data-field="accordionTitle1">
-         כותרת נפתחת 1
-        </a>
-       </div>
-       <div class="elementor-tab-content" hidden="" id="elementor-tab-content-generic1">
+        <a class="elementor-toggle-title" data-field="accordionTitle1">כותרת נפתחת 1</a>
+      </div>
+      <div class="elementor-tab-content" hidden id="elementor-tab-content-generic1">
         <div class="accordion-text-block" data-field="accordionText1">
-         <p>
-          מומלץ להכניס כאן טקסט אישי עבור כותרת זו.
-         </p>
+          <p>מומלץ להכניס כאן טקסט אישי עבור כותרת זו.</p>
         </div>
-       </div>
       </div>
-      <div class="elementor-toggle-wrapper">
-       <div aria-controls="elementor-tab-content-generic2" aria-expanded="false" aria-selected="false" class="elementor-tab-title override-right" data-tab="generic2" role="button" tabindex="0">
-        <span aria-hidden="true" class="elementor-toggle-icon elementor-toggle-icon-right">
-         <span class="elementor-toggle-icon-closed">
-          <i class="fas fa-caret-left">
-          </i>
-         </span>
-         <span class="elementor-toggle-icon-opened">
-          <i class="fas fa-caret-up">
-          </i>
-         </span>
-        </span>
-        <a class="elementor-toggle-title" data-field="accordionTitle2">
-         כותרת נפתחת 2
-        </a>
-       </div>
-       <div class="elementor-tab-content" hidden="" id="elementor-tab-content-generic2">
-        <div class="accordion-text-block" data-field="accordionText2">
-         <p>
-          מומלץ להכניס כאן טקסט אישי נוסף.
-         </p>
-        </div>
-       </div>
-      </div>
-     </div>
     </div>
+
+    <!-- ✅ כותרת נפתחת: למי זה מתאים -->
+    <div class="elementor-toggle-wrapper">
+      <div aria-controls="elementor-tab-content-generic2" aria-expanded="false" aria-selected="false" class="elementor-tab-title override-right" data-tab="generic2" role="button" tabindex="0">
+        <span aria-hidden="true" class="elementor-toggle-icon elementor-toggle-icon-right">
+          <span class="elementor-toggle-icon-closed"><i class="fas fa-caret-left"></i></span>
+          <span class="elementor-toggle-icon-opened"><i class="fas fa-caret-up"></i></span>
+        </span>
+        <a class="elementor-toggle-title" data-field="accordionTitle2">כותרת נפתחת 2</a>
+      </div>
+      <div class="elementor-tab-content" hidden id="elementor-tab-content-generic2">
+        <div class="accordion-text-block" data-field="accordionText2">
+          <p>מומלץ להכניס כאן טקסט אישי נוסף.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
     <!-- ✅ סרטון -->
     <div class="video-wrapper">
      <p class="video-title main-title OTHER-title">

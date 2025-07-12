@@ -1,53 +1,81 @@
+/* ==========================================
+   📦 base.css – גרסה מתקדמת עם CSS Variables
+   ========================================== */
+
+:root {
+  /* צבעים */
+  --color-bg: #f0f9f7;
+  --color-card: #ffffff;
+  --color-primary: #33cc99;
+  --color-secondary: #0e8f5e;
+  --color-accent: #e0f5e9;
+  --color-divider: linear-gradient(to left, #33cc99, #00aaff, #33cc99);
+  --color-text: #333;
+  --color-subtext: #555;
+  --color-title: #4ba251;
+  --color-section-title: #c2a764;
+  --color-parallax: #f2fef6;
+  --color-recommend-bg: #e8fdf1;
+  --color-contact-bg: #e6fff1;
+  --color-share-icon-hover: #666;
+
+  /* טיפוגרפיה */
+  --font-family: "Assistant", sans-serif;
+  --font-size-title: 20px;
+  --font-size-subtitle: 15px;
+  --font-size-normal: 14px;
+  --font-size-small: 13px;
+
+  /* רדיוסים */
+  --radius-large: 30px;
+  --radius-medium: 20px;
+  --radius-small: 10px;
+
+  /* צללים */
+  --box-shadow: 0 0 20px rgba(0, 128, 128, 0.15);
+}
+
 /* === בסיס כללי === */
 body {
   margin: 0;
   padding: 0;
-  background-color: #f0f9f7;
-  font-family: Arial, sans-serif;
+  background-color: var(--color-bg);
+  font-family: var(--font-family);
   direction: rtl;
   text-align: center;
   min-height: 100vh;
   overflow-y: auto;
+  color: var(--color-text);
 }
 
 h1 {
   margin: 50px 0 5px;
-  font-size: 20px;
-  color: #0e8f5e;
+  font-size: var(--font-size-title);
+  color: var(--color-secondary);
 }
 
 h2 {
   margin: 0 0 20px;
-  font-size: 15px;
-  color: #555;
+  font-size: var(--font-size-subtitle);
+  color: var(--color-subtext);
 }
 
 p {
-  font-size: 14px;
+  font-size: var(--font-size-normal);
   line-height: 1.6;
-  color: #333;
 }
 
 /* === כרטיס כללי === */
 .card {
   max-width: 380px;
   margin: 30px auto;
-  padding: 20px 20px;
-  background-color: #ffffff;
-  border-radius: 30px;
-  box-shadow: 0 0 20px rgba(0, 128, 128, 0.15);
-  position: relative;
-  z-index: 1;
+  padding: 20px;
+  background-color: var(--color-card);
+  border-radius: var(--radius-large);
+  box-shadow: var(--box-shadow);
 }
 
-/* חלק עליון ותמונה */
-.top-section {
-  position: relative;
-  height: 200px; /* קובע גובה קבוע לחלק העליון */
-  background-color: #ffffff;
-  text-align: center;
-}
-
+/* === לוגו ותמונה === */
 .logo-img {
   width: 160px;
   margin: 20px 0 10px;
@@ -57,42 +85,27 @@ p {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 3px solid #33cc99;
+  border: 3px solid var(--color-primary);
   object-fit: cover;
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 128, 128, 0.1);
   position: absolute;
-  top: 145px; /* בדיוק איפה שביקשת */
+  top: 145px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
 }
 
-
-
-.top-corner {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 13px;
-  color: #666;
-}
-
 .gold-line {
   height: 2px;
   width: 100%;
-  background: linear-gradient(to left, #33cc99, #00aaff, #33cc99);
+  background: var(--color-divider);
   border: none;
-  position: relative;
-  margin: 00px 0 0; /* מעלה את הקו */
-  z-index: 2;
+  margin: 0;
 }
 
-
-
-/* פרטי שם ותפקיד */
+/* === שם ותפקיד === */
 .name-role {
-  display: inline-block;
   padding: 10px 20px;
   border-radius: 15px;
   margin: 40px 0 10px;
@@ -103,397 +116,23 @@ p {
   margin: 0;
 }
 
-.name-role.turquoise {
-  background-color: rgba(51, 204, 153, 0.2);
-  color: #00664d;
-}
-
-.name-role.cornflowerblue {
-  background-color: rgba(100, 149, 237, 0.15);
-  color: #1a3c8c;
-}
-
 .name-role.gray {
   background-color: rgba(200, 200, 200, 0.3);
-  color: #333;
+  color: var(--color-text);
 }
 
-.name-role.pink {
-  background-color: rgba(255, 182, 193, 0.2);
-  color: #800020;
-}
-
-/* חלק תחתון */
+/* === חלק תחתון === */
 .bottom-section {
-  background-color: #e0f5e9;
+  background-color: var(--color-accent);
   padding: 60px 20px 30px;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  color: #333;
-  margin-top: -40px;
-}
-
-.bottom-section h3,
-.bottom-section p {
-  color: #333;
-}
-
-/* אייקונים כלליים */
-.icons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px 15px;
-  justify-content: center;
-  max-width: 240px;
-  margin: 20px auto;
-}
-
-.icon img {
-  width: 32px;
-  height: 32px;
-  background-color: #e6f5f3;
-  padding: 8px;
-  border-radius: 50%;
-  border: 1px solid #33cc99;
-  transition: transform 0.2s ease;
-}
-
-.icon img:hover {
-  transform: scale(1.1);
-}
-
-/* כפתור ראשי */
-.btn-contact,
-.btn-watch-video {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 25px;
-  background-color: #33cc99;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  margin: 10px auto;
-}
-
-.btn-watch-video:hover {
-  background-color: #2ca886;
-}
-
-/* אודות עם רקע פרלקסה */
-.about-parallax-wrapper {
-  background-color: #f2fef6;
-  border-radius: 25px;
-  overflow: hidden;
-  margin-top: 30px;
-  padding: 30px 20px;
+  border-radius: 0 0 var(--radius-large) var(--radius-large);
+  color: var(--color-text);
   position: relative;
-  z-index: 1;
-}
-.main-content {
-  background: linear-gradient(to bottom, #ffffff, #f6f6f6);
-}
-.about-parallax-wrapper {
-  background-image: url('../img/bg-about.jpg');
-  background-size: cover;
-  background-attachment: fixed;
+  top: -2px; /* מעלה בדיוק עד הקו */
 }
 
 
-
-
-.about-parallax-wrapper::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.75);
-  z-index: 1;
-}
-
-.about-parallax-wrapper .about-section {
-  position: relative;
-  z-index: 2;
-  color: #333;
-}
-
-.about-parallax-wrapper .about-section h3 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #1a828c;
-  margin-bottom: 10px;
-}
-
-.about-parallax-wrapper .about-section h4 {
-  font-size: 17px;
-  margin-top: 20px;
-  color: #1a828c;
-}
-
-.about-parallax-wrapper .about-section p {
-  margin: 10px 0;
-}
-
-/* וידאו */
-.video-title {
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-top: 40px;
-  margin-bottom: 10px;
-}
-
-.video-container {
-  display: flex;
-  justify-content: center;
-  padding: 0 20px 40px;
-}
-
-.video-container iframe {
-  width: 100%;
-  max-width: 800px;
-  aspect-ratio: 16 / 9;
-  border-radius: 12px;
-  border: none;
-  display: block;
-  margin: 0 auto;
-}
-
-.section-title {
-  color: #c2a764;
-  /* צבע טורקיז כהה – ניתן לשנות בקלות */
-  font-weight: bold;
-  font-size: 22px;
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-.section-subtitle {
-  color: #007d84;
-  font-weight: 500;
-  font-size: 1.3em;
-  margin-bottom: 10px;
-}
-
-/* ✅ סגנון כללי לכל הכותרות */
-.main-title {
-  color: #4ba251 !important;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* ✅ צבעים ייחודיים (אם רוצים לדרוס ספציפית) */
-.red-title {
-  color: #d62828 !important;
-}
-
-.blue-title {
-  color: #005eff !important;
-}
-
-.green-title {
-  color: #239b56 !important;
-}
-
-.orange-title {
-  color: #e67e22 !important;
-}
-
-.OTHER-title {
-  color: #4ba251 !important;
-}
-
-/* === Accordion Section === */
-.accordion-section {
-  background-color: #d7c49e;
-  /* צבע רקע כמו בתמונה */
-  padding: 0;
-  margin-top: 40px;
-}
-
-.accordion-toggle {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  text-align: right;
-  padding: 15px 20px;
-  width: 100%;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
-  border-top: 1px solid #ffffff55;
-  transition: background-color 0.3s ease-in-out 0s;
-}
-
-/* ✅ עיצוב של כותרת במקום מראה של כפתור */
-.elementor-tab-title {
-  font-size: 0px;
-  font-weight: bold;
-  color: #3d3d3d;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  padding: 15px 10px;
-  border-top: 1px solid #ccc;
-  direction: rtl;
-}
-
-
-.elementor-toggle-icon {
-  font-size: 14px;
-  color: rgb(152, 12, 12);
-  margin-right: 10px;
-  display: flex;
-  align-items: center;
-}
-
-
-.elementor-toggle-icon i {
-  font-size: 16px;
-  transition: transform 0.3s ease;
-}
-
-.elementor-tab-title.elementor-active .elementor-toggle-icon-closed {
-  display: none;
-}
-
-.elementor-tab-title:not(.elementor-active) .elementor-toggle-icon-opened {
-  display: none;
-}
-
-.elementor-tab-content {
-  padding: 15px 10px;
-  background-color: transparent;
-  color: #3d3d3d;
-  font-size: 15px;
-  line-height: 1.8;
-}
-
-
-/* ✅ תוכן שנפתח בתוך אודות – יישור לימין */
-.accordion-text-block {
-  direction: rtl;
-  text-align: right;
-}
-
-
-.override-right {
-  display: flex;
-  justify-content: flex-end;
-  direction: rtl;
-  text-align: right !important;
-  width: 100%;
-  margin-top: 20px;
-}
-.elementor-toggle-wrapper {
-  text-align: right;
-  direction: rtl;
-    width: 100%;
-
-}
-@keyframes pulseOnce {
-  0%   { transform: scale(1);   opacity: 1; }
-  50%  { transform: scale(1.08); opacity: 0.85; }
-  100% { transform: scale(1);   opacity: 1; }
-}
-
-.pulse-once {
-  animation: pulseOnce 1.2s ease-in-out infinite;
-}
-
-
-
-
-
-.override-right .elementor-toggle-title {
-  font-weight: bold;
-  font-size: 18px;
-  margin-left: 100px; /* ↩️ ריווח מצד שמאל */
-  color: #333;
-  text-decoration: none;
-
-  /* ✨ הפתרון כאן: */
-  display: block;
-  width: 100%;
-  text-align: right;
-  direction: rtl;
-}
-
-
-.btn-contact:hover {
-  background-color: #2ca886;
-  animation: pulseHover 1s ease-in-out infinite;
-}
-
-
-
-
-.override-right .elementor-toggle-icon {
-  margin-left: 10px;
-}
-
-.accordion-toggle:first-of-type {
-  border-top: none;
-}
-
-.accordion-toggle:hover {
-  background-color: #cdbb91;
-}
-
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-  background-color: transparent;
-  color: white;
-  padding: 0 20px 10px;
-  font-size: 14px;
-  line-height: 1.6;
-  direction: rtl;
-  text-align: right;
-}
-
-/* המלצות */
-.recommendations-section {
-  background-color: #e8fdf1;
-  /* ירוק בהיר תואם */
-  padding: 40px 20px;
-  border-radius: 12px;
-  margin-top: 30px;
-}
-
-.swiper {
-  width: 100%;
-  padding-bottom: 30px;
-}
-
-.section-title-outside {
-  margin-top: 60px;
-  /* רווח מלמעלה */
-  margin-bottom: 20px;
-}
-
-.swiper-slide {
-  background-color: #ffffff;
-  border-radius: 20px;
-  padding: 25px 20px;
-  text-align: right;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  min-height: 180px;
-  max-height: 280px;
-  width: 100%;
-  overflow-y: auto;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
+/* === אייקונים === */
 .icon-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
@@ -514,145 +153,62 @@ p {
   width: 40px;
   height: 40px;
   padding: 10px;
-  border: 1px solid #27ae60;
+  border: 1px solid var(--color-primary);
   border-radius: 50%;
   background-color: transparent;
   transition: transform 0.2s;
-  /* ✅ מיישר את כל האייקונים על קו אחיד */
-  display: block;
-  box-sizing: content-box;
-  object-fit: contain;
 }
 
 .icon-item span {
   margin-top: 8px;
-  font-size: 14px;
-  color: #27ae60;
+  font-size: var(--font-size-normal);
+  color: var(--color-primary);
   font-weight: 500;
 }
 
-.client-name {
-  font-weight: bold;
-  color: #1a828c;
-  margin-bottom: 10px;
-  font-size: 16px;
-  direction: rtl;
-  width: 100%;
-  text-align: right;
-}
-
-.client-text,
-.swiper-slide .elementor-testimonial__text {
-  font-size: 15px;
-  color: #333;
-  line-height: 1.8;
-  direction: rtl;
-  text-align: right;
-  width: 100%;
-  word-break: break-word;
-}
-
-/* 🔁 הגדרת אנימציה בשם pulse */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  /* התחלה – גודל רגיל */
-    opacity: 1;
-}
-
-50% {
-  transform: scale(1.1);
-  /* באמצע – גדילה קלה */
-    opacity: 0.85;
-}
-
-100% {
-  transform: scale(1);
-  /* חזרה לגודל רגיל */
-    opacity: 1;
-}
-
-}
-
-
-
-/* 🖱️ אפקט ריחוף אינסופי על האייקונים */
-.icon-item:hover img {
-  animation: pulse 0.8s ease-in-out infinite;
-}
-
-/* רקעים עם תמונה */
-.background-section,
-.colored-section.style-blue {
-  position: relative;
-  background-image: url('../../assets/bg-generic.jpg');
-  background-size: cover;
-  background-position: center;
+/* === כפתורים === */
+.btn-contact,
+.btn-watch-video {
+  display: inline-block;
+  padding: 10px 20px;
   border-radius: 25px;
-  padding: 40px 20px;
-  margin-top: 30px;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.background-section::before,
-.colored-section.style-blue::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 2;
-  border-radius: 25px;
-}
-
-.background-section > *,
-.colored-section.style-blue > * {
-  position: relative;
-  z-index: 3;
+  background-color: var(--color-primary);
   color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin: 10px auto;
 }
 
-@keyframes pulseHover {
-  0%   { transform: scale(1);   opacity: 1; }
-  50%  { transform: scale(1.08); opacity: 0.85; }
-  100% { transform: scale(1);   opacity: 1; }
-}
-.accordion-text-block {
-  direction: rtl;
-  text-align: right;
+.btn-contact:hover,
+.btn-watch-video:hover {
+  background-color: #2ca886;
+  animation: pulseHover 1s ease-in-out infinite;
 }
 
-
-
-
-
-
-
-
-
+/* === אודות === */
 .about-parallax-wrapper {
-  background: url('../../assets/bg-texture.png') repeat;
-  padding: 40px 20px;
-  direction: rtl;
-  text-align: center;
+  background-color: var(--color-parallax);
+  border-radius: var(--radius-medium);
+  margin-top: 30px;
+  padding: 30px 20px;
+  background-image: url('../../assets/bg-texture.png');
+  background-repeat: repeat;
 }
 
 .about-section {
-  max-width: 600px;
-  margin: 0 auto;
-  color: #222;
+  color: var(--color-text);
   font-size: 17px;
   line-height: 1.9;
   text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.about-section .about-title {
-  color: #fff3c3;
+.about-section h3 {
+  color: var(--color-title);
   font-size: 28px;
   margin-bottom: 10px;
-  margin-top: -25px;
-  /* ✅ שולט על הרווח מלמעלה */
-  font-weight: bold;
 }
 
 .about-section .highlight {
@@ -660,26 +216,45 @@ p {
   color: #ffffff;
 }
 
-.about-section .subsection-title {
-  font-size: 22px;
-  font-weight: bold;
-  color: #fff6d0;
-  margin: 30px 0 15px;
+/* === וידאו === */
+.video-container iframe {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  border: none;
 }
 
-/* ✅ טופס יצירת קשר */
+/* === המלצות === */
+.recommendations-section {
+  background-color: var(--color-recommend-bg);
+  padding: 40px 20px;
+  border-radius: 12px;
+  margin-top: 30px;
+}
+
+.client-name {
+  font-weight: bold;
+  color: var(--color-title);
+  font-size: 16px;
+  text-align: right;
+  width: 100%;
+}
+
+.client-text {
+  font-size: var(--font-size-normal);
+  color: var(--color-text);
+  text-align: right;
+  width: 100%;
+}
+
+/* === טופס יצירת קשר === */
 .contact-form {
-  background-color: #e6fff1;
+  background-color: var(--color-contact-bg);
   padding: 2rem;
   border-radius: 1rem;
-  max-width: 100%;
-  box-sizing: border-box;
   text-align: center;
   margin-top: 40px;
-  /* שליטה על המרחק מעל הטופס */
-  padding: 20px;
-  /* ריווח פנימי בתוך הקופסה */
-  text-align: center;
 }
 
 .contact-form form {
@@ -697,95 +272,49 @@ p {
 @media (min-width: 600px) {
   .contact-form .input-row {
     flex-direction: row;
-}
-
-.contact-form .input-row input {
-  flex: 1;
-}
-
+  }
 }
 
 .contact-form input[type="text"],
-.contact-form input[type="tel"] {
+.contact-form input[type="tel"],
+.contact-form textarea {
   width: 100%;
   padding: 0.8rem;
   border: 1px solid #ccc;
   border-radius: 6px;
-  box-sizing: border-box;
-  font-family: inherit;
   font-size: 1rem;
+  font-family: inherit;
 }
 
-/* ✅ Textarea עם פס גלילה מימין */
 .contact-form textarea {
-  width: 100%;
   height: 120px;
   resize: none;
-  overflow-y: scroll;
   direction: rtl;
   text-align: right;
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-sizing: border-box;
-  font-family: inherit;
-  font-size: 1rem;
-  line-height: 1.5;
-  scrollbar-gutter: stable both-edges;
-  writing-mode: horizontal-tb;
 }
 
-.contact-form textarea::-webkit-scrollbar {
-  width: 8px;
-}
-
-.contact-form textarea::-webkit-scrollbar-thumb {
-  background: #aaa;
-  border-radius: 4px;
-}
-
-/* כפתור */
 .contact-form button {
   background-color: #f1f1f1;
   border: 1px solid #aaa;
   padding: 0.8rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
 .contact-form button:hover {
   background-color: #d0ffd7;
 }
 
-/* ✅ עיצוב שיתוף כרטיס ביקור – ללא רקע */
-/* ✅ עיצוב שיתוף כרטיס ביקור – אייקונים מרובעים, צמודים, ללא רקע */
-.share-section {
-  margin-top: 40px;
-  text-align: center;
-}
-
-.share-section h3 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #c2a764;
-  margin-bottom: 15px;
-}
-
+/* === שיתוף === */
 .share-buttons {
   display: flex;
   justify-content: center;
   gap: 0;
-  /* אין רווח בין האייקונים */
-  padding: 0;
-  background: none;
-  border: none;
 }
 
 .share-buttons a img {
   width: 40px;
   height: 40px;
-  object-fit: contain;
   transition: transform 0.2s ease;
 }
 
@@ -793,42 +322,17 @@ p {
   transform: scale(1.1);
 }
 
-/* רספונסיביות */
-@media (max-width: 400px) {
-  .card {
-    margin: 20px 10px;
-  padding: 20px 15px;
-}
+/* === אנימציות === */
+@keyframes pulseHover {
+  0%   { transform: scale(1);   opacity: 1; }
+  50%  { transform: scale(1.08); opacity: 0.85; }
+  100% { transform: scale(1);   opacity: 1; }
 }
 
-/* עיצוב נקודות הניווט של Swiper */
-.swiper-pagination {
+/* === חלק עליון === */
+.top-section {
+  background-color: var(--color-card);
   position: relative;
-  bottom: 10px;
-  width: 100%;
-  text-align: center;
-  margin-top: 20px;
-  z-index: 10;
-}
-
-.swiper-pagination-bullet {
-  width: 14px;
-  height: 14px;
-  background: #ccc;
-  opacity: 1;
-  display: inline-block;
-  border-radius: 50%;
-  margin: 0 6px;
-  cursor: pointer;
-}
-
-.swiper-pagination-bullet:hover {
-  background: #666;
-  transform: scale(1.2);
-}
-
-.swiper-pagination-bullet-active {
-  background: #007d84;
-  box-shadow: 0 0 8px #007d84;
-  transform: scale(1.3);
+  z-index: 2;
+  padding-bottom: 00px;
 }

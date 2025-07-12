@@ -1,17 +1,52 @@
+/* 🎀 client-hila.css – עיצוב מותאם אישי להילה */
+
+/* 🖌️ דריסת משתנים כלליים */
+:root {
+  --color-primary: #f9c7e6;
+  --color-title: #8e44ad;
+  --color-text: #5e005e;
+  --color-accent: #fceaf5;
+  --color-recommend-bg: #fff6fb;
+  --color-contact-bg: #fff0fa;
+  --color-section-title: #d18cc4;
+}
+
+/* 🧼 עידון רקע כרטיס */
+.card {
+  box-shadow: 0 0 25px rgba(216, 112, 147, 0.2);
+}
+
+/* 🎀 כותרת */
 .name-role {
   background-color: rgba(255, 230, 250, 0.4);
-  color: #9b59b6;
+  color: var(--color-title);
 }
 
-.main-title {
-  color: #8e44ad !important;
-}
-
-
-
+/* 💖 כפתור */
 .btn-contact {
-  background-color: #f9c7e6;
-  color: #5e005e;
+  background-color: var(--color-primary);
+  color: var(--color-text);
   border: none;
   border-radius: 12px;
+}
+
+/* 💬 טופס */
+.contact-form button {
+  background-color: #fbd1eb;
+  color: #6e1e5b;
+  border: none;
+}
+
+.contact-form button:hover {
+  background-color: #fbcbe3;
+}
+
+/* ⭐ כותרות המלצות */
+.client-name {
+  color: var(--color-title);
+}
+
+/* 🎬 צבע כותרת סרטון */
+.video-title {
+  color: var(--color-title);
 }
