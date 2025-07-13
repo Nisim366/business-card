@@ -10,10 +10,16 @@
   <!-- ✅ עיצוב כללי -->
 <link rel="stylesheet" href="../styles/base.css" />
 
-<!-- ✅ סווייפר להמלצות -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-<!-- ✅ סקריפט גנרי -->
+<!-- ✅ Swiper -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<!-- ✅ סקריפט נתונים קודם -->
+<script src="data-client.js"></script>
+
+<!-- ✅ סקריפט הפונקציונליות אחרי הנתונים -->
 <script src="../scripts/script-generic.js"></script>
+
+
 
 </head>
 
@@ -140,43 +146,64 @@
      </p>
      <div class="video-container" data-field="youtubeLink"></div>
     </div>
-    <!-- ✅ המלצות -->
-    <h3 class="section-title section-title-outside main-title OTHER-title">
-     המלצות
-    </h3>
-    <div class="recommendations-section">
-     <div class="swiper">
-      <div class="swiper-wrapper">
-       <div class="swiper-slide">
-        <p class="client-name" data-field="reviewName1">
-         שם ממליץ
-        </p>
-        <p class="client-text" data-field="reviewText1">
-         טקסט המלצה
-        </p>
-       </div>
-       <div class="swiper-slide">
-        <p class="client-name" data-field="reviewName2">
-         שם ממליץ
-        </p>
-        <p class="client-text" data-field="reviewText2">
-         טקסט המלצה
-        </p>
-       </div>
-       <div class="swiper-slide">
-        <p class="client-name" data-field="reviewName3">
-         שם ממליץ
-        </p>
-        <p class="client-text" data-field="reviewText3">
-         טקסט המלצה
-        </p>
-       </div>
+    
+
+<!-- ✅ המלצות -->
+<h3 class="section-title section-title-outside main-title OTHER-title">
+ המלצות
+</h3>
+<div class="recommendations-section">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+        <div class="elementor-testimonial elementor-repeater-item-1">
+          <div class="elementor-testimonial__header">
+            <cite class="elementor-testimonial__cite">
+              <span class="elementor-testimonial__name" data-field="reviewName1">שם ממליץ</span>
+            </cite>
+            <div class="elementor-testimonial__icon elementor-icon" aria-label="קרא עוד">⭐</div>
+          </div>
+          <div class="elementor-testimonial__content">
+            <div class="elementor-testimonial__text" data-field="reviewText1">טקסט המלצה</div>
+          </div>
+        </div>
       </div>
-      <div class="swiper-pagination">
+
+      <div class="swiper-slide">
+        <div class="elementor-testimonial elementor-repeater-item-2">
+          <div class="elementor-testimonial__header">
+            <cite class="elementor-testimonial__cite">
+              <span class="elementor-testimonial__name" data-field="reviewName2">שם ממליץ</span>
+            </cite>
+            <div class="elementor-testimonial__icon elementor-icon" aria-label="קרא עוד">⭐</div>
+          </div>
+          <div class="elementor-testimonial__content">
+            <div class="elementor-testimonial__text" data-field="reviewText2">טקסט המלצה</div>
+          </div>
+        </div>
       </div>
-     </div>
+
+      <div class="swiper-slide">
+        <div class="elementor-testimonial elementor-repeater-item-3">
+          <div class="elementor-testimonial__header">
+            <cite class="elementor-testimonial__cite">
+              <span class="elementor-testimonial__name" data-field="reviewName3">שם ממליץ</span>
+            </cite>
+            <div class="elementor-testimonial__icon elementor-icon" aria-label="קרא עוד">⭐</div>
+          </div>
+          <div class="elementor-testimonial__content">
+            <div class="elementor-testimonial__text" data-field="reviewText3">טקסט המלצה</div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <!-- ✅ טופס יצירת קשר -->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<!-- ✅ טופס יצירת קשר -->
     <h3 class="main-title">
      השארת פרטים
     </h3>

@@ -1,3 +1,4 @@
+// ✅ הגדרת הנתונים הדינמיים
 window.cardData = {
   fullName: "הילה לוי",
   jobTitle: "מטפלת רגשית ומדריכת הורים",
@@ -10,7 +11,7 @@ window.cardData = {
   youtubeLink: "https://www.youtube.com/embed/ysz5S6PUM-U",
   vcardLink: "#",
 
-  // ✅ אודות (הוזרק דינמית לפי data-field="aboutParagraphs")
+  // ✅ אודות
   aboutParagraphs: `
     <p><strong>בדיקת שינוי אודות</strong></p>
     <p><strong>מענה מיידי</strong> לתסמינים פיזיולוגיים...</p>
@@ -43,6 +44,5 @@ window.cardData = {
   ]
 };
 
-window.addEventListener("DOMContentLoaded", function () {
-  if (window.renderCard) renderCard();
-});
+// ⛔️ אין צורך לקרוא ל־renderCard() כאן
+// הקריאה מבוצעת בתוך script-generic.js בזמן הנכון

@@ -191,7 +191,7 @@ p {
   background-color: var(--color-parallax);
   border-radius: var(--radius-medium);
   margin-top: 30px;
-  padding: 30px 20px;
+  padding: 15px 20px;
   background-image: url('../../assets/bg-texture.png');
   background-repeat: repeat;
 }
@@ -336,3 +336,150 @@ p {
   z-index: 2;
   padding-bottom: 00px;
 }
+
+/* === וידאו תדמית === */
+.video-wrapper {
+  margin-top: 30px; /* שולט על המרחק מלמעלה */
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.video-title {
+  font-size: var(--font-size-title);
+  font-weight: bold;
+  color: var(--color-title);
+  margin-bottom: 15px;
+}
+
+
+/* === המלצות בסגנון Elementor עם data-field === */
+.elementor-testimonial {
+  background-color: #50885d;
+  border-radius: 20px;
+  padding: 25px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  max-width: 100%;
+  text-align: right;
+}
+
+.elementor-testimonial__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.elementor-testimonial__cite {
+  font-style: normal;
+}
+
+.elementor-testimonial__name {
+  font-weight: bold;
+  font-size: 17px;
+  color: var(--color-title);
+}
+
+.elementor-testimonial__icon {
+  font-size: 20px;
+  color: var(--color-primary);
+}
+
+.elementor-testimonial__content {
+  font-size: var(--font-size-normal);
+  color: var(--color-text);
+  line-height: 1.8;
+}
+
+.elementor-testimonial__text {
+  white-space: pre-line;
+}
+
+
+/* === עיצוב המלצות עם Light Box וקרא עוד === */
+.elementor-testimonial {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px 22px 25px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  margin-bottom: 20px;
+  text-align: right;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+  min-height: 180px;
+}
+
+.elementor-testimonial__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.elementor-testimonial__name {
+  font-weight: 700;
+  color: var(--color-title);
+  font-size: 16px;
+}
+
+.elementor-testimonial__icon {
+  font-size: 20px;
+  color: #ffc107;
+}
+
+.elementor-testimonial__text {
+  font-size: var(--font-size-normal);
+  color: var(--color-text);
+  line-height: 1.75;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.3s ease;
+  white-space: pre-line;
+}
+
+.elementor-testimonial__text.collapsed {
+  max-height: 5.6em; /* בערך 4 שורות */
+  overflow: hidden;
+}
+
+.read-more-btn {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--color-primary);
+  font-weight: bold;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  padding: 0;
+}
+
+/* pagination position */
+.recommendations-section .swiper-pagination {
+  margin-top: 15px;
+  position: relative;
+  bottom: auto;
+  text-align: center;
+}
+.elementor-testimonial__header {
+  display: block;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.elementor-testimonial__name {
+  font-weight: bold;
+  font-size: 17px;
+  color: var(--color-title);
+  display: block;
+  text-align: right;
+  margin-bottom: 4px;
+}
+
+.elementor-testimonial__icon {
+  display: none; /* מוסתר כדי לא להפריע */
+}
+
+
