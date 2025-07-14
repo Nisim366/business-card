@@ -167,11 +167,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const recWrapper = document.querySelector('.swiper-wrapper');
     if (recWrapper && data.recommendations?.length) {
       recWrapper.innerHTML = data.recommendations.map(rec => `
-        <div class="swiper-slide">
-          <p class="client-name">${rec.name}</p>
-          <p class="client-text">${rec.text}</p>
-        </div>
-      `).join('');
+  <div class="swiper-slide">
+    <div class="elementor-testimonial">
+      <div class="testimonial-top">
+        <span class="elementor-testimonial__name">${rec.name}</span>
+      </div>
+      <div class="testimonial-middle">
+        <div class="elementor-testimonial__text">${rec.text}</div>
+      </div>
+    </div>
+  </div>
+`).join('');
+
     // ✅ הפעלת Swiper רק אם יש יותר משקופית עם תוכן
     setTimeout(() => {
       const realSlides = document.querySelectorAll('.swiper-slide');
