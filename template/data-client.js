@@ -2,6 +2,7 @@
 window.cardData = {
   fullName: "הילה לוי",
   jobTitle: "מטפלת רגשית ומדריכת הורים",
+  pageTitle: "הילה לוי - מטפלת רגשית והדרכת הורים",
   phone: "0521234567",
   email: "hila@example.com",
   phoneDigits: "0521234567",
@@ -10,7 +11,7 @@ window.cardData = {
   facebookLink: "https://facebook.com/hila.page",
   youtubeLink: "https://www.youtube.com/embed/ysz5S6PUM-U",
   vcardLink: "#",
-
+  
   // ✅ אודות
   aboutParagraphs: `
     <p><strong>בדיקת שינוי אודות</strong></p>

@@ -163,6 +163,13 @@ document.addEventListener("DOMContentLoaded", function () {
     replaceAll('[data-field="parentingSection"]', data.parentingSection);
     replaceAll('[data-field="approachText"]', data.approachText);
     replaceAll('[data-field="targetAudienceText"]', data.targetAudienceText);
+    replaceAll('[data-field="accordionTitle1"]', data.accordionTitle1);
+    replaceAll('[data-field="accordionText1"]', data.accordionText1);
+    replaceAll('[data-field="accordionTitle2"]', data.accordionTitle2);
+    replaceAll('[data-field="accordionText2"]', data.accordionText2);
+    replaceAll('[data-field="addContact"]', data.vcardLink || "#");
+
+
 
     const recWrapper = document.querySelector('.swiper-wrapper');
     if (recWrapper && data.recommendations?.length) {

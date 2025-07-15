@@ -469,7 +469,7 @@ p {
 
 /* pagination position */
 .recommendations-section .swiper-pagination {
-  margin-top: 100px;
+  margin-top: 70px;
   margin-bottom: -20px;
 
   position: relative;
@@ -494,7 +494,7 @@ p {
 .main-title.OTHER-title,
 h3.main-title,
 h3.OTHER-title {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
   color: var(--color-title); /* צבע כותרת אחיד */
   text-align: center;
