@@ -19,9 +19,11 @@
   --color-contact-bg: #e6fff1;
   --color-share-icon-hover: #666;
   --color-review-name: #26d28a;
+  
 
 
   /* טיפוגרפיה */
+  --profile-margin-top: -40px; /* ניתן לשינוי לכל לקוח */
   --font-family: "Assistant", sans-serif;
   --font-size-title: 20px;
   --font-size-subtitle: 15px;
@@ -77,11 +79,11 @@ p {
   box-shadow: var(--box-shadow);
 }
 
+
+
 /* === לוגו ותמונה === */
-.logo-img {
-  width: 160px;
-  margin: 20px 0 10px;
-}
+
+
 
 .profile-img {
   width: 100px;
@@ -91,26 +93,40 @@ p {
   object-fit: cover;
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 128, 128, 0.1);
-  position: absolute;
-  top: 145px;
-  left: 50%;
-  transform: translateX(-50%);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
   z-index: 3;
+  top: -40px; /* כמה פיקסלים מהחלק העליון */
+
 }
+.header-top {
+  height: 220px; /* או כל ערך שתרצה */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
 
 .gold-line {
   height: 2px;
-  width: 100%;
   background: var(--color-divider);
   border: none;
-  margin: 0;
+  width: calc(100% + 40px);
+  margin: 0 -20px;
 }
+
 
 /* === שם ותפקיד === */
 .name-role {
-  padding: 10px 20px;
+  padding: 10px 10px;
   border-radius: 15px;
-  margin: 40px 0 10px;
+  margin: 0px 0px;
+  margin-bottom: 50px; /* רווח מתחת לשם */
+
 }
 
 .name-role h1,
@@ -130,7 +146,7 @@ p {
   border-radius: 0 0 var(--radius-large) var(--radius-large);
   color: var(--color-text);
   position: relative;
-  top: -2px; /* מעלה בדיוק עד הקו */
+  top: 2px; /* מעלה בדיוק עד הקו */
 }
 
 /* === אייקונים === */
@@ -153,7 +169,7 @@ p {
 .icon-item img {
   width: 40px;
   height: 40px;
-  padding: 10px;
+  padding: 20px;
   border: 1px solid var(--color-primary);
   border-radius: 50%;
   background-color: transparent;
@@ -505,5 +521,3 @@ h3.OTHER-title {
 .main-title.OTHER-title {
   color: var(--color-secondary); /* צבע שונה לכותרת אחרת */
 }
-
-

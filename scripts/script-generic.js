@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // ✅ הסתרת פיצ'רים לפי features (video, about וכו')
+  const switches = document.querySelectorAll("[data-switch]");
+  switches.forEach(el => {
+    const key = el.dataset.switch;
+    const isEnabled = window.cardData?.features?.[key];
+    if (isEnabled !== true) el.remove();
+  });
+
   // ✅ הגדרת Swiper
   if (document.querySelector('.mySwiper')) {
     new Swiper('.mySwiper', {
@@ -208,4 +216,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
   }
+});
+// ✅ הסתרת פיצ'רים לפי features (video, about וכו')
+const switches = document.querySelectorAll("[data-switch]");
+switches.forEach(el => {
+  const key = el.dataset.switch;
+  const isEnabled = window.cardData?.features?.[key];
+  if (isEnabled !== true) el.remove(); // רק אם true – יוצג
 });

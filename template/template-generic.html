@@ -7,6 +7,7 @@
 
   <!-- ✅ עיצוב כללי -->
   <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../../styles/style.css">
 
   <!-- ✅ Swiper -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
@@ -25,11 +26,14 @@
     <div class="header-top">
      <img alt="לוגו" class="logo-img" data-field="logoSrc" src="" />
     </div>
-    <hr class="gold-line"/>
-    <img alt="תמונת פרופיל" class="profile-img" data-field="profileImage" src="" />
+     <hr class="gold-line"/>
    </div>
 
    <div class="bottom-section">
+    <div class="profile-wrapper">
+     <img alt="תמונת פרופיל" class="profile-img" data-field="profileImage" src="" />
+    </div>
+
     <div class="name-role gray">
      <h1 class="main-title" data-field="fullName">
       <span data-field="fullName">שם מלא</span>
@@ -121,34 +125,34 @@
     </div>
 
     <!-- ✅ סרטון -->
-    <div class="video-wrapper">
-     <p class="main-title">⬇️ לסרטון תדמית</p>
-     <div class="video-container" data-field="youtubeLink"></div>
-    </div>
+    <!-- ✅ סרטון -->
+<div class="video-wrapper" data-switch="video">
+  <p class="main-title">⬇️ לסרטון תדמית</p>
+  <div class="video-container" data-field="youtubeLink"></div>
+</div>
+
 
     <!-- ✅ המלצות -->
-    <!-- ✅ המלצות -->
-<h3 class="main-title">המלצות</h3>
-<div class="recommendations-section">
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="elementor-testimonial">
-          <div class="testimonial-top">
-            <span class="elementor-testimonial__name" data-field="reviewName1">לקוח מרוצה</span>
-          </div>
-          <div class="testimonial-middle">
-            <div class="elementor-testimonial__text" data-field="reviewText1">
-              השירות היה מקצועי, אדיב ומהיר. קיבלתי מענה מדויק לצרכים שלי, ואני ממליץ בחום לכל מי שמחפש יחס אישי ופתרונות אמיתיים.
+    <h3 class="main-title">המלצות</h3>
+    <div class="recommendations-section">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="elementor-testimonial">
+              <div class="testimonial-top">
+                <span class="elementor-testimonial__name" data-field="reviewName1">לקוח מרוצה</span>
+              </div>
+              <div class="testimonial-middle">
+                <div class="elementor-testimonial__text" data-field="reviewText1">
+                  השירות היה מקצועי, אדיב ומהיר. קיבלתי מענה מדויק לצרכים שלי, ואני ממליץ בחום לכל מי שמחפש יחס אישי ופתרונות אמיתיים.
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <div class="swiper-pagination"></div>
       </div>
     </div>
-    <div class="swiper-pagination"></div>
-  </div>
-</div>
-
 
     <!-- ✅ טופס יצירת קשר -->
     <h3 class="main-title">השארת פרטים</h3>
@@ -184,28 +188,6 @@
    <p>© כל הזכויות שמורות ל־Cardly</p>
   </div>
 
-  <script>
-   document.addEventListener("DOMContentLoaded", function () {
-    const toggles = document.querySelectorAll(".elementor-tab-title");
-    toggles.forEach((toggle) => {
-      toggle.addEventListener("click", () => {
-        const contentId = toggle.getAttribute("aria-controls");
-        const content = document.getElementById(contentId);
-        const expanded = toggle.getAttribute("aria-expanded") === "true";
-
-        document.querySelectorAll(".elementor-tab-title").forEach(t => t.setAttribute("aria-expanded", "false"));
-        document.querySelectorAll(".elementor-tab-content").forEach(c => c.hidden = true);
-
-        if (!expanded) {
-          toggle.setAttribute("aria-expanded", "true");
-          content.hidden = false;
-        } else {
-          toggle.setAttribute("aria-expanded", "false");
-          content.hidden = true;
-        }
-      });
-    });
-   });
-  </script>
+  
  </body>
 </html>

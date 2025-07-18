@@ -1,0 +1,281 @@
+/* ==========================================
+   🎨 style.css – עיצוב גנרי מלא שמיישם את הסגנון הנפוץ ביותר
+   ========================================== */
+
+body.theme-green {
+  /* מופעל ברירת מחדל */
+}
+
+
+
+/* לוגו ותמונה */
+.logo-img {
+  max-width: 150px;
+  margin-top: 8px;
+}
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--color-primary);
+  margin-top: -75px;
+  background-color: #fff;
+}
+
+/* קווים */
+
+/* כותרות */
+h1.main-title {
+  color: var(--color-title);
+  font-size: 26px;
+  margin: 12px 0 4px;
+}
+h2 {
+  font-size: 17px;
+  color: var(--color-subtext);
+  margin: 0;
+}
+h3.main-title {
+  font-size: 22px;
+  color: var(--color-section-title);
+  margin: 24px 0 12px;
+}
+
+/* אייקונים */
+.icons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  justify-items: center;
+  margin: 20px auto;
+  max-width: 420px;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+.icon-item img {
+  width: 46px;
+  height: 46px;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  border: 1px solid #ddd;
+  transition: transform 0.2s;
+}
+.icon-item img:hover {
+  transform: scale(1.08);
+}
+
+/* כפתור */
+.btn-contact {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 30px;
+  font-size: 16px;
+  display: inline-block;
+  margin: 12px 0 8px;
+  cursor: pointer;
+}
+
+/* אודות */
+.about-parallax-wrapper {
+  background-color: var(--color-parallax);
+  padding: 24px 0;
+}
+.about-section {
+  padding: 0 16px;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.85;
+  color: var(--color-text);
+}
+.about-section p {
+  margin-bottom: 12px;
+}
+
+/* אקורדיון */
+.elementor-tab-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  background-color: var(--color-accent);
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 6px 0;
+}
+.elementor-toggle-title {
+  flex-grow: 1;
+  margin-right: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.elementor-tab-content {
+  background-color: #fafafa;
+  padding: 12px 16px;
+  font-size: 14px;
+  text-align: right;
+}
+
+/* סרטון */
+.video-container iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border: none;
+  border-radius: 10px;
+  margin: 12px 0;
+}
+
+/* המלצות */
+.recommendations-section {
+  background-color: var(--color-recommend-bg);
+  padding: 20px 0;
+}
+.elementor-testimonial {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+.elementor-testimonial__name {
+  font-weight: bold;
+  color: var(--color-review-name);
+  font-size: 14px;
+}
+.elementor-testimonial__text {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* טופס יצירת קשר */
+.contact-form {
+  background-color: var(--color-contact-bg);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.contact-form .input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.contact-form input,
+.contact-form textarea {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.contact-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* שיתוף */
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 12px 0;
+}
+.share-buttons a img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s;
+}
+.share-buttons a:hover img {
+  transform: scale(1.1);
+}
+
+/* קרדיט */
+.credit {
+  font-size: 13px;
+  text-align: center;
+  margin: 24px 0;
+  color: #999;
+}
+.cardly-btn {
+  background-color: #000;
+  color: #fff;
+  border-radius: 50%;
+  padding: 12px 18px;
+  font-size: 13px;
+  margin: 6px 0;
+  border: none;
+}
+
+/* ================================
+   🌀 Loader Spinner
+================================= */
+.loader {
+  border: 4px solid #eee;
+  border-top: 4px solid var(--color-primary);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ================================
+   📌 Badge תגית
+================================= */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 8px;
+  background-color: var(--color-primary);
+  color: white;
+  margin: 4px;
+}
+
+/* ================================
+   ⚠️ הודעות שגיאה / הצלחה
+================================= */
+.error {
+  color: red;
+  font-size: 13px;
+  margin-top: 6px;
+}
+.success-message {
+  color: green;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* ================================
+   🧭 ניווט אופציונלי
+================================= */
+nav.horizontal {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 20px 0;
+}
+nav.horizontal a {
+  color: var(--color-primary);
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+}
+nav.horizontal a:hover {
+  text-decoration: underline;
+}

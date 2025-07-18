@@ -12,17 +12,15 @@
 }
 
 /* 🧼 עידון רקע כרטיס */
-.card {
-  box-shadow: 0 0 25px rgba(216, 112, 147, 0.2);
-}
 
-/* 🎀 כותרת */
+
+/* 🎀 כותרת שם ותפקיד */
 .name-role {
   background-color: rgba(255, 230, 250, 0.4);
   color: var(--color-title);
 }
 
-/* 💖 כפתור */
+/* 💖 כפתור יצירת קשר */
 .btn-contact {
   background-color: var(--color-primary);
   color: var(--color-text);
@@ -30,23 +28,23 @@
   border-radius: 12px;
 }
 
-/* 💬 טופס */
+/* 💬 טופס שליחה */
 .contact-form button {
   background-color: #fbd1eb;
   color: #6e1e5b;
   border: none;
 }
-
 .contact-form button:hover {
   background-color: #fbcbe3;
 }
 
-/* ⭐ כותרות המלצות */
+/* ⭐ כותרת המלצה */
+.elementor-testimonial__name,
 .client-name {
   color: var(--color-title);
 }
 
-/* 🎬 צבע כותרת סרטון */
+/* 🎬 כותרת סרטון */
 .video-title {
   color: var(--color-title);
 }

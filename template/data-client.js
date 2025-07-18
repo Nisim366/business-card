@@ -11,6 +11,11 @@ window.cardData = {
   facebookLink: "https://facebook.com/hila.page",
   youtubeLink: "https://www.youtube.com/embed/ysz5S6PUM-U",
   vcardLink: "#",
+  features: {
+    video:  false, // האם להציג את הסרטון
+    about: true, // האם להציג את האודות
+    recommendations: true // האם להציג המלצות
+  },
   
   // ✅ אודות
   aboutParagraphs: `
