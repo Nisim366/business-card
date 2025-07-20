@@ -1,3 +1,9 @@
+// הגנה בסיסית מפני טעינה לא מורשית
+if (location.hostname !== 'yourdomain.onrender.com') {
+  alert("גישה חסומה");
+  throw new Error("Unauthorized access");
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // ✅ הסתרת פיצ'רים לפי features (video, about וכו')
   const switches = document.querySelectorAll("[data-switch]");
@@ -34,54 +40,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const fullMsg = `שם: ${name}%0Aטלפון: ${phone}%0Aהודעה: ${msg}`;
 
-    // 🟢 שליפת מספר מה-body באופן גנרי
     const whatsappNumber = document.body.dataset.whatsapp || "0532407762";
-
     const url = `https://wa.me/972${whatsappNumber.slice(1)}?text=${fullMsg}`;
     window.open(url, '_blank');
   };
 
-  // ✅ אקורדיון כללי (ישן, לא חובה אם עברת ל־Elementor-Style בלבד)
-  const toggles = document.querySelectorAll(".accordion-toggle");
-
-  toggles.forEach((btn) => {
-    btn.addEventListener("click", function () {
-      const content = this.nextElementSibling;
-      const isOpen = content.style.maxHeight;
-
-      // סגירת כל שאר התכנים
-      document.querySelectorAll(".accordion-content").forEach((el) => {
-        el.style.maxHeight = null;
-      });
-
-      // פתיחה אם לא פתוח כבר
-      if (!isOpen) {
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
-    });
-  });
-
-  // ✅ תמיכה באקורדיון בסגנון Elementor
-  const tabToggles = document.querySelectorAll('.elementor-tab-title');
-
-  tabToggles.forEach((toggle) => {
+  // ✅ אקורדיון Elementor
+  document.querySelectorAll('.elementor-tab-title').forEach((toggle) => {
     toggle.addEventListener('click', function () {
       const isActive = this.classList.contains('elementor-active');
       const tabContentId = this.getAttribute('aria-controls');
       const tabContent = document.getElementById(tabContentId);
 
-      // סגור את כל הלשוניות
-      document.querySelectorAll('.elementor-tab-title').forEach((el) => {
+      document.querySelectorAll('.elementor-tab-title').forEach(el => {
         el.classList.remove('elementor-active');
         el.setAttribute('aria-expanded', 'false');
         el.setAttribute('aria-selected', 'false');
       });
+      document.querySelectorAll('.elementor-tab-content').forEach(el => el.setAttribute('hidden', true));
 
-      document.querySelectorAll('.elementor-tab-content').forEach((el) => {
-        el.setAttribute('hidden', true);
-      });
-
-      // פתח את הנבחר אם לא היה פתוח
       if (!isActive) {
         this.classList.add('elementor-active');
         this.setAttribute('aria-expanded', 'true');
@@ -91,71 +68,49 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ✅ שיתוף דינמי של קישור העמוד
-  const shareButtons = document.querySelectorAll('.share-buttons a');
-
-  shareButtons.forEach(button => {
+  // ✅ שיתוף
+  document.querySelectorAll('.share-buttons a').forEach(button => {
     button.addEventListener('click', function () {
       const type = this.dataset.type;
       const pageUrl = encodeURIComponent(window.location.href);
       const pageTitle = encodeURIComponent(document.title);
-
       let shareUrl = "#";
-
       switch (type) {
         case "whatsapp":
-          shareUrl = `https://wa.me/?text=${pageTitle}%0A${pageUrl}`;
-          break;
+          shareUrl = `https://wa.me/?text=${pageTitle}%0A${pageUrl}`; break;
         case "facebook":
-          shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
-          break;
+          shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`; break;
         case "linkedin":
-          shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
-          break;
+          shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`; break;
         case "twitter":
-          shareUrl = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
-          break;
+          shareUrl = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`; break;
         case "email":
-          shareUrl = `mailto:?subject=${pageTitle}&body=${pageUrl}`;
-          break;
+          shareUrl = `mailto:?subject=${pageTitle}&body=${pageUrl}`; break;
       }
-
       window.open(shareUrl, '_blank');
     });
   });
 
-  // ✅ הזרקת משתנים דינמית מהאובייקט window.cardData
+  // ✅ הזרקת נתונים
   const data = window.cardData;
   const replaceAll = (selector, value) => {
-  document.querySelectorAll(selector).forEach(el => {
-    const isAnchor = el.tagName === "A";
-    const field = el.dataset.field;
-
-    if (el.tagName === "IMG") {
-      el.src = value;
-    } else if (isAnchor && el.href.includes("tel:")) {
-      el.href = `tel:${value}`;
-    } else if (isAnchor && el.href.includes("mailto:")) {
-      el.href = `mailto:${value}`;
-    } else if (isAnchor && el.href.includes("wa.me")) {
-      el.href = `https://wa.me/972${data.phoneDigits}`;
-    } else if (isAnchor && field === "whatsapp") {
-      el.href = `https://wa.me/972${data.phoneDigits}`;
-    } else if (isAnchor && field === "sms") {
-      el.href = `sms:${data.phone}`;
-    } else if (isAnchor && field === "addContact") {
-      el.href = data.vcardLink || "#";
-    } else if (isAnchor && field === "facebookLink") {
-      el.href = value;
-    } else if (!isAnchor) {
-      el.innerHTML = value;
-    }
-  });
-};
-
+    document.querySelectorAll(selector).forEach(el => {
+      const isAnchor = el.tagName === "A";
+      const field = el.dataset.field;
+      if (el.tagName === "IMG") el.src = value;
+      else if (isAnchor && el.href.includes("tel:")) el.href = `tel:${value}`;
+      else if (isAnchor && el.href.includes("mailto:")) el.href = `mailto:${value}`;
+      else if (isAnchor && el.href.includes("wa.me")) el.href = `https://wa.me/972${data.phoneDigits}`;
+      else if (isAnchor && field === "whatsapp") el.href = `https://wa.me/972${data.phoneDigits}`;
+      else if (isAnchor && field === "sms") el.href = `sms:${data.phone}`;
+      else if (isAnchor && field === "addContact") el.href = data.vcardLink || "#";
+      else if (isAnchor && field === "facebookLink") el.href = value;
+      else el.innerHTML = value;
+    });
+  };
 
   if (data) {
-    document.title = data.pageTitle;
+    document.title = data.pageTitle || "כרטיס ביקור דיגיטלי";
     document.body.dataset.whatsapp = data.phone;
     document.body.dataset.email = data.email;
 
@@ -177,8 +132,6 @@ document.addEventListener("DOMContentLoaded", function () {
     replaceAll('[data-field="accordionText2"]', data.accordionText2);
     replaceAll('[data-field="addContact"]', data.vcardLink || "#");
 
-
-
     const recWrapper = document.querySelector('.swiper-wrapper');
     if (recWrapper && data.recommendations?.length) {
       recWrapper.innerHTML = data.recommendations.map(rec => `
@@ -193,34 +146,18 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   </div>
 `).join('');
-
-    // ✅ הפעלת Swiper רק אם יש יותר משקופית עם תוכן
-    setTimeout(() => {
-      const realSlides = document.querySelectorAll('.swiper-slide');
-      if (realSlides.length > 1) {
-        new Swiper('.swiper', {
-          slidesPerView: 1,
-          loop: true,
-          spaceBetween: 20,
-          autoplay: {
-            delay: 8000,
-            disableOnInteraction: false
-          },
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-          }
-        });
-      }
-    }, 0);
-
+      setTimeout(() => {
+        const realSlides = document.querySelectorAll('.swiper-slide');
+        if (realSlides.length > 1) {
+          new Swiper('.swiper', {
+            slidesPerView: 1,
+            loop: true,
+            spaceBetween: 20,
+            autoplay: { delay: 8000, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true }
+          });
+        }
+      }, 0);
     }
   }
-});
-// ✅ הסתרת פיצ'רים לפי features (video, about וכו')
-const switches = document.querySelectorAll("[data-switch]");
-switches.forEach(el => {
-  const key = el.dataset.switch;
-  const isEnabled = window.cardData?.features?.[key];
-  if (isEnabled !== true) el.remove(); // רק אם true – יוצג
 });
