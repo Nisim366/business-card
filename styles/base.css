@@ -506,6 +506,21 @@ body {
   padding: var(--spacing-xxl);
   text-align: center;
 }
+.video-title {
+  margin-bottom: 12px;
+  color: var(--video-title-color);
+  font-size: var(--font-size-title-small);
+  text-align: center;
+}
+.video-wrapper video {
+  object-fit: contain; /* מציג את כל הסרטון בלי לחתוך */
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-large);
+  background-color: var(--color-black);
+}
+
+
 
 /* ===== 12. טופס יצירת קשר - .contact-form ===== */
 .contact-form {
@@ -525,16 +540,28 @@ body {
   color: var(--color-gray-dark);
 }
 
-.contact-form input[type="text"],
-.contact-form input[type="email"],
+.contact-form input,
 .contact-form textarea {
+  display: block;
   width: 100%;
+  max-width: 100%;
   padding: var(--spacing-medium);
-  margin-bottom: var(--spacing-large);
+  margin-bottom: var(--spacing-medium);
   border: 1px solid var(--color-gray-medium);
-  border-radius: var(--radius-small);
+  border-radius: var(--radius-medium);
   font-family: inherit;
   font-size: var(--font-size-medium);
+  box-sizing: border-box;
+  text-align: right;
+  direction: rtl;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  text-align: right;
+  direction: rtl;
+  color: var(--color-gray-dark);
+  opacity: 1;
 }
 
 .contact-form textarea {
@@ -542,16 +569,22 @@ body {
   min-height: 120px;
 }
 
+
 .contact-form button {
-  width: auto;
-  padding: var(--spacing-small) var(--spacing-xl);
-  background-color: var(--color-gold-medium);
-  color: var(--color-white);
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: var(--spacing-medium);
+  background-color: var(--btn-bg-filled);
+  color: var(--btn-text-color-filled);
   border: none;
   border-radius: var(--radius-medium);
-  cursor: pointer;
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-medium);
   font-weight: var(--font-weight-bold);
+  text-align: center;
+  cursor: pointer;
+  margin-top: var(--spacing-medium);
+  box-sizing: border-box;
   transition: background-color 0.3s ease;
 }
 

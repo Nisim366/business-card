@@ -150,7 +150,7 @@ const replaceAll = (selector, value) => {
     replaceAll('[data-field="logoSrc"]', data.logoSrc);
     replaceAll('[data-field="profileImage"]', data.profileImage);
     replaceAll('[data-field="facebookLink"]', data.facebookLink);
-    replaceAll('[data-field="youtubeLink"]', `<iframe src="${data.youtubeLink}" frameborder="0" allowfullscreen></iframe>`);
+    replaceAll('[data-field="videoSrc"]', `<video controls><source src="${data.videoSrc}" type="video/mp4">הדפדפן לא תומך בניגון וידאו.</video>`);
     replaceAll('[data-field="aboutParagraphs"]', data.aboutParagraphs);
     replaceAll('[data-field="parentingSection"]', data.parentingSection);
     replaceAll('[data-field="approachText"]', data.approachText);

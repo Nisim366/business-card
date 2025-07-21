@@ -453,9 +453,9 @@ body {
 
 /* ===== 8. אזורים (Sections) - Header, Top, Bottom ===== */
 .header-top {
-  background-image: url("../../assets/logo-ortopok.png");
+  background: url('../assets/background-soft-blue.jpg') no-repeat center center;
   background-repeat: no-repeat;
-  background-size: 80%; /* או כל אחוז אחר שתרצה */
+  background-size: 100%; /* או כל אחוז אחר שתרצה */
   background-position: center;
   color: var(--top-section-text-color);
   height: var(--top-section-height-fixed);
