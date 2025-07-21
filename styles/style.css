@@ -573,31 +573,47 @@ body {
 
 /* ===== 12. בלוק אודות (About Section) ===== */
 .about-section {
-  background-color: var(--about-section-bg);
-  color: var(--about-section-text-color);
+  background-color: var(--color-white);
+  color: var(--color-black);
   padding: var(--spacing-xl);
   margin-top: var(--spacing-large);
   border-radius: var(--radius-large);
-  text-align: right; /* יישור לימין לטקסט */
+  text-align: right;
+  font-family: var(--font-family-primary);
 }
+
+
 
 .about-section h3 {
-  color: var(--about-section-title-color);
+  color: var(--color-black); /* כותרת שחורה */
+  background-color: var(--color-white); /* רקע לבן */
   font-size: var(--font-size-title-small);
   margin-bottom: var(--spacing-medium);
+  padding: var(--spacing-small) var(--spacing-medium);
+  display: inline-block;
 }
 
+
 .about-section p {
+  color: var(--color-black);
   line-height: 1.6;
   margin-bottom: var(--spacing-medium);
 }
 
+
 .about-section strong {
-  color: var(--about-highlight-text-color);
-  background-color: var(--about-highlight-bg-color);
-  padding: var(--spacing-tiny) var(--spacing-small);
-  border-radius: var(--radius-small);
+  background-color: transparent;
+  color: var(--color-black);
+  font-weight: var(--font-weight-bold);
+  padding: 0;
+  border-radius: 0;
 }
+.elementor-tab-title:hover .elementor-toggle-title {
+  color: var(--main-brand-color);
+  text-decoration: underline;
+}
+
+
 
 /* טקסט זמני */
 .about-section .placeholder-text:before {
@@ -618,6 +634,9 @@ body {
   border-radius: var(--radius-large);
   box-shadow: var(--shadow-medium);
 }
+.swiper-wrapper {
+  width: 100%;
+}
 
 .video-wrapper iframe {
   position: absolute;
@@ -634,18 +653,53 @@ body {
   margin-top: var(--spacing-medium);
   text-align: center;
 }
+.recommendations-section .swiper-slide {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  width: 100% !important;
+}
+
+
+.recommendations-section .swiper {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  direction: rtl;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+.recommendations-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: transparent; /* ✅ הסרת הרקע הירוק */
+}
+
+
+
+
 
 /* ===== 14. בלוק המלצות (Testimonial Block) ===== */
 .elementor-testimonial {
   background-color: var(--testimonial-bg);
   border-radius: var(--radius-medium);
   padding: var(--spacing-large);
-  margin-top: var(--spacing-large);
+  margin-top: var(--spacing-medium);
   position: relative;
-  text-align: right; /* יישור לימין לטקסט */
+  text-align: right;
   min-height: var(--testimonial-min-height);
-  border-right: 4px solid var(--testimonial-border-right-color); /* קו צד לצבע המותג */
+  max-height: 440px;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid var(--testimonial-border-right-color); /* ⬅️ מסגרת מלאה */
 }
+
+
 
 .elementor-testimonial__content {
   font-style: italic;
@@ -756,6 +810,24 @@ body {
 .name-role.gray {
   color: var(--color-gray-dark);
 }
+.btn-contact {
+  display: inline-block;
+  background-color: var(--btn-bg-filled);
+  color: var(--btn-text-color-filled);
+  padding: var(--btn-padding);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: var(--spacing-small) auto;
+}
+
+.btn-contact:hover {
+  background-color: var(--btn-hover-bg-filled);
+  transform: translateY(-2px);
+}
+
 
 
 /* הסרת כל התאמות למובייל @media */
