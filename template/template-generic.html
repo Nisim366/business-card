@@ -6,34 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-field="pageTitle">כרטיס ביקור דיגיטלי</title>
 
-  <!-- ✅ הפניה ל-www -->
-  <script>
-    if (location.hostname === "clix-marketing.co.il") {
-      location.href = location.href.replace("clix-marketing.co.il", "www.clix-marketing.co.il");
-    }
-  </script>
-
   <!-- ✅ עיצוב כללי -->
-  <link rel="stylesheet" href="../styles/base.css" />
   <link rel="stylesheet" href="../../styles/style.css" />
+  <script src="../../scripts/script.js"></script>
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script src="data-client.js"></script>
-  <script src="/scripts/NsIcSrIiM.js"></script>
+
+  <!-- ✅ טעינת נתונים -->
+<script src="../../data/data-client.js"></script>
+
+
 </head>
+
 
  <body data-email="client@example.com" data-whatsapp="0500000000">
   <div class="card">
    <div class="top-section">
     <div class="header-top">
-     <img alt="לוגו" class="logo-img" data-field="logoSrc" src="" />
-    </div>
-     <hr class="gold-line"/>
+          <hr class="gold-line"/>
+        </div>
    </div>
 
    <div class="bottom-section">
     <div class="profile-wrapper">
-     <img alt="תמונת פרופיל" class="profile-img" data-field="profileImage" src="" />
+     <img alt="תמונת פרופיל" class="profile-img" data-field="profileImage" src="../../assets/profile.jpg" />
     </div>
 
     <div class="name-role gray">
@@ -46,43 +43,32 @@
     </div>
 
     <div class="icons icon-grid">
-     <div class="icon-item">
-      <a href="#" data-field="phone">
-       <img alt="טלפון" src="../../assets/phone.svg"/>
-      </a>
-      <span>טלפון</span>
-     </div>
-     <div class="icon-item">
-      <a href="#" data-field="whatsapp">
-       <img alt="וואטסאפ" src="../../assets/whatsapp.svg" />
-      </a>
-      <span>וואטסאפ</span>
-     </div>
-     <div class="icon-item">
-      <a href="#" data-field="email">
-       <img alt="מייל" src="../../assets/email.svg" />
-      </a>
-      <span>מייל</span>
-     </div>
-     <div class="icon-item">
-      <a href="#">
-       <img alt="המלצות" src="../../assets/star.svg"/>
-      </a>
-      <span>המלצות</span>
-     </div>
-     <div class="icon-item">
-      <a href="#" data-field="facebookLink">
-       <img alt="פייסבוק" src="../../assets/facebook.svg"/>
-      </a>
-      <span>פייסבוק</span>
-     </div>
-     <div class="icon-item">
-      <a href="#" data-field="sms">
-       <img alt="הודעת SMS" src="../../assets/sms.svg"/>
-      </a>
-      <span>הודעה</span>
-     </div>
-    </div>
+  <div class="icon-item">
+    <a href="#" data-field="phone"><img src="../../assets/phone.svg" alt="טלפון" /></a>
+    <span>טלפון</span>
+  </div>
+  <div class="icon-item">
+    <a href="#" data-field="whatsapp"><img src="../../assets/whatsapp.svg" alt="וואטסאפ" /></a>
+    <span>וואטסאפ</span>
+  </div>
+  <div class="icon-item">
+    <a href="#" data-field="email"><img src="../../assets/email.svg" alt="מייל" /></a>
+    <span>מייל</span>
+  </div>
+  <div class="icon-item">
+    <a href="#" data-field="sms"><img src="../../assets/sms.svg" alt="הודעה" /></a>
+    <span>הודעה</span>
+  </div>
+  <div class="icon-item">
+    <a href="#" data-field="facebookLink"><img src="../../assets/facebook.svg" alt="פייסבוק" /></a>
+    <span>פייסבוק</span>
+  </div>
+  <div class="icon-item">
+    <a href="#"><img src="../../assets/star.svg" alt="המלצות" /></a>
+    <span>המלצות</span>
+  </div>
+</div>
+
 
     <a href="#" download class="btn-contact pulse-once" data-field="addContact">➕ הוסף לאנשי קשר</a>
     <p class="contact-hint" style="font-size: 13px; color: #666; text-align: center; margin-top: 4px;">

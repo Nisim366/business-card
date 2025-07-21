@@ -1,8 +1,12 @@
-// הגנה בסיסית מפני טעינה לא מורשית
-if (location.hostname !== 'yourdomain.onrender.com') {
+if (
+  location.hostname !== 'yourdomain.onrender.com' &&
+  location.hostname !== '127.0.0.1' &&
+  location.hostname !== 'localhost'
+) {
   alert("גישה חסומה");
   throw new Error("Unauthorized access");
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
   // ✅ הסתרת פיצ'רים לפי features (video, about וכו')
@@ -92,22 +96,47 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ✅ הזרקת נתונים
-  const data = window.cardData;
-  const replaceAll = (selector, value) => {
-    document.querySelectorAll(selector).forEach(el => {
-      const isAnchor = el.tagName === "A";
-      const field = el.dataset.field;
-      if (el.tagName === "IMG") el.src = value;
-      else if (isAnchor && el.href.includes("tel:")) el.href = `tel:${value}`;
-      else if (isAnchor && el.href.includes("mailto:")) el.href = `mailto:${value}`;
-      else if (isAnchor && el.href.includes("wa.me")) el.href = `https://wa.me/972${data.phoneDigits}`;
-      else if (isAnchor && field === "whatsapp") el.href = `https://wa.me/972${data.phoneDigits}`;
-      else if (isAnchor && field === "sms") el.href = `sms:${data.phone}`;
-      else if (isAnchor && field === "addContact") el.href = data.vcardLink || "#";
-      else if (isAnchor && field === "facebookLink") el.href = value;
-      else el.innerHTML = value;
-    });
-  };
+  // ✅ הזרקת נתונים
+const data = window.cardData;
+const replaceAll = (selector, value) => {
+  document.querySelectorAll(selector).forEach(el => {
+    const tag = el.tagName;
+    const isAnchor = tag === "A";
+    const field = el.dataset.field;
+
+    if (tag === "IMG") {
+      if (value) el.src = value;
+    }
+    else if (isAnchor && field === "phone") {
+      if (value) el.href = `tel:${value}`;
+      else el.removeAttribute("href");
+    }
+    else if (isAnchor && field === "email") {
+      if (value) el.href = `mailto:${value}`;
+      else el.removeAttribute("href");
+    }
+    else if (isAnchor && field === "whatsapp") {
+      if (data.phoneDigits) el.href = `https://wa.me/972${data.phoneDigits}`;
+      else el.removeAttribute("href");
+    }
+    else if (isAnchor && field === "sms") {
+      if (data.phone) el.href = `sms:${data.phone}`;
+      else el.removeAttribute("href");
+    }
+    else if (isAnchor && field === "addContact") {
+      if (data.vcardLink) el.href = data.vcardLink;
+      else el.removeAttribute("href");
+    }
+    else if (isAnchor && field === "facebookLink") {
+      if (value) el.href = value;
+      else el.removeAttribute("href");
+    }
+    else if (!el.querySelector('img')) {
+      el.innerHTML = value;
+    }
+  });
+};
+
 
   if (data) {
     document.title = data.pageTitle || "כרטיס ביקור דיגיטלי";

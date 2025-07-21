@@ -1,50 +1,124 @@
-/* 🎀 client-hila.css – עיצוב מותאם אישי להילה */
+/* ==========================================
+   📦 style-hila.css – התאמה אישית ללקוחה הילה
+   ========================================== */
 
-/* 🖌️ דריסת משתנים כלליים */
+/* שכתוב משתנים כלליים (:root) - רק מה שדורש שינוי */
 :root {
-  --color-primary: #f9c7e6;
-  --color-title: #8e44ad;
-  --color-text: #5e005e;
-  --color-accent: #fceaf5;
-  --color-recommend-bg: #fff6fb;
-  --color-contact-bg: #fff0fa;
-  --color-section-title: #d18cc4;
+  /* שינוי צבע המותג הראשי לכחול (במקום זהב כברירת מחדל) */
+  --main-brand-color: var(--color-blue-medium);
+  --btn-bg-filled: var(--color-blue-medium);
+  --btn-hover-bg-filled: var(--color-blue-dark); /* מתאים לצבע הכחול החדש */
+  --btn-border-outline: 2px solid var(--color-blue-medium); /* התאמה לכחול */
+  --btn-text-color-outline: var(--color-blue-medium); /* התאמה לכחול */
+  --btn-hover-bg-outline: var(--color-blue-medium); /* התאמה לכחול */
+  --profile-img-border: 3px solid var(--color-blue-medium); /* מסגרת תמונה כחולה */
+  --separator-line-color: var(--color-blue-medium); /* קו הפרדה כחול */
+  --gradient-line-style: var(--gradient-blue); /* גרדיאנט כחול לקו הפרדה */
+  --top-section-bg: var(--gradient-blue); /* רקע עליון בגרדיאנט כחול */
+  --testimonial-border-right-color: var(--color-blue-medium); /* קו צד להמלצות בכחול */
+  --testimonial-icon-color: var(--color-blue-medium); /* אייקון המלצות בכחול */
+  --main-title-color: var(--color-blue-dark); /* כותרת ראשית בכחול כהה */
+  --icon-border-color: var(--color-blue-medium); /* מסגרת אייקונים בכחול */
+  --about-section-title-color: var(--color-blue-dark); /* כותרת אודות בכחול כהה */
+  --video-title-color: var(--color-blue-dark); /* כותרת וידאו בכחול כהה */
+  --recommendations-section-bg: var(--color-blue-light); /* רקע המלצות בכחול בהיר (שונה מ-style.css) */
+  --form-bg: var(--color-blue-light); /* רקע טופס בכחול בהיר (שונה מ-style.css) */
+  --testimonial-read-more-btn-color: var(--color-blue-medium); /* צבע כפתור "קרא עוד" */
+  --testimonial-read-more-btn-hover-color: var(--color-blue-dark); /* צבע הובר לכפתור "קרא עוד" */
 }
 
-/* 🧼 עידון רקע כרטיס */
+/* שכתוב Classים קיימים - רק מה שדורש שינוי בפועל */
 
-
-/* 🎀 כותרת שם ותפקיד */
-.name-role {
-  background-color: rgba(255, 230, 250, 0.4);
-  color: var(--color-title);
+/* דוגמה: שינוי רקע לאזור תחתון ספציפי ללקוחה הילה */
+.bottom-section {
+  background-color: var(--color-white); /* לדוגמה: רקע לבן לאזור התחתון במקום אפור בהיר */
+  color: var(--color-gray-dark); /* צבע טקסט מתאים לרקע הבהיר */
 }
 
-/* 💖 כפתור יצירת קשר */
-.btn-contact {
-  background-color: var(--color-primary);
-  color: var(--color-text);
-  border: none;
-  border-radius: 12px;
+/* שינוי ברירת המחדל של כפתורים: לדוגמה, כל הכפתורים מסוג filled יהיו כחולים */
+/* אין צורך לשכתב .btn-filled-gold מכיוון שמשתנה ה--btn-bg-filled כבר שונה */
+/* אם יש צורך בהתנהגות שונה ל-hover ספציפית ללקוחה: */
+.btn-filled-gold:hover {
+  background-color: var(--color-blue-dark); /* או צבע כחול ספציפי אחר מה-base.css */
 }
 
-/* 💬 טופס שליחה */
-.contact-form button {
-  background-color: #fbd1eb;
-  color: #6e1e5b;
-  border: none;
-}
-.contact-form button:hover {
-  background-color: #fbcbe3;
+/* התאמה של סוגי כפתורים ספציפיים אם הם מוגדרים במיוחד עבור הילה */
+.btn-outline-gold {
+  border-color: var(--main-brand-color);
+  color: var(--main-brand-color);
 }
 
-/* ⭐ כותרת המלצה */
-.elementor-testimonial__name,
-.client-name {
-  color: var(--color-title);
+.btn-outline-gold:hover {
+  background-color: var(--main-brand-color);
+  color: var(--text-secondary-color);
 }
 
-/* 🎬 כותרת סרטון */
-.video-title {
-  color: var(--color-title);
+/* דוגמה לשינוי עיצוב הכרטיס אם נדרש - לדוגמה, צל חזק יותר */
+.card {
+  box-shadow: var(--shadow-strong); /* שינוי הצל לכבד יותר */
+  border-radius: var(--radius-medium); /* הקטנת הפינות המעוגלות */
+}
+
+/* דוגמה: שינוי עיצוב ספציפי לאייקוני השיתוף */
+.share-buttons a img {
+  border-radius: var(--radius-circle); /* הפיכת אייקוני השיתוף לעגולים */
+  width: 45px; /* הגדלת אייקוני השיתוף */
+  height: 45px;
+}
+
+/* הגדרת גודל קבוע לתמונת פרופיל בינונית עבור הילה */
+.profile-img-medium {
+    width: 80px; /* גודל קבוע 80px */
+    height: 80px; /* גודל קבוע 80px */
+}
+
+/* דוגמה לשינוי כותרת ספציפית אם הילה רוצה צבע אחר ממה שנקבע ב-style.css */
+.main-title {
+    color: var(--color-blue-dark); /* שכתוב צבע הכותרת הראשית לכחול כהה */
+}
+
+/* טיפול בווריאציות רקע באמצעות classים ספציפיים */
+
+/* דריסה או הגדרה של class ייעודי לרקע של About Section */
+.about-parallax-wrapper { /* שינוי הגדרות כלליות אם נדרש */
+    background-image: none; /* הסרת תבנית הרקע המוגדרת ב-base אם לא רלוונטי לווריאציה הזו */
+}
+
+.about-parallax-wrapper-blue { /* Class חדש/ספציפי לווריאציה של הילה */
+    background-color: var(--color-blue-light); /* רקע כחול בהיר לאזור האודות */
+}
+
+/* דוגמה לשינוי צבע הכותרת בתוך אזור האודות */
+.about-section h3 {
+    color: var(--color-blue-dark); /* שינוי צבע הכותרת באזור האודות לכחול כהה */
+}
+
+/* דריסה או הגדרה של class ייעודי לרקע של Contact Form */
+.contact-form {
+    /* נדאג שהרקע של הטופס יקבל את הצבע הכחול בהיר מה-root */
+    /* background-color: var(--form-bg); זה כבר קורה דרך var(--form-bg) ב-root */
+}
+
+/* דוגמה לשינוי רקע בלוק המלצות */
+.elementor-testimonial {
+    background-color: var(--color-white); /* רקע לבן להמלצות */
+}
+
+.elementor-testimonial-blue {
+    border-right: 4px solid var(--color-blue-dark); /* קו צד כחול כהה להמלצות */
+}
+
+.elementor-testimonial__name-gold { /* דריסה של קלאס ספציפי אם קיים */
+    color: var(--color-blue-dark);
+}
+
+/* דריסה או הגדרה של class ייעודי לרקע של Recommendations Section */
+.recommendations-section {
+    /* נדאג שהרקע של אזור ההמלצות יקבל את הצבע הכחול בהיר מה-root */
+    /* background-color: var(--recommendations-section-bg); זה כבר קורה דרך var(--recommendations-section-bg) ב-root */
+}
+
+/* אם נרצה וריאציות ספציפיות יותר באמצעות class-ים נוספים, לדוגמה: */
+.recommendations-section-blue { /* Class חדש/ספציפי לווריאציה של הילה */
+    background-color: var(--color-blue-light); /* רקע כחול בהיר יותר של אזור ההמלצות */
 }
