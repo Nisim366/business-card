@@ -1,11 +1,3 @@
-if (
-  location.hostname !== 'yourdomain.onrender.com' &&
-  location.hostname !== '127.0.0.1' &&
-  location.hostname !== 'localhost'
-) {
-  alert("גישה חסומה");
-  throw new Error("Unauthorized access");
-}
 
 
 document.addEventListener("DOMContentLoaded", function () {
