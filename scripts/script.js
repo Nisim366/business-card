@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", function () {
   // ✅ הסתרת פיצ'רים לפי features (video, about וכו')
   const switches = document.querySelectorAll("[data-switch]");
@@ -193,5 +191,14 @@ const replaceAll = (selector, value) => {
         }
       }, 0);
     }
+  }
+});
+
+
+// ✅ טעינה גם כשחוזרים מהיסטוריה (back/forward)
+window.addEventListener("pageshow", function () {
+  if (window.cardData) {
+    const event = new Event("DOMContentLoaded");
+    document.dispatchEvent(event);
   }
 });
