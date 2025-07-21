@@ -160,6 +160,19 @@ const replaceAll = (selector, value) => {
     replaceAll('[data-field="accordionTitle2"]', data.accordionTitle2);
     replaceAll('[data-field="accordionText2"]', data.accordionText2);
     replaceAll('[data-field="addContact"]', data.vcardLink || "#");
+    
+    replaceAll('[data-field="phoneIconSrc"]', data.phoneIconSrc);
+    replaceAll('[data-field="whatsappIconSrc"]', data.whatsappIconSrc);
+    replaceAll('[data-field="emailIconSrc"]', data.emailIconSrc);
+    replaceAll('[data-field="smsIconSrc"]', data.smsIconSrc);
+    replaceAll('[data-field="facebookIconSrc"]', data.facebookIconSrc);
+    replaceAll('[data-field="recommendationIconSrc"]', data.recommendationIconSrc);
+
+  replaceAll('[data-field="shareEmailIconSrc"]', data.shareEmailIconSrc);
+  replaceAll('[data-field="shareWhatsappIconSrc"]', data.shareWhatsappIconSrc);
+  replaceAll('[data-field="shareLinkedinIconSrc"]', data.shareLinkedinIconSrc);
+  replaceAll('[data-field="shareTwitterIconSrc"]', data.shareTwitterIconSrc);
+  replaceAll('[data-field="shareFacebookIconSrc"]', data.shareFacebookIconSrc);
 
     const recWrapper = document.querySelector('.swiper-wrapper');
     if (recWrapper && data.recommendations?.length) {
