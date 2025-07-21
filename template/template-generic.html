@@ -6,17 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-field="pageTitle">כרטיס ביקור דיגיטלי</title>
 
-  <!-- ✅ עיצוב כללי -->
-  <link rel="stylesheet" href="../../styles/style.css" />
-  <script src="../../scripts/script.js"></script>
+  <!-- ✅ טעינת קבצים פנימיים לפי סביבה -->
+  <script>
+    function injectAssets(assets) {
+      const isLive = location.hostname.includes("clix-marketing.co.il");
 
+      assets.forEach(asset => {
+        const tag = document.createElement(asset.type);
+        tag[asset.attr] = isLive ? asset.prod : asset.dev;
+        if (asset.type === 'link') tag.rel = 'stylesheet';
+        document.head.appendChild(tag);
+      });
+    }
+
+    injectAssets([
+  { type: 'link', attr: 'href', dev: '../../styles/style.css', prod: '/styles/style.css' },
+  { type: 'script', attr: 'src', dev: '../../data/data-client.js', prod: '/data/data-client.js' },
+  { type: 'script', attr: 'src', dev: '../../scripts/script.js', prod: '/scripts/script.js' }
+]);
+
+  </script>
+
+  <!-- ✅ קבצים חיצוניים (תמיד קבועים) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-  <!-- ✅ טעינת נתונים -->
-<script src="../../data/data-client.js"></script>
-
-
 </head>
 
 
