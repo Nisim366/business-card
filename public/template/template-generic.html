@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-field="pageTitle">כרטיס ביקור דיגיטלי</title>
+
+  <!-- ✅ טעינת קבצים פנימיים לפי סביבה -->
+  <script>
+    function injectAssets(assets) {
+      const isLive = location.hostname.includes("clix-marketing.co.il");
+
+      assets.forEach(asset => {
+        const tag = document.createElement(asset.type);
+        tag[asset.attr] = isLive ? asset.prod : asset.dev;
+        if (asset.type === 'link') tag.rel = 'stylesheet';
+        document.head.appendChild(tag);
+      });
+    }
+
+    injectAssets([
+  { type: 'link', attr: 'href', dev: '../../styles/style.css', prod: '/styles/style.css' },
+  { type: 'script', attr: 'src', dev: '../../data/data-client.js', prod: '/data/data-client.js' },
+  { type: 'script', attr: 'src', dev: '../../scripts/script.js', prod: '/scripts/script.js' }
+]);
+
+  </script>
+
+  <!-- ✅ קבצים חיצוניים (תמיד קבועים) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+</head>
+
+
+ <body data-email="client@example.com" data-whatsapp="0500000000">
+  <div class="card">
+   <div class="top-section">
+    <div class="header-top">
+<img class="logo-img" data-field="logoSrc" src="#" alt="לוגו" />
+
+          <hr class="gold-line"/>
+        </div>
+   </div>
+
+   <div class="bottom-section">
+  <div class="profile-wrapper">
+<img class="profile-img" data-field="profileImage" src="#" alt="תמונת פרופיל" />
+  </div>
+
+
+    <div class="name-role gray">
+     <h1 class="main-title" data-field="fullName">
+      <span data-field="fullName">שם מלא</span>
+     </h1>
+     <h2 data-field="jobTitle">
+      <span data-field="jobTitle">תיאור תפקיד</span>
+     </h2>
+    </div>
+
+<div class="icons icon-grid">
+  <div class="icon-item">
+    <a href="#" data-field="phone">
+      <img data-field="phoneIconSrc" src="#" alt="טלפון" />
+    </a>
+    <span>טלפון</span>
+  </div>
+  <div class="icon-item">
+    <a href="#" data-field="whatsapp">
+      <img data-field="whatsappIconSrc" src="#" alt="וואטסאפ" />
+    </a>
+    <span>וואטסאפ</span>
+  </div>
+  <div class="icon-item">
+    <a href="#" data-field="email">
+      <img data-field="emailIconSrc" src="#" alt="מייל" />
+    </a>
+    <span>מייל</span>
+  </div>
+  <div class="icon-item">
+    <a href="#" data-field="sms">
+      <img data-field="smsIconSrc" src="#" alt="הודעה" />
+    </a>
+    <span>הודעה</span>
+  </div>
+  <div class="icon-item">
+    <a href="#" data-field="facebookLink">
+      <img data-field="facebookIconSrc" src="#" alt="פייסבוק" />
+    </a>
+    <span>פייסבוק</span>
+  </div>
+  <div class="icon-item">
+    <a href="#">
+      <img data-field="recommendationIconSrc" src="#" alt="המלצות" />
+    </a>
+    <span>המלצות</span>
+  </div>
+</div>
+
+
+
+
+
+<a href="#" download class="btn-contact pulse-once" data-field="addContact">
+  ➕ הוסף לאנשי קשר
+</a>
+    <p class="contact-hint" style="font-size: 13px; color: #666; text-align: center; margin-top: 4px;">
+      * לאחר ההורדה יש לפתוח את הקובץ ולשמור כאיש קשר</p>
+
+    <!-- ✅ אודות -->
+    <h3 class="main-title">אודות</h3>
+    <div class="about-parallax-wrapper">
+     <div class="about-section">
+      <div data-field="aboutParagraphs"></div>
+
+      <div class="elementor-toggle-wrapper">
+       <div aria-controls="elementor-tab-content-generic1" aria-expanded="false" aria-selected="false" class="elementor-tab-title override-right" data-tab="generic1" role="button" tabindex="0">
+        <span aria-hidden="true" class="elementor-toggle-icon elementor-toggle-icon-right">
+         <span class="elementor-toggle-icon-closed"><i class="fas fa-caret-left"></i></span>
+         <span class="elementor-toggle-icon-opened"><i class="fas fa-caret-up"></i></span>
+        </span>
+        <a class="elementor-toggle-title" data-field="accordionTitle1">כותרת נפתחת 1</a>
+       </div>
+       <div class="elementor-tab-content" hidden id="elementor-tab-content-generic1">
+        <div class="accordion-text-block" data-field="accordionText1">
+         <p>מומלץ להכניס כאן טקסט אישי עבור כותרת זו.</p>
+        </div>
+       </div>
+      </div>
+
+      <div class="elementor-toggle-wrapper">
+       <div aria-controls="elementor-tab-content-generic2" aria-expanded="false" aria-selected="false" class="elementor-tab-title override-right" data-tab="generic2" role="button" tabindex="0">
+        <span aria-hidden="true" class="elementor-toggle-icon elementor-toggle-icon-right">
+         <span class="elementor-toggle-icon-closed"><i class="fas fa-caret-left"></i></span>
+         <span class="elementor-toggle-icon-opened"><i class="fas fa-caret-up"></i></span>
+        </span>
+        <a class="elementor-toggle-title" data-field="accordionTitle2">כותרת נפתחת 2</a>
+       </div>
+       <div class="elementor-tab-content" hidden id="elementor-tab-content-generic2">
+        <div class="accordion-text-block" data-field="accordionText2">
+         <p>מומלץ להכניס כאן טקסט אישי נוסף.</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+
+<div data-switch="video">
+  <p class="main-title video-title">⬇️ לסרטון תדמית</p>
+  <div class="video-wrapper">
+    <div class="video-container" data-field="videoSrc"></div>
+  </div>
+</div>
+
+
+
+    <!-- ✅ המלצות -->
+    <h3 class="main-title">המלצות</h3>
+    <div class="recommendations-section">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="elementor-testimonial">
+              <div class="testimonial-top">
+                <span class="elementor-testimonial__name" data-field="reviewName1">לקוח מרוצה</span>
+              </div>
+              <div class="testimonial-middle">
+                <div class="elementor-testimonial__text" data-field="reviewText1">
+                  השירות היה מקצועי, אדיב ומהיר. קיבלתי מענה מדויק לצרכים שלי, ואני ממליץ בחום לכל מי שמחפש יחס אישי ופתרונות אמיתיים.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- ✅ טופס יצירת קשר -->
+    <h3 class="main-title">השארת פרטים</h3>
+    <div class="contact-form">
+     <form onsubmit="sendToWhatsapp(event)">
+      <div class="input-row">
+       <input id="fullName" placeholder="שם מלא" required type="text"/>
+       <input id="phoneNumber" placeholder="מספר טלפון" required type="tel"/>
+      </div>
+      <textarea id="message" placeholder="הודעה חופשית"></textarea>
+      <button type="submit">שלח לוואטסאפ</button>
+     </form>
+    </div>
+
+    <!-- ✅ שיתוף -->
+    <!-- ✅ שיתוף -->
+<div class="share-buttons">
+  <a data-type="email" href="#"><img data-field="shareEmailIconSrc" src="#" alt="אימייל" /></a>
+  <a data-type="whatsapp" href="#"><img data-field="shareWhatsappIconSrc" src="#" alt="וואטסאפ" /></a>
+  <a data-type="linkedin" href="#"><img data-field="shareLinkedinIconSrc" src="#" alt="לינקדאין" /></a>
+  <a data-type="twitter" href="#"><img data-field="shareTwitterIconSrc" src="#" alt="טוויטר" /></a>
+  <a data-type="facebook" href="#"><img data-field="shareFacebookIconSrc" src="#" alt="פייסבוק" /></a>
+</div>
+</div>
+</div>
+</div>
+
+
+  <!-- ✅ קרדיט -->
+  <div class="credit">
+   <p>This business card was built by Clix</p>
+   <button class="cardly-btn">Clix</button>
+   <p>© כל הזכויות שמורות Clix</p>
+  </div>
+ </body>
+</html>
+
+
