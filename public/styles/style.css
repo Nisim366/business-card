@@ -671,6 +671,8 @@ body {
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: visible;
+  direction: rtl; /* חובה! */
+
 }
 .recommendations-section {
   display: flex;

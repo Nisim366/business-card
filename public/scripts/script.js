@@ -46,7 +46,6 @@ function initCard() {
 
   console.log("📦 cardData loaded:", window.cardData);
 
-  // מדמה window.load לאחר שהכל מוכן
   const event = new Event("load");
   window.dispatchEvent(event);
 }
@@ -60,116 +59,104 @@ window.addEventListener("pageshow", function () {
   }
 });
 
-// ✅ כל הלוגיקה שלך תישאר כאן (מריצה רק כשנשלח event של load)
 window.addEventListener("load", function () {
   console.log("✅ window.load");
 
   const data = window.cardData;
-  if (!data) {
-    console.error("❌ window.cardData לא מוגדר.");
-    return;
-  }
+  if (!data) return;
 
   // ✅ הסתרת פיצ'רים
-  const switches = document.querySelectorAll("[data-switch]");
-  switches.forEach(el => {
+  document.querySelectorAll("[data-switch]").forEach(el => {
     const key = el.dataset.switch;
-    const isEnabled = data.features?.[key];
-    console.log(`🔁 Feature "${key}":`, isEnabled);
-    if (isEnabled !== true) el.remove();
+    if (data.features?.[key] !== true) el.remove();
   });
 
-  // ✅ לוגיקת replaceAll
-const replaceAll = () => {
-  const data = window.cardData;
-  document.querySelectorAll("[data-field]").forEach(el => {
-    const field = el.dataset.field;
-    const value = data?.[field];
-    const tag = el.tagName;
+  // ✅ הזרקת כל שדות data-field
+  const replaceAll = () => {
+    document.querySelectorAll("[data-field]").forEach(el => {
+      const field = el.dataset.field;
+      const value = data?.[field];
+      const tag = el.tagName;
+      if (!value) return;
 
-    if (!value) return;
-
-    if (tag === "IMG") {
-      el.src = value;
-    }
-    else if (tag === "A") {
-      switch (field) {
-        case "phone":
-          el.href = `tel:${value}`; break;
-        case "email":
-          el.href = `mailto:${value}`; break;
-        case "whatsapp":
-          el.href = `https://wa.me/972${data.phoneDigits}`; break;
-        case "sms":
-          el.href = `sms:${data.phone}`; break;
-        case "addContact":
-          el.href = data.vcardLink || "#"; break;
-        case "facebookLink":
-          el.href = value; break;
-        default:
-          el.href = value;
+      if (tag === "IMG") el.src = value;
+      else if (tag === "A") {
+        switch (field) {
+          case "phone": el.href = `tel:${value}`; break;
+          case "email": el.href = `mailto:${value}`; break;
+          case "whatsapp": el.href = `https://wa.me/972${data.phoneDigits}`; break;
+          case "sms": el.href = `sms:${data.phone}`; break;
+          case "addContact": el.href = data.vcardLink || "#"; break;
+          case "facebookLink": el.href = value; break;
+          default: el.href = value;
+        }
+      } else {
+        el.innerHTML = value;
       }
-    }
-    else {
-      el.innerHTML = value;
-    }
+    });
+  };
 
-    console.log(`🔄 Injected [${field}] =>`, value);
-  });
-};
-
-  // ✅ הזרקות נתונים
-  // ✅ הזרקות נתונים
   document.title = data.pageTitle || "כרטיס ביקור דיגיטלי";
   document.body.dataset.whatsapp = data.phone;
   document.body.dataset.email = data.email;
-
-  // ✅ קריאה אחת לפונקציה הגנרית שמזריקה הכל
   replaceAll();
 
-  // ✅ המלצות
-  const recWrapper = document.querySelector('.swiper-wrapper');
-  if (recWrapper && data.recommendations?.length) {
-    recWrapper.innerHTML = data.recommendations.map(rec => `
-      <div class="swiper-slide">
-        <div class="elementor-testimonial">
-          <div class="testimonial-top">
-            <span class="elementor-testimonial__name">${rec.name}</span>
-          </div>
-          <div class="testimonial-middle">
-            <div class="elementor-testimonial__text">${rec.text}</div>
-          </div>
+const recWrapper = document.querySelector('.swiper-wrapper');
+const swiperEl = document.querySelector('.swiper');
+
+if (recWrapper && swiperEl) {
+  recWrapper.innerHTML = '';
+
+  const validRecommendations = (data.recommendations || [])
+    .filter(rec => rec?.name?.trim() && rec?.text?.trim())
+    .slice(0, 3);
+
+  if (validRecommendations.length === 0) {
+    swiperEl.remove();
+    return;
+  }
+
+  // הזרקת המלצות
+  recWrapper.innerHTML = validRecommendations.map(rec => `
+    <div class="swiper-slide">
+      <div class="elementor-testimonial">
+        <div class="testimonial-top">
+          <span class="elementor-testimonial__name">${rec.name}</span>
+        </div>
+        <div class="testimonial-middle">
+          <div class="elementor-testimonial__text">${rec.text}</div>
         </div>
       </div>
-    `).join('');
+    </div>
+  `).join('');
 
-setTimeout(() => {
-  const swiperEl = document.querySelector('.swiper');
-  const slideEls = swiperEl?.querySelectorAll('.swiper-slide') || [];
-  const total = slideEls.length;
-  const isMulti = total > 0;
+  // ✅ המתן ל־DOM לעדכן פיזית ואז בנה את Swiper
+  setTimeout(() => {
+    new Swiper(swiperEl, {
+      slidesPerView: 1,
+      loop: validRecommendations.length > 1,
+      spaceBetween: 20,
+      direction: 'horizontal',
+      rtl: true,
+      allowTouchMove: true,
+      simulateTouch: true,
+      grabCursor: true,
+      autoplay: validRecommendations.length > 1
+        ? { delay: 8000, disableOnInteraction: false }
+        : false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      watchSlidesProgress: true,
+      threshold: 30,
+      touchRatio: 1,
+      touchAngle: 45
+    });
+  }, 50); // ⬅️ דיליי קטן כדי לוודא שה־DOM עודכן
+}
 
-  new Swiper(swiperEl, {
-    slidesPerView: 1,
-    loop: isMulti,
-    spaceBetween: 20,
-    rtl: true,
-    allowTouchMove: isMulti,
-    autoplay: isMulti
-      ? { delay: 8000, disableOnInteraction: false }
-      : false,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true
-    },
-    simulateTouch: true,
-    grabCursor: isMulti,
-    watchSlidesProgress: true
-  });
-}, 0);
-
-
-  }
+  
 
   // ✅ טופס WhatsApp
   window.sendToWhatsapp = function(event) {
