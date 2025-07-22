@@ -6,6 +6,10 @@ console.log("📡 isLive:", isLive);
 (function injectAssets() {
   const assets = [
     { type: 'link', attr: 'href', path: '/styles/style.css' },
+    { type: 'link', attr: 'href', path: '/styles/swiper-bundle.min.css' },
+    { type: 'script', attr: 'src', path: '/data/data-client.js' },
+    { type: 'script', attr: 'src', path: '/scripts/swiper-bundle.min.js' },
+    { type: 'script', attr: 'src', path: isLive ? '/scripts/live-script.js' : '/scripts/dev-script.js' }
   ];
 
   assets.forEach(asset => {
@@ -17,6 +21,7 @@ console.log("📡 isLive:", isLive);
     console.log(`✅ Injected asset: ${asset.path}`);
   });
 })();
+
 
 // ✅ טעינה בטוחה לאחר שהכל נטען (כולל הסקריפטים)
 window.addEventListener("load", function () {

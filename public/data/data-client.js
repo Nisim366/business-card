@@ -73,6 +73,10 @@ window.cardData = {
     { name: "רוני", text: "הגישה שלך שינתה לנו את הבית." },
     { name: "אנונימי", text: "החוויה הייתה מדהימה. תודה רבה." }
   ]
+
 };
+console.log("📦 data-client.js loaded OK");
+
+
 
 // ⛔️ אין צורך לקרוא ל־renderCard() כאן
