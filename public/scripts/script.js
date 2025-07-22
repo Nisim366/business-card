@@ -143,18 +143,32 @@ const replaceAll = () => {
       </div>
     `).join('');
 
-    setTimeout(() => {
-      const slides = document.querySelectorAll('.swiper-slide');
-      if (slides.length > 1) {
-        new Swiper('.swiper', {
-          slidesPerView: 1,
-          loop: true,
-          spaceBetween: 20,
-          autoplay: { delay: 8000, disableOnInteraction: false },
-          pagination: { el: '.swiper-pagination', clickable: true }
-        });
-      }
-    }, 0);
+setTimeout(() => {
+  const swiperEl = document.querySelector('.swiper');
+  const slideEls = swiperEl?.querySelectorAll('.swiper-slide') || [];
+  const total = slideEls.length;
+  const isMulti = total > 0;
+
+  new Swiper(swiperEl, {
+    slidesPerView: 1,
+    loop: isMulti,
+    spaceBetween: 20,
+    rtl: true,
+    allowTouchMove: isMulti,
+    autoplay: isMulti
+      ? { delay: 8000, disableOnInteraction: false }
+      : false,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+    simulateTouch: true,
+    grabCursor: isMulti,
+    watchSlidesProgress: true
+  });
+}, 0);
+
+
   }
 
   // ✅ טופס WhatsApp
