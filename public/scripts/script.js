@@ -9,7 +9,6 @@ console.log("📡 isLive:", isLive);
     { type: 'link', attr: 'href', path: '/styles/swiper-bundle.min.css' },
     { type: 'script', attr: 'src', path: '/data/data-client.js' },
     { type: 'script', attr: 'src', path: '/scripts/swiper-bundle.min.js' },
-    { type: 'script', attr: 'src', path: isLive ? '/scripts/live-script.js' : '/scripts/dev-script.js' }
   ];
 
   assets.forEach(asset => {
