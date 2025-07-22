@@ -212,4 +212,22 @@ if (recWrapper && swiperEl) {
       window.open(shareUrl, '_blank');
     });
   });
+  // ✅ טעינת ווידאו דינמית
+const videoContainer = document.querySelector('[data-field="videoSrc"]');
+if (videoContainer && window.cardData.videoSrc) {
+  const videoElement = document.createElement("video");
+  videoElement.setAttribute("controls", "");
+  videoElement.setAttribute("playsinline", "");
+  videoElement.setAttribute("preload", "metadata");
+  videoElement.style.width = "100%";
+
+  const sourceElement = document.createElement("source");
+  sourceElement.src = window.cardData.videoSrc;
+  sourceElement.type = "video/mp4";
+
+  videoElement.appendChild(sourceElement);
+  videoElement.innerHTML += "הדפדפן שלך לא תומך בסרטון.";
+  videoContainer.appendChild(videoElement);
+}
+
 });

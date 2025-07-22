@@ -7,9 +7,9 @@ window.cardData = {
   phoneDigits: "0521234567",
   vcardLink: "./contact.vcf",
 
-  logoSrc: "/assets/images+videos+logo/logo-ortopok.png",
-  profileImage: "/assets/images+videos+logo/profile.jpg",
-  videoSrc: "/assets/images+videos+logo/mov_bbb.mp4",
+  logoSrc: "/assets/media/logo-ortopok.png",
+  profileImage: "/assets/media/profile.jpg",
+  videoSrc: "/assets/media/mov_bbb.mp4",
   facebookLink: "https://facebook.com/hila.page",
   phoneIconSrc: "/assets/contact_icons/green/phone.svg",
   whatsappIconSrc: "/assets/contact_icons/green/whatsapp.svg",

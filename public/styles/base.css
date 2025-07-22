@@ -478,11 +478,11 @@ body {
 /* ===== 10. עוטף וידאו - .video-wrapper ===== */
 .video-wrapper {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-bottom: 56.25%; /* יחס 16:9 */
   height: 0;
   overflow: hidden;
   max-width: 100%;
-  background: var(--color-black);
+  background: none; /* ביטול הרקע השחור */
   margin-top: var(--spacing-xl);
   border-radius: var(--radius-large);
 }
@@ -513,11 +513,14 @@ body {
   text-align: center;
 }
 .video-wrapper video {
-  object-fit: contain; /* מציג את כל הסרטון בלי לחתוך */
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  border-radius: var(--radius-large);
-  background-color: var(--color-black);
+  object-fit: contain; /* מציג את כל הסרטון בלי לחתוך */
+  border-radius: 0; /* לא נדרש כאן – נחתך ע"י ה-wrapper */
+  background: transparent;
 }
 
 
