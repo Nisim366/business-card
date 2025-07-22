@@ -9,24 +9,40 @@
   <!-- ✅ טעינת קבצים פנימיים לפי סביבה -->
   <script>
     (function injectAssets() {
-      const isLive = location.hostname.includes("clix-marketing.co.il");
+      // נחשב "production" כל עוד זה לא localhost (כולל Netlify, Render, דומיין חי וכו')
+      const isLive = !location.hostname.includes("localhost");
 
       const assets = [
-        { type: 'link', attr: 'href', dev: '../../styles/style.css', prod: '/styles/style.css' },
-        { type: 'script', attr: 'src', dev: '../../data/data-client.js', prod: '/data/data-client.js' },
-        { type: 'script', attr: 'src', dev: '../../scripts/script.js', prod: '/scripts/script.js' }
+        {
+          type: 'link',
+          attr: 'href',
+          dev: '../../styles/style.css',
+          prod: '/styles/style.css'
+        },
+        {
+          type: 'script',
+          attr: 'src',
+          dev: '../../data/data-client.js',
+          prod: '/data/data-client.js'
+        },
+        {
+          type: 'script',
+          attr: 'src',
+          dev: '../../scripts/script.js',
+          prod: '/scripts/script.js'
+        }
       ];
 
       assets.forEach(asset => {
-        const tag = document.createElement(asset.type);
-        tag[asset.attr] = isLive ? asset.prod : asset.dev;
-        if (asset.type === 'link') tag.rel = 'stylesheet';
-        document.head.appendChild(tag);
+        const el = document.createElement(asset.type);
+        el[asset.attr] = isLive ? asset.prod : asset.dev;
+        if (asset.type === 'link') el.rel = 'stylesheet';
+        document.head.appendChild(el);
       });
     })();
   </script>
 
-  <!-- ✅ קבצים חיצוניים (תמיד קבועים) -->
+  <!-- ✅ קבצים חיצוניים קבועים (SWIPER) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
