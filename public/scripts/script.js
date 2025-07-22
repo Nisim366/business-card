@@ -6,7 +6,6 @@ console.log("📡 isLive:", isLive);
 (function injectAssets() {
   const assets = [
     { type: 'link', attr: 'href', path: '/styles/style.css' },
-    { type: 'script', attr: 'src', path: '/data/data-client.js' }
   ];
 
   assets.forEach(asset => {
