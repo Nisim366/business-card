@@ -1,13 +1,13 @@
-const isLive = location.hostname.includes("clix-marketing.co.il");
+
+// ✅ זיהוי סביבת הפקה או רנדר
+const isLive = location.hostname.includes("clix-marketing.co.il") || location.hostname.includes("render.com");
 console.log("📡 isLive:", isLive);
 
-// ✅ תיקון: הגדרה והרצה מיידית של injectAssets
+// ✅ הגדרה והרצה מיידית של injectAssets
 (function injectAssets() {
-  const isLive = location.hostname.includes("clix-marketing.co.il");
-
   const assets = [
     { type: 'link', attr: 'href', path: '/styles/style.css' },
-    { type: 'script', attr: 'src', path: '/data-client.js' }
+    { type: 'script', attr: 'src', path: '/data/data-client.js' } // ✅ שרשור מלא
   ];
 
   assets.forEach(asset => {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("🟢 DOMContentLoaded");
 
   if (!window.cardData) {
-    console.error("❌ window.cardData לא הוגדר. ייתכן ש־/data-client.js לא נטען בזמן.");
+    console.error("❌ window.cardData לא הוגדר. ייתכן ש־/data/data-client.js לא נטען בזמן.");
     return;
   }
 
@@ -58,9 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     console.log("ℹ️ .mySwiper לא נמצא – Swiper לא הופעל.");
   }
-
-  // ✅ שאר הקוד – ללא שינוי
-  // המשך רגיל של sendToWhatsapp, אקורדיון, replaceAll, והזרקת נתונים...
 
   // ✅ לוג לבדיקה של כל הזרקה
   const replaceAll = (selector, value) => {
