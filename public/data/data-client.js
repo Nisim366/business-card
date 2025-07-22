@@ -1,5 +1,5 @@
-// ✅ זיהוי סביבה חכם
-const isLive = location.hostname.includes("clix-marketing.co.il");
+// ✅ זיהוי סביבה חכם - כל דבר שהוא לא localhost = נחשב production
+const isLive = !location.hostname.includes("localhost");
 const baseAssetsPath = isLive ? "/assets/" : "../../assets/";
 
 // ✅ הגדרת הנתונים הדינמיים
@@ -12,21 +12,20 @@ window.cardData = {
   phoneDigits: "0521234567",
   vcardLink: "./contact.vcf",
 
-logoSrc: baseAssetsPath + "images+videos+logo/logo-ortopok.png",
-profileImage: baseAssetsPath + "images+videos+logo/profile.jpg",
-videoSrc: baseAssetsPath + "images+videos+logo/mov_bbb.mp4",
+  logoSrc: baseAssetsPath + "images+videos+logo/logo-ortopok.png",
+  profileImage: baseAssetsPath + "images+videos+logo/profile.jpg",
+  videoSrc: baseAssetsPath + "images+videos+logo/mov_bbb.mp4",
 
   // קישורים
   facebookLink: "https://facebook.com/hila.page",
 
   // אייקונים ליצירת קשר
-phoneIconSrc: baseAssetsPath + "contact_icons/green/phone.svg",
-whatsappIconSrc: baseAssetsPath + "contact_icons/green/whatsapp.svg",
-emailIconSrc: baseAssetsPath + "contact_icons/green/email.svg",
-smsIconSrc: baseAssetsPath + "contact_icons/green/sms.svg",
-facebookIconSrc: baseAssetsPath + "contact_icons/green/facebook.svg",
-recommendationIconSrc: baseAssetsPath + "contact_icons/green/star.svg",
-
+  phoneIconSrc: baseAssetsPath + "contact_icons/green/phone.svg",
+  whatsappIconSrc: baseAssetsPath + "contact_icons/green/whatsapp.svg",
+  emailIconSrc: baseAssetsPath + "contact_icons/green/email.svg",
+  smsIconSrc: baseAssetsPath + "contact_icons/green/sms.svg",
+  facebookIconSrc: baseAssetsPath + "contact_icons/green/facebook.svg",
+  recommendationIconSrc: baseAssetsPath + "contact_icons/green/star.svg",
 
   // אייקונים לשיתוף
   shareEmailIconSrc: baseAssetsPath + "share_icons/blue/email.png",
@@ -57,12 +56,12 @@ recommendationIconSrc: baseAssetsPath + "contact_icons/green/star.svg",
   `,
 
   // אקורדיונים
-  accordionTitle1: "  ▼ הגישה שלי בטיפול הרגשי",
+  accordionTitle1: "▼ הגישה שלי בטיפול הרגשי",
   accordionText1: `
     <p>אני משלבת כלים מעולמות ה־CBT וה־NLP לצד הקשבה פעילה ורגישה.</p>
     <p>הטיפול מותאם אישית לכל אחד, מתוך אמונה ביכולת של כל אדם לחולל שינוי אמיתי כשהוא מקבל ליווי בגובה העיניים.</p>
   `,
-  accordionTitle2: " ▼ למי השירות מתאים?",
+  accordionTitle2: "▼ למי השירות מתאים?",
   accordionText2: `
     <p>הטיפול שלי מיועד להורים, ילדים, מתבגרים, נשים וגברים המתמודדים עם אתגר רגשי, לחץ נפשי או תקיעות רגשית.</p>
     <p>גם מי שמעוניין בהתפתחות אישית, חיזוק תקשורת זוגית או שיפור הורות – ימצא מקום מכיל, מדויק ומקדם.</p>
@@ -77,4 +76,3 @@ recommendationIconSrc: baseAssetsPath + "contact_icons/green/star.svg",
 };
 
 // ⛔️ אין צורך לקרוא ל־renderCard() כאן
-// הקריאה מבוצעת בתוך script-generic.js בזמן הנכון
