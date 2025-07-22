@@ -2,130 +2,132 @@
 const isLive = location.hostname.includes("clix-marketing.co.il") || location.hostname.includes("render.com");
 console.log("📡 isLive:", isLive);
 
-// ✅ הגדרה והרצה מיידית של injectAssets
+// ✅ הגדרה והרצה מיידית של injectAssets עם התחייבות שהסקריפטים ייטענו לפני המשך
 (function injectAssets() {
   const assets = [
     { type: 'link', attr: 'href', path: '/styles/style.css' },
-    { type: 'link', attr: 'href', path: '/styles/swiper-bundle.min.css' },
-    { type: 'script', attr: 'src', path: '/data/data-client.js' },
-    { type: 'script', attr: 'src', path: '/scripts/swiper-bundle.min.js' },
+    { type: 'script', attr: 'src', path: '/data/data-client.js' }
   ];
+
+  let pendingScripts = assets.filter(a => a.type === 'script').length;
 
   assets.forEach(asset => {
     const tag = document.createElement(asset.type);
     tag[asset.attr] = asset.path;
+
     if (asset.type === 'link') tag.rel = 'stylesheet';
-    if (asset.type === 'script') tag.defer = true;
+
+    if (asset.type === 'script') {
+      tag.onload = () => {
+        console.log(`📥 Loaded script: ${asset.path}`);
+        pendingScripts--;
+        if (pendingScripts === 0) {
+          console.log("📦 כל הסקריפטים נטענו – מריץ initCard()");
+          initCard();
+        }
+      };
+      tag.onerror = () => {
+        console.error(`❌ Failed to load ${asset.path}`);
+        pendingScripts--;
+      };
+    }
+
     document.head.appendChild(tag);
     console.log(`✅ Injected asset: ${asset.path}`);
   });
 })();
 
-
-// ✅ טעינה בטוחה לאחר שהכל נטען (כולל הסקריפטים)
-window.addEventListener("load", function () {
-  console.log("✅ window.load");
-
+// ✅ initCard – ירוץ רק כשה־cardData מוכן
+function initCard() {
   if (!window.cardData) {
-    console.error("❌ window.cardData לא הוגדר. ייתכן ש־/data/data-client.js לא נטען בזמן.");
+    console.error("❌ cardData לא הוגדר. בדוק את /data/data-client.js");
     return;
   }
 
   console.log("📦 cardData loaded:", window.cardData);
 
-  // ✅ הסתרת פיצ'רים לפי features (video, about וכו')
+  // מדמה window.load לאחר שהכל מוכן
+  const event = new Event("load");
+  window.dispatchEvent(event);
+}
+
+// ✅ טעינה גם כשחוזרים מהיסטוריה (back/forward)
+window.addEventListener("pageshow", function () {
+  if (window.cardData) {
+    console.log("🔁 Page show – מטעין מחדש את ה־DOM");
+    const event = new Event("load");
+    window.dispatchEvent(event);
+  }
+});
+
+// ✅ כל הלוגיקה שלך תישאר כאן (מריצה רק כשנשלח event של load)
+window.addEventListener("load", function () {
+  console.log("✅ window.load");
+
+  const data = window.cardData;
+  if (!data) {
+    console.error("❌ window.cardData לא מוגדר.");
+    return;
+  }
+
+  // ✅ הסתרת פיצ'רים
   const switches = document.querySelectorAll("[data-switch]");
   switches.forEach(el => {
     const key = el.dataset.switch;
-    const isEnabled = window.cardData?.features?.[key];
+    const isEnabled = data.features?.[key];
     console.log(`🔁 Feature "${key}":`, isEnabled);
     if (isEnabled !== true) el.remove();
   });
 
-  // ✅ הגדרת Swiper
-  if (document.querySelector('.mySwiper')) {
-    console.log("📱 Swiper מופעל על .mySwiper");
-    new Swiper('.mySwiper', {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      loop: true,
-      autoplay: {
-        delay: 8000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      }
-    });
-  } else {
-    console.log("ℹ️ .mySwiper לא נמצא – Swiper לא הופעל.");
-  }
-
-  // ✅ לוג לבדיקה של כל הזרקה
-  const replaceAll = (selector, value) => {
-    document.querySelectorAll(selector).forEach(el => {
-      const tag = el.tagName;
-      const isAnchor = tag === "A";
-      const field = el.dataset.field;
-
-      if (tag === "IMG") {
-        if (value) el.src = value;
-      }
-      else if (isAnchor && field === "phone") {
-        if (value) el.href = `tel:${value}`;
-        else el.removeAttribute("href");
-      }
-      else if (isAnchor && field === "email") {
-        if (value) el.href = `mailto:${value}`;
-        else el.removeAttribute("href");
-      }
-      else if (isAnchor && field === "whatsapp") {
-        if (window.cardData.phoneDigits) el.href = `https://wa.me/972${window.cardData.phoneDigits}`;
-        else el.removeAttribute("href");
-      }
-      else if (isAnchor && field === "sms") {
-        if (window.cardData.phone) el.href = `sms:${window.cardData.phone}`;
-        else el.removeAttribute("href");
-      }
-      else if (isAnchor && field === "addContact") {
-        if (window.cardData.vcardLink) el.href = window.cardData.vcardLink;
-        else el.removeAttribute("href");
-      }
-      else if (isAnchor && field === "facebookLink") {
-        if (value) el.href = value;
-        else el.removeAttribute("href");
-      }
-      else if (!el.querySelector('img')) {
-        el.innerHTML = value;
-      }
-
-      console.log(`🔄 Injected [${selector}]:`, value);
-    });
-  };
-
-  // ✅ הזרקת נתונים בפועל
+  // ✅ לוגיקת replaceAll
+const replaceAll = () => {
   const data = window.cardData;
+  document.querySelectorAll("[data-field]").forEach(el => {
+    const field = el.dataset.field;
+    const value = data?.[field];
+    const tag = el.tagName;
+
+    if (!value) return;
+
+    if (tag === "IMG") {
+      el.src = value;
+    }
+    else if (tag === "A") {
+      switch (field) {
+        case "phone":
+          el.href = `tel:${value}`; break;
+        case "email":
+          el.href = `mailto:${value}`; break;
+        case "whatsapp":
+          el.href = `https://wa.me/972${data.phoneDigits}`; break;
+        case "sms":
+          el.href = `sms:${data.phone}`; break;
+        case "addContact":
+          el.href = data.vcardLink || "#"; break;
+        case "facebookLink":
+          el.href = value; break;
+        default:
+          el.href = value;
+      }
+    }
+    else {
+      el.innerHTML = value;
+    }
+
+    console.log(`🔄 Injected [${field}] =>`, value);
+  });
+};
+
+  // ✅ הזרקות נתונים
+  // ✅ הזרקות נתונים
   document.title = data.pageTitle || "כרטיס ביקור דיגיטלי";
   document.body.dataset.whatsapp = data.phone;
   document.body.dataset.email = data.email;
 
-  replaceAll('[data-field="fullName"]', data.fullName);
-  replaceAll('[data-field="jobTitle"]', data.jobTitle);
-  replaceAll('[data-field="email"]', data.email);
-  replaceAll('[data-field="phone"]', data.phone);
-  replaceAll('[data-field="logoSrc"]', data.logoSrc);
-  replaceAll('[data-field="profileImage"]', data.profileImage);
-  replaceAll('[data-field="facebookLink"]', data.facebookLink);
-  replaceAll('[data-field="youtubeLink"]', `<iframe src="${data.youtubeLink}" frameborder="0" allowfullscreen></iframe>`);
-  replaceAll('[data-field="aboutParagraphs"]', data.aboutParagraphs);
-  replaceAll('[data-field="accordionTitle1"]', data.accordionTitle1);
-  replaceAll('[data-field="accordionText1"]', data.accordionText1);
-  replaceAll('[data-field="accordionTitle2"]', data.accordionTitle2);
-  replaceAll('[data-field="accordionText2"]', data.accordionText2);
-  replaceAll('[data-field="addContact"]', data.vcardLink || "#");
+  // ✅ קריאה אחת לפונקציה הגנרית שמזריקה הכל
+  replaceAll();
 
-  // ✅ המלצות – טעינת swiper דינמית
+  // ✅ המלצות
   const recWrapper = document.querySelector('.swiper-wrapper');
   if (recWrapper && data.recommendations?.length) {
     recWrapper.innerHTML = data.recommendations.map(rec => `
@@ -209,13 +211,4 @@ window.addEventListener("load", function () {
       window.open(shareUrl, '_blank');
     });
   });
-});
-
-// ✅ טעינה גם כשחוזרים מהיסטוריה (back/forward)
-window.addEventListener("pageshow", function () {
-  if (window.cardData) {
-    console.log("🔁 Page show – מטעין מחדש את ה־DOM");
-    const event = new Event("load");
-    window.dispatchEvent(event);
-  }
 });
