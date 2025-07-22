@@ -9,13 +9,14 @@ const isLive = location.hostname.includes("clix-marketing.co.il");
     { type: 'script', attr: 'src', path: '/data-client.js' }
   ];
 
-  assets.forEach(asset => {
-    const tag = document.createElement(asset.type);
-    tag[asset.attr] = asset.path;
-    if (asset.type === 'link') tag.rel = 'stylesheet';
-    document.head.appendChild(tag);
-  });
-})(); // 🟢 סוגר נכון את הפונקציה
+assets.forEach(asset => {
+  const tag = document.createElement(asset.type);
+  tag[asset.attr] = asset.path;
+  if (asset.type === 'link') tag.rel = 'stylesheet';
+  if (asset.type === 'script') tag.defer = true;
+  document.head.appendChild(tag);
+});
+})(); // ✅ זה מה שחסר לך
 
 
 

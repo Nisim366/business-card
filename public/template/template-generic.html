@@ -6,31 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-field="pageTitle">כרטיס ביקור דיגיטלי</title>
 
-  <!-- ✅ טעינת קבצים פנימיים לפי סביבה -->
-  <script>
-    (function injectAssets() {
-      const isLive = location.hostname.includes("clix-marketing.co.il");
+  <!-- ✅ טעינת style בלבד כאן – כל השאר ב־script.js -->
+  <link rel="stylesheet" href="/styles/style.css" />
 
-      const assets = [
-        { type: 'link', attr: 'href', dev: '../../styles/style.css', prod: '/styles/style.css' },
-        { type: 'script', attr: 'src', dev: '../../data/data-client.js', prod: '/data/data-client.js' },
-        { type: 'script', attr: 'src', dev: '../../scripts/script.js', prod: '/scripts/script.js' }
-      ];
-
-      assets.forEach(asset => {
-        const tag = document.createElement(asset.type);
-        tag[asset.attr] = isLive ? asset.prod : asset.dev;
-        if (asset.type === 'link') tag.rel = 'stylesheet';
-        document.head.appendChild(tag);
-      });
-    })();
-  </script>
-
-  <!-- ✅ קבצים חיצוניים (תמיד קבועים) -->
+  <!-- ✅ קבצים חיצוניים קבועים (SWIPER) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-</head>
 
+  <!-- ✅ טעינה דינמית (data + script) ב־script.js -->
+  <script src="/scripts/script.js" defer></script>
+</head>
 
 
  <body data-email="client@example.com" data-whatsapp="0500000000">
@@ -38,6 +23,8 @@
    <div class="top-section">
     <div class="header-top">
 <img class="logo-img" data-field="logoSrc" src="#" alt="לוגו" />
+
+<p>בדיקה</p>
 
           <hr class="gold-line"/>
         </div>
