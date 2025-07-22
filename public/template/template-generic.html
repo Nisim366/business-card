@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="he">
 <head>
@@ -6,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-field="pageTitle">כרטיס ביקור דיגיטלי</title>
 
-  <!-- ✅ טעינת style בלבד כאן – כל השאר ב־script.js -->
+  <!-- ✅ טעינת style בלבד -->
   <link rel="stylesheet" href="/styles/style.css" />
 
   <!-- ✅ קבצים חיצוניים קבועים (SWIPER) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-  <!-- ✅ טעינה דינמית (data + script) ב־script.js -->
+  <!-- ✅ טעינת נתונים לפני script הראשי -->
+  <script src="/data/data-client.js"></script>
   <script src="/scripts/script.js" defer></script>
 </head>
-
 
  <body data-email="client@example.com" data-whatsapp="0500000000">
   <div class="card">
