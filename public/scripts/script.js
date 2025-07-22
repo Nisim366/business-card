@@ -1,10 +1,12 @@
-// ✅ טעינת קבצים מה-HEAD לפי סביבה (Render או localhost)
+const isLive = location.hostname.includes("clix-marketing.co.il");
+
+// ✅ תיקון: הגדרה והרצה מיידית של injectAssets
 (function injectAssets() {
   const isLive = location.hostname.includes("clix-marketing.co.il");
 
   const assets = [
     { type: 'link', attr: 'href', path: '/styles/style.css' },
-    { type: 'script', attr: 'src', path: '/data/data-client.js' }
+    { type: 'script', attr: 'src', path: '/data-client.js' }
   ];
 
   assets.forEach(asset => {
@@ -13,7 +15,8 @@
     if (asset.type === 'link') tag.rel = 'stylesheet';
     document.head.appendChild(tag);
   });
-})();
+})(); // 🟢 סוגר נכון את הפונקציה
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
