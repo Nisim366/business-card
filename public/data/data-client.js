@@ -7,6 +7,7 @@ window.cardData = {
   phoneDigits: "0521234567",
   vcardLink: "./contact.vcf",
 
+
   logoSrc: "/assets/media/logo-ortopok.png",
   profileImage: "/assets/media/profile.jpg",
   videoSrc: "/assets/media/mov_bbb.mp4",
@@ -52,6 +53,8 @@ window.cardData = {
     <p>הטיפול שלי מיועד להורים, ילדים, מתבגרים, נשים וגברים המתמודדים עם אתגר רגשי, לחץ נפשי או תקיעות רגשית.</p>
     <p>גם מי שמעוניין בהתפתחות אישית, חיזוק תקשורת זוגית או שיפור הורות  ימצא מקום מכיל, מדויק ומקדם.</p>
   `,
+  recommendationsTitle: "המלצות",
+
 
   recommendations: [
     { name: "נועה", text: "הילה עזרה לי להבין את הילד שלי מחדש." },

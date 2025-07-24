@@ -77,7 +77,8 @@ window.addEventListener("load", function () {
       const field = el.dataset.field;
       const value = data?.[field];
       const tag = el.tagName;
-      if (!value) return;
+      if (value === undefined || value === null) return;
+
 
       if (tag === "IMG") el.src = value;
       else if (tag === "A") {
@@ -101,62 +102,44 @@ window.addEventListener("load", function () {
   document.body.dataset.email = data.email;
   replaceAll();
 
-const recWrapper = document.querySelector('.swiper-wrapper');
-const swiperEl = document.querySelector('.swiper');
+const swiperEl = document.querySelector('.recommendations-swiper');
+const recWrapper = document.getElementById('recommendationSlides');
+const recData = (data.recommendations || []).filter(rec => rec?.name && rec?.text);
 
-if (recWrapper && swiperEl) {
-  recWrapper.innerHTML = '';
-
-  const validRecommendations = (data.recommendations || [])
-    .filter(rec => rec?.name?.trim() && rec?.text?.trim())
-    .slice(0, 3);
-
-  if (validRecommendations.length === 0) {
-    swiperEl.remove();
-    return;
-  }
-
-  // הזרקת המלצות
-  recWrapper.innerHTML = validRecommendations.map(rec => `
+if (!swiperEl || recData.length === 0) {
+  swiperEl?.remove();
+} else {
+  recWrapper.innerHTML = recData.map(rec => `
     <div class="swiper-slide">
       <div class="elementor-testimonial">
         <div class="testimonial-top">
           <span class="elementor-testimonial__name">${rec.name}</span>
         </div>
         <div class="testimonial-middle">
-          <div class="elementor-testimonial__text">${rec.text}</div>
+          <div class="elementor-testimonial__content">
+            <span class="elementor-testimonial__text">${rec.text}</span>
+          </div>
         </div>
       </div>
     </div>
   `).join('');
 
-  // ✅ המתן ל־DOM לעדכן פיזית ואז בנה את Swiper
-  setTimeout(() => {
-    new Swiper(swiperEl, {
-      slidesPerView: 1,
-      loop: validRecommendations.length > 1,
-      spaceBetween: 20,
-      direction: 'horizontal',
-      rtl: true,
-      allowTouchMove: true,
-      simulateTouch: true,
-      grabCursor: true,
-      autoplay: validRecommendations.length > 1
-        ? { delay: 8000, disableOnInteraction: false }
-        : false,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
-      watchSlidesProgress: true,
-      threshold: 30,
-      touchRatio: 1,
-      touchAngle: 45
-    });
-  }, 50); // ⬅️ דיליי קטן כדי לוודא שה־DOM עודכן
+  new Swiper('.recommendations-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 16,
+    loop: recData.length > 2,
+    threshold: 10,
+    touchRatio: 1.2,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
 }
 
   
+
+
 
   // ✅ טופס WhatsApp
   window.sendToWhatsapp = function(event) {
