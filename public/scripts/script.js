@@ -213,21 +213,25 @@ if (recWrapper && swiperEl) {
     });
   });
   // ✅ טעינת ווידאו דינמית
+// ✅ טעינת ווידאו דינמית עם poster
 const videoContainer = document.querySelector('[data-field="videoSrc"]');
 if (videoContainer && window.cardData.videoSrc) {
   const videoElement = document.createElement("video");
   videoElement.setAttribute("controls", "");
   videoElement.setAttribute("playsinline", "");
   videoElement.setAttribute("preload", "metadata");
-  videoElement.style.width = "100%";
+  videoElement.setAttribute("poster", "/assets/images+videos+logo/video-poster.jpg");
+  videoElement.classList.add("video-element");
 
   const sourceElement = document.createElement("source");
   sourceElement.src = window.cardData.videoSrc;
   sourceElement.type = "video/mp4";
 
   videoElement.appendChild(sourceElement);
-  videoElement.innerHTML += "הדפדפן שלך לא תומך בסרטון.";
+  videoElement.innerHTML += "הדפדפן שלך אינו תומך בווידאו.";
+  videoContainer.innerHTML = "";
   videoContainer.appendChild(videoElement);
 }
+
 
 });
