@@ -11,6 +11,14 @@ window.cardData = {
   logoSrc: "/assets/media/logo-ortopok.png",
   profileImage: "/assets/media/profile.jpg",
   videoSrc: "/assets/media/mov_bbb.mp4",
+imageGallerySrc: [
+  "/assets/media/IMG_1566.jpg",
+  "/assets/media/IMG_1580.jpg",
+  "/assets/media/IMG_1590.png",
+  "/assets/media/IMG_1593.png",
+  "/assets/media/IMG_1597.png"
+],
+
   facebookLink: "https://facebook.com/hila.page",
   phoneIconSrc: "/assets/contact_icons/green/phone.svg",
   whatsappIconSrc: "/assets/contact_icons/green/whatsapp.svg",
@@ -24,11 +32,15 @@ window.cardData = {
   shareTwitterIconSrc: "/assets/share_icons/blue/twitter.png",
   shareFacebookIconSrc: "/assets/share_icons/blue/facebook.png",
 
-  features: {
-    video: true,
-    about: true,
-    recommendations: true
-  },
+features: {
+  video: false,       // וידאו לא מוצג
+  image: false,       // תמונה בודדת לא מוצגת
+  imageGallery: true, // גלריית תמונות מופעלת
+  about: true,
+  recommendations: true
+},
+
+
 
   aboutParagraphs: `
     <p><strong>בדיקת שינוי אודות</strong></p>
@@ -54,6 +66,8 @@ window.cardData = {
     <p>גם מי שמעוניין בהתפתחות אישית, חיזוק תקשורת זוגית או שיפור הורות  ימצא מקום מכיל, מדויק ומקדם.</p>
   `,
   recommendationsTitle: "המלצות",
+  mediaTitle: "גלריית תמונות",
+
 
 
   recommendations: [

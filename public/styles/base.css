@@ -771,5 +771,53 @@ body {
   padding: 12px;
   text-align: right;
 }
+/* ===== גלריית תמונות - עיצוב בסיסי ===== */
+.image-gallery-wrapper {
+  margin-top: var(--spacing-xl);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-medium);
+  overflow: hidden;
+  max-width: 100%;
+  background-color: var(--color-white);
+}
+
+.image-gallery-container {
+  position: relative;
+}
+
+.image-gallery-container img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-large);
+  display: block;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--color-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: rgba(0,0,0,0.35);
+}
+
+.swiper-pagination-bullet {
+  background: var(--color-primary);
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+
 
 }

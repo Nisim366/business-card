@@ -72,30 +72,37 @@ window.addEventListener("load", function () {
   });
 
   // ✅ הזרקת כל שדות data-field
-  const replaceAll = () => {
-    document.querySelectorAll("[data-field]").forEach(el => {
-      const field = el.dataset.field;
-      const value = data?.[field];
-      const tag = el.tagName;
-      if (value === undefined || value === null) return;
+const replaceAll = () => {
+  document.querySelectorAll("[data-field]").forEach(el => {
+    const field = el.dataset.field;
+    let value = data?.[field];
 
+    // טיפול בברירת מחדל ל-mediaTitle
+    if (field === "mediaTitle" && (!value || value.trim() === "")) {
+      value = "גלריית תמונות";
+    }
 
-      if (tag === "IMG") el.src = value;
-      else if (tag === "A") {
-        switch (field) {
-          case "phone": el.href = `tel:${value}`; break;
-          case "email": el.href = `mailto:${value}`; break;
-          case "whatsapp": el.href = `https://wa.me/972${data.phoneDigits}`; break;
-          case "sms": el.href = `sms:${data.phone}`; break;
-          case "addContact": el.href = data.vcardLink || "#"; break;
-          case "facebookLink": el.href = value; break;
-          default: el.href = value;
-        }
-      } else {
-        el.innerHTML = value;
+    if (value === undefined || value === null) return;
+
+    const tag = el.tagName;
+    if (tag === "IMG") el.src = value;
+    else if (tag === "A") {
+      switch (field) {
+        case "phone": el.href = `tel:${value}`; break;
+        case "email": el.href = `mailto:${value}`; break;
+        case "whatsapp": el.href = `https://wa.me/972${data.phoneDigits}`; break;
+        case "sms": el.href = `sms:${data.phone}`; break;
+        case "addContact": el.href = data.vcardLink || "#"; break;
+        case "facebookLink": el.href = value; break;
+        default: el.href = value;
       }
-    });
-  };
+    } else {
+      el.innerHTML = value;
+    }
+  });
+};
+
+
 
   document.title = data.pageTitle || "כרטיס ביקור דיגיטלי";
   document.body.dataset.whatsapp = data.phone;
@@ -216,5 +223,69 @@ if (videoContainer && window.cardData.videoSrc) {
   videoContainer.appendChild(videoElement);
 }
 
+const galleryContainer = document.querySelector('[data-switch="imageGallery"]');
+const gallerySlidesContainer = document.getElementById('imageGallerySlides');
+const features = window.cardData?.features || {};
+const videoSection = document.querySelector('[data-switch="video"]');
+// ניהול הצגה והסתרה של וידאו וגלריית תמונות בהתאם לפיצ׳רים
+if (features.video && videoSection) {
+  videoSection.style.display = "block";
+} else if (videoSection) {
+  videoSection.style.display = "none";
+}
+
+if (galleryContainer) {
+  if (features.imageGallery && Array.isArray(window.cardData.imageGallerySrc)) {
+    // אם הגלריה מופעלת - הסתר את הוידאו
+    if (videoSection) videoSection.style.display = "none";
+
+    const images = window.cardData.imageGallerySrc;
+
+    gallerySlidesContainer.innerHTML = images.map((src, index) => `
+      <div class="swiper-slide">
+        <img 
+          src="${src}" 
+          alt="תמונה מספר ${index + 1} בגלריית התמונות" 
+          style="width:100%; height:auto; border-radius: var(--radius-large);" 
+          tabindex="0"
+        />
+      </div>
+    `).join('');
+
+    galleryContainer.style.display = 'block';
+
+    new Swiper('.image-gallery-container', {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      loop: images.length > 1,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      on: {
+        init(swiper) {
+          const nextBtn = swiper.navigation.nextEl;
+          const prevBtn = swiper.navigation.prevEl;
+          if (nextBtn) {
+            nextBtn.setAttribute('tabindex', '0');
+            nextBtn.setAttribute('aria-label', 'הבא');
+          }
+          if (prevBtn) {
+            prevBtn.setAttribute('tabindex', '0');
+            prevBtn.setAttribute('aria-label', 'הקודם');
+          }
+        }
+      }
+    });
+
+  } else {
+    galleryContainer.style.display = 'none';
+    gallerySlidesContainer.innerHTML = '';
+  }
+}
 
 });
