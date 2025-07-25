@@ -105,7 +105,14 @@ body {
   overflow-y: auto;
 }
 
-/* ===== 3. רכיב .card - בסיסי ווריאציות ===== */
+/* ✅ אופטימיזציה כללית לתמונות - מניעת layout shift וטעינות מיותרות */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== 3. רכיב .card - בסיסי ווريאציות ===== */
 .card {
   background-color: var(--color-white);
   border-radius: var(--radius-large);
@@ -607,9 +614,14 @@ body {
 
 /* ===== 13. כפתורי שיתוף - .share-buttons ===== */
 .share-buttons {
+  display: flex; /* ✅ עובר לתצוגה אופקית */
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-medium);
   margin: var(--spacing-xl) 0;
-  text-align: center;
 }
+
 
 .share-buttons .btn {
   margin: var(--spacing-small);
@@ -771,7 +783,7 @@ body {
   padding: 12px;
   text-align: right;
 }
-/* ===== גלריית תמונות - עיצוב בסיסי ===== */
+/* ===== גלריית תמונות - עיצוב בסיסי (עם אופטימיזציה) ===== */
 .image-gallery-wrapper {
   margin-top: var(--spacing-xl);
   border-radius: var(--radius-large);
@@ -779,34 +791,80 @@ body {
   overflow: hidden;
   max-width: 100%;
   background-color: var(--color-white);
+  /* ✅ מניעת layout shift בזמן טעינה */
+  min-height: 200px;
 }
 
 .image-gallery-container {
   position: relative;
+  /* ✅ גובה מינימלי למניעת קפיצות */
+  min-height: 200px;
 }
 
 .image-gallery-container img {
   width: 100%;
   height: auto;
+  /* ✅ הגבלת גודל מקסימלי למניעת תמונות ענקיות */
+  max-height: 400px;
   object-fit: contain;
   border-radius: var(--radius-large);
   display: block;
 }
 
+/* ===== עיצוב כפתורי ניווט של Swiper - גלריית תמונות ===== */
+
 .swiper-button-prev,
 .swiper-button-next {
-  color: var(--color-primary);
+  position: absolute;
+  top: 50%;
   width: 40px;
   height: 40px;
+  margin-top: -20px;
+  z-index: 10;
+  cursor: pointer;
   border-radius: 50%;
-  background-color: rgba(0,0,0,0.15);
+  background-color: rgba(0, 0, 0, 0.15);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: background-color 0.3s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+.swiper-button-next {
+  right: 10px;
 }
 
 .swiper-button-prev:hover,
-.swiper-button-next:hover {
-  background-color: rgba(0,0,0,0.35);
+.swiper-button-next:hover,
+.swiper-button-prev:focus,
+.swiper-button-next:focus {
+  background-color: rgba(0, 0, 0, 0.35);
+  outline: none;
 }
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+/* נגישות - מראה פוקוס ברור */
+.swiper-button-prev:focus,
+.swiper-button-next:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 
 .swiper-pagination-bullet {
   background: var(--color-primary);
@@ -818,6 +876,11 @@ body {
   opacity: 1;
 }
 
-
+/* ✅ אופטימיזציה למובייל - הגבלת גודל תמונות */
+@media (max-width: 480px) {
+  .image-gallery-container img {
+    max-height: 300px; /* קטן יותר במובייל */
+  }
+}
 
 }

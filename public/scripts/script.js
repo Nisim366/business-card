@@ -1,3 +1,7 @@
+let gallerySwiper = null;
+let recommendationsSwiper = null;
+let isInitialized = false; // ← דגל למניעת טעינה כפולה
+
 // ✅ זיהוי סביבת הפקה או רנדר
 const isLive = location.hostname.includes("clix-marketing.co.il") || location.hostname.includes("render.com");
 console.log("📡 isLive:", isLive);
@@ -50,20 +54,40 @@ function initCard() {
   window.dispatchEvent(event);
 }
 
-// ✅ טעינה גם כשחוזרים מהיסטוריה (back/forward)
-window.addEventListener("pageshow", function () {
-  if (window.cardData) {
+// ✅ טעינה גם כשחוזרים מהיסטוריה (back/forward) - אבל רק אם עדיין לא הותחל
+window.addEventListener("pageshow", function (event) {
+  if (window.cardData && !isInitialized) {
     console.log("🔁 Page show – מטעין מחדש את ה־DOM");
-    const event = new Event("load");
-    window.dispatchEvent(event);
+    const loadEvent = new Event("load");
+    window.dispatchEvent(loadEvent);
   }
 });
 
 window.addEventListener("load", function () {
+  // מניעת טעינה כפולה
+  if (isInitialized) {
+    console.log("⚠️ כבר הותחל - מדלג על טעינה חוזרת");
+    return;
+  }
+
   console.log("✅ window.load");
 
   const data = window.cardData;
-  if (!data) return;
+  if (!data) {
+    console.error("❌ window.cardData לא קיים!");
+    return;
+  }
+
+  isInitialized = true; // ← סימון שכבר הותחל
+
+  // 🔍 דיבוג מפורט של נתוני גלריה
+  console.log("🔍 DEBUG: בדיקת נתוני גלריה");
+  console.log("📦 cardData:", window.cardData);
+  console.log("🎛️ imageGallery feature:", window.cardData?.features?.imageGallery);
+  console.log("🖼️ imageGallerySrc:", window.cardData?.imageGallerySrc);
+  console.log("📁 imageGallerySrc length:", window.cardData?.imageGallerySrc?.length);
+  console.log("🎯 galleryContainer element:", document.querySelector('[data-switch="imageGallery"]'));
+  console.log("📋 gallerySlidesContainer element:", document.getElementById('imageGallerySlides'));
 
   // ✅ הסתרת פיצ'רים
   document.querySelectorAll("[data-switch]").forEach(el => {
@@ -71,82 +95,77 @@ window.addEventListener("load", function () {
     if (data.features?.[key] !== true) el.remove();
   });
 
-  // ✅ הזרקת כל שדות data-field
-const replaceAll = () => {
-  document.querySelectorAll("[data-field]").forEach(el => {
-    const field = el.dataset.field;
-    let value = data?.[field];
+  // ✅ הזרקת כל שדות data-field (רק פעם אחת)
+  const replaceAll = () => {
+    document.querySelectorAll("[data-field]").forEach(el => {
+      const field = el.dataset.field;
+      let value = data?.[field];
 
-    // טיפול בברירת מחדל ל-mediaTitle
-    if (field === "mediaTitle" && (!value || value.trim() === "")) {
-      value = "גלריית תמונות";
-    }
-
-    if (value === undefined || value === null) return;
-
-    const tag = el.tagName;
-    if (tag === "IMG") el.src = value;
-    else if (tag === "A") {
-      switch (field) {
-        case "phone": el.href = `tel:${value}`; break;
-        case "email": el.href = `mailto:${value}`; break;
-        case "whatsapp": el.href = `https://wa.me/972${data.phoneDigits}`; break;
-        case "sms": el.href = `sms:${data.phone}`; break;
-        case "addContact": el.href = data.vcardLink || "#"; break;
-        case "facebookLink": el.href = value; break;
-        default: el.href = value;
+      // טיפול בברירת מחדל ל-mediaTitle
+      if (field === "mediaTitle" && (!value || value.trim() === "")) {
+        value = "גלריית תמונות";
       }
-    } else {
-      el.innerHTML = value;
-    }
-  });
-};
 
+      if (value === undefined || value === null) return;
 
+      const tag = el.tagName;
+      if (tag === "IMG") el.src = value;
+      else if (tag === "A") {
+        switch (field) {
+          case "phone": el.href = `tel:${value}`; break;
+          case "email": el.href = `mailto:${value}`; break;
+          case "whatsapp": el.href = `https://wa.me/972${data.phoneDigits}`; break;
+          case "sms": el.href = `sms:${data.phone}`; break;
+          case "addContact": el.href = data.vcardLink || "#"; break;
+          case "facebookLink": el.href = value; break;
+          default: el.href = value;
+        }
+      } else {
+        el.innerHTML = value;
+      }
+    });
+  };
 
   document.title = data.pageTitle || "כרטיס ביקור דיגיטלי";
   document.body.dataset.whatsapp = data.phone;
   document.body.dataset.email = data.email;
-  replaceAll();
+  replaceAll(); // רק פעם אחת
 
-const swiperEl = document.querySelector('.recommendations-swiper');
-const recWrapper = document.getElementById('recommendationSlides');
-const recData = (data.recommendations || []).filter(rec => rec?.name && rec?.text);
+  // המלצות
+  const swiperEl = document.querySelector('.recommendations-swiper');
+  const recWrapper = document.getElementById('recommendationSlides');
+  const recData = (data.recommendations || []).filter(rec => rec?.name && rec?.text);
 
-if (!swiperEl || recData.length === 0) {
-  swiperEl?.remove();
-} else {
-  recWrapper.innerHTML = recData.map(rec => `
-    <div class="swiper-slide">
-      <div class="elementor-testimonial">
-        <div class="testimonial-top">
-          <span class="elementor-testimonial__name">${rec.name}</span>
-        </div>
-        <div class="testimonial-middle">
-          <div class="elementor-testimonial__content">
-            <span class="elementor-testimonial__text">${rec.text}</span>
+  if (!swiperEl || recData.length === 0) {
+    swiperEl?.remove();
+  } else {
+    recWrapper.innerHTML = recData.map(rec => `
+      <div class="swiper-slide">
+        <div class="elementor-testimonial">
+          <div class="testimonial-top">
+            <span class="elementor-testimonial__name">${rec.name}</span>
+          </div>
+          <div class="testimonial-middle">
+            <div class="elementor-testimonial__content">
+              <span class="elementor-testimonial__text">${rec.text}</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  `).join('');
+    `).join('');
 
-  new Swiper('.recommendations-swiper', {
-    slidesPerView: 1,
-    spaceBetween: 16,
-    loop: recData.length > 2,
-    threshold: 10,
-    touchRatio: 1.2,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-  });
-}
-
-  
-
-
+    recommendationsSwiper = new Swiper('.recommendations-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      loop: recData.length > 2,
+      threshold: 10,
+      touchRatio: 1.2,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  }
 
   // ✅ טופס WhatsApp
   window.sendToWhatsapp = function(event) {
@@ -202,90 +221,138 @@ if (!swiperEl || recData.length === 0) {
       window.open(shareUrl, '_blank');
     });
   });
+
   // ✅ טעינת ווידאו דינמית
-// ✅ טעינת ווידאו דינמית עם poster
-const videoContainer = document.querySelector('[data-field="videoSrc"]');
-if (videoContainer && window.cardData.videoSrc) {
-  const videoElement = document.createElement("video");
-  videoElement.setAttribute("controls", "");
-  videoElement.setAttribute("playsinline", "");
-  videoElement.setAttribute("preload", "metadata");
-  videoElement.setAttribute("poster", "/assets/images+videos+logo/video-poster.jpg");
-  videoElement.classList.add("video-element");
+  const videoContainer = document.querySelector('[data-field="videoSrc"]');
+  if (videoContainer && window.cardData.videoSrc) {
+    const videoElement = document.createElement("video");
+    videoElement.setAttribute("controls", "");
+    videoElement.setAttribute("playsinline", "");
+    videoElement.setAttribute("preload", "metadata");
+    videoElement.setAttribute("poster", "/assets/images+videos+logo/video-poster.jpg");
+    videoElement.classList.add("video-element");
 
-  const sourceElement = document.createElement("source");
-  sourceElement.src = window.cardData.videoSrc;
-  sourceElement.type = "video/mp4";
+    const sourceElement = document.createElement("source");
+    sourceElement.src = window.cardData.videoSrc;
+    sourceElement.type = "video/mp4";
 
-  videoElement.appendChild(sourceElement);
-  videoElement.innerHTML += "הדפדפן שלך אינו תומך בווידאו.";
-  videoContainer.innerHTML = "";
-  videoContainer.appendChild(videoElement);
-}
+    videoElement.appendChild(sourceElement);
+    videoElement.innerHTML += "הדפדפן שלך אינו תומך בווידאו.";
+    videoContainer.innerHTML = "";
+    videoContainer.appendChild(videoElement);
+  }
 
-const galleryContainer = document.querySelector('[data-switch="imageGallery"]');
-const gallerySlidesContainer = document.getElementById('imageGallerySlides');
-const features = window.cardData?.features || {};
-const videoSection = document.querySelector('[data-switch="video"]');
-// ניהול הצגה והסתרה של וידאו וגלריית תמונות בהתאם לפיצ׳רים
-if (features.video && videoSection) {
-  videoSection.style.display = "block";
-} else if (videoSection) {
-  videoSection.style.display = "none";
-}
+  // ✅ ניהול פשוט וברור של וידאו וגלריית תמונות
+  const galleryContainer = document.querySelector('[data-switch="imageGallery"]');
+  const gallerySlidesContainer = document.getElementById('imageGallerySlides');
+  const videoSection = document.querySelector('[data-switch="video"]');
 
-if (galleryContainer) {
-  if (features.imageGallery && Array.isArray(window.cardData.imageGallerySrc)) {
-    // אם הגלריה מופעלת - הסתר את הוידאו
-    if (videoSection) videoSection.style.display = "none";
+  console.log("🎬 videoSection found:", !!videoSection);
+  console.log("🖼️ galleryContainer found:", !!galleryContainer);
+  console.log("📋 gallerySlidesContainer found:", !!gallerySlidesContainer);
 
-    const images = window.cardData.imageGallerySrc;
+  // הסתר וידאו (כי features.video = false)
+  if (videoSection) {
+    videoSection.style.display = "none";
+    console.log("🚫 וידאו הוסתר");
+  }
 
-    gallerySlidesContainer.innerHTML = images.map((src, index) => `
-      <div class="swiper-slide">
-        <img 
-          src="${src}" 
-          alt="תמונה מספר ${index + 1} בגלריית התמונות" 
-          style="width:100%; height:auto; border-radius: var(--radius-large);" 
-          tabindex="0"
-        />
-      </div>
-    `).join('');
+  // הצג רק גלריית תמונות (כי features.imageGallery = true)
+  if (galleryContainer) {
+    console.log("🎯 מעבד גלריית תמונות...");
+    console.log("✅ features.imageGallery:", data.features.imageGallery);
+    console.log("✅ imageGallerySrc is array:", Array.isArray(window.cardData.imageGallerySrc));
+    console.log("✅ imageGallerySrc length > 0:", window.cardData.imageGallerySrc?.length > 0);
+    
+    if (data.features.imageGallery && Array.isArray(window.cardData.imageGallerySrc) && window.cardData.imageGallerySrc.length > 0) {
+      console.log("🚀 יוצר גלריית תמונות...");
+      const images = window.cardData.imageGallerySrc;
 
-    galleryContainer.style.display = 'block';
+      // ✅ הסרת בדיקת טעינה מיותרת - Swiper יטען את התמונות
+      console.log("📝 יוצר HTML עבור גלריה (ללא בדיקה מוקדמת)...");
 
-    new Swiper('.image-gallery-container', {
-      slidesPerView: 1,
-      spaceBetween: 16,
-      loop: images.length > 1,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      on: {
-        init(swiper) {
-          const nextBtn = swiper.navigation.nextEl;
-          const prevBtn = swiper.navigation.prevEl;
-          if (nextBtn) {
-            nextBtn.setAttribute('tabindex', '0');
-            nextBtn.setAttribute('aria-label', 'הבא');
-          }
-          if (prevBtn) {
-            prevBtn.setAttribute('tabindex', '0');
-            prevBtn.setAttribute('aria-label', 'הקודם');
+      const slidesHTML = images.map((src, index) => `
+        <div class="swiper-slide">
+          <img
+            src="${src}"
+            alt="תמונה מספר ${index + 1} בגלריית התמונות"
+            style="width:100%; height:auto; border-radius: var(--radius-large);"
+            tabindex="0"
+            loading="lazy"
+          />
+        </div>
+      `).join('');
+
+      console.log("📝 HTML שנוצר עבור סלייד");
+      gallerySlidesContainer.innerHTML = slidesHTML;
+
+      galleryContainer.style.display = 'block';
+      console.log("👁️ galleryContainer הוצג");
+
+      if (gallerySwiper !== null) {
+        console.log("🗑️ הורס Swiper קיים...");
+        gallerySwiper.destroy(true, true);
+        gallerySwiper = null;
+      }
+
+      console.log("🎠 יוצר Swiper חדש...");
+      gallerySwiper = new Swiper('.image-gallery-container', {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        loop: images.length > 1,
+        simulateTouch: true,
+        allowTouchMove: true,
+        preloadImages: false, // ← מונע טעינה מוקדמת
+        lazy: true, // ← טעינה lazy
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        on: {
+          init(swiper) {
+            console.log("🎉 Swiper הותחל בהצלחה!");
+            console.log("📊 מספר סליידים:", swiper.slides.length);
+            const nextBtn = swiper.navigation.nextEl;
+            const prevBtn = swiper.navigation.prevEl;
+            if (nextBtn) {
+              nextBtn.setAttribute('tabindex', '0');
+              nextBtn.setAttribute('aria-label', 'הבא');
+              console.log("➡️ כפתור הבא הוגדר");
+            }
+            if (prevBtn) {
+              prevBtn.setAttribute('tabindex', '0');
+              prevBtn.setAttribute('aria-label', 'הקודם');
+              console.log("⬅️ כפתור הקודם הוגדר");
+            }
+          },
+          slideChange(swiper) {
+            console.log('🔄 שקף פעיל השתנה ל:', swiper.activeIndex);
           }
         }
+      });
+
+      console.log("✅ Swiper נוצר:", !!gallerySwiper);
+
+    } else {
+      console.log("❌ תנאים לא מתקיימים לגלריה:");
+      console.log("   - features.imageGallery:", data.features.imageGallery);
+      console.log("   - is Array:", Array.isArray(window.cardData.imageGallerySrc));
+      console.log("   - length > 0:", window.cardData.imageGallerySrc?.length > 0);
+      
+      // אם אין תמונות או הפיצ'ר לא מופעל - הסתר גלריה
+      galleryContainer.style.display = 'none';
+      gallerySlidesContainer.innerHTML = '';
+      if (gallerySwiper !== null) {
+        gallerySwiper.destroy(true, true);
+        gallerySwiper = null;
       }
-    });
-
+      console.log("🚫 גלריה הוסתרה");
+    }
   } else {
-    galleryContainer.style.display = 'none';
-    gallerySlidesContainer.innerHTML = '';
+    console.error("❌ galleryContainer לא נמצא ב-DOM!");
   }
-}
-
 });
