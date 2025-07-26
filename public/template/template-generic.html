@@ -133,13 +133,34 @@
     </div>
 
 
-
+<!-- ✅ סרטון תדמית -->
 <div data-switch="video">
   <p class="main-title video-title">⬇️ לסרטון תדמית</p>
   <div class="video-wrapper">
     <div class="video-container" data-field="videoSrc"></div>
   </div>
 </div>
+
+<!-- ✅ תצוגת תמונות במסך מלא -->
+<div id="fullscreenOverlay" class="fullscreen-overlay" style="display: none">
+  <span class="close-btn" onclick="closeFullscreenImageGallery()">×</span>
+  <div class="swiper fullscreen-swiper">
+    <div class="swiper-wrapper"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<!-- ✅ גלריית תמונות – מוצגת מה־data -->
+<div data-switch="imageGallery">
+  <div class="image-gallery-frame">
+    <div class="image-preview-wrapper" id="staticGallery"></div>
+  </div>
+</div>
+
+
+
+
+
 
 
 
