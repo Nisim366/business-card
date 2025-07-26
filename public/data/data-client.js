@@ -33,24 +33,16 @@ imageGallerySrc: [
   shareTwitterIconSrc: "/assets/share_icons/blue/twitter.png",
   shareFacebookIconSrc: "/assets/share_icons/blue/facebook.png",
 
-<<<<<<< HEAD
-features: {
-  video: false,       // וידאו לא מוצג
-  image: false,       // תמונה בודדת לא מוצגת
-  imageGallery: true, // גלריית תמונות מופעלת
-  about: true,
-  recommendations: true
-},
 
 
-=======
+
+
   features: {
     video: true,
     imageGallery: false,
     about: true,
     recommendations: true
   },
->>>>>>> base
 
  galleryImages: [
   { src: "/assets/media/IM0.jpg", text: "תמונה 1" },
@@ -85,13 +77,7 @@ features: {
   `,
 
   recommendationsTitle: "המלצות",
-<<<<<<< HEAD
-  mediaTitle: "גלריית תמונות",
 
-
-
-=======
->>>>>>> base
   recommendations: [
     { name: "נועה", text: "הילה עזרה לי להבין את הילד שלי מחדש." },
     { name: "רוני", text: "הגישה שלך שינתה לנו את הבית." },

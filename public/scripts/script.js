@@ -64,7 +64,6 @@ window.addEventListener("pageshow", function (event) {
 });
 
 window.addEventListener("load", function () {
-  // מניעת טעינה כפולה
   if (isInitialized) {
     console.log("⚠️ כבר הותחל - מדלג על טעינה חוזרת");
     return;
@@ -78,40 +77,22 @@ window.addEventListener("load", function () {
     return;
   }
 
-  isInitialized = true; // ← סימון שכבר הותחל
+  isInitialized = true;
 
-  // 🔍 דיבוג מפורט של נתוני גלריה
-  console.log("🔍 DEBUG: בדיקת נתוני גלריה");
-  console.log("📦 cardData:", window.cardData);
-  console.log("🎛️ imageGallery feature:", window.cardData?.features?.imageGallery);
-  console.log("🖼️ imageGallerySrc:", window.cardData?.imageGallerySrc);
-  console.log("📁 imageGallerySrc length:", window.cardData?.imageGallerySrc?.length);
-  console.log("🎯 galleryContainer element:", document.querySelector('[data-switch="imageGallery"]'));
-  console.log("📋 gallerySlidesContainer element:", document.getElementById('imageGallerySlides'));
-
-  // ✅ הסתרת פיצ'רים
   document.querySelectorAll("[data-switch]").forEach(el => {
     const key = el.dataset.switch;
     if (data.features?.[key] !== true) el.remove();
   });
 
-  // ✅ הזרקת כל שדות data-field (רק פעם אחת)
   const replaceAll = () => {
     document.querySelectorAll("[data-field]").forEach(el => {
       const field = el.dataset.field;
       let value = data?.[field];
-
-      // טיפול בברירת מחדל ל-mediaTitle
       if (field === "mediaTitle" && (!value || value.trim() === "")) {
         value = "גלריית תמונות";
       }
-
       if (value === undefined || value === null) return;
-
-<<<<<<< HEAD
       const tag = el.tagName;
-=======
->>>>>>> base
       if (tag === "IMG") el.src = value;
       else if (tag === "A") {
         switch (field) {
@@ -132,12 +113,8 @@ window.addEventListener("load", function () {
   document.title = data.pageTitle || "כרטיס ביקור דיגיטלי";
   document.body.dataset.whatsapp = data.phone;
   document.body.dataset.email = data.email;
-  replaceAll(); // רק פעם אחת
+  replaceAll();
 
-<<<<<<< HEAD
-  // המלצות
-=======
->>>>>>> base
   const swiperEl = document.querySelector('.recommendations-swiper');
   const recWrapper = document.getElementById('recommendationSlides');
   const recData = (data.recommendations || []).filter(rec => rec?.name && rec?.text);
@@ -160,11 +137,7 @@ window.addEventListener("load", function () {
       </div>
     `).join('');
 
-<<<<<<< HEAD
     recommendationsSwiper = new Swiper('.recommendations-swiper', {
-=======
-    new Swiper('.recommendations-swiper', {
->>>>>>> base
       slidesPerView: 1,
       spaceBetween: 16,
       loop: recData.length > 2,
@@ -177,7 +150,6 @@ window.addEventListener("load", function () {
     });
   }
 
-  // ✅ טופס WhatsApp
   window.sendToWhatsapp = function(event) {
     event.preventDefault();
     const name = document.getElementById('fullName')?.value.trim();
@@ -189,7 +161,6 @@ window.addEventListener("load", function () {
     window.open(url, '_blank');
   };
 
-  // ✅ אקורדיון
   document.querySelectorAll('.elementor-tab-title').forEach((toggle) => {
     toggle.addEventListener('click', function () {
       const isActive = this.classList.contains('elementor-active');
@@ -212,7 +183,6 @@ window.addEventListener("load", function () {
     });
   });
 
-  // ✅ כפתורי שיתוף
   document.querySelectorAll('.share-buttons a').forEach(button => {
     button.addEventListener('click', function () {
       const type = this.dataset.type;
@@ -232,18 +202,6 @@ window.addEventListener("load", function () {
     });
   });
 
-<<<<<<< HEAD
-  // ✅ טעינת ווידאו דינמית
-  const videoContainer = document.querySelector('[data-field="videoSrc"]');
-  if (videoContainer && window.cardData.videoSrc) {
-    const videoElement = document.createElement("video");
-    videoElement.setAttribute("controls", "");
-    videoElement.setAttribute("playsinline", "");
-    videoElement.setAttribute("preload", "metadata");
-    videoElement.setAttribute("poster", "/assets/images+videos+logo/video-poster.jpg");
-    videoElement.classList.add("video-element");
-=======
-  // ✅ לוגיקת תנאי הצגה - וידאו או גלריית תמונות
   const mediaContainer = document.querySelector('[data-field="videoSrc"]');
   if (mediaContainer) {
     if (data.features?.video === true && window.cardData.videoSrc) {
@@ -259,7 +217,6 @@ window.addEventListener("load", function () {
   }
 });
 
-// ✅ יצירת וידאו
 function createVideoElement(container) {
   const videoElement = document.createElement("video");
   videoElement.setAttribute("controls", "");
@@ -267,148 +224,24 @@ function createVideoElement(container) {
   videoElement.setAttribute("preload", "metadata");
   videoElement.setAttribute("poster", "/assets/images+videos+logo/video-poster.jpg");
   videoElement.classList.add("video-element");
->>>>>>> base
 
-    const sourceElement = document.createElement("source");
-    sourceElement.src = window.cardData.videoSrc;
-    sourceElement.type = "video/mp4";
+  const sourceElement = document.createElement("source");
+  sourceElement.src = window.cardData.videoSrc;
+  sourceElement.type = "video/mp4";
 
-<<<<<<< HEAD
-    videoElement.appendChild(sourceElement);
-    videoElement.innerHTML += "הדפדפן שלך אינו תומך בווידאו.";
-    videoContainer.innerHTML = "";
-    videoContainer.appendChild(videoElement);
-  }
-
-  // ✅ ניהול פשוט וברור של וידאו וגלריית תמונות
-  const galleryContainer = document.querySelector('[data-switch="imageGallery"]');
-  const gallerySlidesContainer = document.getElementById('imageGallerySlides');
-  const videoSection = document.querySelector('[data-switch="video"]');
-
-  console.log("🎬 videoSection found:", !!videoSection);
-  console.log("🖼️ galleryContainer found:", !!galleryContainer);
-  console.log("📋 gallerySlidesContainer found:", !!gallerySlidesContainer);
-
-  // הסתר וידאו (כי features.video = false)
-  if (videoSection) {
-    videoSection.style.display = "none";
-    console.log("🚫 וידאו הוסתר");
-  }
-
-  // הצג רק גלריית תמונות (כי features.imageGallery = true)
-  if (galleryContainer) {
-    console.log("🎯 מעבד גלריית תמונות...");
-    console.log("✅ features.imageGallery:", data.features.imageGallery);
-    console.log("✅ imageGallerySrc is array:", Array.isArray(window.cardData.imageGallerySrc));
-    console.log("✅ imageGallerySrc length > 0:", window.cardData.imageGallerySrc?.length > 0);
-    
-    if (data.features.imageGallery && Array.isArray(window.cardData.imageGallerySrc) && window.cardData.imageGallerySrc.length > 0) {
-      console.log("🚀 יוצר גלריית תמונות...");
-      const images = window.cardData.imageGallerySrc;
-
-      // ✅ הסרת בדיקת טעינה מיותרת - Swiper יטען את התמונות
-      console.log("📝 יוצר HTML עבור גלריה (ללא בדיקה מוקדמת)...");
-
-      const slidesHTML = images.map((src, index) => `
-        <div class="swiper-slide">
-          <img
-            src="${src}"
-            alt="תמונה מספר ${index + 1} בגלריית התמונות"
-            style="width:100%; height:auto; border-radius: var(--radius-large);"
-            tabindex="0"
-            loading="lazy"
-          />
-        </div>
-      `).join('');
-
-      console.log("📝 HTML שנוצר עבור סלייד");
-      gallerySlidesContainer.innerHTML = slidesHTML;
-
-      galleryContainer.style.display = 'block';
-      console.log("👁️ galleryContainer הוצג");
-
-      if (gallerySwiper !== null) {
-        console.log("🗑️ הורס Swiper קיים...");
-        gallerySwiper.destroy(true, true);
-        gallerySwiper = null;
-      }
-
-      console.log("🎠 יוצר Swiper חדש...");
-      gallerySwiper = new Swiper('.image-gallery-container', {
-        slidesPerView: 1,
-        spaceBetween: 16,
-        loop: images.length > 1,
-        simulateTouch: true,
-        allowTouchMove: true,
-        preloadImages: false, // ← מונע טעינה מוקדמת
-        lazy: true, // ← טעינה lazy
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        on: {
-          init(swiper) {
-            console.log("🎉 Swiper הותחל בהצלחה!");
-            console.log("📊 מספר סליידים:", swiper.slides.length);
-            const nextBtn = swiper.navigation.nextEl;
-            const prevBtn = swiper.navigation.prevEl;
-            if (nextBtn) {
-              nextBtn.setAttribute('tabindex', '0');
-              nextBtn.setAttribute('aria-label', 'הבא');
-              console.log("➡️ כפתור הבא הוגדר");
-            }
-            if (prevBtn) {
-              prevBtn.setAttribute('tabindex', '0');
-              prevBtn.setAttribute('aria-label', 'הקודם');
-              console.log("⬅️ כפתור הקודם הוגדר");
-            }
-          },
-          slideChange(swiper) {
-            console.log('🔄 שקף פעיל השתנה ל:', swiper.activeIndex);
-          }
-        }
-      });
-
-      console.log("✅ Swiper נוצר:", !!gallerySwiper);
-
-    } else {
-      console.log("❌ תנאים לא מתקיימים לגלריה:");
-      console.log("   - features.imageGallery:", data.features.imageGallery);
-      console.log("   - is Array:", Array.isArray(window.cardData.imageGallerySrc));
-      console.log("   - length > 0:", window.cardData.imageGallerySrc?.length > 0);
-      
-      // אם אין תמונות או הפיצ'ר לא מופעל - הסתר גלריה
-      galleryContainer.style.display = 'none';
-      gallerySlidesContainer.innerHTML = '';
-      if (gallerySwiper !== null) {
-        gallerySwiper.destroy(true, true);
-        gallerySwiper = null;
-      }
-      console.log("🚫 גלריה הוסתרה");
-    }
-  } else {
-    console.error("❌ galleryContainer לא נמצא ב-DOM!");
-  }
-});
-=======
   videoElement.appendChild(sourceElement);
   videoElement.innerHTML += "הדפדפן שלך אינו תומך בווידאו.";
   container.innerHTML = "";
   container.appendChild(videoElement);
 }
 
-// ✅ יצירת גלריה סטטית מתוך data.galleryImages
 function createImageGallery(container) {
   const gallery = document.getElementById("staticGallery");
   const images = window.cardData?.galleryImages;
 
   if (!gallery || !Array.isArray(images)) {
     console.warn("⚠️ לא נמצאו תמונות להצגה בגלריה");
-    container?.remove(); // מסיר את האלמנט במידה ואין מה להציג
+    container?.remove();
     return;
   }
 
@@ -417,7 +250,6 @@ function createImageGallery(container) {
   `).join("");
 }
 
-// ✅ פתיחה בגלריה במסך מלא
 window.openFullscreenImageGallery = function(startIndex = 0) {
   const overlay = document.getElementById("fullscreenOverlay");
   const wrapper = overlay?.querySelector(".swiper-wrapper");
@@ -449,9 +281,7 @@ window.openFullscreenImageGallery = function(startIndex = 0) {
   });
 };
 
-// ✅ סגירה
 window.closeFullscreenImageGallery = function() {
   const overlay = document.getElementById("fullscreenOverlay");
   if (overlay) overlay.style.display = "none";
 };
->>>>>>> base

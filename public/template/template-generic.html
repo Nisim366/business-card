@@ -13,218 +13,142 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 
-
-
-
- <body data-email="client@example.com" data-whatsapp="0500000000">
+<body data-email="client@example.com" data-whatsapp="0500000000">
   <div class="card">
-   <div class="top-section">
-    <div class="header-top">
-<img class="logo-img" data-field="logoSrc" src="#" alt="לוגו" />
+    <div class="top-section">
+      <div class="header-top">
+        <img class="logo-img" data-field="logoSrc" src="#" alt="לוגו" />
+        <hr class="gold-line" />
+      </div>
+    </div>
 
+    <div class="bottom-section">
+      <div class="profile-wrapper">
+        <img class="profile-img" data-field="profileImage" src="#" alt="תמונת פרופיל" />
+      </div>
 
-          <hr class="gold-line"/>
+      <div class="name-role gray">
+        <h1 class="main-title" data-field="fullName"><span data-field="fullName">שם מלא</span></h1>
+        <h2 data-field="jobTitle"><span data-field="jobTitle">תיאור תפקיד</span></h2>
+      </div>
+
+      <div class="icons icon-grid">
+        <div class="icon-item"><a href="#" data-field="phone"><img data-field="phoneIconSrc" src="#" alt="טלפון" /></a><span>טלפון</span></div>
+        <div class="icon-item"><a href="#" data-field="whatsapp"><img data-field="whatsappIconSrc" src="#" alt="וואטסאפ" /></a><span>וואטסאפ</span></div>
+        <div class="icon-item"><a href="#" data-field="email"><img data-field="emailIconSrc" src="#" alt="מייל" /></a><span>מייל</span></div>
+        <div class="icon-item"><a href="#" data-field="sms"><img data-field="smsIconSrc" src="#" alt="הודעה" /></a><span>הודעה</span></div>
+        <div class="icon-item"><a href="#" data-field="facebookLink"><img data-field="facebookIconSrc" src="#" alt="פייסבוק" /></a><span>פייסבוק</span></div>
+        <div class="icon-item"><a href="#"><img data-field="recommendationIconSrc" src="#" alt="המלצות" /></a><span>המלצות</span></div>
+      </div>
+
+      <a href="#" download class="btn-contact pulse-once" data-field="addContact">➕ הוסף לאנשי קשר</a>
+      <p class="contact-hint" style="font-size: 13px; color: #666; text-align: center; margin-top: 4px;">
+        * לאחר ההורדה יש לפתוח את הקובץ ולשמור כאיש קשר</p>
+
+      <!-- ✅ אודות -->
+      <h3 class="main-title">אודות</h3>
+      <div class="about-parallax-wrapper">
+        <div class="about-section">
+          <div data-field="aboutParagraphs"></div>
+
+          <!-- ✅ אקורדיונים -->
+          <div class="elementor-toggle-wrapper">
+            <div class="elementor-tab-title override-right" data-tab="generic1" role="button" tabindex="0" aria-controls="elementor-tab-content-generic1" aria-expanded="false" aria-selected="false">
+              <span class="elementor-toggle-icon elementor-toggle-icon-right">
+                <span class="elementor-toggle-icon-closed"><i class="fas fa-caret-left"></i></span>
+                <span class="elementor-toggle-icon-opened"><i class="fas fa-caret-up"></i></span>
+              </span>
+              <span class="elementor-toggle-title" data-field="accordionTitle1">כותרת נפתחת 1</span>
+            </div>
+            <div class="elementor-tab-content" hidden id="elementor-tab-content-generic1">
+              <div class="accordion-text-block" data-field="accordionText1"><p>מומלץ להכניס כאן טקסט אישי עבור כותרת זו.</p></div>
+            </div>
+          </div>
+
+          <div class="elementor-toggle-wrapper">
+            <div class="elementor-tab-title override-right" data-tab="generic2" role="button" tabindex="0" aria-controls="elementor-tab-content-generic2" aria-expanded="false" aria-selected="false">
+              <span class="elementor-toggle-icon elementor-toggle-icon-right">
+                <span class="elementor-toggle-icon-closed"><i class="fas fa-caret-left"></i></span>
+                <span class="elementor-toggle-icon-opened"><i class="fas fa-caret-up"></i></span>
+              </span>
+              <span class="elementor-toggle-title" data-field="accordionTitle2">כותרת נפתחת 2</span>
+            </div>
+            <div class="elementor-tab-content" hidden id="elementor-tab-content-generic2">
+              <div class="accordion-text-block" data-field="accordionText2"><p>מומלץ להכניס כאן טקסט אישי נוסף.</p></div>
+            </div>
+          </div>
         </div>
-   </div>
-
-   <div class="bottom-section">
-  <div class="profile-wrapper">
-<img class="profile-img" data-field="profileImage" src="#" alt="תמונת פרופיל" />
-  </div>
-
-
-    <div class="name-role gray">
-     <h1 class="main-title" data-field="fullName">
-      <span data-field="fullName">שם מלא</span>
-     </h1>
-     <h2 data-field="jobTitle">
-      <span data-field="jobTitle">תיאור תפקיד</span>
-     </h2>
-    </div>
-
-    <div class="icons icon-grid">
-  <div class="icon-item">
-    <a href="#" data-field="phone">
-      <img data-field="phoneIconSrc" src="#" alt="טלפון" />
-    </a>
-    <span>טלפון</span>
-  </div>
-  <div class="icon-item">
-    <a href="#" data-field="whatsapp">
-      <img data-field="whatsappIconSrc" src="#" alt="וואטסאפ" />
-    </a>
-    <span>וואטסאפ</span>
-  </div>
-  <div class="icon-item">
-    <a href="#" data-field="email">
-      <img data-field="emailIconSrc" src="#" alt="מייל" />
-    </a>
-    <span>מייל</span>
-  </div>
-  <div class="icon-item">
-    <a href="#" data-field="sms">
-      <img data-field="smsIconSrc" src="#" alt="הודעה" />
-    </a>
-    <span>הודעה</span>
-  </div>
-  <div class="icon-item">
-    <a href="#" data-field="facebookLink">
-      <img data-field="facebookIconSrc" src="#" alt="פייסבוק" />
-    </a>
-    <span>פייסבוק</span>
-  </div>
-  <div class="icon-item">
-    <a href="#">
-      <img data-field="recommendationIconSrc" src="#" alt="המלצות" />
-    </a>
-    <span>המלצות</span>
-  </div>
-</div>
-
-
-
-
-<a href="#" download class="btn-contact pulse-once" data-field="addContact">
-  ➕ הוסף לאנשי קשר
-</a>
-    <p class="contact-hint" style="font-size: 13px; color: #666; text-align: center; margin-top: 4px;">
-      * לאחר ההורדה יש לפתוח את הקובץ ולשמור כאיש קשר</p>
-
-    <!-- ✅ אודות -->
-    <h3 class="main-title">אודות</h3>
-    <div class="about-parallax-wrapper">
-     <div class="about-section">
-      <div data-field="aboutParagraphs"></div>
-
-      <div class="elementor-toggle-wrapper">
-  <div aria-controls="elementor-tab-content-generic1" aria-expanded="false" aria-selected="false" class="elementor-tab-title override-right" data-tab="generic1" role="button" tabindex="0">
-    <span aria-hidden="true" class="elementor-toggle-icon elementor-toggle-icon-right">
-      <span class="elementor-toggle-icon-closed"><i class="fas fa-caret-left"></i></span>
-      <span class="elementor-toggle-icon-opened"><i class="fas fa-caret-up"></i></span>
-    </span>
-    <span class="elementor-toggle-title" data-field="accordionTitle1">כותרת נפתחת 1</span>
-  </div>
-  <div class="elementor-tab-content" hidden id="elementor-tab-content-generic1">
-    <div class="accordion-text-block" data-field="accordionText1">
-      <p>מומלץ להכניס כאן טקסט אישי עבור כותרת זו.</p>
-    </div>
-  </div>
-</div>
-
-<div class="elementor-toggle-wrapper">
-  <div aria-controls="elementor-tab-content-generic2" aria-expanded="false" aria-selected="false" class="elementor-tab-title override-right" data-tab="generic2" role="button" tabindex="0">
-    <span aria-hidden="true" class="elementor-toggle-icon elementor-toggle-icon-right">
-      <span class="elementor-toggle-icon-closed"><i class="fas fa-caret-left"></i></span>
-      <span class="elementor-toggle-icon-opened"><i class="fas fa-caret-up"></i></span>
-    </span>
-    <span class="elementor-toggle-title" data-field="accordionTitle2">כותרת נפתחת 2</span>
-  </div>
-  <div class="elementor-tab-content" hidden id="elementor-tab-content-generic2">
-    <div class="accordion-text-block" data-field="accordionText2">
-      <p>מומלץ להכניס כאן טקסט אישי נוסף.</p>
-    </div>
-  </div>
-</div>
-
-
-
       </div>
-     </div>
-    </div>
 
-
-<!-- ✅ סרטון תדמית -->
-<div data-switch="video">
-  <p class="main-title video-title">⬇️ לסרטון תדמית</p>
-  <div class="video-wrapper">
-    <div class="video-container" data-field="videoSrc"></div>
-  </div>
-</div>
-
-<<<<<<< HEAD
-<div data-switch="imageGallery" class="image-gallery-wrapper">
-  <p class="main-title" data-field="mediaTitle">גלריית תמונות</p>
-  <div class="image-gallery-container swiper">
-    <div class="swiper-wrapper" id="imageGallerySlides"></div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
-</div>
-
-=======
-<!-- ✅ תצוגת תמונות במסך מלא -->
-<div id="fullscreenOverlay" class="fullscreen-overlay" style="display: none">
-  <span class="close-btn" onclick="closeFullscreenImageGallery()">×</span>
-  <div class="swiper fullscreen-swiper">
-    <div class="swiper-wrapper"></div>
-    <div class="swiper-pagination"></div>
-  </div>
-</div>
-
-<!-- ✅ גלריית תמונות – מוצגת מה־data -->
-<div data-switch="imageGallery">
-  <div class="image-gallery-frame">
-    <div class="image-preview-wrapper" id="staticGallery"></div>
-  </div>
-</div>
-
-
-
-
-
-
->>>>>>> base
-
-
-<section class="recommendations-section" data-switch="recommendations">
-  <h2 class="main-title" data-field="recommendationsTitle">המלצות</h2>
-
-  <div class="swiper recommendations-swiper" dir="rtl">
-    <div class="swiper-wrapper" id="recommendationSlides">
-      <!-- שקופיות יוזרקו כאן -->
-    </div>
-    <div class="swiper-pagination"></div>
-  </div>
-</section>
-
-
-    <!-- ✅ טופס יצירת קשר -->
-    <h3 class="main-title">השארת פרטים</h3>
-    <div class="contact-form">
-     <form onsubmit="sendToWhatsapp(event)">
-      <div class="input-row">
-       <input id="fullName" placeholder="שם מלא" required type="text"/>
-       <input id="phoneNumber" placeholder="מספר טלפון" required type="tel"/>
+      <!-- ✅ סרטון תדמית -->
+      <div data-switch="video">
+        <p class="main-title video-title">⬇️ לסרטון תדמית</p>
+        <div class="video-wrapper">
+          <div class="video-container" data-field="videoSrc"></div>
+        </div>
       </div>
-      <textarea id="message" placeholder="הודעה חופשית"></textarea>
-      <button type="submit">שלח לוואטסאפ</button>
-     </form>
+
+      <!-- ✅ גלריית תמונות (Swiper) -->
+      <div data-switch="imageGallery" class="image-gallery-wrapper">
+        <p class="main-title" data-field="mediaTitle">גלריית תמונות</p>
+        <div class="image-gallery-container swiper">
+          <div class="swiper-wrapper" id="imageGallerySlides"></div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+
+      <!-- ✅ תצוגת מסך מלא -->
+      <div id="fullscreenOverlay" class="fullscreen-overlay" style="display: none">
+        <span class="close-btn" onclick="closeFullscreenImageGallery()">×</span>
+        <div class="swiper fullscreen-swiper">
+          <div class="swiper-wrapper"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <!-- ✅ המלצות -->
+      <section class="recommendations-section" data-switch="recommendations">
+        <h2 class="main-title" data-field="recommendationsTitle">המלצות</h2>
+        <div class="swiper recommendations-swiper" dir="rtl">
+          <div class="swiper-wrapper" id="recommendationSlides"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+
+      <!-- ✅ טופס יצירת קשר -->
+      <h3 class="main-title">השארת פרטים</h3>
+      <div class="contact-form">
+        <form onsubmit="sendToWhatsapp(event)">
+          <div class="input-row">
+            <input id="fullName" placeholder="שם מלא" required type="text" />
+            <input id="phoneNumber" placeholder="מספר טלפון" required type="tel" />
+          </div>
+          <textarea id="message" placeholder="הודעה חופשית"></textarea>
+          <button type="submit">שלח לוואטסאפ</button>
+        </form>
+      </div>
+
+      <!-- ✅ שיתוף -->
+      <div class="share-section">
+        <h3 class="main-title">שיתוף כרטיס הביקור</h3>
+        <div class="share-buttons">
+          <a data-type="email" href="#"><img data-field="shareEmailIconSrc" src="#" alt="אימייל" /></a>
+          <a data-type="whatsapp" href="#"><img data-field="shareWhatsappIconSrc" src="#" alt="וואטסאפ" /></a>
+          <a data-type="linkedin" href="#"><img data-field="shareLinkedinIconSrc" src="#" alt="לינקדאין" /></a>
+          <a data-type="twitter" href="#"><img data-field="shareTwitterIconSrc" src="#" alt="טוויטר" /></a>
+          <a data-type="facebook" href="#"><img data-field="shareFacebookIconSrc" src="#" alt="פייסבוק" /></a>
+        </div>
+      </div>
     </div>
-
-    <!-- ✅ שיתוף -->
-    <!-- ✅ שיתוף -->
-<div class="share-section">
- <h3 class="main-title">שיתוף כרטיס הביקור</h3>
- <div class="share-buttons">
-  <a data-type="email" href="#"><img data-field="shareEmailIconSrc" src="#" alt="אימייל" /></a>
-  <a data-type="whatsapp" href="#"><img data-field="shareWhatsappIconSrc" src="#" alt="וואטסאפ" /></a>
-  <a data-type="linkedin" href="#"><img data-field="shareLinkedinIconSrc" src="#" alt="לינקדאין" /></a>
-  <a data-type="twitter" href="#"><img data-field="shareTwitterIconSrc" src="#" alt="טוויטר" /></a>
-  <a data-type="facebook" href="#"><img data-field="shareFacebookIconSrc" src="#" alt="פייסבוק" /></a>
- </div>
-</div>
-</div>
-</div>
-
+  </div>
 
   <!-- ✅ קרדיט -->
   <div class="credit">
-   <p>This business card was built by Clix</p>
-   <button class="cardly-btn">Clix</button>
-   <p>© כל הזכויות שמורות Clix</p>
+    <p>This business card was built by Clix</p>
+    <button class="cardly-btn">Clix</button>
+    <p>© כל הזכויות שמורות Clix</p>
   </div>
- </body>
+</body>
 </html>
-
-
