@@ -7,7 +7,6 @@ window.cardData = {
   phoneDigits: "0521234567",
   vcardLink: "./contact.vcf",
 
-
   logoSrc: "/assets/media/logo-ortopok.png",
   profileImage: "/assets/media/profile.jpg",
   videoSrc: "/assets/media/mov_bbb.mp4",
@@ -20,18 +19,21 @@ imageGallerySrc: [
 ],
 
   facebookLink: "https://facebook.com/hila.page",
+
   phoneIconSrc: "/assets/contact_icons/green/phone.svg",
   whatsappIconSrc: "/assets/contact_icons/green/whatsapp.svg",
   emailIconSrc: "/assets/contact_icons/green/email.svg",
   smsIconSrc: "/assets/contact_icons/green/sms.svg",
   facebookIconSrc: "/assets/contact_icons/green/facebook.svg",
   recommendationIconSrc: "/assets/contact_icons/green/star.svg",
+
   shareEmailIconSrc: "/assets/share_icons/blue/email.png",
   shareWhatsappIconSrc: "/assets/share_icons/blue/whatsapp.png",
   shareLinkedinIconSrc: "/assets/share_icons/blue/linkedin.png",
   shareTwitterIconSrc: "/assets/share_icons/blue/twitter.png",
   shareFacebookIconSrc: "/assets/share_icons/blue/facebook.png",
 
+<<<<<<< HEAD
 features: {
   video: false,       // וידאו לא מוצג
   image: false,       // תמונה בודדת לא מוצגת
@@ -41,6 +43,22 @@ features: {
 },
 
 
+=======
+  features: {
+    video: true,
+    imageGallery: false,
+    about: true,
+    recommendations: true
+  },
+>>>>>>> base
+
+ galleryImages: [
+  { src: "/assets/media/IM0.jpg", text: "תמונה 1" },
+  { src: "/assets/media/IM1.jpg", text: "תמונה 2" },
+  { src: "/assets/media/IM2.png", text: "תמונה 3" },
+  { src: "/assets/media/IM3.png", text: "תמונה 4" },
+  { src: "/assets/media/IM4.png", text: "תמונה 5" }
+],
 
   aboutParagraphs: `
     <p><strong>בדיקת שינוי אודות</strong></p>
@@ -57,19 +75,23 @@ features: {
 
   accordionTitle1: "▼ הגישה שלי בטיפול הרגשי",
   accordionText1: `
-    <p>אני משלבת כלים מעולמות ה־CBT  לצד הקשבה פעילה ורגישה.</p>
+    <p>אני משלבת כלים מעולמות ה־CBT לצד הקשבה פעילה ורגישה.</p>
     <p>הטיפול מותאם אישית לכל אחד, מתוך אמונה ביכולת של כל אדם לחולל שינוי אמיתי כשהוא מקבל ליווי בגובה העיניים.</p>
   `,
   accordionTitle2: "▼ למי השירות מתאים?",
   accordionText2: `
     <p>הטיפול שלי מיועד להורים, ילדים, מתבגרים, נשים וגברים המתמודדים עם אתגר רגשי, לחץ נפשי או תקיעות רגשית.</p>
-    <p>גם מי שמעוניין בהתפתחות אישית, חיזוק תקשורת זוגית או שיפור הורות  ימצא מקום מכיל, מדויק ומקדם.</p>
+    <p>גם מי שמעוניין בהתפתחות אישית, חיזוק תקשורת זוגית או שיפור הורות ימצא מקום מכיל, מדויק ומקדם.</p>
   `,
+
   recommendationsTitle: "המלצות",
+<<<<<<< HEAD
   mediaTitle: "גלריית תמונות",
 
 
 
+=======
+>>>>>>> base
   recommendations: [
     { name: "נועה", text: "הילה עזרה לי להבין את הילד שלי מחדש." },
     { name: "רוני", text: "הגישה שלך שינתה לנו את הבית." },
@@ -78,6 +100,3 @@ features: {
 };
 
 console.log("📦 data-client.js loaded OK");
-
-
-

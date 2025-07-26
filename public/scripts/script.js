@@ -108,7 +108,10 @@ window.addEventListener("load", function () {
 
       if (value === undefined || value === null) return;
 
+<<<<<<< HEAD
       const tag = el.tagName;
+=======
+>>>>>>> base
       if (tag === "IMG") el.src = value;
       else if (tag === "A") {
         switch (field) {
@@ -131,7 +134,10 @@ window.addEventListener("load", function () {
   document.body.dataset.email = data.email;
   replaceAll(); // רק פעם אחת
 
+<<<<<<< HEAD
   // המלצות
+=======
+>>>>>>> base
   const swiperEl = document.querySelector('.recommendations-swiper');
   const recWrapper = document.getElementById('recommendationSlides');
   const recData = (data.recommendations || []).filter(rec => rec?.name && rec?.text);
@@ -154,7 +160,11 @@ window.addEventListener("load", function () {
       </div>
     `).join('');
 
+<<<<<<< HEAD
     recommendationsSwiper = new Swiper('.recommendations-swiper', {
+=======
+    new Swiper('.recommendations-swiper', {
+>>>>>>> base
       slidesPerView: 1,
       spaceBetween: 16,
       loop: recData.length > 2,
@@ -222,6 +232,7 @@ window.addEventListener("load", function () {
     });
   });
 
+<<<<<<< HEAD
   // ✅ טעינת ווידאו דינמית
   const videoContainer = document.querySelector('[data-field="videoSrc"]');
   if (videoContainer && window.cardData.videoSrc) {
@@ -231,11 +242,38 @@ window.addEventListener("load", function () {
     videoElement.setAttribute("preload", "metadata");
     videoElement.setAttribute("poster", "/assets/images+videos+logo/video-poster.jpg");
     videoElement.classList.add("video-element");
+=======
+  // ✅ לוגיקת תנאי הצגה - וידאו או גלריית תמונות
+  const mediaContainer = document.querySelector('[data-field="videoSrc"]');
+  if (mediaContainer) {
+    if (data.features?.video === true && window.cardData.videoSrc) {
+      console.log("📹 מציג וידאו");
+      createVideoElement(mediaContainer);
+    } else if (data.features?.imageGallery === true && Array.isArray(window.cardData.galleryImages)) {
+      console.log("🖼️ מציג גלריית תמונות");
+      createImageGallery(mediaContainer);
+    } else {
+      console.log("❌ לא מציג וידאו או גלריה");
+      mediaContainer.style.display = 'none';
+    }
+  }
+});
+
+// ✅ יצירת וידאו
+function createVideoElement(container) {
+  const videoElement = document.createElement("video");
+  videoElement.setAttribute("controls", "");
+  videoElement.setAttribute("playsinline", "");
+  videoElement.setAttribute("preload", "metadata");
+  videoElement.setAttribute("poster", "/assets/images+videos+logo/video-poster.jpg");
+  videoElement.classList.add("video-element");
+>>>>>>> base
 
     const sourceElement = document.createElement("source");
     sourceElement.src = window.cardData.videoSrc;
     sourceElement.type = "video/mp4";
 
+<<<<<<< HEAD
     videoElement.appendChild(sourceElement);
     videoElement.innerHTML += "הדפדפן שלך אינו תומך בווידאו.";
     videoContainer.innerHTML = "";
@@ -356,3 +394,64 @@ window.addEventListener("load", function () {
     console.error("❌ galleryContainer לא נמצא ב-DOM!");
   }
 });
+=======
+  videoElement.appendChild(sourceElement);
+  videoElement.innerHTML += "הדפדפן שלך אינו תומך בווידאו.";
+  container.innerHTML = "";
+  container.appendChild(videoElement);
+}
+
+// ✅ יצירת גלריה סטטית מתוך data.galleryImages
+function createImageGallery(container) {
+  const gallery = document.getElementById("staticGallery");
+  const images = window.cardData?.galleryImages;
+
+  if (!gallery || !Array.isArray(images)) {
+    console.warn("⚠️ לא נמצאו תמונות להצגה בגלריה");
+    container?.remove(); // מסיר את האלמנט במידה ואין מה להציג
+    return;
+  }
+
+  gallery.innerHTML = images.map((image, index) => `
+    <img src="${image.src}" alt="${image.text || `תמונה ${index + 1}`}" onclick="openFullscreenImageGallery(${index})" />
+  `).join("");
+}
+
+// ✅ פתיחה בגלריה במסך מלא
+window.openFullscreenImageGallery = function(startIndex = 0) {
+  const overlay = document.getElementById("fullscreenOverlay");
+  const wrapper = overlay?.querySelector(".swiper-wrapper");
+  const images = window.cardData?.galleryImages;
+
+  if (!overlay || !wrapper || !Array.isArray(images)) return;
+
+  wrapper.innerHTML = images.map(image => `
+    <div class="swiper-slide">
+      <div class="elementor-testimonial image-mode" tabindex="0">
+        <img src="${image.src}" alt="${image.text || ''}" />
+        ${image.text ? `<div class="elementor-testimonial__text">${image.text}</div>` : ""}
+      </div>
+    </div>
+  `).join("");
+
+  overlay.style.display = "flex";
+
+  window.fullscreenSwiper = new Swiper(".fullscreen-swiper", {
+    loop: true,
+    initialSlide: startIndex,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    grabCursor: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+};
+
+// ✅ סגירה
+window.closeFullscreenImageGallery = function() {
+  const overlay = document.getElementById("fullscreenOverlay");
+  if (overlay) overlay.style.display = "none";
+};
+>>>>>>> base
