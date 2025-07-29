@@ -1077,3 +1077,13 @@ img {
   cursor: pointer;
   z-index: 10001;
 }
+/* ===== רספונסיביות מובייל — המלצות עיצוב עכשוויות ===== */
+@media (max-width: 768px) {
+  .card {
+    width: calc(100% - 32px);
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+}
+
