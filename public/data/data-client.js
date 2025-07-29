@@ -32,7 +32,7 @@ window.cardData = {
   shareLinkedinIconSrc: "/assets/share_icons/blue/linkedin.png",
   shareTwitterIconSrc: "/assets/share_icons/blue/twitter.png",
   shareFacebookIconSrc: "/assets/share_icons/blue/facebook.png",
-  shareTelegramIconSrc: "/assets/share_icons/blue/telegram.png",
+  shareTelegramIconSrc: "/assets/share_icons/blue/Telegram.png",
 
   // 📌 לינק דינמי ל-Telegram (כותרת + תיאור מתוך הנתונים)
   telegramLink: `https://t.me/share/url?url=${encodeURIComponent("https://example.com")}&text=${encodeURIComponent("הילה לוי - מטפלת רגשית והדרכת הורים")}`,

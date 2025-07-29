@@ -550,10 +550,11 @@ body {
   padding: var(--spacing-medium);
   margin-bottom: var(--spacing-medium);
   border: var(--form-input-border);
-  border-radius: var(--radius-small);
+  border-radius: var(--radius-medium); /* ✅ פינות יותר עגולות */
   background-color: var(--color-white);
   color: var(--text-primary-color);
 }
+
 
 .contact-form textarea {
   resize: vertical;
