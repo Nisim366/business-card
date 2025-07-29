@@ -1,10 +1,10 @@
 window.cardData = {
-  fullName: "הילה לוי",
+  fullName: "הילה סבן",
   jobTitle: "מטפלת רגשית ומדריכת הורים",
   pageTitle: "הילה לוי - מטפלת רגשית והדרכת הורים",
-  phone: "0521234567",
+  phone: "052-939-5776",
   email: "hila@ample.com",
-  phoneDigits: "0521234567",
+  phoneDigits: "0529395776",
   vcardLink: "./contact.vcf",
 
   logoSrc: "/assets/media/logo-ortopok.png",

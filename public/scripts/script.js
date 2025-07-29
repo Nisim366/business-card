@@ -81,6 +81,31 @@ function initCard() {
   const event = new Event("load");
   window.dispatchEvent(event);
 }
+// ✅ יצירת vCard דינמית
+function generateVCard() {
+  if (!window.cardData) return;
+  const { fullName, phoneDigits, email } = window.cardData;
+  const vcardContent = `
+BEGIN:VCARD
+VERSION:3.0
+FN:${fullName}
+TEL;TYPE=CELL:+972${phoneDigits}
+EMAIL:${email}
+END:VCARD
+`.trim();
+
+  const blob = new Blob([vcardContent], { type: "text/vcard" });
+  const url = URL.createObjectURL(blob);
+
+  const vcardLink = document.getElementById("vcardDownload");
+  if (vcardLink) {
+    vcardLink.href = url;
+    vcardLink.download = "contact.vcf";
+  }
+}
+window.addEventListener("load", generateVCard);
+
+
 
 // ✅ טעינה גם כשחוזרים מהיסטוריה (back/forward) - אבל רק אם עדיין לא הותחל
 window.addEventListener("pageshow", function (event) {
