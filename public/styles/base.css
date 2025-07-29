@@ -1149,13 +1149,21 @@ img {
 
 /* ===== רספונסיביות מובייל — המלצות עיצוב עכשוויות ===== */
 @media (max-width: 768px) {
+  body, .main-content {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
   .card {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 16px; /* אפשר להשאיר padding פנימי */
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 16px;
+    border-radius: 0; /* צמוד לקצוות */
+    box-shadow: none; /* אופציונלי: ביטול צל שמייצר תחושת ריווח */
   }
 }
+
 
 
 
