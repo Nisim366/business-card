@@ -1084,6 +1084,10 @@ img {
     max-width: 380px;
     margin: 0 auto;
     padding: 16px;
+
+    /* הגדלה של 10% כברירת מחדל למראה מקורב */
+    transform-origin: top center;
+    transform: scale(1.1);
   }
 }
 
