@@ -729,14 +729,26 @@ img {
     --spacing-xxl: 30px;
   }
 
+.card-basic,
+.card-wide,
+.card-narrow {
+  margin: 0 auto;
+  padding: var(--spacing-medium);
+  width: 100%;
+  max-width: 380px; /* ברירת מחדל למסכים גדולים */
+  box-sizing: border-box;
+}
+
+/* מובייל - כמעט על כל המסך */
+@media (max-width: 480px) {
   .card-basic,
   .card-wide,
   .card-narrow {
-    /* These properties should be controlled by the non-media-query rule to ensure fixed size */
-    /* Removed: margin: 15px auto; */
-    /* Removed: padding: var(--spacing-medium); */
-    /* Removed: max-width: calc(100% - 30px); */
+    max-width: 95%; /* תופס כמעט את כל המסך */
   }
+}
+
+
 
   .btn {
     padding: var(--spacing-tiny) var(--spacing-medium);
