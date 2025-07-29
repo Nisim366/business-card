@@ -1153,12 +1153,10 @@ img {
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 16px;
-
-    transform-origin: top center;
-    transform: none; /* ביטול הקטנה */
+    padding: 16px; /* אפשר להשאיר padding פנימי */
   }
 }
+
 
 
 /* ===== Skeleton Loader (base.css) – הגדרות כלליות ===== */
