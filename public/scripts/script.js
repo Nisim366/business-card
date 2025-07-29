@@ -6,12 +6,40 @@ let isInitialized = false; // ← דגל למניעת טעינה כפולה
 const isLive = location.hostname.includes("clix-marketing.co.il") || location.hostname.includes("render.com");
 console.log("📡 isLive:", isLive);
 
+// ===== Skeleton Loader (script-generic.js) =====
+// ===== Skeleton Loader (מסונכרן) =====
+document.addEventListener("DOMContentLoaded", function () {
+  const loader = document.createElement("div");
+  loader.className = "loader-overlay";
+
+  // ה־spinner כבר נמצא במרכז הכרטיס
+  const spinner = document.createElement("div");
+  spinner.className = "loader-spinner";
+  spinner.setAttribute("aria-label", "Loading");
+
+  loader.appendChild(spinner);
+  document.body.appendChild(loader);
+
+  // ✅ הסרה מסונכרנת רק כשהאתר כולו מוכן
+  const removeLoader = () => {
+    loader.classList.add("fade-out");
+    setTimeout(() => loader.remove(), 400);
+  };
+
+  window.addEventListener("load", () => {
+    console.log("✅ כל המשאבים נטענו - מסיר לואודר");
+    removeLoader();
+  });
+});
+
+
 // ✅ הגדרה והרצה מיידית של injectAssets עם התחייבות שהסקריפטים ייטענו לפני המשך
 (function injectAssets() {
   const assets = [
     { type: 'link', attr: 'href', path: '/styles/style.css' },
     { type: 'script', attr: 'src', path: '/data/data-client.js' }
   ];
+
 
   let pendingScripts = assets.filter(a => a.type === 'script').length;
 

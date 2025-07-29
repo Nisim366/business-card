@@ -1089,5 +1089,45 @@ img {
     transform-origin: top center;
     transform: scale(1.1);
   }
+  /* ===== Skeleton Loader (base.css) ===== */
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #00bcd4; /* צבע מותג כגיבוי */
+  background-image: url('/assets/logo/myLogo.jpg');
+  background-position: center 40%;
+  background-repeat: no-repeat;
+  background-size: 140px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 9999;
+  transition: opacity 0.4s ease, visibility 0.4s ease; /* מעבר חלק */
+  visibility: visible;
+}
+
+
+
+.loader-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden; /* נעלם פיזית למנוע קליקים */
+  pointer-events: none;
+}
+
+.loader-spinner {
+  margin-top: 180px;
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 }
 
