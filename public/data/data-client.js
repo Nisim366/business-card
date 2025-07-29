@@ -10,13 +10,13 @@ window.cardData = {
   logoSrc: "/assets/media/logo-ortopok.png",
   profileImage: "/assets/media/profile.jpg",
   videoSrc: "/assets/media/mov_bbb.mp4",
-imageGallerySrc: [
-  "/assets/media/IMG_1566.jpg",
-  "/assets/media/IMG_1580.jpg",
-  "/assets/media/IMG_1590.png",
-  "/assets/media/IMG_1593.png",
-  "/assets/media/IMG_1597.png"
-],
+  imageGallerySrc: [
+    "/assets/media/IMG_1566.jpg",
+    "/assets/media/IMG_1580.jpg",
+    "/assets/media/IMG_1590.png",
+    "/assets/media/IMG_1593.png",
+    "/assets/media/IMG_1597.png"
+  ],
 
   facebookLink: "https://facebook.com/hila.page",
 
@@ -32,10 +32,10 @@ imageGallerySrc: [
   shareLinkedinIconSrc: "/assets/share_icons/blue/linkedin.png",
   shareTwitterIconSrc: "/assets/share_icons/blue/twitter.png",
   shareFacebookIconSrc: "/assets/share_icons/blue/facebook.png",
+  shareTelegramIconSrc: "/assets/share_icons/blue/telegram.png",
 
-
-
-
+  // 📌 לינק דינמי ל-Telegram (כותרת + תיאור מתוך הנתונים)
+  telegramLink: `https://t.me/share/url?url=${encodeURIComponent("https://example.com")}&text=${encodeURIComponent("הילה לוי - מטפלת רגשית והדרכת הורים")}`,
 
   features: {
     video: true,
@@ -43,14 +43,22 @@ imageGallerySrc: [
     about: true,
     recommendations: true
   },
+    shareOptions: {
+    email: true,
+    whatsapp: true,
+    linkedin: false,
+    twitter: true,
+    facebook: true,
+    telegram: true
+  },
 
- galleryImages: [
-  { src: "/assets/media/IM0.jpg", text: "תמונה 1" },
-  { src: "/assets/media/IM1.jpg", text: "תמונה 2" },
-  { src: "/assets/media/IM2.png", text: "תמונה 3" },
-  { src: "/assets/media/IM3.png", text: "תמונה 4" },
-  { src: "/assets/media/IM4.png", text: "תמונה 5" }
-],
+  galleryImages: [
+    { src: "/assets/media/IM0.jpg", text: "תמונה 1" },
+    { src: "/assets/media/IM1.jpg", text: "תמונה 2" },
+    { src: "/assets/media/IM2.png", text: "תמונה 3" },
+    { src: "/assets/media/IM3.png", text: "תמונה 4" },
+    { src: "/assets/media/IM4.png", text: "תמונה 5" }
+  ],
 
   aboutParagraphs: `
     <p><strong>בדיקת שינוי אודות</strong></p>

@@ -184,23 +184,45 @@ window.addEventListener("load", function () {
   });
 
   document.querySelectorAll('.share-buttons a').forEach(button => {
-    button.addEventListener('click', function () {
-      const type = this.dataset.type;
-      const url = encodeURIComponent(location.href);
-      const title = encodeURIComponent(document.title);
-      let shareUrl = "#";
+  const type = button.dataset.type;
+  const shareOptions = window.cardData?.shareOptions || {};
 
-      switch (type) {
-        case "whatsapp": shareUrl = `https://wa.me/?text=${title}%0A${url}`; break;
-        case "facebook": shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`; break;
-        case "linkedin": shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`; break;
-        case "twitter": shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`; break;
-        case "email": shareUrl = `mailto:?subject=${title}&body=${url}`; break;
-      }
+  // ✅ בודק אם הערוץ מופעל
+  if (shareOptions[type] === false) {
+    button.style.display = 'none';
+    return;
+  }
 
-      window.open(shareUrl, '_blank');
-    });
+  button.addEventListener('click', function () {
+    const url = encodeURIComponent(location.href);
+    const title = encodeURIComponent(document.title);
+    let shareUrl = "#";
+
+    switch (type) {
+      case "whatsapp":
+        shareUrl = `https://wa.me/?text=${title}%0A${url}`;
+        break;
+      case "facebook":
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+        break;
+      case "linkedin":
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+        break;
+      case "twitter":
+        shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+        break;
+      case "email":
+        shareUrl = `mailto:?subject=${title}&body=${url}`;
+        break;
+      case "telegram":
+        shareUrl = window.cardData?.telegramLink || `https://t.me/share/url?url=${url}&text=${title}`;
+        break;
+    }
+
+    window.open(shareUrl, '_blank');
   });
+});
+
 
   const mediaContainer = document.querySelector('[data-field="videoSrc"]');
   if (mediaContainer) {
