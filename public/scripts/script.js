@@ -326,7 +326,6 @@ function createVideoElement(container) {
   videoElement.setAttribute("controls", "");
   videoElement.setAttribute("playsinline", "");
   videoElement.setAttribute("preload", "metadata");
-  videoElement.setAttribute("poster", "/assets/images+videos+logo/video-poster.jpg");
   videoElement.classList.add("video-element");
 
   const sourceElement = document.createElement("source");
@@ -334,10 +333,31 @@ function createVideoElement(container) {
   sourceElement.type = "video/mp4";
 
   videoElement.appendChild(sourceElement);
+
+  // יצירת poster דינמי מפריים ראשון של הוידאו
+videoElement.addEventListener("loadeddata", () => {
+  videoElement.currentTime = 0.1; // קפיצה קטנה קדימה
+});
+
+videoElement.addEventListener("seeked", () => {
+  try {
+    const canvas = document.createElement("canvas");
+    canvas.width = videoElement.videoWidth;
+    canvas.height = videoElement.videoHeight;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+    const dataURL = canvas.toDataURL("image/jpeg");
+    videoElement.setAttribute("poster", dataURL);
+  } catch (err) {
+    console.error("⚠️ שגיאה ביצירת poster:", err);
+  }
+}, { once: true });
+
   videoElement.innerHTML += "הדפדפן שלך אינו תומך בווידאו.";
   container.innerHTML = "";
   container.appendChild(videoElement);
 }
+
 
 function createImageGallery(container) {
   const gallery = document.getElementById("staticGallery");
