@@ -1147,7 +1147,7 @@ img {
   z-index: 10001;
 }
 
-/* ===== רספונסיביות מובייל — המלצות עיצוב עכשוויות ===== */
+/* 📱 מובייל – כרטיס צמוד לשוליים */
 @media (max-width: 768px) {
   body, .main-content {
     padding: 0 !important;
@@ -1159,10 +1159,22 @@ img {
     max-width: 100% !important;
     margin: 0 !important;
     padding: 16px;
-    border-radius: 0; /* צמוד לקצוות */
-    box-shadow: none; /* אופציונלי: ביטול צל שמייצר תחושת ריווח */
+    border-radius: 0; 
+    box-shadow: none; 
   }
 }
+
+/* 💻 מחשב – כרטיס במראה מובייל */
+@media (min-width: 769px) {
+  .card {
+    max-width: 420px; 
+    width: calc(100% - 32px);
+    margin: 0 auto;
+    padding: 16px;
+  }
+}
+
+
 
 
 
