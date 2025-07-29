@@ -539,6 +539,23 @@ img {
   border-radius: 0; /* לא נדרש כאן – נחתך ע"י ה-wrapper */
   background: transparent;
 }
+.testimonial-toggle-btn {
+  display: inline-block;
+  margin-top: var(--spacing-small);
+  background-color: var(--color-black); /* ✅ רקע מוגדר */
+  color: var(--color-white);
+  padding: 6px 12px;
+  border-radius: var(--radius-small);
+  font-size: var(--font-size-small);
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s ease, transform 0.2s ease; /* ✅ שימוש ב-background-color */
+}
+.testimonial-toggle-btn:hover {
+  background-color: var(--color-gray-dark); /* ✅ שינוי צבע בטוח */
+  transform: scale(1.05);
+}
+
 
 
 
@@ -782,6 +799,8 @@ img {
   border-radius: 12px;
   padding: 12px;
   text-align: right;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 /* ===== גלריית תמונות - עיצוב בסיסי (עם אופטימיזציה) ===== */
 .image-gallery-wrapper {
@@ -857,6 +876,34 @@ img {
   font-weight: bold;
   color: var(--color-primary);
 }
+/* ✅ קיצור טקסט המלצות ארוכות */
+.elementor-testimonial__content {
+  position: relative;
+  max-height: 300px;
+  overflow: hidden; /* חותך טקסט */
+  background: #fff;
+  transition: max-height 0.3s ease;
+  padding: var(--spacing-medium);
+  border-radius: var(--radius-medium);
+}
+
+.elementor-testimonial.expanded .elementor-testimonial__content {
+  max-height: 1000px; /* מצב פתוח */
+}
+
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+}
+.read-more-btn:hover {
+  text-decoration: underline;
+}
+
 
 /* נגישות - מראה פוקוס ברור */
 .swiper-button-prev:focus,

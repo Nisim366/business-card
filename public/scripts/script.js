@@ -150,6 +150,7 @@ window.addEventListener("load", function () {
     });
   }
 
+  // ✅ שליחה לוואטסאפ
   window.sendToWhatsapp = function(event) {
     event.preventDefault();
     const name = document.getElementById('fullName')?.value.trim();
@@ -160,6 +161,35 @@ window.addEventListener("load", function () {
     const url = `https://wa.me/972${number}?text=${fullMsg}`;
     window.open(url, '_blank');
   };
+
+  // ✅ שליחה למייל
+  window.sendToEmail = function(event) {
+    event.preventDefault();
+    if (!data.features?.sendEmail) {
+      console.warn("✉️ שליחת מייל כבויה ב-DATA");
+      return;
+    }
+    const name = document.getElementById('fullName')?.value.trim();
+    const phone = document.getElementById('phoneNumber')?.value.trim();
+    const msg = document.getElementById('message')?.value.trim();
+    const subject = encodeURIComponent(`פניה מכרטיס ביקור - ${name}`);
+    const body = encodeURIComponent(`שם: ${name}\nטלפון: ${phone}\nהודעה: ${msg}`);
+    const emailAddress = data.email || "info@example.com";
+    window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+  };
+
+  // ✅ הסתרת כפתור מייל אם sendEmail = false
+  // ✅ הסתרת כפתורי שליחה לפי DATA
+if (!data.features?.sendEmail) {
+  const emailButton = document.querySelector('[data-action="sendEmail"]');
+  if (emailButton) emailButton.style.display = 'none';
+}
+
+if (!data.features?.sendWhatsapp) {
+  const whatsappButton = document.querySelector('[data-action="sendWhatsapp"]');
+  if (whatsappButton) whatsappButton.style.display = 'none';
+}
+
 
   document.querySelectorAll('.elementor-tab-title').forEach((toggle) => {
     toggle.addEventListener('click', function () {
@@ -184,45 +214,44 @@ window.addEventListener("load", function () {
   });
 
   document.querySelectorAll('.share-buttons a').forEach(button => {
-  const type = button.dataset.type;
-  const shareOptions = window.cardData?.shareOptions || {};
+    const type = button.dataset.type;
+    const shareOptions = window.cardData?.shareOptions || {};
 
-  // ✅ בודק אם הערוץ מופעל
-  if (shareOptions[type] === false) {
-    button.style.display = 'none';
-    return;
-  }
-
-  button.addEventListener('click', function () {
-    const url = encodeURIComponent(location.href);
-    const title = encodeURIComponent(document.title);
-    let shareUrl = "#";
-
-    switch (type) {
-      case "whatsapp":
-        shareUrl = `https://wa.me/?text=${title}%0A${url}`;
-        break;
-      case "facebook":
-        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-        break;
-      case "linkedin":
-        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-        break;
-      case "twitter":
-        shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
-        break;
-      case "email":
-        shareUrl = `mailto:?subject=${title}&body=${url}`;
-        break;
-      case "telegram":
-        shareUrl = window.cardData?.telegramLink || `https://t.me/share/url?url=${url}&text=${title}`;
-        break;
+    // ✅ בודק אם הערוץ מופעל
+    if (shareOptions[type] === false) {
+      button.style.display = 'none';
+      return;
     }
 
-    window.open(shareUrl, '_blank');
-  });
-});
+    button.addEventListener('click', function () {
+      const url = encodeURIComponent(location.href);
+      const title = encodeURIComponent(document.title);
+      let shareUrl = "#";
 
+      switch (type) {
+        case "whatsapp":
+          shareUrl = `https://wa.me/?text=${title}%0A${url}`;
+          break;
+        case "facebook":
+          shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+          break;
+        case "linkedin":
+          shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+          break;
+        case "twitter":
+          shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+          break;
+        case "email":
+          shareUrl = `mailto:?subject=${title}&body=${url}`;
+          break;
+        case "telegram":
+          shareUrl = window.cardData?.telegramLink || `https://t.me/share/url?url=${url}&text=${title}`;
+          break;
+      }
+
+      window.open(shareUrl, '_blank');
+    });
+  });
 
   const mediaContainer = document.querySelector('[data-field="videoSrc"]');
   if (mediaContainer) {

@@ -37,12 +37,14 @@ window.cardData = {
   // 📌 לינק דינמי ל-Telegram (כותרת + תיאור מתוך הנתונים)
   telegramLink: `https://t.me/share/url?url=${encodeURIComponent("https://example.com")}&text=${encodeURIComponent("הילה לוי - מטפלת רגשית והדרכת הורים")}`,
 
-  features: {
-    video: true,
-    imageGallery: false,
-    about: true,
-    recommendations: true
-  },
+features: {
+  video: true,
+  imageGallery: false,
+  about: true,
+  recommendations: true,
+ sendEmail: true,
+  sendWhatsapp: false // ✅ הפעלה/כיבוי כפתור וואטסאפ
+},
     shareOptions: {
     email: true,
     whatsapp: true,

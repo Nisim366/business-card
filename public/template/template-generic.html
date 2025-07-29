@@ -120,15 +120,21 @@
       <!-- ✅ טופס יצירת קשר -->
       <h3 class="main-title">השארת פרטים</h3>
       <div class="contact-form">
-        <form onsubmit="sendToWhatsapp(event)">
-          <div class="input-row">
-            <input id="fullName" placeholder="שם מלא" required type="text" />
-            <input id="phoneNumber" placeholder="מספר טלפון" required type="tel" />
-          </div>
-          <textarea id="message" placeholder="הודעה חופשית"></textarea>
-          <button type="submit">שלח לוואטסאפ</button>
-        </form>
-      </div>
+  <form>
+    <div class="input-row">
+      <input id="fullName" placeholder="שם מלא" required type="text" />
+      <input id="phoneNumber" placeholder="מספר טלפון" required type="tel" />
+    </div>
+    <textarea id="message" placeholder="הודעה חופשית"></textarea>
+    
+    <!-- כפתור וואטסאפ -->
+  <button type="button" onclick="sendToWhatsapp(event)" data-action="sendWhatsapp">שלח לוואטסאפ</button>
+    <!-- כפתור מייל (יוצג רק אם sendEmail = true) -->
+    <button type="button" onclick="sendToEmail(event)" data-action="sendEmail">שלח למייל</button>    
+    <!-- כפתור מייל (יוצג רק אם sendEmail = true) -->
+  </form>
+</div>
+
 
       <!-- ✅ שיתוף -->
       <div class="share-section">
