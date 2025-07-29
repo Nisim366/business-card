@@ -837,14 +837,27 @@ img {
     /* הסר עיגול פינות אם נדרש */
   }
 
-  .elementor-testimonial {
-    border: 1px solid #007bff;
-    border-radius: 12px;
-    padding: 12px;
-    text-align: right;
-    transition: all 0.3s ease;
-    overflow: hidden;
-  }
+.elementor-testimonial {
+  border: 1px solid #007bff;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: right;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  max-height: 180px; /* מצב סגור כברירת מחדל */
+  position: relative;
+}
+.elementor-testimonial.expanded {
+  max-height: none; /* מצב פתוח */
+}
+.read-more {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #007bff;
+  cursor: pointer;
+}
 
   /* ===== גלריית תמונות - עיצוב בסיסי (עם אופטימיזציה) ===== */
   .image-gallery-wrapper {
@@ -1142,10 +1155,11 @@ img {
     margin: 0 auto;
     padding: 16px;
 
-    /* הגדלה של 10% כברירת מחדל למראה מקורב */
+    /* הגדלה של 75% כברירת מחדל למראה מקורב */
     transform-origin: top center;
-    transform: scale(1.1);
+    transform: scale(0.75);
   }
+}
 
 /* ===== Skeleton Loader (base.css) – הגדרות כלליות ===== */
 .loader-overlay {

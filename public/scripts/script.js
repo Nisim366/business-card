@@ -199,6 +199,29 @@ window.addEventListener("load", function () {
       },
     });
   }
+  // אחרי יצירת recommendationsSwiper
+if (recommendationsSwiper) {
+  document.querySelectorAll(".elementor-testimonial").forEach(testimonial => {
+    const textEl = testimonial.querySelector(".elementor-testimonial__text");
+    if (!textEl) return;
+
+    const fullText = textEl.innerText.trim();
+    if (fullText.length > 300) {
+      const readMore = document.createElement("span");
+      readMore.className = "read-more";
+      readMore.textContent = "עוד";
+
+      readMore.addEventListener("click", () => {
+        testimonial.classList.toggle("expanded");
+        readMore.textContent = testimonial.classList.contains("expanded") ? "סגור" : "עוד";
+        recommendationsSwiper.updateAutoHeight(300); // ← גובה דינמי בסווייפר
+      });
+
+      testimonial.appendChild(readMore);
+    }
+  });
+}
+
 
   // ✅ שליחה לוואטסאפ
   window.sendToWhatsapp = function(event) {
