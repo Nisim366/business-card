@@ -84,6 +84,7 @@
   --shadow-glow-colored: 0 0 20px rgba(64, 224, 208, 0.4);
 
   /* גרדיאנטים */
+  --gradient-white: linear-gradient(135deg, #ffffff, #f5f5f5); /* גרדיאנט לבן */
   --gradient-gold: linear-gradient(135deg, #FFD700, #B8860B);
   --gradient-blue: linear-gradient(135deg, #87CEEB, #2F4F4F);
   --gradient-turquoise: linear-gradient(135deg, #40E0D0, #008B8B);
@@ -124,6 +125,16 @@ img {
   max-width: 100%;
   margin: 0 auto;
   padding: 16px;
+}
+.card .gold-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100% !important; /* תמיד יתפרס לכל רוחב הכרטיס */
+  height: 4px;
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 
 /* מחשב – 600px */
@@ -455,29 +466,29 @@ img {
   color: var(--color-white);
 }
 
-/* אזור עליון - Headings / Top Section */
+.top-section,
 .header-top {
   width: 100%;
-    height: 180px; /* קיבוע גובה זהה בכל מסך */
+  height: 180px; /* גובה אחיד */
   margin: 0;
   padding: 0;
-  background: var(--gradient-gold);
+  background: var(--header-bg-color); /* ברירת מחדל משתנה, ישתנה ב- style.css */
   border-radius: 0; /* כדי שהפס לא יחתך */
 }
+
+
+
 
 .gold-line {
   width: 100%;
   height: 4px;
-  background: var(--gradient-gold);
+  background: var(--gradient-blue);
   margin: 0;
   padding: 0;
   display: block;
 }
-.card .gold-line {
-  margin: 0;
-  padding: 0;
-  display: block;
-}
+
+
 
 
 .header-top img {
@@ -784,29 +795,28 @@ img {
 }
 
 /* מובייל – 100% */
-@media (max-width: 480px) {
-  .card-basic,
-  .card-wide,
-  .card-narrow {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto;
-    padding: var(--spacing-medium);
-    box-sizing: border-box;
-  }
-}
-
-/* מחשב – 600px */
+.card,
 .card-basic,
 .card-wide,
 .card-narrow {
+  width: 100% !important;
+  max-width: 100% !important;
   margin: 0 auto;
   padding: var(--spacing-medium);
-  width: 600px !important;
-  max-width: 600px !important;
   box-sizing: border-box;
 }
-ד
+
+/* מחשב – 600px */
+@media (min-width: 769px) {
+  .card,
+  .card-basic,
+  .card-wide,
+  .card-narrow {
+    width: 600px !important;
+    max-width: 600px !important;
+  }
+}
+
 
 
  
