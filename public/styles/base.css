@@ -853,7 +853,7 @@ img {
   }
 
   .recommendations-swiper {
-    overflow: hidden;
+  overflow: visible; /* מאפשר גרירה לשני הצדדים */
     border-radius: 12px;
     background: #f7f7f7;
     padding: 8px;
@@ -862,7 +862,7 @@ img {
   .swiper-slide {
     min-height: 180px;
     max-height: 280px;
-    overflow-y: auto;
+    overflow-y: visible; /* ✅ אין גלילה אנכית פנימית */
     scroll-behavior: smooth;
     padding: 12px;
     box-sizing: border-box;

@@ -187,17 +187,20 @@ window.addEventListener("load", function () {
       </div>
     `).join('');
 
-    recommendationsSwiper = new Swiper('.recommendations-swiper', {
-      slidesPerView: 1,
-      spaceBetween: 16,
-      loop: recData.length > 2,
-      threshold: 10,
-      touchRatio: 1.2,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
+recommendationsSwiper = new Swiper('.recommendations-swiper', {
+  slidesPerView: 1,
+  spaceBetween: 16,
+  loop: recData.length > 2,
+  threshold: 10,
+  touchRatio: 1.2,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  autoHeight: false,   // ❌ לא משנה גובה לפי תוכן כדי למנוע קפיצות
+  direction: 'horizontal', // ✅ גלילה אופקית
+});
+
   }
   // אחרי יצירת recommendationsSwiper
 if (recommendationsSwiper) {
