@@ -124,39 +124,6 @@ body {
   background-color: var(--dark-background-color);
 }
 
-/* רכיב .card - רוחב קבוע למובייל */
-.card {
-  background-color: var(--card-bg);
-  border-radius: var(--card-radius);
-  box-shadow: var(--card-box-shadow);
-  overflow: hidden;
-  position: relative;
-  width: 380px; /* רוחב קבוע */
-  max-width: 380px; /* רוחב קבוע */
-  margin: 30px auto; /* ממורכז תמיד */
-}
-
-/* כל סוגי הכרטיסים יקבלו את הרוחב הקבוע */
-.card-basic {
-  width: 380px;
-  max-width: 380px;
-  margin: 30px auto;
-  padding: var(--card-padding-default);
-}
-
-.card-wide {
-  width: 380px;
-  max-width: 380px;
-  margin: 30px auto;
-  padding: var(--spacing-xl);
-}
-
-.card-narrow {
-  width: 380px;
-  max-width: 380px;
-  margin: 20px auto;
-  padding: var(--spacing-medium);
-}
 
 .card-shadow-soft {
   box-shadow: var(--shadow-soft);
