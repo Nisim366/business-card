@@ -112,7 +112,7 @@ img {
   display: block;
 }
 
-/* ===== 3. רכיב .card - בסיסי ווريאציות ===== */
+/* ברירת מחדל – מובייל (100%) */
 .card {
   background-color: var(--color-white);
   border-radius: var(--radius-large);
@@ -120,10 +120,18 @@ img {
   overflow: hidden;
   position: relative;
 
-  width: 380px !important;
-  max-width: 380px !important;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   padding: 16px;
+}
+
+/* מחשב – 600px */
+@media (min-width: 769px) {
+  .card {
+    width: 600px !important;
+    max-width: 600px !important;
+  }
 }
 
 
@@ -775,29 +783,30 @@ img {
   color: #666;
 }
 
-/* ===== 15. התאמות למובייל @media ===== */
+/* מובייל – 100% */
 @media (max-width: 480px) {
   .card-basic,
   .card-wide,
   .card-narrow {
-    width: 380px !important;
-    max-width: 380px !important;
+    width: 100% !important;
+    max-width: 100% !important;
     margin: 0 auto;
     padding: var(--spacing-medium);
     box-sizing: border-box;
   }
 }
 
-
+/* מחשב – 600px */
 .card-basic,
 .card-wide,
 .card-narrow {
   margin: 0 auto;
   padding: var(--spacing-medium);
-  width: 380px !important;
-  max-width: 380px !important;
+  width: 600px !important;
+  max-width: 600px !important;
   box-sizing: border-box;
 }
+ד
 
 
  
