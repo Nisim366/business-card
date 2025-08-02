@@ -26,9 +26,10 @@ document.addEventListener("DOMContentLoaded", function () {
 // ✅ הגדרה והרצה מיידית של injectAssets עם התחייבות שהסקריפטים ייטענו לפני המשך
 (function injectAssets() {
   const assets = [
-  { type: 'link', attr: 'href', path: '/styles/base.css' },   // 🔄 טוען את הבסיס
-  { type: 'script', attr: 'src', path: '/data/data-client.js' }
-];
+    { type: 'link', attr: 'href', path: '/styles/base.css' },   // 🔄 טוען את הבסיס
+    { type: 'link', attr: 'href', path: '/styles/style.css' },  // 🎨 טוען את הסטייל הגנרי
+    { type: 'script', attr: 'src', path: '/data/data-client.js' }
+  ];
 
 
   let pendingScripts = assets.filter(a => a.type === 'script').length;
@@ -195,7 +196,7 @@ recommendationsSwiper = new Swiper('.recommendations-swiper', {
   threshold: 10,
   touchRatio: 1.2,
   allowSlidePrev: true,    // ✅ גלילה ימינה מותרת
-  allowSlideNext: false,   // ❌ גלילה שמאלה חסומה
+  allowSlideNext: true,   // ❌ גלילה שמאלה חסומה
   pagination: {
     el: '.swiper-pagination',
     clickable: true,

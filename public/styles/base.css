@@ -83,6 +83,59 @@
   --shadow-glow-light: 0 0 15px rgba(255, 255, 255, 0.3);
   --shadow-glow-colored: 0 0 20px rgba(64, 224, 208, 0.4);
 
+
+  /* 🎯 Recommendations Section Defaults */
+  --recommendations-section-bg: var(--color-white);
+  --recommendations-section-padding: var(--spacing-medium);
+  --recommendations-section-radius: var(--radius-large);
+
+  /* 🎯 Swiper Defaults */
+  --recommend-swiper-radius: 12px;
+  --recommend-swiper-bg: #f7f7f7;
+  --recommend-swiper-padding: 8px;
+
+  /* 🎯 Slide Defaults */
+  --recommend-slide-min-height: 180px;
+  --recommend-slide-max-height: 280px;
+  --recommend-slide-padding: 12px;
+  --recommend-testimonial-gap: var(--spacing-large); /* ריווח בין ההמלצות */
+
+
+  /* 🎯 Testimonial Defaults */
+--recommend-testimonial-radius: var(--radius-large);
+  --recommend-testimonial-bg: var(--color-white);
+  --recommend-testimonial-border: 1px solid var(--main-brand-color);
+  --recommend-testimonial-padding: var(--spacing-large);
+  --recommend-testimonial-margin-top: var(--spacing-medium);
+  --recommend-testimonial-min-height: 180px;
+  --recommend-testimonial-max-height: 440px;
+
+  /* 🎯 Text Defaults */
+  --recommend-name-color: var(--text-primary-color, var(--color-gray-dark));
+  --recommend-name-font-size: var(--font-size-medium);
+  --recommend-name-font-weight: var(--font-weight-bold);
+
+  --recommend-title-color: var(--text-primary-color, var(--color-gray-medium));
+  --recommend-title-font-size: var(--font-size-small);
+  --recommend-title-font-weight: var(--font-weight-normal);
+
+  --recommend-content-color: var(--text-primary-color, var(--color-gray-dark));
+  --recommend-content-font-size: var(--font-size-small);
+  --recommend-content-line-height: 1.5;
+
+  /* 🎯 Pagination Defaults */
+  --recommend-pagination-margin: 12px;
+  --recommend-bullet-size: 8px;
+  --recommend-bullet-bg: var(--color-gray-dark);
+  --recommend-bullet-active-bg: var(--main-brand-color);
+
+  /* 🎯 Read More Button Defaults */
+  --read-more-margin-top: 8px;
+  --read-more-font-size: 14px;
+  --read-more-font-weight: bold;
+  --read-more-color: #007bff;
+
+
   /* גרדיאנטים */
   --gradient-white: linear-gradient(135deg, #ffffff, #f5f5f5); /* גרדיאנט לבן */
   --gradient-gold: linear-gradient(135deg, #FFD700, #B8860B);
@@ -456,24 +509,7 @@ img {
   margin-bottom: var(--video-title-margin-bottom, var(--spacing-medium));
 }
 /* ===== אזור המלצות – ברירת מחדל ===== */
-.recommendations-section {
-  background-color: var(--recommend-bg-color, transparent);
-  padding: var(--recommend-padding, 0 12px);
-  text-align: var(--recommend-text-align, center);
-  margin-bottom: var(--recommend-margin-bottom, 24px);
-}
 
-.recommendations-section .main-title {
-  text-align: var(--recommend-title-align, center);
-  margin-bottom: var(--recommend-title-margin-bottom, 16px);
-  font-size: var(--recommend-title-font-size, 20px);
-  line-height: var(--recommend-title-line-height, 1.4);
-}
-
-/* צבע רקע חלופי (בהיר) */
-.recommendations-section.color-recommend-bg-light {
-  background-color: var(--recommend-bg-light, #e8fdf1);
-}
 
 /* כותרת וידאו */
 .video-title {
@@ -664,23 +700,34 @@ img {
 .profile-img {
   width: var(--profile-img-size, 80px);
   height: var(--profile-img-size, 80px);
-}
-/* ===== המלצות – מבנה מרוכז ===== */
+
+}/* ===== אזור המלצות – ברירת מחדל ===== */
+
+/* ===== אזור המלצות – ברירת מחדל ===== */
 .recommendations-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--recommend-section-padding, var(--spacing-medium));
-  background: var(--recommend-section-bg, transparent);
-  border-radius: var(--recommend-section-radius, var(--radius-large));
+  padding: var(--recommendations-section-padding);
+  background-color: var(--recommendations-section-bg);
+  border-radius: var(--recommendations-section-radius);
 }
 
 /* Swiper בתוך ההמלצות */
-.recommendations-section .recommendations-swiper {
-  overflow: visible;
-  border-radius: var(--recommend-swiper-radius, 12px);
-  background: var(--recommend-swiper-bg, #f7f7f7);
-  padding: var(--recommend-swiper-padding, 8px);
+.recommendations-section .recommendations-swiper,
+.recommendations-section .swiper {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  direction: rtl;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: visible;
+  overflow-y: visible;
+  border-radius: var(--recommend-swiper-radius);
+  background: var(--recommend-swiper-bg);
+  padding: var(--recommend-swiper-padding);
 }
 
 /* שקופיות */
@@ -688,68 +735,82 @@ img {
   flex: 0 0 100%;
   max-width: 100%;
   display: flex;
-  min-height: var(--recommend-slide-min-height, 180px);
-  max-height: var(--recommend-slide-max-height, 280px);
-  padding: var(--recommend-slide-padding, 12px);
+  min-height: var(--recommend-slide-min-height);
+  max-height: var(--recommend-slide-max-height);
+  padding: var(--recommend-slide-padding);
   box-sizing: border-box;
-  overflow-y: visible;
-  scroll-behavior: smooth;
 }
-
 /* בלוק המלצה */
 .recommendations-section .elementor-testimonial {
   flex-grow: 1;
   width: 100%;
   height: 100%;
-  border-radius: var(--recommend-testimonial-radius, var(--radius-large));
-}
-
-/* Pagination */
-.recommendations-section .swiper-pagination {
-  position: relative;
-  margin-top: var(--recommend-pagination-margin, 12px);
-  text-align: center;
-}
-.recommendations-section .swiper-pagination-bullet {
-  width: var(--recommend-bullet-size, 8px);
-  height: var(--recommend-bullet-size, 8px);
-  background: var(--recommend-bullet-bg, var(--color-gray-dark));
-  opacity: var(--recommend-bullet-opacity, 0.4);
-  border-radius: 50%;
-  margin: var(--recommend-bullet-margin, 0 4px);
-  transition: opacity 0.3s ease;
-}
-.recommendations-section .swiper-pagination-bullet-active {
-  opacity: 1;
-  background: var(--recommend-bullet-active-bg, var(--main-brand-color));
-}
-
-/* בלוק המלצה */
-.recommendations-section .elementor-testimonial {
-  background-color: var(--testimonial-bg);
-  border: 1px solid var(--testimonial-border-right-color);
-  border-radius: var(--testimonial-radius, var(--radius-large));
-  padding: var(--testimonial-padding, var(--spacing-large));
-  margin-top: var(--testimonial-margin-top, var(--spacing-medium));
-  position: relative;
-  text-align: right;
-  min-height: var(--testimonial-min-height);
-  max-height: var(--testimonial-max-height, 180px); /* מצב סגור ברירת מחדל */
-  width: 100%;
-  max-width: 100%;
+  border-radius: var(--recommend-testimonial-radius);
+  background-color: var(--recommend-testimonial-bg);
+  border: var(--recommend-testimonial-border);
+  padding: var(--recommend-testimonial-padding);
+  margin-top: var(--recommend-testimonial-margin-top);
+  margin-bottom: var(--recommend-testimonial-gap, var(--spacing-large)); /* ✅ ריווח בין בלוקים */
+  min-height: var(--recommend-testimonial-min-height);
+  max-height: var(--recommend-testimonial-max-height);
   overflow: hidden;
-  transition: all 0.3s ease;
+}
+
+
+/* שם הממליץ */
+.recommendations-section .elementor-testimonial__name {
+  color: var(--recommend-name-color);
+  font-size: var(--recommend-name-font-size);
+  font-weight: var(--recommend-name-font-weight);
+  margin-bottom: var(--spacing-tiny);
+}
+
+/* כותרת הממליץ */
+.recommendations-section .elementor-testimonial__title {
+  color: var(--recommend-title-color);
+  font-size: var(--recommend-title-font-size);
+  font-weight: var(--recommend-title-font-weight);
+  margin-bottom: var(--spacing-small);
+}
+
+/* תוכן ההמלצה */
+.recommendations-section .elementor-testimonial__content,
+.recommendations-section .elementor-testimonial__text {
+  color: var(--recommend-content-color);
+  font-size: var(--recommend-content-font-size);
+  line-height: var(--recommend-content-line-height);
+  margin-bottom: var(--spacing-medium);
 }
 
 /* כפתור קרא עוד */
 .recommendations-section .read-more {
   display: inline-block;
-  margin-top: var(--read-more-margin-top, 8px);
-  font-size: var(--read-more-font-size, 14px);
-  font-weight: var(--read-more-font-weight, bold);
-  color: var(--read-more-color, #007bff);
+  margin-top: var(--read-more-margin-top);
+  font-size: var(--read-more-font-size);
+  font-weight: var(--read-more-font-weight);
+  color: var(--read-more-color);
   cursor: pointer;
 }
+
+/* Pagination */
+.recommendations-section .swiper-pagination {
+  position: relative;
+  margin-top: var(--recommend-pagination-margin);
+  text-align: center;
+}
+.recommendations-section .swiper-pagination-bullet {
+  width: var(--recommend-bullet-size);
+  height: var(--recommend-bullet-size);
+  background: var(--recommend-bullet-bg);
+  border-radius: 50%;
+  margin: 0 4px;
+  transition: opacity 0.3s ease;
+}
+.recommendations-section .swiper-pagination-bullet-active {
+  background: var(--recommend-bullet-active-bg);
+}
+
+
 /* ===== גלריית תמונות – מבנה ברירת מחדל ===== */
 .image-gallery-wrapper {
   margin-top: var(--gallery-margin-top, var(--spacing-xl));

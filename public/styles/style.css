@@ -540,30 +540,23 @@ body {
 
 
 .recommendations-section .swiper {
-  width: 100%;
-  max-width: 100%;
+  width: var(--recommend-swiper-width, 100%);
+  max-width: var(--recommend-swiper-max-width, 100%);
   box-sizing: border-box;
-  direction: rtl;
-  height: 100%;
+  direction: var(--recommend-swiper-direction, rtl);
+  height: var(--recommend-swiper-height, 100%);
   display: flex;
   flex-direction: column;
-  overflow-x: visible; /* ❌ חוסם אזור ריק */
-  overflow-y: visible;
-}
-
-.recommendations-section {
-  background-color: var(--recommendations-section-bg);
+  overflow-x: var(--recommend-swiper-overflow-x, visible); /* ✅ נשלט מה־Root */
+  overflow-y: var(--recommend-swiper-overflow-y, visible);
 }
 
 
 
 
 
-/* ===== 14. בלוק המלצות (Testimonial Block) ===== */
-.elementor-testimonial {
-  border-radius: var(--radius-circle); /* 🔄 עיגול מלא */
-  max-height: 440px; /* 🔄 הגדלת גובה מקסימלי */
-}
+
+
 
 
 
