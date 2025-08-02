@@ -9,14 +9,15 @@
 :root {
   /* שינוי צבע המותג הראשי לכחול (במקום זהב כברירת מחדל) */
   --main-brand-color: var(--color-blue-medium);
+  --secondary-brand-color: var(--color-blue-medium); /* נשאר כחול */
   --top-section-height-fixed: 220px;
 
-  --secondary-brand-color: var(--color-blue-medium); /* נשאר כחול */
+  /* צבעי רקע וטקסט כלליים */
   --light-background-color: var(--color-white);
   --dark-background-color: var(--color-gray-light);
   --text-primary-color: var(--color-gray-dark);
-  --text-secondary-color: var(--color-white); /* לטקסט על רקעים כהים */
-  --header-bg-color: var(--gradient-white); /* בכרטיס הזה רקע לבן */
+  --text-secondary-color: var(--color-white);
+  --header-bg-color: var(--gradient-white);
 
   /* הגדרות כרטיס (Card) */
   --card-bg: var(--light-background-color);
@@ -24,16 +25,18 @@
   --card-box-shadow: var(--shadow-medium);
   --card-padding-default: var(--spacing-large);
 
+  /* פס זהב */
+  --gold-line-bg: var(--gradient-gold);
   --gold-line-height: 2px;
   --gold-line-margin: -50px auto 0px auto;
-  --gradient-line-style: linear-gradient(to right, gold, orange);
 
   /* הגדרות כפתורים (Button) */
   --btn-bg-filled: var(--main-brand-color);
   --btn-text-color-filled: var(--text-secondary-color);
   --btn-hover-bg-filled: var(--color-blue-dark);
-  --btn-border-outline: 2px solid var(--main-brand-color);
+  --btn-hover-text-color-filled: var(--text-secondary-color);
   --btn-text-color-outline: var(--main-brand-color);
+  --btn-border-outline: 2px solid var(--main-brand-color);
   --btn-hover-bg-outline: var(--main-brand-color);
   --btn-hover-text-color-outline: var(--text-secondary-color);
   --btn-radius: var(--radius-medium);
@@ -42,24 +45,24 @@
   --btn-padding: var(--spacing-small) var(--spacing-large);
   --btn-margin: var(--spacing-small);
 
-  /* הגדרות תמונת פרופיל (Profile Image) */
-  --profile-img-size: 140px; /* גודל קבוע ברירת מחדל */
-  --profile-img-radius: var(--radius-circle); /* עיגול מלא כברירת מחדל */
+  /* הגדרות תמונת פרופיל */
+  --profile-img-size: 140px;
+  --profile-img-radius: var(--radius-circle);
   --profile-img-border: 3px solid var(--main-brand-color);
   --profile-img-box-shadow: var(--shadow-soft);
   --profile-img-margin: -60px auto 0 auto;
   --profile-img-position-offset: var(--profile-img-top-negative-medium);
 
-  /* הגדרות לוגו (Logo) */
+  /* לוגו */
   --logo-size: 60px;
 
-  /* קווי הפרדה (Separators) */
+  /* קווי הפרדה */
   --separator-line-color: var(--main-brand-color);
   --separator-line-thickness: 1px;
   --gradient-line-style: var(--gradient-blue);
   --gradient-line-margin: var(--spacing-medium) -20px;
 
-  /* אזורים (Sections - Top/Bottom) */
+  /* אזורים עליון ותחתון */
   --top-section-bg: var(--gradient-blue);
   --top-section-text-color: var(--text-secondary-color);
   --top-section-height-default: 0px;
@@ -67,12 +70,12 @@
   --bottom-section-text-color: var(--text-primary-color);
   --bottom-section-radius: var(--radius-large);
 
-  /* כותרות אקורדיון (Accordion Toggle Titles) */
+  /* כותרות אקורדיון */
   --toggle-title-color: var(--text-primary-color);
   --toggle-title-font-size: var(--font-size-title-small);
   --toggle-title-hover-bg: var(--color-gray-light);
 
-  /* בלוק המלצות (Testimonial Block) */
+  /* בלוק המלצות */
   --testimonial-bg: var(--light-background-color);
   --testimonial-border-right-color: var(--main-brand-color);
   --testimonial-name-color: var(--text-primary-color);
@@ -82,16 +85,16 @@
   --testimonial-read-more-btn-hover-color: var(--color-blue-dark);
   --testimonial-min-height: 180px;
 
-  /* כותרות כלליות (General Titles) */
+  /* כותרות כלליות */
   --main-title-color: var(--main-brand-color);
   --subtitle-color: var(--text-primary-color);
   --section-title-color: var(--text-primary-color);
 
-  /* אייקונים (Icons) */
+  /* אייקונים */
   --icon-border-color: var(--main-brand-color);
   --icon-text-color: var(--text-primary-color);
 
-  /* טפסים (Forms) */
+  /* טפסים */
   --form-bg: var(--dark-background-color);
   --form-input-border: 1px solid var(--color-gray-medium);
   --form-btn-bg: var(--color-gray-light);
@@ -99,17 +102,17 @@
   --form-btn-hover-bg: var(--color-white);
   --form-text-color: var(--text-primary-color);
 
-  /* אזור אודות (About Section) */
+  /* אזור אודות */
   --about-section-bg: #f2fef6;
   --about-section-text-color: var(--text-primary-color);
   --about-section-title-color: var(--main-brand-color);
   --about-highlight-text-color: var(--color-white);
   --about-highlight-bg-color: rgba(0, 0, 0, 0.1);
 
-  /* וידאו תדמית (Video Wrapper) */
+  /* וידאו */
   --video-title-color: var(--main-brand-color);
 
-  /* אזור המלצות (Recommendations Section) */
+  /* אזור המלצות */
   --recommendations-section-bg: lab(94.42% -0.36 2.04);
 }
 
@@ -121,20 +124,7 @@ body {
 }
 
 /* רכיב .btn - כפתורים */
-.btn {
-  display: inline-block;
-  padding: var(--btn-padding, var(--spacing-small) var(--spacing-large));
-  border: none;
-  border-radius: var(--btn-radius, var(--radius-medium));
-  font-family: inherit;
-  font-size: var(--btn-font-size, var(--font-size-medium));
-  font-weight: var(--font-weight-bold);
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin: var(--btn-margin, var(--spacing-small));
-}
+
 
 /* כפתור מלא (ברירת מחדל בסטייל הזה – כחול) */
 .btn-filled-gold {
