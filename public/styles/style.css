@@ -117,36 +117,8 @@
 /* ===== 3. עיצוב רכיבים בפועל (באמצעות המשתנים הכלליים בלבד) ===== */
 
 body {
-  font-family: var(--font-family-primary);
-  direction: rtl;
-  text-align: center;
-  /* אין min-height: 100vh; ואין vw/vh */
-  overflow-y: auto;
   background-color: var(--dark-background-color);
 }
-
-
-.card-shadow-soft {
-  box-shadow: var(--shadow-soft);
-}
-
-.card-shadow-strong {
-  box-shadow: var(--shadow-strong);
-}
-
-.card-rounded-small {
-  border-radius: var(--radius-small);
-}
-
-.card-rounded-medium {
-  border-radius: var(--radius-medium);
-}
-
-.card-rounded-large {
-  border-radius: var(--radius-large);
-}
-
-
 
 
 /* רכיב .btn - כפתורים */
