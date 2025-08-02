@@ -120,40 +120,43 @@ body {
   background-color: var(--dark-background-color);
 }
 
-
 /* רכיב .btn - כפתורים */
 .btn {
   display: inline-block;
-  padding: var(--btn-padding);
+  padding: var(--btn-padding, var(--spacing-small) var(--spacing-large));
   border: none;
-  border-radius: var(--btn-radius);
+  border-radius: var(--btn-radius, var(--radius-medium));
   font-family: inherit;
-  font-size: var(--btn-font-size);
+  font-size: var(--btn-font-size, var(--font-size-medium));
   font-weight: var(--font-weight-bold);
   text-decoration: none;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin: var(--btn-margin);
+  margin: var(--btn-margin, var(--spacing-small));
 }
 
-/* כפתורים מלאים (כחול) */
-.btn-filled-gold { /* שם הקלאס נשאר זהה לקיים, אך הצבע ישתנה לפי המשתנים */
-  background-color: var(--btn-bg-filled);
-  color: var(--btn-text-color-filled);
+/* כפתור מלא (ברירת מחדל בסטייל הזה – כחול) */
+.btn-filled-gold {
+  background-color: var(--btn-bg-filled, var(--color-blue-medium));
+  color: var(--btn-text-color-filled, var(--color-white));
 }
-
 .btn-filled-gold:hover {
-  background-color: var(--btn-hover-bg-filled);
+  background-color: var(--btn-hover-bg-filled, var(--color-blue-dark));
   transform: translateY(-2px);
 }
 
-/* כפתורים עם קו מתאר (כחול) */
-.btn-outline-gold { /* שם הקלאס נשאר זהה לקיים, אך הצבע ישתנה לפי המשתנים */
+/* כפתור outline (ברירת מחדל בסטייל הזה – כחול) */
+.btn-outline-gold {
   background-color: transparent;
-  color: var(--btn-text-color-outline);
-  border: var(--btn-border-outline);
+  color: var(--btn-text-color-outline, var(--color-blue-medium));
+  border: var(--btn-border-outline, 2px solid var(--color-blue-medium));
 }
+.btn-outline-gold:hover {
+  background-color: var(--btn-hover-bg-outline, var(--color-blue-medium));
+  color: var(--btn-hover-text-outline, var(--color-white));
+}
+
 .card .gold-line {
   background: var(--gradient-gold); /* כאן תבחר את הצבע בפועל */
 }
@@ -235,89 +238,25 @@ body {
   transform: scale(1.1);
 }
 
-
-/* רכיב .profile-img - תמונות פרופיל */
+/* 🎯 דריסות ספציפיות לסטייל הנוכחי */
 .profile-img {
   width: var(--profile-img-size, 100px);
   height: var(--profile-img-size, 100px);
-  border-radius: var(--profile-img-radius, var(--radius-circle)); /* ברירת מחדל: עיגול */
-  object-fit: cover;
-  border: 3px solid var(--main-brand-color);
-  display: block;
-  z-index: 10;
-  position: relative;
-  margin: var(--profile-img-margin, -60px auto 0 auto); /* שליטה מיקום */
-}
-
-
-
-
-.profile-img-circle {
-  border-radius: var(--profile-img-shape);
-}
-
-.profile-img-rounded {
-  border-radius: var(--radius-medium);
-}
-
-.profile-img-square {
-  border-radius: 0;
-}
-
-/* גדלים ספציפיים אלו יידרסו על ידי .profile-img הכללי */
-.profile-img-small,
-.profile-img-medium,
-.profile-img-large,
-.profile-img-xl {
-    width: 100px;
-    height: 100px;
-}
-
-/* מסגרות */
-.profile-img-border-gold { /* יתעדכן לצבע כחול עקב שינוי המשתנה הגלובלי */
-  border: var(--profile-img-border);
-}
-
-.profile-img-border-blue {
-  border: 3px solid var(--color-blue-medium);
-}
-
-.profile-img-border-turquoise {
-  border: 3px solid var(--color-turquoise-medium);
-}
-
-.profile-img-border-white {
-  border: 3px solid var(--color-white);
-}
-
-/* צללים */
-.profile-img-shadow-soft {
-  box-shadow: var(--profile-img-box-shadow);
-}
-
-.profile-img-shadow-glow {
-  box-shadow: var(--shadow-glow-colored);
+  border-radius: var(--profile-img-radius, var(--radius-circle));
+  border: var(--profile-img-border, 3px solid var(--main-brand-color));
+  margin: var(--profile-img-margin, -60px auto 0 auto);
 }
 
 /* תמונת פרופיל עם מיקום מתקדם */
 .profile-img-positioned {
   position: relative;
-  z-index: 3;
+  z-index: 10;
   top: var(--profile-img-position-offset);
   background-color: var(--color-white);
 }
-
-.profile-img-top-negative-small {
-  top: -30px;
-}
-
-.profile-img-top-negative-medium {
-  top: -440px;
-}
-
-.profile-img-top-negative-large {
-  top: -50px;
-}
+.profile-img-top-negative-small { top: -30px; }
+.profile-img-top-negative-medium { top: -440px; }
+.profile-img-top-negative-large { top: -50px; }
 
 /* רכיב .logo-img - לוגואים */
 .logo-img {

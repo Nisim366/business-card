@@ -186,13 +186,12 @@ img {
 .card-rounded-large {
   border-radius: var(--radius-large);
 }
-
-/* ===== 4. רכיב .btn - כפתורים בגרסאות שונות ===== */
+/* ברירת מחדל – כפתור גנרי */
 .btn {
   display: inline-block;
   padding: var(--spacing-small) var(--spacing-large);
   border: none;
-  border-radius: var(--radius-medium);
+  border-radius: var(--btn-radius, var(--radius-medium));
   font-family: inherit;
   font-size: var(--font-size-medium);
   font-weight: var(--font-weight-bold);
@@ -201,194 +200,39 @@ img {
   cursor: pointer;
   transition: all 0.3s ease;
   margin: var(--spacing-small);
+  background-color: var(--btn-bg, var(--color-gray-light));
+  color: var(--btn-text-color, var(--color-gray-dark));
 }
-
-/* כפתורים מלאים */
-.btn-filled-gold {
-  background-color: var(--color-gold-medium);
-  color: var(--color-white);
+.btn:hover {
+  background-color: var(--btn-hover-bg, var(--color-gray-medium));
+  color: var(--btn-hover-text, var(--color-white));
 }
-
-.btn-filled-gold:hover {
-  background-color: var(--color-gold-dark);
-  transform: translateY(-2px);
-}
-
-.btn-filled-blue {
-  background-color: var(--color-blue-medium);
-  color: var(--color-white);
-}
-
-.btn-filled-blue:hover {
-  background-color: var(--color-blue-dark);
-  transform: translateY(-2px);
-}
-
-.btn-filled-turquoise {
-  background-color: var(--color-turquoise-medium);
-  color: var(--color-white);
-}
-
-.btn-filled-turquoise:hover {
-  background-color: var(--color-turquoise-dark);
-  transform: translateY(-2px);
-}
-
-.btn-filled-green {
-  background-color: var(--color-green-medium);
-  color: var(--color-white);
-}
-
-.btn-filled-green:hover {
-  background-color: var(--color-green-dark);
-  transform: translateY(-2px);
-}
-
-/* כפתורים עם קו מתאר */
-.btn-outline-gold {
-  background-color: transparent;
-  color: var(--color-gold-medium);
-  border: 2px solid var(--color-gold-medium);
-}
-
-.btn-outline-gold:hover {
-  background-color: var(--color-gold-medium);
-  color: var(--color-white);
-}
-
-.btn-outline-blue {
-  background-color: transparent;
-  color: var(--color-blue-medium);
-  border: 2px solid var(--color-blue-medium);
-}
-
-.btn-outline-blue:hover {
-  background-color: var(--color-blue-medium);
-  color: var(--color-white);
-}
-
-.btn-outline-turquoise {
-  background-color: transparent;
-  color: var(--color-turquoise-medium);
-  border: 2px solid var(--color-turquoise-medium);
-}
-
-.btn-outline-turquoise:hover {
-  background-color: var(--color-turquoise-medium);
-  color: var(--color-white);
-}
-
-/* כפתורים עגולים */
-.btn-round {
-  border-radius: 25px;
-}
-
-.btn-circle {
-  border-radius: var(--radius-circle);
-  width: 50px;
-  height: 50px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* גדלים שונים */
-.btn-small {
-  padding: var(--spacing-tiny) var(--spacing-medium);
-  font-size: var(--font-size-small);
-}
-
-.btn-large {
-  padding: var(--spacing-medium) var(--spacing-xl);
-  font-size: var(--font-size-large);
-}
-
-/* כפתורים כהים/בהירים */
-.btn-dark {
-  background-color: var(--color-gray-dark);
-  color: var(--color-white);
-}
-
-.btn-dark:hover {
-  background-color: var(--color-black);
-}
-
-.btn-light {
-  background-color: var(--color-gray-light);
-  color: var(--color-gray-dark);
-}
-
-.btn-light:hover {
-  background-color: var(--color-white);
-  box-shadow: var(--shadow-medium);
-}
-
 /* ===== 5. רכיב .profile-img - תמונות פרופיל ===== */
+/* ===== רכיב פרופיל – ברירת מחדל לפי התצוגה הנוכחית ===== */
 .profile-img {
+  /* מבנה ותצוגה */
   object-fit: cover;
   display: block;
-  margin: 0 auto;
-}
+  margin: -60px auto 0 auto;     /* מיקום של התמונה כפי שמוצג כעת */
+  position: relative;
+  z-index: 10;                   /* תמיד מעל הרקע */
 
-.profile-img-circle {
+  /* גודל וצורה */
+  width: 140px;
+  height: 140px;
   border-radius: var(--radius-circle);
-}
 
-.profile-img-rounded {
-  border-radius: var(--radius-medium);
-}
-
-.profile-img-square {
-  border-radius: 0;
-}
-
-/* גדלים שונים */
-.profile-img-small {
-  width: 60px;
-  height: 60px;
-}
-
-.profile-img-medium {
-  width: 80px;
-  height: 80px;
-}
-
-.profile-img-large {
-  width: 100px;
-  height: 100px;
-}
-
-.profile-img-xl {
-  width: 120px;
-  height: 120px;
-}
-
-/* מסגרות */
-.profile-img-border-gold {
-  border: 3px solid var(--color-gold-medium);
-}
-
-.profile-img-border-blue {
+  /* מסגרת וצל כפי שמוצג כעת */
   border: 3px solid var(--color-blue-medium);
-}
-
-.profile-img-border-turquoise {
-  border: 3px solid var(--color-turquoise-medium);
-}
-
-.profile-img-border-white {
-  border: 3px solid var(--color-white);
-}
-
-/* צללים */
-.profile-img-shadow-soft {
   box-shadow: var(--shadow-soft);
 }
 
-.profile-img-shadow-glow {
-  box-shadow: var(--shadow-glow-colored);
+/* מבטיח שהתמונה לא תיחתך */
+.header-top,
+.top-section {
+  overflow: visible;
 }
+
 
 /* ===== 6. קווי הפרדה - .separator ===== */
 .separator {
