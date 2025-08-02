@@ -764,6 +764,13 @@ img {
   font-weight: var(--recommend-name-font-weight);
   margin-bottom: var(--spacing-tiny);
 }
+.logo-img {
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+
 
 /* כותרת הממליץ */
 .recommendations-section .elementor-testimonial__title {
