@@ -903,18 +903,21 @@ img {
   }
 
 .elementor-testimonial {
-  border: 1px solid #007bff;
-  border-radius: var(--radius-large); /* 🔄 פינות מעוגלות */
-  padding: 12px;
-  text-align: right;
-  transition: all 0.3s ease;
-  overflow: hidden;
-  max-height: 180px; /* מצב סגור כברירת מחדל */
+  background-color: var(--testimonial-bg);
+  border: 1px solid var(--testimonial-border-right-color);
+  border-radius: var(--radius-large); /* 🔄 פינות מעוגלות כברירת מחדל */
+  padding: var(--spacing-large);
+  margin-top: var(--spacing-medium);
   position: relative;
+  text-align: right;
+  min-height: var(--testimonial-min-height);
+  max-height: 180px; /* מצב סגור כברירת מחדל */
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
-.elementor-testimonial.expanded {
-  max-height: none; /* מצב פתוח */
-}
+
 .read-more {
   display: inline-block;
   margin-top: 8px;

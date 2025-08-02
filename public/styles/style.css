@@ -641,10 +641,7 @@ body {
 }
 
 .recommendations-section {
-  padding: 0 12px;
   background-color: var(--recommendations-section-bg);
-  text-align: center;
-  margin-bottom: 24px;
 }
 
 
@@ -653,19 +650,8 @@ body {
 
 /* ===== 14. בלוק המלצות (Testimonial Block) ===== */
 .elementor-testimonial {
-  background-color: var(--testimonial-bg);
   border-radius: var(--radius-circle); /* 🔄 עיגול מלא */
-  padding: var(--spacing-large);
-  margin-top: var(--spacing-medium);
-  position: relative;
-  text-align: right;
-  min-height: var(--testimonial-min-height);
-  max-height: 440px;
-  width: 100%;
-  max-width: 100%;
-  border: 1px solid var(--testimonial-border-right-color); /* ⬅️ מסגרת מלאה */
-  overflow: hidden; /* 🔄 שמירה על תוכן בתוך עיגול */
-
+  max-height: 440px; /* 🔄 הגדלת גובה מקסימלי */
 }
 
 
