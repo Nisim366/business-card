@@ -90,9 +90,124 @@
   --gradient-turquoise: linear-gradient(135deg, #40E0D0, #008B8B);
   --gradient-multi: linear-gradient(45deg, #33cc99, #00aaff, #33cc99);
   
-  --share-btn-margin: var(--spacing-small);
-  --share-icon-size: var(--font-size-xl);
-  --share-icon-hover-color: #666;
+  
+  /* 🎯 משתנים לפס העליון (Gold Line) */
+  --gold-line-width: 100%;                     /* רוחב הפס */
+  --gold-line-height: 4px;                     /* גובה הפס */
+  --gold-line-bg: var(--gradient-blue);        /* צבע / גרדיאנט */
+  --gold-line-margin: 0;                       /* מרווחים מסביב */
+  --gold-line-padding: 0;                      /* ריווחים פנימיים */
+  --gold-line-position: relative;              /* מיקום פס */
+  --gold-line-top: auto;                       /* הסטה מלמעלה */
+  --gold-line-bottom: auto;                    /* הסטה מלמטה */
+  --gold-line-left: 0;                         /* הסטה משמאל */
+  --gold-line-right: 0;                        /* הסטה מימין */
+  --gold-line-border-radius: 0;                /* רדיוס פינות */
+  --gold-line-box-shadow: none;                /* צל */
+
+  
+  /* 🎯 Share Section Defaults */
+  --share-section-bg: transparent;                                 /* רקע ברירת מחדל */
+  --share-section-padding: var(--spacing-large) 0;                  /* ריווח סביב */
+  --share-section-gap: var(--spacing-medium); 
+  --share-section-color: var(--color-gray-dark);
+                      /* מרווח בין אייקונים */
+
+  /* 🎯 Share Icon Defaults */
+  --share-icon-size: 48px;                                          /* גודל אייקון */
+  --share-icon-radius: var(--radius-circle);                        /* פינות עגולות */
+  --share-icon-bg: var(--color-white);                              /* רקע */
+  --share-icon-border: 1px solid var(--icon-border-color);          /* גבול */
+  --share-icon-padding: 10px;                                       /* ריווח פנימי */
+  --share-icon-shadow: var(--shadow-soft);                          /* צל */
+  --share-icon-hover-scale: 1.1;      
+  --share-icon-size: 60px;
+                              /* הגדלה בהובר */
+
+  
+  /* ===== 🎯 Button Defaults ===== */
+  --btn-display: inline-block;
+
+  /* Filled Button Defaults */
+  --btn-bg-filled: var(--color-gold-medium);           /* רקע ברירת מחדל */
+  --btn-text-color-filled: var(--color-white);         /* צבע טקסט ברירת מחדל */
+  --btn-hover-bg-filled: var(--color-gold-dark);       /* רקע בהובר */
+  --btn-hover-text-color-filled: var(--color-white);   /* צבע טקסט בהובר */
+
+  /* Outline Button Defaults */
+  --btn-bg-outline: transparent;                       /* רקע outline */
+  --btn-text-color-outline: var(--color-gold-medium);  /* טקסט outline */
+  --btn-border-outline: 2px solid var(--color-gold-medium);
+  --btn-hover-bg-outline: var(--color-gold-medium);
+  --btn-hover-text-color-outline: var(--color-white);
+
+  /* Shape & Size */
+  --btn-radius: var(--radius-medium);                  /* רדיוס פינות */
+  --btn-padding: var(--spacing-small) var(--spacing-large); /* ריווח פנימי */
+  --btn-margin: var(--spacing-small) auto;             /* מרווח חיצוני */
+  --btn-font-size: var(--font-size-medium);            /* גודל טקסט */
+  --btn-font-weight: var(--font-weight-bold);          /* משקל טקסט */
+
+  /* Decoration & Animation */
+  --btn-text-decoration: none;                         /* ביטול קו תחתון */
+  --btn-transition: background-color 0.3s ease, transform 0.2s ease;
+  --btn-transform-hover: translateY(-2px);             /* אנימציית hover */
+
+  /* ===== 🎯 Contact Button Defaults ===== */
+  --btn-contact-bg: #4682B4;                           /* רקע כחול */
+  --btn-contact-color: #ffffff;                        /* טקסט לבן */
+  --btn-contact-hover-bg: #36648B;                     /* רקע כחול כהה בהובר */
+  --btn-contact-hover-color: #ffffff;                  /* טקסט לבן בהובר */
+  --btn-contact-padding: 10px 20px;                    /* ריווח פנימי */
+  --btn-contact-margin: 10px 0;                        /* מרווח חיצוני */
+  --btn-contact-radius: var(--radius-medium);          /* פינות בינוניות */
+  --btn-contact-font-size: 14px;                       /* גודל טקסט */
+  --btn-contact-font-weight: var(--font-weight-bold);  /* משקל טקסט */
+
+  /* 🎯 Icon Grid Defaults */
+  --icon-grid-display: grid;
+  --icon-grid-template: repeat(3, 1fr); /* שלוש עמודות ברירת מחדל */
+  --icon-grid-gap: var(--spacing-icon-gap, 20px);
+  --icon-grid-margin: var(--spacing-xl) 0;
+  --icon-grid-justify-items: center;
+  --icon-grid-bg: transparent;
+  --icon-grid-padding: 0;
+  --icon-grid-radius: 0;
+  --icon-grid-shadow: none;
+
+  /* 🎯 Icon Item Defaults */
+  --icon-item-text-align: center;
+
+  /* 🎯 Icon Image Defaults */
+  --icon-img-size: 70px;
+  --icon-img-radius: 50%;
+  --icon-img-bg: var(--color-white);
+  --icon-img-padding: 12px;
+  --icon-img-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --icon-img-object-fit: contain;
+  --icon-img-hover-transform: scale(1.1);
+
+  /* 🎯 Icon Text Defaults */
+  --icon-text-display: block;
+  --icon-text-margin-top: 6px;
+  --icon-text-font-size: 14px;
+  --icon-text-color: var(--color-gray-dark);
+
+  /* 🎯 Compatibility for Old Grid Items */
+  --icon-font-size: var(--font-size-title-large);
+  --icon-color: var(--color-gold-medium);
+  --icon-margin-bottom: var(--spacing-small);
+  --icon-desc-font-size: var(--font-size-small);
+  --icon-desc-color: var(--color-gray-dark);
+
+  /* 🎯 Color Section Background Default */
+  --section-bg-color: #e6fff1;
+
+
+ 
+   --profile-img-size: 140px;
+  --profile-img-margin: -30px auto 0 auto; /* ברירת מחדל */
+
 }
 
 /* ===== 2. בסיס כללי ===== */
@@ -138,26 +253,31 @@ img {
   }
 }
 /* ===== 4. כפתור – ברירת מחדל ===== */
+/* ==/* ===== כפתור – ברירת מחדל (כמו ב־style.css) ===== */
+/* ===== כפתור – ברירת מחדל (כמו ב־style.css) ===== */
 .btn {
-  display: inline-block;
-  padding: var(--btn-padding, var(--spacing-small) var(--spacing-large));
+  display: var(--btn-display, inline-block);
+  padding: var(--btn-padding, var(--spacing-small) var(--spacing-large));  /* ריווח גדול יותר */
   border: none;
-  border-radius: var(--btn-radius, var(--radius-medium));
+  border-radius: var(--btn-radius, var(--radius-medium));                  /* פינות בינוניות */
   font-family: inherit;
-  font-size: var(--btn-font-size, var(--font-size-medium));
-  font-weight: var(--btn-font-weight, var(--font-weight-bold));
-  text-decoration: none;
+  font-size: var(--btn-font-size, var(--font-size-medium));                 /* גודל טקסט בינוני */
+  font-weight: var(--btn-font-weight, var(--font-weight-bold));            /* טקסט מודגש */
+  text-decoration: var(--btn-text-decoration, none);                       /* ביטול קו תחתון */
   text-align: center;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin: var(--btn-margin, var(--spacing-small));
-  background-color: var(--btn-bg, var(--color-gray-light));
-  color: var(--btn-text-color, var(--color-gray-dark));
+  transition: var(--btn-transition, background-color 0.3s ease, transform 0.2s ease);
+  margin: var(--btn-margin, var(--spacing-small) auto);
+  background-color: var(--btn-bg-filled, var(--color-gold-medium));        /* צבע רקע מלא */
+  color: var(--btn-text-color-filled, var(--color-white));                 /* צבע טקסט */
 }
+
 .btn:hover {
-  background-color: var(--btn-hover-bg, var(--color-gray-medium));
-  color: var(--btn-hover-text, var(--color-white));
+  background-color: var(--btn-hover-bg-filled, var(--color-gold-dark));    /* רקע בהובר */
+  color: var(--btn-hover-text-color-filled, var(--color-white));           /* צבע טקסט בהובר */
+  transform: var(--btn-transform-hover, translateY(-2px));                 /* אנימציה */
 }
+
 
 /* ===== 5. תמונת פרופיל – ברירת מחדל ===== */
 .profile-img {
@@ -228,13 +348,43 @@ img {
 }
 
 .gold-line {
-  width: var(--gold-line-width, 100%);
-  height: var(--gold-line-height, 4px);
-  background: var(--gold-line-bg, var(--gradient-blue));
-  margin: var(--gold-line-margin, 0);
-  padding: var(--gold-line-padding, 0);
-  display: block;
+  width: var(--gold-line-width, 100%);                     /* רוחב מלא כברירת מחדל */
+  height: var(--gold-line-height, 4px);                    /* גובה דק סטנדרטי */
+  background: var(--gold-line-bg, var(--gradient-blue));   /* גרדיאנט כחול */
+  margin: var(--gold-line-margin, 0 auto);                 /* ממורכז */
+  padding: var(--gold-line-padding, 0);                    /* ללא ריווח פנימי */
+  position: var(--gold-line-position, relative);           /* מיקום יחסי */
+  top: var(--gold-line-top, auto);                         /* ללא הסטה מלמעלה */
+  bottom: var(--gold-line-bottom, 0);                      /* צמוד לתחתית */
+  left: var(--gold-line-left, 0);                          /* צמוד לשמאל */
+  right: var(--gold-line-right, 0);                        /* צמוד לימין */
+  border-radius: var(--gold-line-border-radius, 0);        /* ללא עיגול פינות */
+  box-shadow: var(--gold-line-box-shadow, none);           /* ללא צל */
+  display: var(--gold-line-display, block);                /* מוצג כבלוק */
 }
+.name-role {
+  text-align: var(--name-role-text-align, center);                     /* יישור טקסט */
+  margin: var(--name-role-margin, var(--spacing-large) 0);             /* מרווחים */
+  padding: var(--name-role-padding, 0);                                /* ריווח פנימי */
+  font-family: var(--name-role-font-family, var(--font-family-primary)); /* משפחת גופן */
+  color: var(--name-role-color, var(--color-gray-dark));               /* צבע טקסט */
+  font-size: var(--name-role-font-size, var(--font-size-large));       /* גודל טקסט */
+  font-weight: var(--name-role-font-weight, var(--font-weight-bold));  /* משקל גופן */
+}
+
+.name-role.gray {
+  color: var(--name-role-gray-color, var(--color-gray-dark));          /* צבע לגוון אפור */
+}
+
+.name-role h1,
+.name-role h2 {
+  margin: var(--name-role-heading-margin, 0);                          /* מרווח כותרות */
+  padding: var(--name-role-heading-padding, 0);                        /* ריווח כותרות */
+  font-weight: var(--name-role-heading-weight, var(--font-weight-bold));/* משקל כותרות */
+  color: var(--name-role-heading-color, var(--color-gray-dark));       /* צבע כותרות */
+}
+
+
 
 .header-top img {
   width: var(--header-img-width, 100%);
@@ -431,6 +581,7 @@ img {
   background-color: var(--contact-btn-hover-bg, var(--color-gold-dark));
 }
 
+/* ===== כפתורי שיתוף – ברירת מחדל ===== */
 .share-buttons {
   display: flex;
   flex-direction: row;
@@ -439,17 +590,21 @@ img {
   gap: var(--spacing-medium);
   margin: var(--spacing-xl) 0;
 }
-/* ===== רשת אייקונים – מבנה ברירת מחדל ===== */
+
 .icon-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-icon-gap);
-  margin: var(--spacing-xl) 0;
-  justify-items: center;
+  display: var(--icon-grid-display, grid);
+  grid-template-columns: var(--icon-grid-template, repeat(3, 1fr));
+  gap: var(--icon-grid-gap, var(--spacing-icon-gap, 20px));
+  margin: var(--icon-grid-margin, var(--spacing-xl) 0);
+  justify-items: var(--icon-grid-justify-items, center);
+  background-color: var(--icon-grid-bg, transparent);
+  padding: var(--icon-grid-padding, 0);
+  border-radius: var(--icon-grid-radius, 0);
+  box-shadow: var(--icon-grid-shadow, none);
 }
 
 .icon-grid .icon-item {
-  text-align: center;
+  text-align: var(--icon-item-text-align, center);
 }
 
 .icon-grid .icon-item img {
@@ -459,7 +614,7 @@ img {
   background-color: var(--icon-img-bg, var(--color-white));
   padding: var(--icon-img-padding, 12px);
   box-shadow: var(--icon-img-shadow, 0 2px 8px rgba(0, 0, 0, 0.1));
-  object-fit: contain;
+  object-fit: var(--icon-img-object-fit, contain);
   transition: transform 0.2s ease;
 }
 
@@ -468,26 +623,12 @@ img {
 }
 
 .icon-grid .icon-item span {
-  display: block;
+  display: var(--icon-text-display, block);
   margin-top: var(--icon-text-margin-top, 6px);
   font-size: var(--icon-text-font-size, 14px);
   color: var(--icon-text-color, var(--color-gray-dark));
 }
 
-/* תאימות לגרסה ישנה */
-.icon-grid .grid-item .icon {
-  font-size: var(--icon-font-size, var(--font-size-title-large));
-  color: var(--icon-color, var(--color-gold-medium));
-  margin-bottom: var(--icon-margin-bottom, var(--spacing-small));
-}
-
-.icon-grid .grid-item p {
-  font-size: var(--icon-desc-font-size, var(--font-size-small));
-  color: var(--icon-desc-color, var(--color-gray-dark));
-}
-.color-section-bg {
-  background-color: var(--section-bg-color, #e6fff1);
-}
 /* גוון להובר */
 .color-share-icon-hover:hover {
   color: var(--share-icon-hover-color, #666);
@@ -801,6 +942,49 @@ img {
   display: block;
   object-fit: var(--gallery-preview-img-fit, cover);
 }
+/* ===== אזור שיתוף – ברירת מחדל ===== */
+.share-section {
+  display: flex;
+  flex-direction: column; /* כותרת מעל, כפתורים מתחת */
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--share-section-gap);
+  padding: var(--share-section-padding);
+  background-color: var(--share-section-bg);
+  color: var(--share-section-color, var(--color-gray-dark)); /* צבע טקסט אחיד */
+  text-align: center;
+}
+
+/* ===== כפתורי שיתוף – קונטיינר ===== */
+.share-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--share-section-gap);
+  margin: var(--spacing-xl) 0;
+}
+
+
+/* ===== אייקונים בכפתורי שיתוף – ברירת מחדל ===== */
+.share-buttons a img {
+  border-radius: var(--share-icon-radius, var(--radius-circle));
+  width: var(--share-icon-size, 48px);
+  height: var(--share-icon-size, 48px);
+  padding: var(--share-icon-padding, 10px);
+  background-color: var(--share-icon-bg, var(--color-white));
+  border: var(--share-icon-border, 1px solid var(--icon-border-color, var(--color-gray-medium)));
+  box-shadow: var(--share-icon-shadow, var(--shadow-soft));
+  object-fit: var(--share-icon-object-fit, cover);
+  object-position: var(--share-icon-object-position, center);
+  transition: transform 0.2s ease;
+}
+
+.share-buttons a img:hover {
+  transform: scale(var(--share-icon-hover-scale, 1.1));
+}
+
 
 /* ===== תצוגת מסך מלא ===== */
 .fullscreen-gallery-overlay {

@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
 // ✅ הגדרה והרצה מיידית של injectAssets עם התחייבות שהסקריפטים ייטענו לפני המשך
 (function injectAssets() {
   const assets = [
-    { type: 'link', attr: 'href', path: '/styles/style.css' },
-    { type: 'script', attr: 'src', path: '/data/data-client.js' }
-  ];
+  { type: 'link', attr: 'href', path: '/styles/base.css' },   // 🔄 טוען את הבסיס
+  { type: 'script', attr: 'src', path: '/data/data-client.js' }
+];
 
 
   let pendingScripts = assets.filter(a => a.type === 'script').length;
