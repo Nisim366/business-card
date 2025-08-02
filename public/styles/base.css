@@ -146,13 +146,13 @@
   
   /* 🎯 משתנים לפס העליון (Gold Line) */
   --gold-line-width: 100%;                     /* רוחב הפס */
-  --gold-line-height: 4px;                     /* גובה הפס */
+  --gold-line-height: 0px;                     /* גובה הפס */
   --gold-line-bg: var(--gradient-blue);        /* צבע / גרדיאנט */
   --gold-line-margin: 0;                       /* מרווחים מסביב */
   --gold-line-padding: 0;                      /* ריווחים פנימיים */
   --gold-line-position: relative;              /* מיקום פס */
-  --gold-line-top: auto;                       /* הסטה מלמעלה */
-  --gold-line-bottom: auto;                    /* הסטה מלמטה */
+  --gold-line-top: -20px;                       /* הסטה מלמעלה */
+  --gold-line-bottom: 0;                    /* הסטה מלמטה */
   --gold-line-left: 0;                         /* הסטה משמאל */
   --gold-line-right: 0;                        /* הסטה מימין */
   --gold-line-border-radius: 0;                /* רדיוס פינות */

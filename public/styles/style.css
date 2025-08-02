@@ -130,6 +130,38 @@
   --profile-img-margin: -30px auto 0 auto;  /* הורדה כלפי מטה */
     --separator-height: 2px;
   --separator-color: var(--main-brand-color);
+    --gold-line-height: 2px;
+  --gold-line-bg: var(--gradient-line-style);
+  --gold-line-width: 380px;
+  --gold-line-margin: var(--spacing-medium) auto;
+    --header-bg-color: url('../assets/background-soft-blue.jpg') no-repeat center center;
+  --header-bg-size: 100%; /* או כל אחוז אחר */
+  --header-bg-position: center;
+  --header-radius: var(--radius-large) var(--radius-large) 0 0;
+  --header-height: var(--top-section-height-fixed);
+  --header-display: flex;
+  --header-align-items: center;
+  --header-justify-content: center;
+    --main-title-color: #000;
+  --subtitle-color: #333;
+  --section-title-color: #666;
+    --icon-border-color: #ccc;
+  --icon-img-size: 70px;
+    --contact-form-bg: var(--color-white);
+  --contact-input-border: 1px solid var(--color-black);
+  --contact-btn-bg: var(--main-brand-color);
+  --contact-btn-hover-bg: var(--color-gold-dark);
+
+    --about-bg-color: var(--color-white);
+  --about-text-color: var(--color-black);
+  --about-title-color: var(--color-black);
+  --about-text-align: right;
+  --about-padding: var(--spacing-xl);
+  --about-title-margin-bottom: var(--spacing-medium);
+    --about-placeholder-text: "מומלץ להכניס כאן טקסט על העסק או השירותים.";
+      --video-margin-top: var(--spacing-large);
+  --recommend-swiper-width: 100%;
+  --recommend-swiper-max-width: 100%;
 
 }
 
@@ -137,52 +169,7 @@ body {
   background-color: var(--dark-background-color);
 }
 
-/* קווי הפרדה עם גרדיאנט */
-.gold-line { /* יתעדכן לגרדיאנט כחול עקב שינוי המשתנה הגלובלי */
-  height: 2px;
-  background: var(--gradient-line-style);
-  border: none;
-  width: 380px; /* רוחב קבוע כמו הכרטיס */
-  margin: var(--spacing-medium) auto; /* ממורכז */
-}
 
-.gradient-line-blue {
-  height: 2px;
-  background: var(--gradient-blue);
-  border: none;
-  width: 380px; /* רוחב קבוע כמו הכרטיס */
-  margin: var(--spacing-medium) auto; /* ממורכז */
-}
-
-/* ===== 8. אזורים (Sections) - Header, Top, Bottom ===== */
-.header-top {
-  background: url('../assets/background-soft-blue.jpg') no-repeat center center;
-  background-repeat: no-repeat;
-  background-size: 100%; /* או כל אחוז אחר שתרצה */
-  background-position: center;
-  color: var(--top-section-text-color);
-  height: var(--top-section-height-fixed);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-large) var(--radius-large) 0 0;
-  padding: 0;
-}
-/* קווי הפרדה עם גרדיאנט */
-.gold-line { /* יתעדכן לגרדיאנט כחול עקב שינוי המשתנה הגלובלי */
-  height: var(--gold-line-height); /* השתמש במשתנה כדי להישאר גנרי */
-  border: none;
-  background: var(--gradient-line-style);
-  width: 380px; /* רוחב קבוע כמו הכרטיס */
-  position: absolute; /* זה המפתח למיקום מדויק בתוך ה-header-top */
-  bottom: 0; /* ממקם את הקו בתחתית ה-header-top */
-  left: 0;
-  right: 0;
-  margin: auto; /* מרכוז אופקי */
-  z-index: 5; /* וודא שהקו יופיע מעל אלמנטים אחרים אם יש חפיפה */
-}
 
 
 
@@ -194,192 +181,15 @@ body {
   border-radius: 0 0 var(--bottom-section-radius) var(--bottom-section-radius);
 }
 
-/* ===== 9. כותרות כלליות ===== */
-.main-title {
-  color: var(--main-title-color);
-  font-size: var(--font-size-title-large);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--spacing-medium);
-}
-
-.subtitle {
-  color: var(--subtitle-color);
-  font-size: var(--font-size-large);
-  margin-bottom: var(--spacing-large);
-}
-
-.section-title {
-  color: var(--section-title-color);
-  font-size: var(--font-size-title-medium);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--spacing-large);
-}
-
-/* ===== 10. רכיבי אייקונים ===== */
-.icon-box {
-  display: inline-block;
-  padding: var(--spacing-small);
-  margin: var(--spacing-tiny);
-  border: 1px solid var(--icon-border-color);
-  border-radius: var(--radius-medium);
-  color: var(--icon-text-color);
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.icon-box:hover {
-  background-color: var(--icon-border-color);
-  color: var(--color-white);
-  transform: translateY(-2px);
-}
-
-.icon-box i {
-  font-size: var(--font-size-xl);
-  margin-bottom: var(--spacing-tiny);
-  display: block;
-}
 
 
-.contact-form label {
-  display: block;
-  margin-bottom: var(--spacing-tiny);
-  font-weight: var(--font-weight-bold);
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-  width: 100%;
-  padding: var(--spacing-medium);
-  margin-bottom: var(--spacing-medium);
-  border: var(--form-input-border);
-  border-radius: var(--radius-medium); /* ✅ פינות יותר עגולות */
-  background-color: var(--color-white);
-  color: var(--text-primary-color);
-}
-
-
-.contact-form textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-.contact-form .btn {
-  background-color: var(--form-btn-bg);
-  border: var(--form-btn-border);
-  color: var(--text-primary-color);
-  margin-top: var(--spacing-medium);
-}
-
-.contact-form .btn:hover {
-  background-color: var(--form-btn-hover-bg);
-}
-
-/* ===== 12. בלוק אודות (About Section) ===== */
-.about-section {
-  background-color: var(--color-white);
-  color: var(--color-black);
-  padding: var(--spacing-xl);
-  margin-top: var(--spacing-large);
-  border-radius: var(--radius-large);
-  text-align: right;
-  font-family: var(--font-family-primary);
-}
-
-
-
-.about-section h3 {
-  color: var(--color-black); /* כותרת שחורה */
-  background-color: var(--color-white); /* רקע לבן */
-  font-size: var(--font-size-title-small);
-  margin-bottom: var(--spacing-medium);
-  padding: var(--spacing-small) var(--spacing-medium);
-  display: inline-block;
-}
-
-
-.about-section p {
-  color: var(--color-black);
-  line-height: 1.6;
-  margin-bottom: var(--spacing-medium);
-}
-
-
-.about-section strong {
-  background-color: transparent;
-  color: var(--color-black);
-  font-weight: var(--font-weight-bold);
-  padding: 0;
-  border-radius: 0;
-}
-.elementor-tab-title:hover .elementor-toggle-title {
-  color: var(--main-brand-color);
-  text-decoration: underline;
-}
-
-
-
-/* טקסט זמני */
 .about-section .placeholder-text:before {
-    content: "מומלץ להכניס כאן טקסט על העסק או השירותים.";
-    display: block;
-    color: var(--color-gray-dark);
-    font-style: italic;
-    margin-bottom: var(--spacing-medium);
+  content: var(--about-placeholder-text);
+  display: block;
+  color: var(--color-gray-dark);
+  font-style: italic;
+  margin-bottom: var(--spacing-medium);
 }
-
-/* ===== 13. וידאו תדמית (Video Wrapper) ===== */
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-  height: 0;
-  overflow: hidden;
-  margin-top: var(--spacing-large);
-  border-radius: var(--radius-large);
-  box-shadow: var(--shadow-medium);
-}
-.swiper-wrapper {
-  width: 100%;
-}
-
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.video-wrapper .video-title {
-  color: var(--video-title-color);
-  font-size: var(--font-size-title-small);
-  margin-top: var(--spacing-medium);
-  text-align: center;
-}
-
-
-.recommendations-section .swiper {
-  width: var(--recommend-swiper-width, 100%);
-  max-width: var(--recommend-swiper-max-width, 100%);
-  box-sizing: border-box;
-  direction: var(--recommend-swiper-direction, rtl);
-  height: var(--recommend-swiper-height, 100%);
-  display: flex;
-  flex-direction: column;
-  overflow-x: var(--recommend-swiper-overflow-x, visible); /* ✅ נשלט מה־Root */
-  overflow-y: var(--recommend-swiper-overflow-y, visible);
-}
-
-
-
-
-
-
-
-
-
-
 
 .elementor-testimonial__content {
   font-style: italic;
