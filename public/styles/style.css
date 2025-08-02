@@ -626,12 +626,6 @@ body {
   margin-top: var(--spacing-medium);
   text-align: center;
 }
-.recommendations-section .swiper-slide {
-  display: flex;
-  flex-grow: 1;
-  flex-shrink: 0;
-  width: 100% !important;
-}
 
 
 .recommendations-section .swiper {
@@ -642,7 +636,7 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  overflow-x: visible; /* ✅ שינוי מאפשר גרירה לצד שמאל */
+  overflow-x: visible; /* ❌ חוסם אזור ריק */
   overflow-y: visible;
 }
 

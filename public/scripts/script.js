@@ -187,19 +187,23 @@ window.addEventListener("load", function () {
       </div>
     `).join('');
 
+    
 recommendationsSwiper = new Swiper('.recommendations-swiper', {
   slidesPerView: 1,
   spaceBetween: 16,
-  loop: recData.length > 2,
+  loop: false,             // ❌ מבטל לולאה כדי לא ליצור שקופית רפאים
   threshold: 10,
   touchRatio: 1.2,
+  allowSlidePrev: true,    // ✅ גלילה ימינה מותרת
+  allowSlideNext: false,   // ❌ גלילה שמאלה חסומה
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
   },
-  autoHeight: false,   // ❌ לא משנה גובה לפי תוכן כדי למנוע קפיצות
-  direction: 'horizontal', // ✅ גלילה אופקית
+  autoHeight: false,
+  direction: 'horizontal'
 });
+
 
   }
   // אחרי יצירת recommendationsSwiper

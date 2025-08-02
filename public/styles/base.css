@@ -845,12 +845,7 @@ img {
     overflow: hidden;
   }
 
-  .recommendations-section .swiper-slide {
-    flex-grow: 1;
-    flex-shrink: 0;
-    display: flex;
-    width: 100% !important;
-  }
+
 
   .recommendations-swiper {
   overflow: visible; /* מאפשר גרירה לשני הצדדים */
@@ -870,10 +865,12 @@ img {
 
 
 
-  .recommendations-section .swiper-slide {
-    flex-grow: 1;
-    display: flex;
-  }
+.recommendations-section .swiper-slide {
+  flex: 0 0 100%;        /* ✅ כל שקופית ברוחב מלא */
+  max-width: 100%;
+  display: flex;
+}
+
 
   .recommendations-section .elementor-testimonial {
     flex-grow: 1;
