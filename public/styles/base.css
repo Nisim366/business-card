@@ -844,6 +844,28 @@ img {
     align-items: stretch;
     overflow: hidden;
   }
+  /* ===== Pagination ברירת מחדל ל־Swiper המלצות ===== */
+.recommendations-swiper .swiper-pagination {
+  position: relative;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.recommendations-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: var(--color-gray-dark);
+  opacity: 0.4;
+  border-radius: 50%;
+  margin: 0 4px;
+  transition: opacity 0.3s ease;
+}
+
+.recommendations-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: var(--main-brand-color);
+}
+
 
 
 
