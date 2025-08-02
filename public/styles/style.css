@@ -654,7 +654,7 @@ body {
 /* ===== 14. בלוק המלצות (Testimonial Block) ===== */
 .elementor-testimonial {
   background-color: var(--testimonial-bg);
-  border-radius: var(--radius-medium);
+  border-radius: var(--radius-circle); /* 🔄 עיגול מלא */
   padding: var(--spacing-large);
   margin-top: var(--spacing-medium);
   position: relative;
@@ -664,7 +664,10 @@ body {
   width: 100%;
   max-width: 100%;
   border: 1px solid var(--testimonial-border-right-color); /* ⬅️ מסגרת מלאה */
+  overflow: hidden; /* 🔄 שמירה על תוכן בתוך עיגול */
+
 }
+
 
 
 
