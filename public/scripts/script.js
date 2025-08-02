@@ -201,7 +201,9 @@ recommendationsSwiper = new Swiper('.recommendations-swiper', {
     clickable: true,
   },
   autoHeight: false,
-  direction: 'horizontal'
+  direction: 'horizontal',
+  speed: 700 // ⬅️ זמן מעבר מוגדל (מילישניות)
+
 });
 
 
