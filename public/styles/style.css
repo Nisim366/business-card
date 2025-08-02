@@ -169,11 +169,6 @@ body {
   background-color: var(--dark-background-color);
 }
 
-
-
-
-
-
 .bottom-section {
   background-color: var(--bottom-section-bg);
   color: var(--bottom-section-text-color);
@@ -181,61 +176,6 @@ body {
   border-radius: 0 0 var(--bottom-section-radius) var(--bottom-section-radius);
 }
 
-
-
-.about-section .placeholder-text:before {
-  content: var(--about-placeholder-text);
-  display: block;
-  color: var(--color-gray-dark);
-  font-style: italic;
-  margin-bottom: var(--spacing-medium);
-}
-
-.elementor-testimonial__content {
-  font-style: italic;
-  margin-bottom: var(--spacing-medium);
-  color: var(--testimonial-text-color);
-}
-
-.elementor-testimonial__name {
-  font-weight: var(--font-weight-bold);
-  color: var(--testimonial-name-color);
-  margin-bottom: var(--spacing-tiny);
-}
-
-.elementor-testimonial__title {
-  font-size: var(--font-size-small);
-  color: var(--color-gray-dark);
-  margin-bottom: var(--spacing-medium);
-}
-
-.elementor-testimonial__icon {
-  font-size: var(--font-size-xl);
-  color: var(--testimonial-icon-color);
-  margin-bottom: var(--spacing-small);
-}
-
-.elementor-testimonial__read-more {
-  color: var(--testimonial-read-more-btn-color);
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.elementor-testimonial__read-more:hover {
-  color: var(--testimonial-read-more-btn-hover-color);
-}
-
-/* טקסט זמני */
-.elementor-testimonial .placeholder-text:before {
-    content: "מומלץ להכניס כאן המלצה מלקוח מרוצה.";
-    display: block;
-    color: var(--color-gray-dark);
-    font-style: italic;
-    margin-bottom: var(--spacing-medium);
-}
-
-/* ===== 15. אנימציות (כללי) ===== */
-/* ניתן להשאיר אנימציות שלא קשורות לרספונסיביות */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

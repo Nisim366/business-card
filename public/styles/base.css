@@ -4,14 +4,14 @@
 
 /* ===== 1. משתנים גלובליים :root ===== */
 :root {
-  /* צבעים - בסיסיים */
+  /* 🎨 צבעים – בסיסיים */
   --color-white: #ffffff;
   --color-black: #000000;
   --color-gray-light: #f5f5f5;
   --color-gray-medium: #cccccc;
   --color-gray-dark: #666666;
 
-  /* צבעים - ברנדינג */
+  /* 🎨 צבעים – ברנדינג */
   --color-gold-light: #FFD700;
   --color-gold-medium: #DAA520;
   --color-gold-dark: #B8860B;
@@ -31,14 +31,14 @@
   --color-pink-medium: #FF69B4;
   --color-pink-dark: #C71585;
 
-  /* רדיוסים */
+  /* 🟢 רדיוסים */
   --radius-small: 6px;
   --radius-medium: 12px;
   --radius-large: 20px;
   --radius-extra-large: 30px;
   --radius-circle: 50%;
 
-  /* טיפוגרפיה */
+  /* 🔠 טיפוגרפיה */
   --font-family-primary: "Assistant", sans-serif;
   --font-family-secondary: "Arial", sans-serif;
   --font-size-tiny: 11px;
@@ -53,7 +53,7 @@
   --font-weight-normal: 400;
   --font-weight-bold: 700;
 
-  /* ריווחים */
+  /* 📏 ריווחים */
   --spacing-tiny: 5px;
   --spacing-small: 10px;
   --spacing-medium: 15px;
@@ -61,48 +61,39 @@
   --spacing-xl: 30px;
   --spacing-xxl: 40px;
 
-  /* ריווחים נוספים לאייקונים */
+  /* 📏 ריווחים נוספים לאייקונים */
   --spacing-icon-gap: 20px;
   --spacing-icon-gap-large: 30px;
 
-  /* ריווחים */
-  --spacing-tiny: 5px;
-  --spacing-small: 10px;
-  --spacing-medium: 15px;
-  --spacing-large: 20px;
-  --spacing-xl: 30px;
-  --spacing-xxl: 40px;
-
-
-
-
-  /* צללים */
+  /* 🌑 צללים */
   --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.1);
   --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
   --shadow-strong: 0 8px 24px rgba(0, 0, 0, 0.2);
   --shadow-glow-light: 0 0 15px rgba(255, 255, 255, 0.3);
   --shadow-glow-colored: 0 0 20px rgba(64, 224, 208, 0.4);
 
+  /* 📝 About & Testimonials Placeholders */
+  --about-placeholder-text: "מומלץ להכניס כאן טקסט על העסק או השירותים.";
+  --testimonial-placeholder-text: "מומלץ להכניס כאן המלצה מלקוח מרוצה.";
 
-  /* 🎯 Recommendations Section Defaults */
+  /* ⭐ Recommendations Section Defaults */
   --recommendations-section-bg: var(--color-white);
   --recommendations-section-padding: var(--spacing-medium);
   --recommendations-section-radius: var(--radius-large);
 
-  /* 🎯 Swiper Defaults */
+  /* ⭐ Swiper Defaults */
   --recommend-swiper-radius: 12px;
   --recommend-swiper-bg: #f7f7f7;
   --recommend-swiper-padding: 8px;
 
-  /* 🎯 Slide Defaults */
+  /* ⭐ Slide Defaults */
   --recommend-slide-min-height: 180px;
   --recommend-slide-max-height: 280px;
   --recommend-slide-padding: 12px;
-  --recommend-testimonial-gap: var(--spacing-large); /* ריווח בין ההמלצות */
+  --recommend-testimonial-gap: var(--spacing-large);
 
-
-  /* 🎯 Testimonial Defaults */
---recommend-testimonial-radius: var(--radius-large);
+  /* ⭐ Testimonial Defaults */
+  --recommend-testimonial-radius: var(--radius-large);
   --recommend-testimonial-bg: var(--color-white);
   --recommend-testimonial-border: 1px solid var(--main-brand-color);
   --recommend-testimonial-padding: var(--spacing-large);
@@ -110,116 +101,109 @@
   --recommend-testimonial-min-height: 180px;
   --recommend-testimonial-max-height: 440px;
 
-  /* 🎯 Text Defaults */
+  /* ⭐ Testimonial Text Defaults */
   --recommend-name-color: var(--text-primary-color, var(--color-gray-dark));
   --recommend-name-font-size: var(--font-size-medium);
   --recommend-name-font-weight: var(--font-weight-bold);
-
   --recommend-title-color: var(--text-primary-color, var(--color-gray-medium));
   --recommend-title-font-size: var(--font-size-small);
   --recommend-title-font-weight: var(--font-weight-normal);
-
   --recommend-content-color: var(--text-primary-color, var(--color-gray-dark));
   --recommend-content-font-size: var(--font-size-small);
   --recommend-content-line-height: 1.5;
 
-  /* 🎯 Pagination Defaults */
+  /* ⭐ Testimonial Icon Defaults */
+  --testimonial-icon-size: var(--font-size-xl);
+  --testimonial-icon-color: var(--color-gray-dark);
+  --testimonial-icon-margin-bottom: var(--spacing-small);
+
+  /* ⭐ Testimonial Read More Defaults */
+  --testimonial-read-more-color: var(--color-gray-dark);
+  --testimonial-read-more-hover-color: var(--main-brand-color);
+  --testimonial-read-more-text-decoration: underline;
+
+  /* 📌 Pagination Defaults */
   --recommend-pagination-margin: 12px;
   --recommend-bullet-size: 8px;
   --recommend-bullet-bg: var(--color-gray-dark);
   --recommend-bullet-active-bg: var(--main-brand-color);
 
-  /* 🎯 Read More Button Defaults */
+  /* 📌 Read More Button Defaults */
   --read-more-margin-top: 8px;
   --read-more-font-size: 14px;
   --read-more-font-weight: bold;
   --read-more-color: #007bff;
 
-
-  /* גרדיאנטים */
-  --gradient-white: linear-gradient(135deg, #ffffff, #f5f5f5); /* גרדיאנט לבן */
+  /* 🎨 גרדיאנטים */
+  --gradient-white: linear-gradient(135deg, #ffffff, #f5f5f5);
   --gradient-gold: linear-gradient(135deg, #FFD700, #B8860B);
   --gradient-blue: linear-gradient(135deg, #87CEEB, #2F4F4F);
   --gradient-turquoise: linear-gradient(135deg, #40E0D0, #008B8B);
   --gradient-multi: linear-gradient(45deg, #33cc99, #00aaff, #33cc99);
-  
-  
-  /* 🎯 משתנים לפס העליון (Gold Line) */
-  --gold-line-width: 100%;                     /* רוחב הפס */
-  --gold-line-height: 0px;                     /* גובה הפס */
-  --gold-line-bg: var(--gradient-blue);        /* צבע / גרדיאנט */
-  --gold-line-margin: 0;                       /* מרווחים מסביב */
-  --gold-line-padding: 0;                      /* ריווחים פנימיים */
-  --gold-line-position: relative;              /* מיקום פס */
-  --gold-line-top: -20px;                       /* הסטה מלמעלה */
-  --gold-line-bottom: 0;                    /* הסטה מלמטה */
-  --gold-line-left: 0;                         /* הסטה משמאל */
-  --gold-line-right: 0;                        /* הסטה מימין */
-  --gold-line-border-radius: 0;                /* רדיוס פינות */
-  --gold-line-box-shadow: none;                /* צל */
 
-  
-  /* 🎯 Share Section Defaults */
-  --share-section-bg: transparent;                                 /* רקע ברירת מחדל */
-  --share-section-padding: var(--spacing-large) 0;                  /* ריווח סביב */
-  --share-section-gap: var(--spacing-medium); 
+  /* ✨ Gold Line Defaults */
+  --gold-line-width: 100%;
+  --gold-line-height: 0px;
+  --gold-line-bg: var(--gradient-blue);
+  --gold-line-margin: 0;
+  --gold-line-padding: 0;
+  --gold-line-position: relative;
+  --gold-line-top: -20px;
+  --gold-line-bottom: 0;
+  --gold-line-left: 0;
+  --gold-line-right: 0;
+  --gold-line-border-radius: 0;
+  --gold-line-box-shadow: none;
+
+  /* 🔄 Share Section Defaults */
+  --share-section-bg: transparent;
+  --share-section-padding: var(--spacing-large) 0;
+  --share-section-gap: var(--spacing-medium);
   --share-section-color: var(--color-gray-dark);
-                      /* מרווח בין אייקונים */
 
-  /* 🎯 Share Icon Defaults */
-  --share-icon-size: 48px;                                          /* גודל אייקון */
-  --share-icon-radius: var(--radius-circle);                        /* פינות עגולות */
-  --share-icon-bg: var(--color-white);                              /* רקע */
-  --share-icon-border: 1px solid var(--icon-border-color);          /* גבול */
-  --share-icon-padding: 10px;                                       /* ריווח פנימי */
-  --share-icon-shadow: var(--shadow-soft);                          /* צל */
-  --share-icon-hover-scale: 1.1;      
+  /* 🔄 Share Icon Defaults */
   --share-icon-size: 60px;
-                              /* הגדלה בהובר */
+  --share-icon-radius: var(--radius-circle);
+  --share-icon-bg: var(--color-white);
+  --share-icon-border: 1px solid var(--icon-border-color);
+  --share-icon-padding: 10px;
+  --share-icon-shadow: var(--shadow-soft);
+  --share-icon-hover-scale: 1.1;
 
-  
-  /* ===== 🎯 Button Defaults ===== */
+  /* 🔘 Button Defaults */
   --btn-display: inline-block;
-
-  /* Filled Button Defaults */
-  --btn-bg-filled: var(--color-gold-medium);           /* רקע ברירת מחדל */
-  --btn-text-color-filled: var(--color-white);         /* צבע טקסט ברירת מחדל */
-  --btn-hover-bg-filled: var(--color-gold-dark);       /* רקע בהובר */
-  --btn-hover-text-color-filled: var(--color-white);   /* צבע טקסט בהובר */
-
-  /* Outline Button Defaults */
-  --btn-bg-outline: transparent;                       /* רקע outline */
-  --btn-text-color-outline: var(--color-gold-medium);  /* טקסט outline */
+  --btn-bg-filled: var(--color-gold-medium);
+  --btn-text-color-filled: var(--color-white);
+  --btn-hover-bg-filled: var(--color-gold-dark);
+  --btn-hover-text-color-filled: var(--color-white);
+  --btn-bg-outline: transparent;
+  --btn-text-color-outline: var(--color-gold-medium);
   --btn-border-outline: 2px solid var(--color-gold-medium);
   --btn-hover-bg-outline: var(--color-gold-medium);
   --btn-hover-text-color-outline: var(--color-white);
-
-  /* Shape & Size */
-  --btn-radius: var(--radius-medium);                  /* רדיוס פינות */
-  --btn-padding: var(--spacing-small) var(--spacing-large); /* ריווח פנימי */
-  --btn-margin: var(--spacing-small) auto;             /* מרווח חיצוני */
-  --btn-font-size: var(--font-size-medium);            /* גודל טקסט */
-  --btn-font-weight: var(--font-weight-bold);          /* משקל טקסט */
-
-  /* Decoration & Animation */
-  --btn-text-decoration: none;                         /* ביטול קו תחתון */
+  --btn-radius: var(--radius-medium);
+  --btn-padding: var(--spacing-small) var(--spacing-large);
+  --btn-margin: var(--spacing-small) auto;
+  --btn-font-size: var(--font-size-medium);
+  --btn-font-weight: var(--font-weight-bold);
+  --btn-text-decoration: none;
   --btn-transition: background-color 0.3s ease, transform 0.2s ease;
-  --btn-transform-hover: translateY(-2px);             /* אנימציית hover */
+  --btn-transform-hover: translateY(-2px);
 
-  /* ===== 🎯 Contact Button Defaults ===== */
-  --btn-contact-bg: #4682B4;                           /* רקע כחול */
-  --btn-contact-color: #ffffff;                        /* טקסט לבן */
-  --btn-contact-hover-bg: #36648B;                     /* רקע כחול כהה בהובר */
-  --btn-contact-hover-color: #ffffff;                  /* טקסט לבן בהובר */
-  --btn-contact-padding: 10px 20px;                    /* ריווח פנימי */
-  --btn-contact-margin: 10px 0;                        /* מרווח חיצוני */
-  --btn-contact-radius: var(--radius-medium);          /* פינות בינוניות */
-  --btn-contact-font-size: 14px;                       /* גודל טקסט */
-  --btn-contact-font-weight: var(--font-weight-bold);  /* משקל טקסט */
+  /* 📞 Contact Button Defaults */
+  --btn-contact-bg: #4682B4;
+  --btn-contact-color: #ffffff;
+  --btn-contact-hover-bg: #36648B;
+  --btn-contact-hover-color: #ffffff;
+  --btn-contact-padding: 10px 20px;
+  --btn-contact-margin: 10px 0;
+  --btn-contact-radius: var(--radius-medium);
+  --btn-contact-font-size: 14px;
+  --btn-contact-font-weight: var(--font-weight-bold);
 
-  /* 🎯 Icon Grid Defaults */
+  /* 🖼 Icon Grid Defaults */
   --icon-grid-display: grid;
-  --icon-grid-template: repeat(3, 1fr); /* שלוש עמודות ברירת מחדל */
+  --icon-grid-template: repeat(3, 1fr);
   --icon-grid-gap: var(--spacing-icon-gap, 20px);
   --icon-grid-margin: var(--spacing-xl) 0;
   --icon-grid-justify-items: center;
@@ -227,11 +211,7 @@
   --icon-grid-padding: 0;
   --icon-grid-radius: 0;
   --icon-grid-shadow: none;
-
-  /* 🎯 Icon Item Defaults */
   --icon-item-text-align: center;
-
-  /* 🎯 Icon Image Defaults */
   --icon-img-size: 70px;
   --icon-img-radius: 50%;
   --icon-img-bg: var(--color-white);
@@ -239,33 +219,62 @@
   --icon-img-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   --icon-img-object-fit: contain;
   --icon-img-hover-transform: scale(1.1);
-
-  /* 🎯 Icon Text Defaults */
   --icon-text-display: block;
   --icon-text-margin-top: 6px;
   --icon-text-font-size: 14px;
   --icon-text-color: var(--color-gray-dark);
 
-  /* 🎯 Compatibility for Old Grid Items */
+  /* 🖼 Icon Compatibility */
   --icon-font-size: var(--font-size-title-large);
   --icon-color: var(--color-gold-medium);
   --icon-margin-bottom: var(--spacing-small);
   --icon-desc-font-size: var(--font-size-small);
   --icon-desc-color: var(--color-gray-dark);
 
-  /* 🎯 Color Section Background Default */
-  --section-bg-color: #e6fff1;
-
-
- 
-   --profile-img-size: 140px;
-  --profile-img-margin: -30px auto 0 auto; /* ברירת מחדל */
-
+  /* 🎯 Profile Defaults */
+  --profile-img-size: 140px;
+  --profile-img-margin: -30px auto 0 auto;
 }
 
 /* ===== 2. בסיס כללי ===== */
 * {
   box-sizing: border-box;
+}
+
+/* About Placeholder */
+.about-section .placeholder-text:before {
+  content: var(--about-placeholder-text);
+  display: block;
+  color: var(--color-gray-dark);
+  font-style: italic;
+  margin-bottom: var(--spacing-medium);
+}
+
+/* Testimonial Placeholder */
+.elementor-testimonial .placeholder-text:before {
+  content: var(--testimonial-placeholder-text);
+  display: block;
+  color: var(--color-gray-dark);
+  font-style: italic;
+  margin-bottom: var(--spacing-medium);
+}
+
+/* Testimonial Icon */
+.elementor-testimonial__icon {
+  font-size: var(--testimonial-icon-size, var(--font-size-xl));
+  color: var(--testimonial-icon-color, var(--color-gray-dark));
+  margin-bottom: var(--testimonial-icon-margin-bottom, var(--spacing-small));
+}
+
+/* Testimonial Read More */
+.elementor-testimonial__read-more {
+  color: var(--testimonial-read-more-color, var(--color-gray-dark));
+  cursor: pointer;
+  text-decoration: var(--testimonial-read-more-text-decoration, underline);
+}
+
+.elementor-testimonial__read-more:hover {
+  color: var(--testimonial-read-more-hover-color, var(--main-brand-color));
 }
 
 body {
@@ -424,6 +433,24 @@ img {
   font-size: var(--name-role-font-size, var(--font-size-large));       /* גודל טקסט */
   font-weight: var(--name-role-font-weight, var(--font-weight-bold));  /* משקל גופן */
 }
+/* ===== Testimonial Icon Defaults ===== */
+.elementor-testimonial__icon {
+  font-size: var(--testimonial-icon-size, var(--font-size-xl));
+  color: var(--testimonial-icon-color, var(--color-gray-dark));
+  margin-bottom: var(--testimonial-icon-margin-bottom, var(--spacing-small));
+}
+
+/* ===== Testimonial Read More Defaults ===== */
+.elementor-testimonial__read-more {
+  color: var(--testimonial-read-more-color, var(--color-gray-dark));
+  cursor: pointer;
+  text-decoration: var(--testimonial-read-more-text-decoration, underline);
+}
+
+.elementor-testimonial__read-more:hover {
+  color: var(--testimonial-read-more-hover-color, var(--main-brand-color));
+}
+
 
 .name-role.gray {
   color: var(--name-role-gray-color, var(--color-gray-dark));          /* צבע לגוון אפור */
