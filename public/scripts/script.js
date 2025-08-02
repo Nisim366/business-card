@@ -191,7 +191,7 @@ window.addEventListener("load", function () {
 recommendationsSwiper = new Swiper('.recommendations-swiper', {
   slidesPerView: 1,
   spaceBetween: 16,
-  loop: false,             // ❌ מבטל לולאה כדי לא ליצור שקופית רפאים
+  loop: true,             // ❌ מבטל לולאה כדי לא ליצור שקופית רפאים
   threshold: 10,
   touchRatio: 1.2,
   allowSlidePrev: true,    // ✅ גלילה ימינה מותרת
