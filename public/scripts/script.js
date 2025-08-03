@@ -185,6 +185,32 @@ window.addEventListener("load", function () {
       }
     });
   }
+    if (recommendationsSwiper) {
+    // תמיכה במעבר בין המלצות עם מקלדת
+    const prevBtn = document.querySelector('.swiper-button-prev');
+    const nextBtn = document.querySelector('.swiper-button-next');
+
+    if (prevBtn) {
+      prevBtn.setAttribute('tabindex', '0');
+      prevBtn.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ' || event.code === 'Space') {
+          event.preventDefault();
+          recommendationsSwiper.slidePrev();
+        }
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.setAttribute('tabindex', '0');
+      nextBtn.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ' || event.code === 'Space') {
+          event.preventDefault();
+          recommendationsSwiper.slideNext();
+        }
+      });
+    }
+  }
+
 
   window.sendToWhatsapp = function(event) {
     event.preventDefault();
@@ -218,26 +244,72 @@ window.addEventListener("load", function () {
     const whatsappButton = document.querySelector('[data-action="sendWhatsapp"]');
     if (whatsappButton) whatsappButton.style.display = 'none';
   }
-
-  document.querySelectorAll('.elementor-tab-title').forEach((toggle) => {
-    toggle.addEventListener('click', function () {
-      const isActive = this.classList.contains('elementor-active');
-      const tabContentId = this.getAttribute('aria-controls');
-      const tabContent = document.getElementById(tabContentId);
-      document.querySelectorAll('.elementor-tab-title').forEach(el => {
-        el.classList.remove('elementor-active');
-        el.setAttribute('aria-expanded', 'false');
-        el.setAttribute('aria-selected', 'false');
-      });
-      document.querySelectorAll('.elementor-tab-content').forEach(el => el.setAttribute('hidden', true));
-      if (!isActive) {
-        this.classList.add('elementor-active');
-        this.setAttribute('aria-expanded', 'true');
-        this.setAttribute('aria-selected', 'true');
-        tabContent.removeAttribute('hidden');
+  const videoContainer = document.querySelector('[data-field="videoSrc"]');
+if (videoContainer) {
+  // הפעלה בנגיעה/לחיצה עם עכבר
+  videoContainer.addEventListener('click', function () {
+    const video = videoContainer.querySelector('video');
+    if (video) {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
       }
-    });
+    }
   });
+
+  // הפעלה עם מקלדת (Enter/Space)
+  videoContainer.setAttribute('tabindex', '0');
+  videoContainer.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter' || event.key === ' ' || event.code === 'Space') {
+      event.preventDefault();
+      const video = videoContainer.querySelector('video');
+      if (video) {
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      }
+    }
+  });
+}
+
+document.querySelectorAll('.elementor-tab-title').forEach((toggle) => {
+  // שמירה על ההתנהגות הקיימת עם עכבר
+  toggle.addEventListener('click', function () {
+    handleAccordionToggle(this);
+  });
+
+  // הוספת תמיכה ב־Enter ו־Space
+  toggle.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter' || event.key === ' ' || event.code === 'Space') {
+      event.preventDefault(); // מונע גלילה
+      handleAccordionToggle(this);
+    }
+  });
+});
+
+function handleAccordionToggle(element) {
+  const isActive = element.classList.contains('elementor-active');
+  const tabContentId = element.getAttribute('aria-controls');
+  const tabContent = document.getElementById(tabContentId);
+
+  document.querySelectorAll('.elementor-tab-title').forEach(el => {
+    el.classList.remove('elementor-active');
+    el.setAttribute('aria-expanded', 'false');
+    el.setAttribute('aria-selected', 'false');
+  });
+  document.querySelectorAll('.elementor-tab-content').forEach(el => el.setAttribute('hidden', true));
+
+  if (!isActive) {
+    element.classList.add('elementor-active');
+    element.setAttribute('aria-expanded', 'true');
+    element.setAttribute('aria-selected', 'true');
+    tabContent.removeAttribute('hidden');
+  }
+}
+
 
   document.querySelectorAll('.share-buttons a').forEach(button => {
     const type = button.dataset.type;

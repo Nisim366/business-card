@@ -1223,3 +1223,42 @@ img {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/* ✅ חיווי נגישות ברור על אייקונים */
+.icon-item a:focus {
+  outline: 3px solid #000 !important; /* מסגרת בולטת */
+  outline-offset: 4px;
+  border-radius: 50%; /* עוקב אחרי הצורה של האייקון */
+  background-color: rgba(0,0,0,0.1); /* רקע הדגשה */
+}
+
+
+/* ✅ חיווי Focus נגיש לאקורדיון, וידאו וחיצי המלצות */
+.elementor-tab-title:focus,
+[data-field="videoSrc"]:focus,
+.swiper-button-prev:focus,
+.swiper-button-next:focus {
+  outline: 3px solid #000; /* מסגרת שחורה בולטת */
+  outline-offset: 3px;
+  background-color: rgba(0,0,0,0.08); /* הדגשה קלה */
+  border-radius: 6px;
+}
+
+/* ===== Accessibility Stage 1 – Focus לכל רכיב אינטראקטיבי ===== */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+.elementor-tab-title:focus,
+[data-field="videoSrc"]:focus,
+.swiper-button-prev:focus,
+.swiper-button-next:focus,
+.icon-item a:focus {
+  outline: 2px solid #000; /* פוקוס ברור לפי תקן */
+  outline-offset: 2px;
+  border-radius: inherit;
+  background-color: rgba(0,0,0,0.05); /* הדגשה קלה */
+}
+
+
