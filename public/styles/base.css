@@ -75,7 +75,7 @@
   /* 📝 Placeholders */
   --about-placeholder-text: "מומלץ להכניס כאן טקסט על העסק או השירותים.";
   --testimonial-placeholder-text: "מומלץ להכניס כאן המלצה מלקוח מרוצה.";
-  --contact-form-description: "מומלץ להכניס כאן טקסט הסבר קצר על טופס יצירת הקשר והיתרונות שלו.";
+  --contact-form-description: "מעוניינת לקבוע תור? מלאי את הטופס ואחזור אלייך בהקדם";
 
   /* ⭐ Recommendations */
   --recommendations-section-bg: var(--color-white);
@@ -128,9 +128,9 @@
 
   /* ✨ Gold Line */
   --gold-line-width: 100%;
-  --gold-line-height: 0px;
+  --gold-line-height: 3px;
   --gold-line-bg: var(--gradient-blue);
-  --gold-line-margin: 0;
+  --gold-line-margin: 20px;
   --gold-line-padding: 0;
   --gold-line-position: relative;
   --gold-line-top: -20px;
@@ -172,6 +172,8 @@
   --btn-text-decoration: none;
   --btn-transition: background-color 0.3s ease, transform 0.2s ease;
   --btn-transform-hover: translateY(-2px);
+  --btn-vcard-radius: var(--radius-medium); /* ברירת מחדל – פינות בינוניות */
+
 
   /* 📞 Contact Buttons */
   --btn-contact-bg: #4682B4;
@@ -217,6 +219,22 @@
   /* 🎯 Profile */
   --profile-img-size: 140px;
   --profile-img-margin: -30px auto 0 auto;
+
+--body-bg-color: var(--color-gray-light); /* צבע רקע גוף הכרטיס כברירת מחדל (אפור בהיר) */
+  --card-bg: #f8f8f8; /* צבע רקע הכרטיס כברירת מחדל (אפור חלש) */
+    --btn-contact-padding: 10px 20px;   /* גובה ורוחב הרקע */
+  --btn-contact-font-size: 14px;      /* גודל טקסט */
+
+  /* 📞 Contact Buttons (סנכרון עם כפתורים רגילים) */
+--btn-contact-bg: var(--btn-bg-filled);
+--btn-contact-color: var(--btn-text-color-filled);
+--btn-contact-hover-bg: var(--btn-hover-bg-filled);
+--btn-contact-hover-color: var(--btn-hover-text-color-filled);
+
+  --recommendations-section-bg: #b39367; /* צבע ירקרק ברירת מחדל */
+  --about-bg-color: var(--recommendations-section-bg);
+    --recommendations-section-margin-top: 40px;
+
 }
 
 /* ===== 2. בסיס כללי ===== */
@@ -322,9 +340,7 @@ img {
     max-width: var(--card-desktop-width, 600px);
   }
 }
-/* ===== 4. כפתור – ברירת מחדל ===== */
-/* ==/* ===== כפתור – ברירת מחדל (כמו ב־style.css) ===== */
-/* ===== כפתור – ברירת מחדל (כמו ב־style.css) ===== */
+
 .btn {
   display: var(--btn-display, inline-block);
   padding: var(--btn-padding, var(--spacing-small) var(--spacing-large));  /* ריווח גדול יותר */
@@ -347,6 +363,22 @@ img {
   color: var(--btn-hover-text-color-filled, var(--color-white));           /* צבע טקסט בהובר */
   transform: var(--btn-transform-hover, translateY(-2px));                 /* אנימציה */
 }
+
+
+.btn-contact {
+  background-color: var(--btn-contact-bg, var(--btn-bg-filled));
+  border-radius: var(--btn-vcard-radius, var(--radius-medium));
+  padding: var(--btn-contact-padding, var(--btn-padding));
+  font-size: var(--btn-contact-font-size, var(--btn-font-size));
+  color: var(--btn-contact-color, var(--btn-text-color-filled));
+}
+
+
+.btn-contact:hover {
+  background-color: var(--btn-contact-hover-bg, var(--btn-hover-bg-filled));
+  color: var(--btn-contact-hover-color, var(--btn-hover-text-color-filled));
+}
+
 /* ===== Keyframes – ברירת מחדל ===== */
 @keyframes pulseHover {
   0% { transform: scale(1); }
@@ -448,9 +480,9 @@ img {
 
 .gold-line {
   width: var(--gold-line-width, 100%);                     /* רוחב מלא כברירת מחדל */
-  height: var(--gold-line-height, 4px);                    /* גובה דק סטנדרטי */
+  height: var(--gold-line-height, 3px);                    /* גובה דק סטנדרטי */
   background: var(--gold-line-bg, var(--gradient-blue));   /* גרדיאנט כחול */
-  margin: var(--gold-line-margin, 0 auto);                 /* ממורכז */
+  margin: var(--gold-line-margin, 20px auto);                 /* ממורכז */
   padding: var(--gold-line-padding, 0);                    /* ללא ריווח פנימי */
   position: var(--gold-line-position, relative);           /* מיקום יחסי */
   top: var(--gold-line-top, auto);                         /* ללא הסטה מלמעלה */
@@ -461,6 +493,12 @@ img {
   box-shadow: var(--gold-line-box-shadow, none);           /* ללא צל */
   display: var(--gold-line-display, block);                /* מוצג כבלוק */
 }
+.card .gold-line {
+  width: 100%;
+  margin-left: calc(-1 * var(--card-padding, 0px));
+  margin-right: calc(-1 * var(--card-padding, 0px));
+}
+
 .name-role {
   text-align: var(--name-role-text-align, center);                     /* יישור טקסט */
   margin: var(--name-role-margin, var(--spacing-large) 0);             /* מרווחים */
@@ -527,6 +565,8 @@ img {
   padding: var(--about-padding, var(--spacing-xxl));
   background-color: var(--about-bg-color, #f2fef6);
   text-align: var(--about-text-align, center);
+  border-radius: var(--about-radius, var(--radius-large)); /* ✅ קצוות מעוגלות */
+
 }
 
 .about-section h3 {
@@ -772,10 +812,12 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--recommendations-section-padding);
-  background-color: var(--recommendations-section-bg);
-  border-radius: var(--recommendations-section-radius);
+  margin-top: var(--recommendations-section-margin-top, 40px); /* ✅ רווח עליון עם ברירת מחדל */
+  padding: var(--recommendations-section-padding, var(--spacing-medium)); /* ✅ ריווח פנימי עם Fallback */
+  background-color: var(--recommendations-section-bg, var(--color-white)); /* ✅ צבע עם Fallback */
+  border-radius: var(--recommendations-section-radius, var(--radius-large)); /* ✅ עיגול פינות עם Fallback */
 }
+
 
 /* Swiper בתוך ההמלצות */
 .recommendations-section .recommendations-swiper,

@@ -47,9 +47,7 @@
       <a href="#" class="btn-contact pulse-once" data-field="addContact" id="vcardDownload">
   ➕ הוסף לאנשי קשר
 </a>
-<p class="contact-hint" style="font-size: 13px; color: #666; text-align: center; margin-top: 4px;">
-  * לאחר ההורדה יש לפתוח את הקובץ ולשמור כאיש קשר
-</p>
+
 
 
       <!-- ✅ אודות -->
@@ -124,21 +122,29 @@
         </div>
       </section>
 
-      <!-- ✅ טופס יצירת קשר -->
-      <h3 class="main-title">השארת פרטים</h3>
-      <div class="contact-form">
+<!-- ✅ טופס יצירת קשר -->
+<h3 class="main-title">השארת פרטים</h3>
+<div class="contact-form">
+  <!-- תיאור טופס (נטען אוטומטית מ־base.css עם var(--contact-form-description)) -->
+  <div class="form-description"></div>
+  
   <form>
     <div class="input-row">
       <input id="fullName" placeholder="שם מלא" required type="text" />
       <input id="phoneNumber" placeholder="מספר טלפון" required type="tel" />
     </div>
+    
     <textarea id="message" placeholder="הודעה חופשית"></textarea>
     
     <!-- כפתור וואטסאפ -->
-  <button type="button" onclick="sendToWhatsapp(event)" data-action="sendWhatsapp">שלח לוואטסאפ</button>
+    <button type="button" onclick="sendToWhatsapp(event)" data-action="sendWhatsapp">
+      שלח לוואטסאפ
+    </button>
+    
     <!-- כפתור מייל (יוצג רק אם sendEmail = true) -->
-    <button type="button" onclick="sendToEmail(event)" data-action="sendEmail">שלח למייל</button>    
-    <!-- כפתור מייל (יוצג רק אם sendEmail = true) -->
+    <button type="button" onclick="sendToEmail(event)" data-action="sendEmail">
+      שלח למייל
+    </button>
   </form>
 </div>
 
