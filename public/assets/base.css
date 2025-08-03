@@ -197,7 +197,7 @@
   --icon-grid-radius: 0;
   --icon-grid-shadow: none;
   --icon-item-text-align: center;
-  --icon-img-size: 70px;
+  --icon-img-size: ;
   --icon-img-radius: 50%;
   --icon-img-bg: var(--color-white);
   --icon-img-padding: 12px;
@@ -234,6 +234,10 @@
   --recommendations-section-bg: #b39367; /* צבע ירקרק ברירת מחדל */
   --about-bg-color: var(--recommendations-section-bg);
     --recommendations-section-margin-top: 40px;
+
+      --accessibility-btn-bottom: 30px; /* יותר למעלה */
+  --accessibility-btn-left: auto;
+  --accessibility-btn-right: 30px; /* לצד ימין */
 
 }
 
@@ -1224,6 +1228,7 @@ img {
   to { transform: rotate(360deg); }
 }
 
+
 /* ✅ חיווי נגישות ברור על אייקונים */
 .icon-item a:focus {
   outline: 3px solid #000 !important; /* מסגרת בולטת */
@@ -1495,10 +1500,10 @@ textarea[aria-invalid="true"] {
   --icon-grid-radius: 0;
   --icon-grid-shadow: none;
   --icon-item-text-align: center;
-  --icon-img-size: 70px;
+  --icon-img-size: 60px;
   --icon-img-radius: 50%;
   --icon-img-bg: var(--color-white);
-  --icon-img-padding: 12px;
+  --icon-img-padding: 10px;
   --icon-img-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   --icon-img-object-fit: contain;
   --icon-img-hover-transform: scale(1.1);
@@ -2041,6 +2046,14 @@ img {
   box-shadow: var(--icon-grid-shadow, none);
   overflow: visible; /* ✅ מאפשר ל־outline פוקוס להופיע */
 }
+.icon-item a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-size, 60px);
+  height: var(--icon-size, 60px);
+}
+
 
 
 .icon-grid .icon-item {
@@ -2048,11 +2061,11 @@ img {
 }
 
 .icon-grid .icon-item img {
-  width: var(--icon-img-size, 60px);
-  height: var(--icon-img-size, 60px);
+  width: var(--icon-img-size, 70px);
+  height: var(--icon-img-size, 70px);
   border-radius: var(--icon-img-radius, 50%);
   background-color: var(--icon-img-bg, var(--color-white));
-  padding: var(--icon-img-padding, 12px);
+  padding: var(--icon-img-padding, 10px);
   box-shadow: var(--icon-img-shadow, 0 2px 8px rgba(0, 0, 0, 0.1));
   object-fit: var(--icon-img-object-fit, contain);
   transition: transform 0.2s ease;
@@ -2524,13 +2537,6 @@ img {
   to { transform: rotate(360deg); }
 }
 
-/* ✅ חיווי נגישות ברור על אייקונים */
-.icon-item a:focus {
-  outline: 3px solid #000 !important; /* מסגרת בולטת */
-  outline-offset: 4px;
-  border-radius: 50%; /* עוקב אחרי הצורה של האייקון */
-  background-color: rgba(0,0,0,0.1); /* רקע הדגשה */
-}
 
 
 /* ✅ חיווי Focus נגיש לאקורדיון, וידאו וחיצי המלצות */
@@ -2555,11 +2561,12 @@ select:focus,
 .swiper-button-prev:focus,
 .swiper-button-next:focus,
 .icon-item a:focus {
-  outline: 2px solid #000; /* פוקוס ברור לפי תקן */
-  outline-offset: 2px;
-  border-radius: inherit;
-  background-color: rgba(0,0,0,0.05); /* הדגשה קלה */
+  outline: var(--icon-focus-outline, none);
+  box-shadow: var(--icon-focus-shadow, 0 0 0 4px rgba(0,0,0,0.3)); /* הילה עגולה */
+  border-radius: var(--icon-focus-radius, 50%); /* ברירת מחדל עגול */
+  background-color: var(--icon-focus-bg, rgba(0,0,0,0.05)); /* רקע עדין */
 }
+
 
 /* ===== Accessibility Stage 2 – Contrast מינימלי ===== */
 body {
@@ -2630,4 +2637,37 @@ body {
 /* 5️⃣ תוספת ARIA Live לשדות דינמיים */
 .error-message {
   aria-live: polite;
+}/* ===== Accessibility Widget ===== */
+#accessibilityToggle {
+  position: fixed;
+  bottom: var(--accessibility-btn-bottom, 20px);
+  left: var(--accessibility-btn-left, 20px);
+  right: var(--accessibility-btn-right, auto);
+  width: var(--accessibility-btn-size, 50px);
+  height: var(--accessibility-btn-size, 50px);
+  border-radius: 50%;
+  background-color: var(--accessibility-btn-bg, #000);
+  color: var(--accessibility-btn-color, #fff);
+  font-size: var(--accessibility-btn-font-size, 24px);
+  text-align: center;
+  line-height: var(--accessibility-btn-size, 50px);
+  border: none;
+  cursor: pointer;
+  z-index: 9999;
 }
+
+#accessibilityToggle:focus {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+@media (max-width: 480px) {
+  #accessibilityToggle {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    line-height: 45px;
+    bottom: 15px;
+    left: 15px;
+  }
+}
+

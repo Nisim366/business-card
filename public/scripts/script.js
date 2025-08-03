@@ -412,6 +412,22 @@ window.openFullscreenImageGallery = function(startIndex = 0) {
     },
   });
 };
+// ✅ פקד נגישות – הפעלה/כיבוי מצב נגישות
+const accessibilityBtn = document.getElementById("accessibilityToggle");
+if (accessibilityBtn) {
+  accessibilityBtn.addEventListener("click", function () {
+    document.body.classList.toggle("accessibility-mode");
+
+    if (document.body.classList.contains("accessibility-mode")) {
+      document.body.style.filter = "contrast(1.2)";
+      document.body.style.fontSize = "110%";
+    } else {
+      document.body.style.filter = "";
+      document.body.style.fontSize = "";
+    }
+  });
+}
+
 
 window.closeFullscreenImageGallery = function() {
   const overlay = document.getElementById("fullscreenOverlay");
