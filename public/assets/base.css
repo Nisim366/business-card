@@ -948,25 +948,7 @@ img {
   border-radius: var(--gallery-img-radius, var(--radius-large));
   display: block;
 }
-/* ===== כפתורי ניווט Swiper – מבנה ברירת מחדל ===== */
-.swiper-button-prev,
-.swiper-button-next {
-  position: absolute;
-  top: 50%;
-  width: var(--swiper-btn-size, 40px);
-  height: var(--swiper-btn-size, 40px);
-  margin-top: calc(var(--swiper-btn-size, 40px) / -2);
-  z-index: 10;
-  cursor: pointer;
-  border-radius: 50%;
-  background-color: var(--swiper-btn-bg, rgba(0, 0, 0, 0.15));
-  color: var(--swiper-btn-color, var(--color-primary));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease;
-  user-select: none;
-}
+
 
 .swiper-button-prev {
   left: var(--swiper-btn-left, 10px);

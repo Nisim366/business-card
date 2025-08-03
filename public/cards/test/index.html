@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-field="pageTitle">כרטיס ביקור דיגיטלי</title>
+
+  <!-- CSS משותף -->
+  <link rel="stylesheet" href="../../assets/base.css">
+  <link rel="stylesheet" href="../../assets/style.css">
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
+</head>
+<body>
+
+  <div id="card-container"></div>
+
+  <script>
+    // שלב 1: טעינת התבנית
+    fetch("../../template/template-generic.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("card-container").innerHTML = html;
+
+        // שלב 2: טעינת DATA של הלקוח
+        const dataScript = document.createElement("script");
+        dataScript.src = "./data-test.js";
+        dataScript.onload = () => {
+          // שלב 3: טעינת הסקריפט הגנרי אחרי ה־DATA
+          const mainScript = document.createElement("script");
+          mainScript.src = "../../scripts/script-generic.js";
+          document.body.appendChild(mainScript);
+        };
+        document.body.appendChild(dataScript);
+      })
+      .catch(err => console.error("שגיאה בטעינת התבנית:", err));
+  </script>
+
+</body>
+</html>
