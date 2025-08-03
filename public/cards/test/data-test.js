@@ -40,7 +40,7 @@ window.cardData = {
     about: true,
     recommendations: true,
     sendEmail: true,
-    sendWhatsapp: true
+    sendWhatsapp: false
   },
 
   shareOptions: {
