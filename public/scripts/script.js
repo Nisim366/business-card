@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
 (function injectAssets() {
   const assets = [
     { type: 'link', attr: 'href', path: '/styles/base.css' },   // 🔄 טוען את הבסיס
-    { type: 'link', attr: 'href', path: '/styles/style.css' },  // 🎨 טוען את הסטייל הגנרי
     { type: 'script', attr: 'src', path: '/data/data-client.js' }
   ];
 

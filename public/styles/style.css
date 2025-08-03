@@ -5,32 +5,40 @@
 /* ===== 1. טעינת base.css ===== */
 @import url("base.css");
 
-/* ===== 2. יצירת משתנים כלליים מתוך משתנים מפורטים (פונקציונליים) ===== */
+/* ===== 2. דריסות משתנים כלליים ===== */
 :root {
-  /* שינוי צבע המותג הראשי לכחול (במקום זהב כברירת מחדל) */
+  /* 🎨 צבעי מותג */
   --main-brand-color: var(--color-blue-medium);
   --secondary-brand-color: var(--color-blue-medium);
-  --top-section-height-fixed: 220px;
 
-  /* צבעי רקע וטקסט כלליים */
+  /* 🌄 אזור עליון */
+  --top-section-height-fixed: 220px;
+  --header-bg-color: var(--gradient-white);
+  --header-height: var(--top-section-height-fixed);
+
+  /* 🌅 אזור תחתון */
+  --bottom-section-text-color: var(--text-primary-color);
+  --bottom-section-radius: var(--radius-large);
+
+  /* 🎨 צבעים כלליים */
   --light-background-color: var(--color-white);
   --dark-background-color: var(--color-gray-light);
   --text-primary-color: var(--color-gray-dark);
   --text-secondary-color: var(--color-white);
-  --header-bg-color: var(--gradient-white);
 
-  /* הגדרות כרטיס (Card) */
+  /* 🖼 כרטיס */
   --card-bg: var(--light-background-color);
   --card-radius: var(--radius-large);
   --card-box-shadow: var(--shadow-medium);
   --card-padding-default: var(--spacing-large);
 
-  /* פס זהב */
+  /* ✨ פס זהב */
   --gold-line-bg: var(--gradient-gold);
   --gold-line-height: 2px;
-  --gold-line-margin: -50px auto 0px auto;
+  --gold-line-width: 380px;
+  --gold-line-margin: var(--spacing-medium) auto;
 
-  /* הגדרות כפתורים (Button) */
+  /* 🔘 כפתורים */
   --btn-bg-filled: var(--main-brand-color);
   --btn-text-color-filled: var(--text-secondary-color);
   --btn-hover-bg-filled: var(--color-blue-dark);
@@ -45,226 +53,68 @@
   --btn-padding: var(--spacing-small) var(--spacing-large);
   --btn-margin: var(--spacing-small);
 
-  /* 🎯 גדלים לכפתורים */
+  /* 🔘 גדלים לכפתורים */
   --btn-padding-small: var(--spacing-tiny) var(--spacing-medium);
   --btn-font-size-small: var(--font-size-small);
   --btn-padding-large: var(--spacing-medium) var(--spacing-xl);
   --btn-font-size-large: var(--font-size-large);
 
-  /* הגדרות תמונת פרופיל */
-  --profile-img-size: 140px;
+  /* 📞 כפתור יצירת קשר */
+  --btn-contact-bg: var(--main-brand-color);
+  --btn-contact-color: var(--text-secondary-color);
+  --btn-contact-hover-bg: var(--color-blue-dark);
+
+  /* 🖼 תמונת פרופיל */
+  --profile-img-size: 150px;
   --profile-img-radius: var(--radius-circle);
   --profile-img-border: 3px solid var(--main-brand-color);
+  --profile-img-margin: -30px auto 0 auto;
   --profile-img-box-shadow: var(--shadow-soft);
-  --profile-img-margin: -60px auto 0 auto;
-  --profile-img-position-offset: var(--profile-img-top-negative-medium);
 
-  /* לוגו */
-  --logo-size: 60px;
+  /* 🖋️ כותרות כלליות */
+  --main-title-color: #000;
+  --subtitle-color: #333;
+  --section-title-color: #666;
 
-  /* קווי הפרדה */
+  /* 🖋️ כותרות name-role */
+  --name-role-color: var(--color-blue-medium);
+
+  /* 📌 קווי הפרדה */
   --separator-line-color: var(--main-brand-color);
-  --separator-line-thickness: 1px;
+  --separator-line-thickness: 2px;
   --gradient-line-style: var(--gradient-blue);
   --gradient-line-margin: var(--spacing-medium) -20px;
 
-  /* אזורים עליון ותחתון */
-  --top-section-bg: var(--gradient-blue);
-  --top-section-text-color: var(--text-secondary-color);
-  --top-section-height-default: 0px;
-  --bottom-section-bg: var(--dark-background-color);
-  --bottom-section-text-color: var(--text-primary-color);
-  --bottom-section-radius: var(--radius-large);
-
-  /* כותרות אקורדיון */
-  --toggle-title-color: var(--text-primary-color);
-  --toggle-title-font-size: var(--font-size-title-small);
-  --toggle-title-hover-bg: var(--color-gray-light);
-
-  /* בלוק המלצות */
-  --testimonial-bg: var(--light-background-color);
-  --testimonial-border-right-color: var(--main-brand-color);
-  --testimonial-name-color: var(--text-primary-color);
-  --testimonial-icon-color: var(--main-brand-color);
-  --testimonial-text-color: var(--text-primary-color);
-  --testimonial-read-more-btn-color: var(--secondary-brand-color);
-  --testimonial-read-more-btn-hover-color: var(--color-blue-dark);
-  --testimonial-min-height: 180px;
-
-  /* כותרות כלליות */
-  --main-title-color: var(--main-brand-color);
-  --subtitle-color: var(--text-primary-color);
-  --section-title-color: var(--text-primary-color);
-
-  /* אייקונים */
-  --icon-border-color: var(--main-brand-color);
+  /* 🧩 אייקונים */
+  --icon-border-color: #ccc;
+  --icon-img-size: 70px;
   --icon-text-color: var(--text-primary-color);
 
-  /* טפסים */
-  --form-bg: var(--dark-background-color);
-  --form-input-border: 1px solid var(--color-gray-medium);
-  --form-btn-bg: var(--color-gray-light);
-  --form-btn-border: 1px solid var(--color-gray-medium);
-  --form-btn-hover-bg: var(--color-white);
-  --form-text-color: var(--text-primary-color);
-
-  /* אזור אודות */
-  --about-section-bg: #f2fef6;
-  --about-section-text-color: var(--text-primary-color);
-  --about-section-title-color: var(--main-brand-color);
-  --about-highlight-text-color: var(--color-white);
-  --about-highlight-bg-color: rgba(0, 0, 0, 0.1);
-
-  /* וידאו */
-  --video-title-color: var(--main-brand-color);
-
-  /* אזור המלצות */
-  --recommendations-section-bg: lab(94.42% -0.36 2.04);
-
-    --contact-form-bg: var(--dark-background-color);
-  --share-icon-size: 48px;
-    --profile-img-size: 100px;
-  --profile-img-border: 3px solid var(--main-brand-color);
-  --profile-img-margin: -60px auto 0 auto;
-    --profile-img-size: 150px;          /* הגדלת התמונה */
-  --profile-img-margin: -30px auto 0 auto;  /* הורדה כלפי מטה */
-    --separator-height: 2px;
-  --separator-color: var(--main-brand-color);
-    --gold-line-height: 2px;
-  --gold-line-bg: var(--gradient-line-style);
-  --gold-line-width: 380px;
-  --gold-line-margin: var(--spacing-medium) auto;
-    --header-bg-color: url('../assets/background-soft-blue.jpg') no-repeat center center;
-  --header-bg-size: 100%; /* או כל אחוז אחר */
-  --header-bg-position: center;
-  --header-radius: var(--radius-large) var(--radius-large) 0 0;
-  --header-height: var(--top-section-height-fixed);
-  --header-display: flex;
-  --header-align-items: center;
-  --header-justify-content: center;
-    --main-title-color: #000;
-  --subtitle-color: #333;
-  --section-title-color: #666;
-    --icon-border-color: #ccc;
-  --icon-img-size: 70px;
-    --contact-form-bg: var(--color-white);
+  /* 📋 טפסים */
+  --contact-form-bg: var(--color-white);
   --contact-input-border: 1px solid var(--color-black);
   --contact-btn-bg: var(--main-brand-color);
   --contact-btn-hover-bg: var(--color-gold-dark);
 
-    --about-bg-color: var(--color-white);
-  --about-text-color: var(--color-black);
-  --about-title-color: var(--color-black);
+  /* 📝 אזור אודות */
+  --about-section-bg: var(--color-white);
+  --about-section-text-color: var(--color-black);
+  --about-section-title-color: var(--color-black);
   --about-text-align: right;
   --about-padding: var(--spacing-xl);
   --about-title-margin-bottom: var(--spacing-medium);
-    --about-placeholder-text: "מומלץ להכניס כאן טקסט על העסק או השירותים.";
-      --video-margin-top: var(--spacing-large);
+
+  /* 🎥 וידאו */
+  --video-title-color: var(--main-brand-color);
+  --video-margin-top: var(--spacing-large);
+
+  /* ⭐ אזור המלצות */
+  --recommendations-section-bg: lab(94.42% -0.36 2.04);
   --recommend-swiper-width: 100%;
   --recommend-swiper-max-width: 100%;
 
+    --body-bg-color: var(--dark-background-color); /* או כל צבע אחר לדריסה */
+
+
+
 }
-
-body {
-  background-color: var(--dark-background-color);
-}
-
-.bottom-section {
-  background-color: var(--bottom-section-bg);
-  color: var(--bottom-section-text-color);
-  padding: var(--spacing-xl) var(--spacing-large);
-  border-radius: 0 0 var(--bottom-section-radius) var(--bottom-section-radius);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(-30px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-.animate-pulse:hover {
-  animation: pulseHover 0.6s ease-in-out;
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.8s ease-out;
-}
-
-.animate-slide-in {
-  animation: slideIn 0.6s ease-out;
-}
-
-/* הוספת טקסטים גנריים לדוגמה ברכיבים */
-.contact-form .form-description:before {
-  content: "מומלץ להכניס כאן טקסט הסבר קצר על טופס יצירת הקשר והיתרונות שלו.";
-  display: block;
-  color: var(--color-gray-dark);
-  font-style: italic;
-  margin-bottom: var(--spacing-medium);
-}
-
-.video-wrapper .video-placeholder-text:before {
-  content: "מומלץ להכניס כאן טקסט הסבר על סרטון התדמית או סרטון נוסף.";
-  display: block;
-  color: var(--color-gray-dark);
-  font-style: italic;
-  margin-top: var(--spacing-medium);
-}
-
-.recommendations-section .section-description:before {
-  content: "מומלץ להכניס כאן טקסט פתיחה קצר לאזור ההמלצות.";
-  display: block;
-  color: var(--color-gray-dark);
-  font-style: italic;
-  margin-bottom: var(--spacing-large);
-}
-
-.name-role {
-  text-align: center;
-  margin-top: var(--spacing-large);
-  margin-bottom: var(--spacing-large);
-}
-
-.name-role h1,
-.name-role h2 {
-  margin: 0;
-  padding: 0;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-gray-dark);
-}
-
-.name-role.gray {
-  color: var(--color-gray-dark);
-}
-.btn-contact {
-  display: inline-block;
-  background-color: var(--btn-bg-filled);
-  color: var(--btn-text-color-filled);
-  padding: var(--btn-padding);
-  font-size: var(--font-size-medium);
-  font-weight: var(--font-weight-bold);
-  border-radius: var(--btn-radius);
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  margin: var(--spacing-small) auto;
-}
-
-.btn-contact:hover {
-  background-color: var(--btn-hover-bg-filled);
-  transform: translateY(-2px);
-}
-
-
-
-/* הסרת כל התאמות למובייל @media */
-/* @media (max-width: 480px) { ... } - הוסר */
-
-/* הסרת דריסות לא רלוונטיות או מונעות רספונסיביות */
-/* .card-basic, .card-wide, .card-narrow { max-width: calc(100% - 30px); } - הוסר והוחלף ברוחב קבוע */
-/* :root { --font-size-title-large: 24px; ... } - הוסר כי אין רספונסיביות */
-/* .btn { padding: var(--spacing-tiny) var(--spacing-medium); font-size: var(--font-size-small); } - הוסר כי אין רספונסיביות */
-/* .btn-large { padding: var(--spacing-small) var(--spacing-large); font-size: var(--font-size-medium); } - הוסר כי אין רספונסיביות */
