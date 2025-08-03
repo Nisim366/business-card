@@ -2634,40 +2634,4 @@ body {
   border-radius: 50%;
 }
 
-/* 5️⃣ תוספת ARIA Live לשדות דינמיים */
-.error-message {
-  aria-live: polite;
-}/* ===== Accessibility Widget ===== */
-#accessibilityToggle {
-  position: fixed;
-  bottom: var(--accessibility-btn-bottom, 20px);
-  left: var(--accessibility-btn-left, 20px);
-  right: var(--accessibility-btn-right, auto);
-  width: var(--accessibility-btn-size, 50px);
-  height: var(--accessibility-btn-size, 50px);
-  border-radius: 50%;
-  background-color: var(--accessibility-btn-bg, #000);
-  color: var(--accessibility-btn-color, #fff);
-  font-size: var(--accessibility-btn-font-size, 24px);
-  text-align: center;
-  line-height: var(--accessibility-btn-size, 50px);
-  border: none;
-  cursor: pointer;
-  z-index: 9999;
-}
-
-#accessibilityToggle:focus {
-  outline: 3px solid #fff;
-  outline-offset: 2px;
-}
-@media (max-width: 480px) {
-  #accessibilityToggle {
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
-    line-height: 45px;
-    bottom: 15px;
-    left: 15px;
-  }
-}
 
