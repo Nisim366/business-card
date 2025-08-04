@@ -301,14 +301,12 @@ box-sizing: border-box;
 }
 #accessibilityToggle {
   position: fixed;
-  bottom: var(--accessibility-btn-bottom);
-  top: var(--accessibility-btn-top);
-  right: var(--accessibility-btn-right);
-  left: var(--accessibility-btn-left);
+  bottom: 20px; /* מרחק מהרצפה */
+  left: 20px;   /* מרחק מהצד השמאלי */
   z-index: 9999;
   
-  width: var(--accessibility-btn-size, 100px);
-  height: var(--accessibility-btn-size, 100px);
+  width: var(--accessibility-btn-size, 60px);
+  height: var(--accessibility-btn-size, 60px);
   padding: 0;
   border: none;
   background: none;
@@ -322,6 +320,7 @@ box-sizing: border-box;
   border-radius: 50%;
   object-fit: cover;
 }
+
 
 
 
