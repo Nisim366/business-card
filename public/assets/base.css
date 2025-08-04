@@ -299,6 +299,7 @@
 * {
 box-sizing: border-box;
 }
+
 #accessibilityToggle {
   position: fixed;
   bottom: 20px; /* מרחק מהרצפה */
@@ -320,66 +321,17 @@ box-sizing: border-box;
   border-radius: 50%;
   object-fit: cover;
 }
-
-
-
-
-
-.contact-form .form-description:before {
-content: var(--contact-form-description);
-  display: block;
-  color: var(--color-gray-dark);
-  font-style: italic;
-  margin-bottom: var(--spacing-medium);
-}
-
-/* About Placeholder */
-.about-section .placeholder-text:before {
-content: var(--about-placeholder-text);
-  display: block;
-  color: var(--color-gray-dark);
-  font-style: italic;
-  margin-bottom: var(--spacing-medium);
-}
-
-/* Video Placeholder Text */
-.video-wrapper .video-placeholder-text:before {
-content: var(--video-placeholder-text, "מומלץ להכניס כאן טקסט הסבר על סרטון התדמית או סרטון נוסף.");
-  display: block;
-  color: var(--video-placeholder-color, var(--color-gray-dark));
-  font-style: var(--video-placeholder-style, italic);
-  margin-top: var(--video-placeholder-margin, var(--spacing-medium));
-}
-
-/* Recommendations Section Description */
-.recommendations-section .section-description:before {
-content: var(--recommendations-description, "מומלץ להכניס כאן טקסט פתיחה קצר לאזור ההמלצות.");
-  display: block;
-  color: var(--recommendations-description-color, var(--color-gray-dark));
-  font-style: var(--recommendations-description-style, italic);
-  margin-bottom: var(--recommendations-description-margin, var(--spacing-large));
-}
-
-/* Testimonial Icon */
-
-
-.elementor-testimonial__icon {
-font-size: var(--testimonial-icon-size, var(--font-size-xl));
-  color: var(--testimonial-icon-color, var(--color-gray-dark));
-  margin-bottom: var(--testimonial-icon-margin-bottom, var(--spacing-small));
-}
-
-/* Testimonial Read More */
-
-
-.elementor-testimonial__read-more {
-color: var(--testimonial-read-more-color, var(--color-gray-dark));
-  cursor: pointer;
-  text-decoration: var(--testimonial-read-more-text-decoration, underline);
-}
-
-.elementor-testimonial__read-more:hover {
-color: var(--testimonial-read-more-hover-color, var(--main-brand-color));
+.elementor-testimonial__content::before {
+  content: "\f005"; /* כוכב - unicode FontAwesome */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-style: normal;
+  display: inline-block;
+  color: var(--testimonial-icon-color, var(--color-gold-medium));
+  font-size: var(--testimonial-icon-size, var(--font-size-xl));
+  margin-left: 4px;
+  margin-right: 8px;
+  vertical-align: middle;
 }
 
 body {
@@ -392,9 +344,6 @@ margin: var(--body-margin, 0);
   overflow-y: var(--body-overflow-y, auto);
   background-color: var(--body-bg-color, var(--dark-background-color));
 }
-
-/* ✅ אופטימיזציה כללית לתמונות - מניעת layout shift וטעינות מיותרות */
-
 
 img {
 max-width: var(--img-max-width, 100%);
