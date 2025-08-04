@@ -59,45 +59,47 @@
         ➕ הוסף לאנשי קשר
       </a>
 
-      <!-- ✅ אודות -->
-      <h3 class="main-title" id="aboutSectionTitle" tabindex="0">אודות</h3>
-      <div class="about-parallax-wrapper" role="region" aria-labelledby="aboutSectionTitle" tabindex="0">
-        <div class="about-section">
-          <div data-field="aboutParagraphs"></div>
+<!-- ✅ אודות --><h3 class="main-title" id="aboutSectionTitle" tabindex="0">אודות</h3>
+<div class="about-parallax-wrapper" role="region" aria-labelledby="aboutSectionTitle" tabindex="0">
+  <div class="about-section" role="region" aria-label="תיאור העסק">
+    <div data-field="aboutParagraphs" role="document" aria-live="polite" tabindex="0">
+      <p>מומלץ להכניס כאן טקסט אודות כברירת מחדל.</p>
+    </div>
 
-          <!-- ✅ אקורדיון 1 -->
-          <div class="elementor-toggle-wrapper">
-            <div class="elementor-tab-title override-right" data-tab="generic1" role="button" tabindex="0" aria-controls="elementor-tab-content-generic1" aria-expanded="false">
-              <span class="elementor-toggle-icon elementor-toggle-icon-right">
-                <span class="elementor-toggle-icon-closed"><i class="fas fa-caret-left" aria-hidden="true"></i></span>
-                <span class="elementor-toggle-icon-opened"><i class="fas fa-caret-up" aria-hidden="true"></i></span>
-              </span>
-              <span class="elementor-toggle-title" data-field="accordionTitle1">כותרת נפתחת 1</span>
-            </div>
-            <div class="elementor-tab-content" hidden id="elementor-tab-content-generic1" tabindex="0">
-              <div class="accordion-text-block" data-field="accordionText1">
-                <p>מומלץ להכניס כאן טקסט אישי עבור כותרת זו.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- ✅ אקורדיון 2 -->
-          <div class="elementor-toggle-wrapper">
-            <div class="elementor-tab-title override-right" data-tab="generic2" role="button" tabindex="0" aria-controls="elementor-tab-content-generic2" aria-expanded="false">
-              <span class="elementor-toggle-icon elementor-toggle-icon-right">
-                <span class="elementor-toggle-icon-closed"><i class="fas fa-caret-left" aria-hidden="true"></i></span>
-                <span class="elementor-toggle-icon-opened"><i class="fas fa-caret-up" aria-hidden="true"></i></span>
-              </span>
-              <span class="elementor-toggle-title" data-field="accordionTitle2">כותרת נפתחת 2</span>
-            </div>
-            <div class="elementor-tab-content" hidden id="elementor-tab-content-generic2" tabindex="0">
-              <div class="accordion-text-block" data-field="accordionText2">
-                <p>מומלץ להכניס כאן טקסט אישי נוסף.</p>
-              </div>
-            </div>
-          </div>
+    <!-- ✅ אקורדיון 1 -->
+    <div class="elementor-toggle-wrapper" role="group" aria-labelledby="accordionTitle1">
+      <div class="elementor-tab-title override-right" id="accordionTitle1" data-tab="generic1" role="button" tabindex="0" aria-controls="elementor-tab-content-generic1" aria-expanded="false">
+        <span class="elementor-toggle-icon elementor-toggle-icon-right">
+          <span class="elementor-toggle-icon-closed"><i class="fas fa-caret-left" aria-hidden="true"></i></span>
+          <span class="elementor-toggle-icon-opened"><i class="fas fa-caret-up" aria-hidden="true"></i></span>
+        </span>
+        <span class="elementor-toggle-title" data-field="accordionTitle1">כותרת נפתחת 1</span>
+      </div>
+      <div class="elementor-tab-content" hidden id="elementor-tab-content-generic1" role="region" aria-label="תוכן כותרת נפתחת 1" tabindex="0">
+        <div class="accordion-text-block" data-field="accordionText1">
+          <p>מומלץ להכניס כאן טקסט אישי עבור כותרת זו.</p>
         </div>
       </div>
+    </div>
+
+    <!-- ✅ אקורדיון 2 -->
+    <div class="elementor-toggle-wrapper" role="group" aria-labelledby="accordionTitle2">
+      <div class="elementor-tab-title override-right" id="accordionTitle2" data-tab="generic2" role="button" tabindex="0" aria-controls="elementor-tab-content-generic2" aria-expanded="false">
+        <span class="elementor-toggle-icon elementor-toggle-icon-right">
+          <span class="elementor-toggle-icon-closed"><i class="fas fa-caret-left" aria-hidden="true"></i></span>
+          <span class="elementor-toggle-icon-opened"><i class="fas fa-caret-up" aria-hidden="true"></i></span>
+        </span>
+        <span class="elementor-toggle-title" data-field="accordionTitle2">כותרת נפתחת 2</span>
+      </div>
+      <div class="elementor-tab-content" hidden id="elementor-tab-content-generic2" role="region" aria-label="תוכן כותרת נפתחת 2" tabindex="0">
+        <div class="accordion-text-block" data-field="accordionText2">
+          <p>מומלץ להכניס כאן טקסט אישי נוסף.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
       <!-- ✅ סרטון תדמית -->
       <div data-switch="video" role="region" aria-label="סרטון תדמית" tabindex="0">
