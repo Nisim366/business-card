@@ -7,6 +7,11 @@ const isLive = location.hostname.includes("clix-marketing.co.il") || location.ho
 console.log("📡 isLive:", isLive);
 
 document.addEventListener("DOMContentLoaded", function () {
+  // הבטחת מצב נגישות כבוי בטעינה ראשונית
+  document.body.classList.remove("accessibility-mode");
+  document.body.style.filter = "";
+  document.body.style.fontSize = "";
+
   const loader = document.querySelector(".loader-overlay");
 
   const removeLoader = () => {
@@ -21,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     removeLoader();
   });
 });
+
 
 // ✅ initCard – ירוץ רק כשה־cardData מוכן
 function initCard() {

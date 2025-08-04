@@ -3,10 +3,13 @@
    ========================================== */
 
 
+
 /* ===== 1. משתנים גלובליים :root ===== */
+
 
 :root {
   
+
 /* 🎨 צבעים – בסיסיים */
   --color-white: #ffffff;
   --color-black: #000000;
@@ -15,6 +18,7 @@
   --color-gray-dark: #666666;
 
   
+
 /* 🎨 צבעים – ברנדינג */
   --color-gold-light: #FFD700;
   --color-gold-medium: #DAA520;
@@ -36,6 +40,7 @@
   --color-pink-dark: #C71585;
 
   
+
 /* 🟢 רדיוסים */
   --radius-small: 6px;
   --radius-medium: 12px;
@@ -44,6 +49,7 @@
   --radius-circle: 50%;
 
   
+
 /* 🔠 טיפוגרפיה */
   --font-family-primary: "Assistant", sans-serif;
   --font-family-secondary: "Arial", sans-serif;
@@ -60,6 +66,7 @@
   --font-weight-bold: 700;
 
   
+
 /* 📏 ריווחים */
   --spacing-tiny: 5px;
   --spacing-small: 10px;
@@ -69,11 +76,13 @@
   --spacing-xxl: 40px;
 
   
+
 /* 📏 ריווחים נוספים לאייקונים */
   --spacing-icon-gap: 20px;
   --spacing-icon-gap-large: 30px;
 
   
+
 /* 🌑 צללים */
   --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.1);
   --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -82,12 +91,14 @@
   --shadow-glow-colored: 0 0 20px rgba(64, 224, 208, 0.4);
 
   
+
 /* 📝 Placeholders */
   --about-placeholder-text: "מומלץ להכניס כאן טקסט על העסק או השירותים.";
   --testimonial-placeholder-text: "מומלץ להכניס כאן המלצה מלקוח מרוצה.";
   --contact-form-description: "מעוניינת לקבוע תור? מלאי את הטופס ואחזור אלייך בהקדם";
 
   
+
 /* ⭐ Recommendations */
   --recommendations-section-bg: var(--color-white);
   --recommendations-section-padding: var(--spacing-medium);
@@ -131,6 +142,7 @@
   --read-more-color: #007bff;
 
   
+
 /* 🎨 גרדיאנטים */
   --gradient-white: linear-gradient(135deg, #ffffff, #f5f5f5);
   --gradient-gold: linear-gradient(135deg, #FFD700, #B8860B);
@@ -139,6 +151,7 @@
   --gradient-multi: linear-gradient(45deg, #33cc99, #00aaff, #33cc99);
 
   
+
 /* ✨ Gold Line */
   --gold-line-width: 100%;
   --gold-line-height: 3px;
@@ -154,6 +167,7 @@
   --gold-line-box-shadow: none;
 
   
+
 /* 🔄 Share Section */
   --share-section-bg: transparent;
   --share-section-padding: var(--spacing-large) 0;
@@ -168,6 +182,7 @@
   --share-icon-hover-scale: 1.1;
 
   
+
 /* 🔘 Buttons */
   --btn-display: inline-block;
   --btn-bg-filled: var(--color-gold-medium);
@@ -188,10 +203,12 @@
   --btn-transition: background-color 0.3s ease, transform 0.2s ease;
   --btn-transform-hover: translateY(-2px);
   --btn-vcard-radius: var(--radius-medium); 
+
 /* ברירת מחדל – פינות בינוניות */
 
 
   
+
 /* 📞 Contact Buttons */
   --btn-contact-bg: #4682B4;
   --btn-contact-color: #ffffff;
@@ -204,6 +221,7 @@
   --btn-contact-font-weight: var(--font-weight-bold);
 
   
+
 /* 🖼 Icon Grid */
   --icon-grid-display: grid;
   --icon-grid-template: repeat(3, 1fr);
@@ -228,6 +246,7 @@
   --icon-text-color: var(--color-gray-dark);
 
   
+
 /* 🖼 Icon Compatibility */
   --icon-font-size: var(--font-size-title-large);
   --icon-color: var(--color-gold-medium);
@@ -236,20 +255,26 @@
   --icon-desc-color: var(--color-gray-dark);
 
   
+
 /* 🎯 Profile */
   --profile-img-size: 140px;
   --profile-img-margin: -30px auto 0 auto;
 
 --body-bg-color: var(--color-gray-light); 
+
 /* צבע רקע גוף הכרטיס כברירת מחדל (אפור בהיר) */
   --card-bg: #f8f8f8; 
+
 /* צבע רקע הכרטיס כברירת מחדל (אפור חלש) */
     --btn-contact-padding: 10px 20px;   
+
 /* גובה ורוחב הרקע */
   --btn-contact-font-size: 14px;      
+
 /* גודל טקסט */
 
   
+
 /* 📞 Contact Buttons (סנכרון עם כפתורים רגילים) */
 --btn-contact-bg: var(--btn-bg-filled);
 --btn-contact-color: var(--btn-text-color-filled);
@@ -257,17 +282,21 @@
 --btn-contact-hover-color: var(--btn-hover-text-color-filled);
 
   --recommendations-section-bg: #b39367; 
+
 /* צבע ירקרק ברירת מחדל */
   --about-bg-color: var(--recommendations-section-bg);
     --recommendations-section-margin-top: 40px;
 
       --accessibility-btn-bottom: 30px; 
+
 /* יותר למעלה */
   --accessibility-btn-left: auto;
   --accessibility-btn-right: 30px; 
+
 /* לצד ימין */
 
 }
+
 
 
 /* ===== 2. בסיס כללי ===== */
@@ -282,6 +311,7 @@
   font-style: italic;
   margin-bottom: var(--spacing-medium);
 }
+
 
 /* About Placeholder */
 .about-section .placeholder-text:before {
@@ -300,6 +330,7 @@
   margin-bottom: var(--contact-form-description-margin, var(--spacing-medium));
 }
 
+
 /* Video Placeholder Text */
 .video-wrapper .video-placeholder-text:before {
   content: var(--video-placeholder-text, "מומלץ להכניס כאן טקסט הסבר על סרטון התדמית או סרטון נוסף.");
@@ -308,6 +339,7 @@
   font-style: var(--video-placeholder-style, italic);
   margin-top: var(--video-placeholder-margin, var(--spacing-medium));
 }
+
 
 
 /* Recommendations Section Description */
@@ -322,7 +354,9 @@
 
 
 
+
 /* Testimonial Icon */
+
 
 .elementor-testimonial__icon {
   font-size: var(--testimonial-icon-size, var(--font-size-xl));
@@ -331,7 +365,9 @@
 }
 
 
+
 /* Testimonial Read More */
+
 
 .elementor-testimonial__read-more {
   color: var(--testimonial-read-more-color, var(--color-gray-dark));
@@ -340,9 +376,11 @@
 }
 
 
+
 .elementor-testimonial__read-more:hover {
   color: var(--testimonial-read-more-hover-color, var(--main-brand-color));
 }
+
 
 
 body {
@@ -358,13 +396,16 @@ body {
 
 
 
+
 /* ✅ אופטימיזציה כללית לתמונות - מניעת layout shift וטעינות מיותרות */
+
 
 img {
   max-width: var(--img-max-width, 100%);
   height: var(--img-height, auto);
   display: var(--img-display, block);
 }
+
 
 .card {
   background-color: var(--card-bg, var(--color-white));
@@ -387,39 +428,52 @@ img {
 }
 
 
+
 .btn {
   display: var(--btn-display, inline-block);
   padding: var(--btn-padding, var(--spacing-small) var(--spacing-large));  
+
 /* ריווח גדול יותר */
   border: none;
   border-radius: var(--btn-radius, var(--radius-medium));                  
+
 /* פינות בינוניות */
   font-family: inherit;
   font-size: var(--btn-font-size, var(--font-size-medium));                 
+
 /* גודל טקסט בינוני */
   font-weight: var(--btn-font-weight, var(--font-weight-bold));            
+
 /* טקסט מודגש */
   text-decoration: var(--btn-text-decoration, none);                       
+
 /* ביטול קו תחתון */
   text-align: center;
   cursor: pointer;
   transition: var(--btn-transition, background-color 0.3s ease, transform 0.2s ease);
   margin: var(--btn-margin, var(--spacing-small) auto);
   background-color: var(--btn-bg-filled, var(--color-gold-medium));        
+
 /* צבע רקע מלא */
   color: var(--btn-text-color-filled, var(--color-white));                 
+
 /* צבע טקסט */
 }
 
 
+
 .btn:hover {
   background-color: var(--btn-hover-bg-filled, var(--color-gold-dark));    
+
 /* רקע בהובר */
   color: var(--btn-hover-text-color-filled, var(--color-white));           
+
 /* צבע טקסט בהובר */
   transform: var(--btn-transform-hover, translateY(-2px));                 
+
 /* אנימציה */
 }
+
 
 
 
@@ -433,10 +487,12 @@ img {
 
 
 
+
 .btn-contact:hover {
   background-color: var(--btn-contact-hover-bg, var(--btn-hover-bg-filled));
   color: var(--btn-contact-hover-color, var(--btn-hover-text-color-filled));
 }
+
 
 
 /* ===== Keyframes – ברירת מחדל ===== */
@@ -457,16 +513,20 @@ img {
 }
 
 
+
 /* ===== מחלקות אנימציה – ברירת מחדל ===== */
+
 
 .animate-pulse:hover {
   animation: pulseHover var(--anim-speed-pulse) ease-in-out;
 }
 
 
+
 .animate-fade-in {
   animation: fadeIn var(--anim-speed-fade) ease-out;
 }
+
 
 
 .animate-slide-in {
@@ -475,7 +535,9 @@ img {
 
 
 
+
 /* ===== 5. תמונת פרופיל – ברירת מחדל ===== */
+
 
 .profile-img {
   object-fit: cover;
@@ -494,12 +556,15 @@ img {
 
 .header-top,
 
+
 .top-section {
   overflow: visible;
 }
 
 
+
 /* ===== 6. קו הפרדה – ברירת מחדל ===== */
+
 
 .separator {
   display: block;
@@ -509,7 +574,9 @@ img {
   background: var(--separator-background, var(--separator-line-color, var(--color-gray-medium)));
   margin: var(--separator-margin, var(--spacing-xl) 0);
 }
+
 /* ===== 7. כותרות כלליות ===== */
+
 
 .main-title {
   font-size: var(--main-title-font-size, var(--font-size-title-large));
@@ -519,11 +586,13 @@ img {
 }
 
 
+
 .subtitle {
   font-size: var(--subtitle-font-size, var(--font-size-large));
   color: var(--subtitle-color, var(--color-gray-dark));
   margin-bottom: var(--subtitle-margin-bottom, var(--spacing-xl));
 }
+
 
 
 .section-title {
@@ -534,7 +603,9 @@ img {
 }
 
 
+
 /* ===== 8. אזורים כלליים - Sections ===== */
+
 
 .section {
   padding: var(--section-padding, var(--spacing-xxl) 0);
@@ -543,8 +614,10 @@ img {
 }
 
 
+
 /* ===== אזור עליון – Top Section / Header ===== */
 .top-section,
+
 
 .header-top {
   width: var(--header-width, 100%);
@@ -556,32 +629,46 @@ img {
 }
 
 
+
 .gold-line {
   width: var(--gold-line-width, 100%);                     
+
 /* רוחב מלא כברירת מחדל */
   height: var(--gold-line-height, 3px);                    
+
 /* גובה דק סטנדרטי */
   background: var(--gold-line-bg, var(--gradient-blue));   
+
 /* גרדיאנט כחול */
   margin: var(--gold-line-margin, 20px auto);                 
+
 /* ממורכז */
   padding: var(--gold-line-padding, 0);                    
+
 /* ללא ריווח פנימי */
   position: var(--gold-line-position, relative);           
+
 /* מיקום יחסי */
   top: var(--gold-line-top, auto);                         
+
 /* ללא הסטה מלמעלה */
   bottom: var(--gold-line-bottom, 0);                      
+
 /* צמוד לתחתית */
   left: var(--gold-line-left, 0);                          
+
 /* צמוד לשמאל */
   right: var(--gold-line-right, 0);                        
+
 /* צמוד לימין */
   border-radius: var(--gold-line-border-radius, 0);        
+
 /* ללא עיגול פינות */
   box-shadow: var(--gold-line-box-shadow, none);           
+
 /* ללא צל */
   display: var(--gold-line-display, block);                
+
 /* מוצג כבלוק */
 }
 .card .gold-line {
@@ -591,41 +678,57 @@ img {
 }
 
 
+
 .name-role {
   text-align: var(--name-role-text-align, center);                     
+
 /* יישור טקסט */
   margin: var(--name-role-margin, var(--spacing-large) 0);             
+
 /* מרווחים */
   padding: var(--name-role-padding, 0);                                
+
 /* ריווח פנימי */
   font-family: var(--name-role-font-family, var(--font-family-primary)); 
+
 /* משפחת גופן */
   color: var(--name-role-color, var(--color-gray-dark));               
+
 /* צבע טקסט */
   font-size: var(--name-role-font-size, var(--font-size-large));       
+
 /* גודל טקסט */
   font-weight: var(--name-role-font-weight, var(--font-weight-bold));  
+
 /* משקל גופן */
 }
 
+
 /* ===== Testimonial Icon Defaults ===== */
+
 
 /* ===== Testimonial Read More Defaults ===== */
 
+
 .name-role.gray {
   color: var(--name-role-gray-color, var(--color-gray-dark));          
+
 /* צבע לגוון אפור */
 }
 
 .name-role h1,
 .name-role h2 {
   margin: var(--name-role-heading-margin, 0);                          
+
 /* מרווח כותרות */
   padding: var(--name-role-heading-padding, 0);                        
+
 /* ריווח כותרות */
   font-weight: var(--name-role-heading-weight, var(--font-weight-bold));
+
 /* משקל כותרות */
   color: var(--name-role-heading-color, var(--color-gray-dark));       
+
 /* צבע כותרות */
 }
 
@@ -641,7 +744,9 @@ img {
 }
 
 
+
 /* ===== אזור תחתון – Footer / Bottom Section ===== */
+
 
 .footer-bottom {
   padding: var(--footer-padding, var(--spacing-large) 0);
@@ -653,13 +758,16 @@ img {
 }
 
 
+
 /* ===== אזור אודות – ברירת מחדל ===== */
+
 
 .about-section {
   padding: var(--about-padding, var(--spacing-xxl));
   background-color: var(--about-bg-color, #f2fef6);
   text-align: var(--about-text-align, center);
   border-radius: var(--about-radius, var(--radius-large)); 
+
 /* ✅ קצוות מעוגלות */
 
 }
@@ -677,6 +785,7 @@ img {
 }
 
 
+
 .about-highlight-text {
   background-color: var(--about-highlight-bg, rgba(0, 0, 0, 0.1));
   color: var(--about-highlight-color, var(--color-white));
@@ -685,16 +794,20 @@ img {
 }
 
 
+
 /* ===== עוטף וידאו – ברירת מחדל ===== */
+
 
 .video-wrapper {
   position: relative;
   padding-bottom: var(--video-aspect-ratio, 56.25%); 
+
 /* יחס 16:9 */
   height: 0;
   overflow: hidden;
   max-width: var(--video-max-width, 100%);
   background: var(--video-bg, none); 
+
 /* ביטול הרקע השחור */
   margin-top: var(--video-margin-top, var(--spacing-xl));
   border-radius: var(--video-radius, var(--radius-large));
@@ -713,11 +826,14 @@ img {
   margin-bottom: var(--video-title-margin-bottom, var(--spacing-medium));
 }
 
+
 /* ===== אזור המלצות – ברירת מחדל ===== */
 
 
 
+
 /* כותרת וידאו */
+
 
 .video-title {
   margin-bottom: var(--video-title-margin-bottom, 12px);
@@ -725,6 +841,7 @@ img {
   font-size: var(--video-title-font-size, var(--font-size-title-small));
   text-align: var(--video-title-align, center);
 }
+
 
 
 /* סרטון בווידאו wrapper */
@@ -739,7 +856,9 @@ img {
   background: var(--video-bg, transparent);
 }
 
+
 /* ===== כפתור המלצות – ברירת מחדל ===== */
+
 
 .testimonial-toggle-btn {
   display: inline-block;
@@ -755,12 +874,15 @@ img {
 }
 
 
+
 .testimonial-toggle-btn:hover {
   background-color: var(--testimonial-btn-hover-bg, var(--color-gray-dark));
   transform: var(--testimonial-btn-hover-transform, scale(1.05));
 }
 
+
 /* ===== טופס יצירת קשר – ברירת מחדל ===== */
+
 
 .contact-form {
   max-width: var(--contact-form-max-width, 600px);
@@ -831,7 +953,9 @@ img {
 }
 
 
+
 /* ===== כפתורי שיתוף – ברירת מחדל ===== */
+
 
 .share-buttons {
   display: flex;
@@ -841,6 +965,7 @@ img {
   gap: var(--spacing-medium);
   margin: var(--spacing-xl) 0;
 }
+
 
 
 .icon-grid {
@@ -882,14 +1007,18 @@ img {
 }
 
 
+
 /* גוון להובר */
+
 
 .color-share-icon-hover:hover {
   color: var(--share-icon-hover-color, #666);
 }
 
 
+
 /* כרטיס – מובייל */
+
 
 .card {
   width: 100% !important;
@@ -898,6 +1027,7 @@ img {
   padding: var(--card-padding, var(--spacing-medium));
   box-sizing: border-box;
 }
+
 
 
 /* כרטיס – מחשב */
@@ -912,7 +1042,9 @@ img {
  
 
 
+
 /* כפתור – ברירת מחדל */
+
 
 .btn {
   padding: var(--btn-padding, var(--spacing-tiny) var(--spacing-medium));
@@ -920,26 +1052,34 @@ img {
 }
 
 
+
 /* תמונת פרופיל – ברירת מחדל */
+
 
 .profile-img {
   width: var(--profile-img-size, 80px);
   height: var(--profile-img-size, 80px);
 
 }
+
 .recommendations-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: var(--recommendations-section-margin-top, 40px); 
+
 /* ✅ רווח עליון עם ברירת מחדל */
   padding: var(--recommendations-section-padding, var(--spacing-medium)); 
+
 /* ✅ ריווח פנימי עם Fallback */
   background-color: var(--recommendations-section-bg, var(--color-white)); 
+
 /* ✅ צבע עם Fallback */
   border-radius: var(--recommendations-section-radius, var(--radius-large)); 
+
 /* ✅ עיגול פינות עם Fallback */
 }
+
 
 
 
@@ -961,6 +1101,7 @@ img {
 }
 
 
+
 /* שקופיות */
 .recommendations-section .swiper-slide {
   flex: 0 0 100%;
@@ -971,6 +1112,7 @@ img {
   padding: var(--recommend-slide-padding);
   box-sizing: border-box;
 }
+
 
 /* בלוק המלצה */
 .recommendations-section .elementor-testimonial {
@@ -983,11 +1125,13 @@ img {
   padding: var(--recommend-testimonial-padding);
   margin-top: var(--recommend-testimonial-margin-top);
   margin-bottom: var(--recommend-testimonial-gap, var(--spacing-large)); 
+
 /* ✅ ריווח בין בלוקים */
   min-height: var(--recommend-testimonial-min-height);
   max-height: var(--recommend-testimonial-max-height);
   overflow: hidden;
 }
+
 
 
 
@@ -999,11 +1143,13 @@ img {
   margin-bottom: var(--spacing-tiny);
 }
 
+
 .logo-img {
   display: block;
   margin: 0 auto;
   object-fit: contain;
 }
+
 
 
 
@@ -1017,6 +1163,7 @@ img {
 }
 
 
+
 /* תוכן ההמלצה */
 .recommendations-section .elementor-testimonial__content,
 .recommendations-section .elementor-testimonial__text {
@@ -1025,6 +1172,7 @@ img {
   line-height: var(--recommend-content-line-height);
   margin-bottom: var(--spacing-medium);
 }
+
 
 
 /* כפתור קרא עוד */
@@ -1036,6 +1184,7 @@ img {
   color: var(--read-more-color);
   cursor: pointer;
 }
+
 
 
 /* Pagination */
@@ -1058,7 +1207,9 @@ img {
 
 
 
+
 /* ===== גלריית תמונות – מבנה ברירת מחדל ===== */
+
 
 .image-gallery-wrapper {
   margin-top: var(--gallery-margin-top, var(--spacing-xl));
@@ -1068,13 +1219,16 @@ img {
   max-width: 100%;
   background-color: var(--gallery-bg, var(--color-white));
   min-height: var(--gallery-min-height, 200px); 
+
 /* מניעת layout shift */
 }
+
 
 
 .image-gallery-container {
   position: relative;
   min-height: var(--gallery-container-min-height, 200px); 
+
 /* מניעת קפיצות */
 }
 
@@ -1089,9 +1243,11 @@ img {
 
 
 
+
 .swiper-button-prev {
   left: var(--swiper-btn-left, 10px);
 }
+
 
 
 .swiper-button-next {
@@ -1100,14 +1256,9 @@ img {
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover,
-.swiper-button-prev:focus,
-
-.swiper-button-next:focus {
-  background-color: var(--swiper-btn-hover-bg, rgba(0, 0, 0, 0.35));
-  outline: none;
-}
 
 .swiper-button-prev:after,
+
 
 .swiper-button-next:after {
   font-size: var(--swiper-btn-icon-size, 20px);
@@ -1116,16 +1267,13 @@ img {
 }
 
 
-/* ===== נגישות – פוקוס ברור לכפתורי Swiper ===== */
-.swiper-button-prev:focus,
 
-.swiper-button-next:focus {
-  outline: 2px solid var(--swiper-focus-color, var(--color-primary));
-  outline-offset: 2px;
-}
+/* ===== נגישות – פוקוס ברור לכפתורי Swiper ===== */
+
 
 
 /* ===== Pagination Swiper ===== */
+
 
 .swiper-pagination-bullet {
   background: var(--swiper-bullet-bg, var(--color-primary));
@@ -1133,12 +1281,15 @@ img {
   transition: opacity 0.3s ease;
 }
 
+
 .swiper-pagination-bullet-active {
   opacity: 1;
 }
 
 
+
 /* ===== גלריית תמונות – image-swiper ===== */
+
 
 .image-gallery-frame {
   position: relative;
@@ -1166,7 +1317,9 @@ img {
 }
 
 
+
 /* ===== image-swiper ===== */
+
 
 .image-swiper {
   width: 100%;
@@ -1198,6 +1351,7 @@ img {
 }
 
 
+
 /* מצב Image Mode */
 .image-mode .elementor-testimonial__text {
   font-size: var(--image-mode-text-font-size, var(--font-size-small));
@@ -1206,7 +1360,9 @@ img {
   color: var(--image-mode-text-color, var(--color-gray-dark));
 }
 
+
 /* ===== מסך מלא לתמונה – ברירת מחדל ===== */
+
 
 .fullscreen-overlay {
   position: fixed;
@@ -1228,6 +1384,7 @@ img {
 }
 
 
+
 .close-btn {
   position: absolute;
   top: var(--fullscreen-close-top, 16px);
@@ -1237,7 +1394,9 @@ img {
   cursor: pointer;
   z-index: 10000;
 }
+
 /* ===== תצוגת תמונה מוקטנת ===== */
+
 
 .image-gallery-preview {
   width: 100%;
@@ -1256,11 +1415,14 @@ img {
   object-fit: var(--gallery-preview-img-fit, cover);
 }
 
+
 /* ===== אזור שיתוף – ברירת מחדל ===== */
+
 
 .share-section {
   display: flex;
   flex-direction: column; 
+
 /* כותרת מעל, כפתורים מתחת */
   align-items: center;
   justify-content: center;
@@ -1269,12 +1431,15 @@ img {
   padding: var(--share-section-padding);
   background-color: var(--share-section-bg);
   color: var(--share-section-color, var(--color-gray-dark)); 
+
 /* צבע טקסט אחיד */
   text-align: center;
 }
 
 
+
 /* ===== כפתורי שיתוף – קונטיינר ===== */
+
 
 .share-buttons {
   display: flex;
@@ -1284,6 +1449,7 @@ img {
   gap: var(--share-section-gap);
   margin: var(--spacing-xl) 0;
 }
+
 
 
 
@@ -1307,7 +1473,9 @@ img {
 
 
 
+
 /* ===== תצוגת מסך מלא ===== */
+
 
 .fullscreen-gallery-overlay {
   position: fixed;
@@ -1320,6 +1488,7 @@ img {
   flex-direction: column;
   padding: var(--fullscreen-gallery-padding, 16px);
 }
+
 
 
 .fullscreen-gallery-swiper {
@@ -1342,6 +1511,7 @@ img {
 }
 
 
+
 /* ===== כפתור סגירה – ברירת מחדל ===== */
 .fullscreen-gallery-overlay .close-btn {
   position: absolute;
@@ -1354,7 +1524,9 @@ img {
 }
 
 
+
 /* ===== Skeleton Loader – ברירת מחדל ===== */
+
 
 .loader-overlay {
   position: fixed;
@@ -1374,6 +1546,7 @@ img {
   transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
+
 .loader-overlay.fade-out {
   opacity: 0;
   visibility: hidden;
@@ -1381,7 +1554,9 @@ img {
 }
 
 
+
 /* Spinner */
+
 
 .loader-spinner {
   margin-top: var(--loader-spinner-margin-top, 180px);
@@ -1399,62 +1574,21 @@ img {
 
 
 
+
 /* ✅ חיווי נגישות ברור על אייקונים */
-.icon-item a:focus {
-  outline: 3px solid #000 !important; 
-/* מסגרת בולטת */
-  outline-offset: 4px;
-  border-radius: 50%; 
-/* עוקב אחרי הצורה של האייקון */
-  background-color: rgba(0,0,0,0.1); 
-/* רקע הדגשה */
-}
+
 
 
 
 /* ✅ חיווי Focus נגיש לאקורדיון, וידאו וחיצי המלצות */
-.elementor-tab-title:focus,
-[data-field="videoSrc"]:focus,
-.swiper-button-prev:focus,
 
-.swiper-button-next:focus {
-  outline: 3px solid #000; 
-/* מסגרת שחורה בולטת */
-  outline-offset: 3px;
-  background-color: rgba(0,0,0,0.08); 
-/* הדגשה קלה */
-  border-radius: 6px;
-}
 
 
 /* ===== Accessibility Stage 1 – Focus לכל רכיב אינטראקטיבי ===== */
-a:focus,
-button:focus,
-input:focus,
-textarea:focus,
-select:focus,
-.elementor-tab-title:focus,
-[data-field="videoSrc"]:focus,
-.swiper-button-prev:focus,
-.swiper-button-next:focus,
-.icon-item a:focus {
-  outline: 2px solid #000; 
-/* פוקוס ברור לפי תקן */
-  outline-offset: 2px;
-  border-radius: inherit;
-  background-color: rgba(0,0,0,0.05); 
-/* הדגשה קלה */
-}
+
 
 
 /* ===== Accessibility Stage 2 – Contrast מינימלי ===== */
-
-body {
-  background-color: #ffffff; 
-/* רקע בהיר לניגודיות גבוהה */
-  color: #222222; 
-/* טקסט כהה */
-}
 
 .main-title, 
 .subtitle, 
@@ -1462,40 +1596,51 @@ body {
 .name-role, 
 .about-section h3 {
   color: #000000; 
+
 /* טקסט כותרות שחור לניגודיות */
 }
 
 .btn-contact, 
 
+
 button {
   background-color: #000000; 
+
 /* כפתור כהה */
   color: #ffffff; 
+
 /* טקסט לבן */
 }
 
 .btn-contact:hover, 
 
+
 button:hover {
   background-color: #333333; 
+
 /* כהות בהובר לניגודיות */
 }
+
 
 
 /* ===== Accessibility Stage 3 – טפסים וחיווי שגיאות ===== */
 input[aria-invalid="true"],
 textarea[aria-invalid="true"] {
   border: 2px solid red; 
+
 /* מסגרת אדומה לשדות שגויים */
 }
 
 
+
 .error-message {
   color: red; 
+
 /* טקסט שגיאה אדום ברור */
   font-size: 14px;
   margin-top: 4px;
 }
+
 
 .icon-grid {
   display: var(--icon-grid-display, grid);
@@ -1508,6 +1653,7 @@ textarea[aria-invalid="true"] {
   border-radius: var(--icon-grid-radius, 0);
   box-shadow: var(--icon-grid-shadow, none);
   overflow: visible; 
+
 /* ✅ מאפשר ל־outline פוקוס להופיע */
 }
 .icon-item a {
@@ -1547,50 +1693,26 @@ textarea[aria-invalid="true"] {
 }
 
 
+
 /* ===== Accessibility Stage 1 – Focus לכל רכיב אינטראקטיבי ===== */
-a:focus,
-button:focus,
-input:focus,
-textarea:focus,
-select:focus,
-.elementor-tab-title:focus,
-[data-field="videoSrc"]:focus,
-.swiper-button-prev:focus,
-.swiper-button-next:focus,
-.icon-item a:focus {
-  outline: var(--icon-focus-outline, none);
-  box-shadow: var(--icon-focus-shadow, 0 0 0 4px rgba(0,0,0,0.3)); 
-/* הילה עגולה */
-  border-radius: var(--icon-focus-radius, 50%); 
-/* ברירת מחדל עגול */
-  background-color: var(--icon-focus-bg, rgba(0,0,0,0.05)); 
-/* רקע עדין */
-}
+
 
 
 
 /* ===== Accessibility Stage 4 – מצב נגישות מלא לפי חוק ===== */
 
 
+
 /* 1️⃣ קישורים – הוספת underline ברור */
 
-a {
-  text-decoration: underline;
-}
-
-a:hover {
-  text-decoration: none; 
-/* שמירה על עיצוב נקי בהובר */
-}
 
 
 /* 2️⃣ הבטחת ניגודיות בכפתורי אייקונים */
-.icon-item a img {
-  filter: contrast(120%);
-}
+
 
 
 /* 3️⃣ ווידוא גודל טקסט מינימלי בכל הפלטפורמות */
+
 
 body {
   font-size: 14px;
@@ -1598,8 +1720,47 @@ body {
 }
 
 
+
 /* 4️⃣ מצב פוקוס ברור גם בכפתורי שיתוף */
-.share-buttons a:focus img {
+
+/* ===== Accessibility Focus ===== */
+body.accessibility-mode a:focus,
+body.accessibility-mode button:focus,
+body.accessibility-mode input:focus,
+body.accessibility-mode textarea:focus,
+body.accessibility-mode select:focus,
+body.accessibility-mode .elementor-tab-title:focus,
+body.accessibility-mode [data-field="videoSrc"]:focus,
+body.accessibility-mode .swiper-button-prev:focus,
+body.accessibility-mode .swiper-button-next:focus,
+body.accessibility-mode .icon-item a:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+  border-radius: inherit;
+  background-color: rgba(0,0,0,0.05);
+}
+
+/* ===== Accessibility Icon Focus ===== */
+body.accessibility-mode .icon-item a:focus {
+  outline: 3px solid #000 !important;
+  outline-offset: 4px;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,0.1);
+}
+
+/* ===== Accessibility Accordion, Video, Swiper Arrows ===== */
+body.accessibility-mode .elementor-tab-title:focus,
+body.accessibility-mode [data-field="videoSrc"]:focus,
+body.accessibility-mode .swiper-button-prev:focus,
+body.accessibility-mode .swiper-button-next:focus {
+  outline: 3px solid #000;
+  outline-offset: 3px;
+  background-color: rgba(0,0,0,0.08);
+  border-radius: 6px;
+}
+
+/* ===== Accessibility Share Buttons ===== */
+body.accessibility-mode .share-buttons a:focus img {
   outline: 2px solid #000;
   outline-offset: 3px;
   background-color: rgba(0,0,0,0.1);
@@ -1607,3 +1768,107 @@ body {
 }
 
 
+body.accessibility-mode a {
+  text-decoration: underline;
+}
+body.accessibility-mode a:hover {
+  text-decoration: none;
+}
+body.accessibility-mode {
+  background-color: #ffffff;
+  color: #222222;
+}
+body.accessibility-mode .icon-item a img {
+  filter: contrast(120%);
+}
+
+/* ===== Step 2: Default Non-Accessibility Styles ===== */
+body {
+  background-color: var(--body-bg-color, var(--color-gray-light));
+  color: var(--color-gray-dark);
+  font-size: var(--font-size-medium);
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.icon-item a img {
+  filter: none;
+}
+
+/* ===== Step 3: Full Accessibility Mode ===== */
+body.accessibility-mode {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Links */
+body.accessibility-mode a {
+  text-decoration: underline;
+  color: #0000EE;
+}
+body.accessibility-mode a:hover {
+  text-decoration: none;
+}
+
+/* Headings high contrast */
+body.accessibility-mode .main-title,
+body.accessibility-mode .subtitle,
+body.accessibility-mode .section-title,
+body.accessibility-mode .name-role,
+body.accessibility-mode .about-section h3 {
+  color: #000000;
+}
+
+/* Buttons high contrast */
+body.accessibility-mode .btn,
+body.accessibility-mode .btn-contact,
+body.accessibility-mode button {
+  background-color: #000000;
+  color: #ffffff;
+}
+body.accessibility-mode .btn:hover,
+body.accessibility-mode .btn-contact:hover,
+body.accessibility-mode button:hover {
+  background-color: #333333;
+}
+
+/* Focus outline */
+body.accessibility-mode a:focus,
+body.accessibility-mode button:focus,
+body.accessibility-mode input:focus,
+body.accessibility-mode textarea:focus,
+body.accessibility-mode select:focus,
+body.accessibility-mode .elementor-tab-title:focus,
+body.accessibility-mode [data-field="videoSrc"]:focus,
+body.accessibility-mode .swiper-button-prev:focus,
+body.accessibility-mode .swiper-button-next:focus,
+body.accessibility-mode .icon-item a:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+  background-color: rgba(0,0,0,0.05);
+}
+
+/* Icons contrast */
+body.accessibility-mode .icon-item a img {
+  filter: contrast(120%);
+}
+
+/* Form error styles */
+body.accessibility-mode input[aria-invalid="true"],
+body.accessibility-mode textarea[aria-invalid="true"] {
+  border: 2px solid red;
+}
+body.accessibility-mode .error-message {
+  color: red;
+  font-size: 14px;
+}
