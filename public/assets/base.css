@@ -322,7 +322,7 @@ box-sizing: border-box;
   object-fit: cover;
 }
 .elementor-testimonial__content::before {
-  content: "\f005"; /* כוכב - unicode FontAwesome */
+  content: "\f005"; 
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   font-style: normal;
@@ -363,62 +363,53 @@ background-color: var(--card-bg, var(--color-white));
   margin: 0 auto;
   padding: var(--card-padding, 16px);
 }
-
 .btn {
-display: var(--btn-display, inline-block);
-  padding: var(--btn-padding, var(--spacing-small) var(--spacing-large));  
+  display: var(--btn-display, inline-block); /* תצוגת הכפתור */
+  padding: var(--btn-padding, var(--spacing-small) var(--spacing-large)); /* ריווח פנימי אנכי ואופקי */
+  
+  border: none; /* ללא מסגרת */
+  border-radius: var(--btn-radius, var(--radius-medium)); /* פינות מעוגלות בינוניות */
 
-/* ריווח גדול יותר */
+  font-family: inherit; /* יורש את הפונט מההורה */
+  font-size: var(--btn-font-size, var(--font-size-medium)); /* גודל טקסט בינוני */
+  font-weight: var(--btn-font-weight, var(--font-weight-bold)); /* טקסט מודגש */
+  text-decoration: var(--btn-text-decoration, none); /* ללא קו תחתון */
+
+  text-align: center; /* יישור טקסט למרכז */
+  cursor: pointer; /* סמן יד בלחיצה */
+  transition: var(--btn-transition, background-color 0.3s ease, transform 0.2s ease); /* מעבר חלק בשינויי צבע וטרנספורמציה */
+  margin: var(--btn-margin, var(--spacing-small) auto); /* ריווח אנכי קטן, מרכז אופקי */
+
+  background-color: var(--btn-bg-filled, var(--color-gold-medium)); /* רקע זהב מלא */
+  color: var(--btn-text-color-filled, var(--color-white)); /* טקסט לבן */
+}
+
+
+.btn,
+.btn-contact {
+  display: var(--btn-display, inline-block);
+  padding: var(--btn-contact-padding, var(--btn-padding, var(--spacing-small) var(--spacing-large)));
   border: none;
-  border-radius: var(--btn-radius, var(--radius-medium));                  
-
-/* פינות בינוניות */
+  border-radius: var(--btn-vcard-radius, var(--btn-radius, var(--radius-medium)));
   font-family: inherit;
-  font-size: var(--btn-font-size, var(--font-size-medium));                 
-
-/* גודל טקסט בינוני */
-  font-weight: var(--btn-font-weight, var(--font-weight-bold));            
-
-/* טקסט מודגש */
-  text-decoration: var(--btn-text-decoration, none);                       
-
-/* ביטול קו תחתון */
+  font-size: var(--btn-contact-font-size, var(--font-size-medium));
+  font-weight: var(--btn-font-weight, var(--font-weight-bold));
+  text-decoration: var(--btn-text-decoration, none);
   text-align: center;
   cursor: pointer;
   transition: var(--btn-transition, background-color 0.3s ease, transform 0.2s ease);
   margin: var(--btn-margin, var(--spacing-small) auto);
-  background-color: var(--btn-bg-filled, var(--color-gold-medium));        
-
-/* צבע רקע מלא */
-  color: var(--btn-text-color-filled, var(--color-white));                 
-
-/* צבע טקסט */
+  background-color: var(--btn-contact-bg, var(--btn-bg-filled, var(--color-gold-medium)));
+  color: var(--btn-contact-color, var(--btn-text-color-filled, var(--color-white)));
 }
 
-.btn:hover {
-background-color: var(--btn-hover-bg-filled, var(--color-gold-dark));    
-
-/* רקע בהובר */
-  color: var(--btn-hover-text-color-filled, var(--color-white));           
-
-/* צבע טקסט בהובר */
-  transform: var(--btn-transform-hover, translateY(-2px));                 
-
-/* אנימציה */
-}
-
-.btn-contact {
-background-color: var(--btn-contact-bg, var(--btn-bg-filled));
-  border-radius: var(--btn-vcard-radius, var(--radius-medium));
-  padding: var(--btn-contact-padding, var(--btn-padding));
-  font-size: var(--btn-contact-font-size, var(--btn-font-size));
-  color: var(--btn-contact-color, var(--btn-text-color-filled));
-}
-
+.btn:hover,
 .btn-contact:hover {
-background-color: var(--btn-contact-hover-bg, var(--btn-hover-bg-filled));
-  color: var(--btn-contact-hover-color, var(--btn-hover-text-color-filled));
+  background-color: var(--btn-contact-hover-bg, var(--btn-hover-bg-filled, var(--color-gold-dark)));
+  color: var(--btn-contact-hover-color, var(--btn-hover-text-color-filled, var(--color-white)));
+  transform: var(--btn-transform-hover, translateY(-2px));
 }
+
 /* ===== Keyframes – ברירת מחדל ===== */
 @keyframes pulseHover {
   0% {
@@ -431,28 +422,6 @@ background-color: var(--btn-contact-hover-bg, var(--btn-hover-bg-filled));
     transform: scale(1);
   }
 }
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* ===== מחלקות אנימציה – ברירת מחדל ===== */
 
 
 .animate-pulse:hover {
