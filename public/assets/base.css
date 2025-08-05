@@ -153,7 +153,7 @@
 /* ✨ Gold Line */
   --gold-line-width: 100%;
   --gold-line-height: 3px;
-  --gold-line-bg: var(--gradient-blue);
+  --gold-line-bg: var(--color-gold-medium);
   --gold-line-margin: 20px;
   --gold-line-padding: 0;
   --gold-line-position: relative;
@@ -251,6 +251,31 @@
   --icon-margin-bottom: var(--spacing-small);
   --icon-desc-font-size: var(--font-size-small);
   --icon-desc-color: var(--color-gray-dark);
+
+    /* רקע, ריווח וצורה */
+  --about-bg-color: var(--recommendations-section-bg);
+  --about-padding: var(--spacing-xxl);
+  --about-radius: var(--radius-large);
+  --about-text-align: center;
+
+  /* כותרת */
+  --about-title-color: ;
+  --about-title-font-size: var(--font-size-title-medium);
+  --about-title-font-weight: var(--font-weight-bold);
+  --about-title-margin-bottom: var(--spacing-medium);
+
+  /* טקסט פסקאות */
+  --about-text-color: var(--color-black);
+  --about-text-font-size: var(--font-size-medium);
+  --about-text-line-height: 1.6;
+  --about-text-max-width: 800px;
+  --about-text-margin: 0 auto;
+
+  /* טקסטים מודגשים */
+  --about-highlight-bg: rgba(0, 0, 0, 0.1);
+  --about-highlight-color: var(--color-white);
+  --about-highlight-padding: var(--spacing-tiny) var(--spacing-small);
+  --about-highlight-radius: var(--radius-small);
 
   
 
@@ -518,47 +543,64 @@ width: var(--header-width, 100%);
   border-radius: var(--header-radius, 0);
 }
 
-.gold-line {
-width: var(--gold-line-width, 100%);                     
-
-/* רוחב מלא כברירת מחדל */
-  height: var(--gold-line-height, 3px);                    
-
-/* גובה דק סטנדרטי */
-  background: var(--gold-line-bg, var(--gradient-blue));   
-
-/* גרדיאנט כחול */
-  margin: var(--gold-line-margin, 20px auto);                 
-
-/* ממורכז */
-  padding: var(--gold-line-padding, 0);                    
-
-/* ללא ריווח פנימי */
-  position: var(--gold-line-position, relative);           
-
-/* מיקום יחסי */
-  top: var(--gold-line-top, auto);                         
-
-/* ללא הסטה מלמעלה */
-  bottom: var(--gold-line-bottom, 0);                      
-
-/* צמוד לתחתית */
-  left: var(--gold-line-left, 0);                          
-
-/* צמוד לשמאל */
-  right: var(--gold-line-right, 0);                        
-
-/* צמוד לימין */
-  border-radius: var(--gold-line-border-radius, 0);        
-
-/* ללא עיגול פינות */
-  box-shadow: var(--gold-line-box-shadow, none);           
-
-/* ללא צל */
-  display: var(--gold-line-display, block);                
-
-/* מוצג כבלוק */
+/* ===== Accordion Titles – ברירת מחדל ===== */
+.elementor-toggle-title {
+  font-size: var(--accordion-title-font-size, var(--font-size-small));
+  font-weight: var(--accordion-title-font-weight, var(--font-weight-bold));
+  color: var(--accordion-title-color, var(--color-black));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+.elementor-toggle-icon {
+  margin-left: var(--accordion-icon-margin-left, 8px);
+  font-size: var(--accordion-icon-size, var(--font-size-medium));
+  color: var(--accordion-icon-color, var(--color-primary));
+}
+strong {
+  font-size: var(--strong-font-size, var(--font-size-large));
+  font-weight: var(--strong-font-weight, var(--font-weight-bold));
+  text-align: var(--about-strong-text-align, center); /* ברירת מחדל center, ניתן לדרוס ב־style.css */
+
+}
+.about-section p strong {
+  display: block;
+  font-size: var(--about-strong-font-size, 20px);
+  font-weight: var(--about-strong-font-weight, var(--font-weight-bold));
+  margin-bottom: var(--about-strong-margin-bottom, 8px);
+  font-family: var(--about-strong-font-family, sans-serif); /* כותרות רגילות */
+  color: var(--quote-font-color, var(--color-gray-dark)); /* צבע נעים לעין */
+  text-align: var(--about-strong-text-align, center); /* ברירת מחדל center, ניתן לדרוס ב־style.css */
+
+}
+
+.about-section p strong.quote-symbol {
+  font-family: var(--quote-font-family, "Georgia", "Garamond", serif); /* פונט עגול לציטוט */
+  font-size: var(--quote-font-size, 50px); /* גודל בולט לגרשיים */
+  font-style: italic; /* מראה משופע */
+  color: var(--quote-font-color, var(--color-gray-dark)); /* צבע נעים לעין */
+  line-height: 1;
+  display: block;
+  margin-bottom: var(--quote-margin-bottom, 0px);
+}
+
+.about-section p {
+  line-height: var(--about-text-line-height, 1.6);
+  max-width: var(--about-text-max-width, 800px);
+  margin: var(--about-text-margin, 0 auto);
+  color: var(--about-text-color, var(--color-gray-dark));
+  font-size: var(--about-text-font-size, var(--font-size-medium));
+  text-align: var(--about-text-align, right);
+  direction: var(--about-text-direction, rtl); /* ברירת מחדל RTL עם יכולת דריסה */
+font-family: var(--about-text-font-family, "Open Sans"), sans-serif;}
+
+
+
+
+
+
+
 
 
 
@@ -866,9 +908,6 @@ display: var(--icon-text-display, block);
   color: var(--icon-text-color, var(--color-gray-dark));
 }
 
-/* גוון להובר */
-
-
 .color-share-icon-hover:hover {
 color: var(--share-icon-hover-color, #666);
 }
@@ -886,11 +925,22 @@ color: var(--share-icon-hover-color, #666);
   padding: var(--card-padding, 16px);
 }
 
-.card .gold-line {
-  width: 100%;
-  margin-left: calc(-1 * var(--card-padding, 0px));
-  margin-right: calc(-1 * var(--card-padding, 0px));
+card .gold-line {
+  width: var(--gold-line-width, 100%);
+  height: var(--gold-line-height, 3px);
+  background: var(--gold-line-bg, var(--color-gold-medium));
+  margin: var(--gold-line-margin, 20px auto);
+  padding: var(--gold-line-padding, 0);
+  position: var(--gold-line-position, relative);
+  top: var(--gold-line-top, auto);
+  bottom: var(--gold-line-bottom, 0);
+  left: var(--gold-line-left, 0);
+  right: var(--gold-line-right, 0);
+  border-radius: var(--gold-line-border-radius, 0);
+  box-shadow: var(--gold-line-box-shadow, none);
+  display: var(--gold-line-display, block);
 }
+
 @media (min-width: 769px) {
   .card {
     max-width: 600px; /* או כל ערך שהשתמשנו לפני */
