@@ -19,7 +19,7 @@
 
 /* 🎨 צבעים – ברנדינג */
   --color-gold-light: #FFD700;
-  --color-gold-medium: #DAA520;
+  --color-gold-medium: #b39f7f;
   --color-gold-dark: #B8860B;
   --color-blue-light: #87CEEB;
   --color-blue-medium: #4682B4;
@@ -387,27 +387,27 @@ background-color: var(--card-bg, var(--color-white));
   max-width: 100%;
   margin: 0 auto;
   padding: var(--card-padding, 16px);
-}
-.btn {
+}.btn {
   display: var(--btn-display, inline-block); /* תצוגת הכפתור */
-  padding: var(--btn-padding, var(--spacing-small) var(--spacing-large)); /* ריווח פנימי אנכי ואופקי */
+  padding: var(--btn-padding, var(--spacing-tiny) var(--spacing-medium)); /* ריווח פנימי */
   
   border: none; /* ללא מסגרת */
   border-radius: var(--btn-radius, var(--radius-medium)); /* פינות מעוגלות בינוניות */
 
   font-family: inherit; /* יורש את הפונט מההורה */
-  font-size: var(--btn-font-size, var(--font-size-medium)); /* גודל טקסט בינוני */
+  font-size: var(--btn-font-size, var(--font-size-small)); /* גודל טקסט */
   font-weight: var(--btn-font-weight, var(--font-weight-bold)); /* טקסט מודגש */
   text-decoration: var(--btn-text-decoration, none); /* ללא קו תחתון */
 
   text-align: center; /* יישור טקסט למרכז */
   cursor: pointer; /* סמן יד בלחיצה */
-  transition: var(--btn-transition, background-color 0.3s ease, transform 0.2s ease); /* מעבר חלק בשינויי צבע וטרנספורמציה */
-  margin: var(--btn-margin, var(--spacing-small) auto); /* ריווח אנכי קטן, מרכז אופקי */
+  transition: var(--btn-transition, background-color 0.3s ease, transform 0.2s ease); /* מעבר חלק */
 
-  background-color: var(--btn-bg-filled, var(--color-gold-medium)); /* רקע זהב מלא */
-  color: var(--btn-text-color-filled, var(--color-white)); /* טקסט לבן */
+  margin: var(--btn-margin, var(--spacing-small) auto); /* ריווח ומרכז אופקית */
+  background-color: var(--btn-bg-filled, var(--color-gold-medium)); /* רקע */
+  color: var(--btn-text-color-filled, var(--color-white)); /* צבע טקסט */
 }
+
 
 
 .btn,
@@ -435,7 +435,6 @@ background-color: var(--card-bg, var(--color-white));
   transform: var(--btn-transform-hover, translateY(-2px));
 }
 
-/* ===== Keyframes – ברירת מחדל ===== */
 @keyframes pulseHover {
   0% {
     transform: scale(1);
@@ -463,21 +462,21 @@ animation: slideIn var(--anim-speed-slide) ease-out;
 
 /* ===== 5. תמונת פרופיל – ברירת מחדל ===== */
 
-
 .profile-img {
-object-fit: cover;
   display: block;
-  margin: var(--profile-img-margin, -60px auto 0 auto);
   position: relative;
   z-index: 10;
 
   width: var(--profile-img-size, 140px);
   height: var(--profile-img-size, 140px);
-  border-radius: var(--profile-img-radius, var(--radius-circle));
 
+  margin: var(--profile-img-margin, -60px auto 0 auto);
+  object-fit: cover;
+  border-radius: var(--profile-img-radius, var(--radius-circle));
   border: var(--profile-img-border, 3px solid var(--color-blue-medium));
   box-shadow: var(--profile-img-box-shadow, var(--shadow-soft));
 }
+
 
 .header-top,
 
@@ -713,9 +712,8 @@ position: absolute;
   background: var(--video-bg, transparent);
 }
 
-
 .contact-form {
-max-width: var(--contact-form-max-width, 600px);
+  max-width: var(--contact-form-max-width, 600px);
   margin: var(--contact-form-margin, var(--spacing-xxl) auto);
   padding: var(--contact-form-padding, var(--spacing-xl));
   background-color: var(--contact-form-bg, var(--color-gray-light));
@@ -725,7 +723,7 @@ max-width: var(--contact-form-max-width, 600px);
 }
 
 .contact-form label {
-display: block;
+  display: block;
   margin-bottom: var(--contact-label-margin-bottom, var(--spacing-small));
   font-weight: var(--contact-label-font-weight, var(--font-weight-bold));
   color: var(--contact-label-color, var(--color-gray-dark));
@@ -733,12 +731,12 @@ display: block;
 
 .contact-form input,
 .contact-form textarea {
-display: block;
+  display: block;
   width: 100%;
   max-width: 100%;
   padding: var(--contact-input-padding, var(--spacing-medium));
   margin-bottom: var(--contact-input-margin-bottom, var(--spacing-medium));
-  border: var(--contact-input-border, 1px solid var(--color-gray-medium));
+  border: 2px solid var(--contact-btn-bg, var(--btn-bg-filled)); /* ✅ צבע כמו הכפתור */
   border-radius: var(--contact-input-radius, var(--radius-medium));
   font-family: inherit;
   font-size: var(--contact-input-font-size, var(--font-size-medium));
@@ -747,21 +745,29 @@ display: block;
   direction: rtl;
 }
 
+/* פוקוס – צבע נשאר כמו כפתור */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--contact-btn-bg, var(--btn-bg-filled));
+  box-shadow: 0 0 4px var(--contact-btn-bg, var(--btn-bg-filled));
+  outline: none;
+}
+
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-text-align: right;
+  text-align: right;
   direction: rtl;
   color: var(--contact-placeholder-color, var(--color-gray-dark));
   opacity: 1;
 }
 
 .contact-form textarea {
-resize: vertical;
+  resize: vertical;
   min-height: var(--contact-textarea-min-height, 120px);
 }
 
 .contact-form button {
-display: block;
+  display: block;
   width: 100%;
   max-width: 100%;
   padding: var(--contact-btn-padding, var(--spacing-medium));
@@ -779,7 +785,7 @@ display: block;
 }
 
 .contact-form button:hover {
-background-color: var(--contact-btn-hover-bg, var(--color-gold-dark));
+  background-color: var(--contact-btn-hover-bg, var(--color-gold-dark));
 }
 
 /* ===== כפתורי שיתוף – ברירת מחדל ===== */
@@ -871,27 +877,6 @@ card .gold-line {
   }
 }
 
-
-/* כרטיס – מובייל */
-
-
-
-
-/* כפתור – ברירת מחדל */
-
-
-.btn {
-padding: var(--btn-padding, var(--spacing-tiny) var(--spacing-medium));
-  font-size: var(--btn-font-size, var(--font-size-small));
-}
-
-/* תמונת פרופיל – ברירת מחדל */
-
-
-.profile-img {
-width: var(--profile-img-size, 80px);
-  height: var(--profile-img-size, 80px);
-}
 
 .recommendations-section {
 display: flex;
