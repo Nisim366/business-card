@@ -304,7 +304,7 @@
 --btn-contact-hover-bg: var(--btn-hover-bg-filled);
 --btn-contact-hover-color: var(--btn-hover-text-color-filled);
 
-  --recommendations-section-bg: #b39367; 
+  --recommendations-section-bg: #6babba; 
 
 /* צבע ירקרק ברירת מחדל */
   --about-bg-color: var(--recommendations-section-bg);
@@ -606,54 +606,24 @@ font-family: var(--about-text-font-family, "Open Sans"), sans-serif;}
 
 .name-role {
 text-align: var(--name-role-text-align, center);                     
-
-/* יישור טקסט */
   margin: var(--name-role-margin, var(--spacing-large) 0);             
-
-/* מרווחים */
   padding: var(--name-role-padding, 0);                                
-
-/* ריווח פנימי */
   font-family: var(--name-role-font-family, var(--font-family-primary)); 
-
-/* משפחת גופן */
   color: var(--name-role-color, var(--color-gray-dark));               
-
-/* צבע טקסט */
   font-size: var(--name-role-font-size, var(--font-size-large));       
-
-/* גודל טקסט */
   font-weight: var(--name-role-font-weight, var(--font-weight-bold));  
-
-/* משקל גופן */
 }
-
-/* ===== Testimonial Icon Defaults ===== */
-
-
-/* ===== Testimonial Read More Defaults ===== */
-
 
 .name-role.gray {
 color: var(--name-role-gray-color, var(--color-gray-dark));          
-
-/* צבע לגוון אפור */
 }
 
 .name-role h1,
 .name-role h2 {
 margin: var(--name-role-heading-margin, 0);                          
-
-/* מרווח כותרות */
   padding: var(--name-role-heading-padding, 0);                        
-
-/* ריווח כותרות */
   font-weight: var(--name-role-heading-weight, var(--font-weight-bold));
-
-/* משקל כותרות */
   color: var(--name-role-heading-color, var(--color-gray-dark));       
-
-/* צבע כותרות */
 }
 
 .header-top img {
@@ -664,9 +634,6 @@ width: var(--header-img-width, 100%);
   display: block;
   background-color: var(--header-img-bg, var(--color-white));
 }
-
-/* ===== אזור תחתון – Footer / Bottom Section ===== */
-
 
 .footer-bottom {
 padding: var(--footer-padding, var(--spacing-large) 0);
@@ -708,20 +675,13 @@ background-color: var(--about-highlight-bg, rgba(0, 0, 0, 0.1));
   border-radius: var(--about-highlight-radius, var(--radius-small));
 }
 
-/* ===== עוטף וידאו – ברירת מחדל ===== */
-
-
 .video-wrapper {
 position: relative;
   padding-bottom: var(--video-aspect-ratio, 56.25%); 
-
-/* יחס 16:9 */
   height: 0;
   overflow: hidden;
   max-width: var(--video-max-width, 100%);
-  background: var(--video-bg, none); 
-
-/* ביטול הרקע השחור */
+  background: var(--video-bg, --about-bg-color); 
   margin-top: var(--video-margin-top, var(--spacing-xl));
   border-radius: var(--video-radius, var(--radius-large));
 }
@@ -734,18 +694,6 @@ position: absolute;
   height: var(--video-height, 100%);
 }
 
-.video-wrapper h3 {
-color: var(--video-title-color, #bb1fae);
-  margin-bottom: var(--video-title-margin-bottom, var(--spacing-medium));
-}
-
-/* ===== אזור המלצות – ברירת מחדל ===== */
-
-
-
-
-/* כותרת וידאו */
-
 
 .video-title {
 margin-bottom: var(--video-title-margin-bottom, 12px);
@@ -754,7 +702,6 @@ margin-bottom: var(--video-title-margin-bottom, 12px);
   text-align: var(--video-title-align, center);
 }
 
-/* סרטון בווידאו wrapper */
 .video-wrapper video {
 position: absolute;
   top: 0;
@@ -765,29 +712,6 @@ position: absolute;
   border-radius: var(--video-radius, 0);
   background: var(--video-bg, transparent);
 }
-
-/* ===== כפתור המלצות – ברירת מחדל ===== */
-
-
-.testimonial-toggle-btn {
-display: inline-block;
-  margin-top: var(--testimonial-btn-margin-top, var(--spacing-small));
-  background-color: var(--testimonial-btn-bg, var(--color-black));
-  color: var(--testimonial-btn-color, var(--color-white));
-  padding: var(--testimonial-btn-padding, 6px 12px);
-  border-radius: var(--testimonial-btn-radius, var(--radius-small));
-  font-size: var(--testimonial-btn-font-size, var(--font-size-small));
-  cursor: pointer;
-  text-align: center;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.testimonial-toggle-btn:hover {
-background-color: var(--testimonial-btn-hover-bg, var(--color-gray-dark));
-  transform: var(--testimonial-btn-hover-transform, scale(1.05));
-}
-
-/* ===== טופס יצירת קשר – ברירת מחדל ===== */
 
 
 .contact-form {
@@ -1144,6 +1068,7 @@ font-size: var(--swiper-btn-icon-size, 20px);
   font-weight: bold;
   color: var(--swiper-btn-icon-color, var(--color-primary));
 }
+
 
 /* ===== נגישות – פוקוס ברור לכפתורי Swiper ===== */
 
