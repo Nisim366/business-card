@@ -991,153 +991,47 @@ background: var(--swiper-bullet-bg, var(--color-primary));
 .swiper-pagination-bullet-active {
 opacity: 1;
 }
-
-.fullscreen-overlay {
-position: fixed;
-  inset: 0;
-  background-color: var(--fullscreen-bg, rgba(0, 0, 0, 0.9));
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  padding: 0;
-}
-
-.fullscreen-overlay img {
-max-width: 100%;
-  max-height: 100%;
-  object-fit: var(--fullscreen-img-fit, contain);
-  border-radius: var(--fullscreen-img-radius, 8px);
-  box-shadow: var(--fullscreen-img-shadow, 0 0 12px rgba(0, 0, 0, 0.3));
-}
-
-.close-btn {
-position: absolute;
-  top: var(--fullscreen-close-top, 16px);
-  right: var(--fullscreen-close-right, 24px);
-  font-size: var(--fullscreen-close-size, 36px);
-  color: var(--fullscreen-close-color, var(--color-white));
-  cursor: pointer;
-  z-index: 10000;
-}
-
-/* ===== תצוגת תמונה מוקטנת ===== */
-
-
-.image-gallery-preview {
-width: 100%;
-  max-width: var(--gallery-preview-max-width, 360px);
-  margin: 0 auto var(--gallery-preview-margin-bottom, 24px);
-  cursor: pointer;
-  border-radius: var(--gallery-preview-radius, 16px);
-  overflow: hidden;
-  box-shadow: var(--gallery-preview-shadow, 0 4px 12px rgba(0, 0, 0, 0.1));
-}
-
-.image-gallery-preview img {
-width: 100%;
-  height: auto;
-  display: block;
-  object-fit: var(--gallery-preview-img-fit, cover);
-}
-
-/* ===== אזור שיתוף – ברירת מחדל ===== */
-
-
+/* ===== אזור שיתוף ===== */
 .share-section {
-display: flex;
-  flex-direction: column; 
-
-/* כותרת מעל, כפתורים מתחת */
+  display: flex;
+  flex-direction: column; /* כותרת מעל, כפתורים מתחת */
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: var(--share-section-gap);
-  padding: var(--share-section-padding);
-  background-color: var(--share-section-bg);
-  color: var(--share-section-color, var(--color-gray-dark)); 
-
-/* צבע טקסט אחיד */
+  gap: var(--share-section-gap, 12px);
+  padding: var(--share-section-padding, 16px);
+  background-color: var(--share-section-bg, var(--color-white));
+  color: var(--share-section-color, var(--color-gray-dark));
   text-align: center;
 }
 
-/* ===== כפתורי שיתוף – קונטיינר ===== */
-
-
+/* ===== כפתורי שיתוף ===== */
 .share-buttons {
-display: flex;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  gap: var(--share-section-gap);
-  margin: var(--spacing-xl) 0;
+  gap: var(--share-buttons-gap, 12px);
+  margin: var(--share-buttons-margin-vertical, 24px) var(--share-buttons-margin-horizontal, 0);
 }
 
-/* ===== אייקונים בכפתורי שיתוף – ברירת מחדל ===== */
+/* ===== אייקונים בכפתורי שיתוף ===== */
 .share-buttons a img {
-border-radius: var(--share-icon-radius, var(--radius-circle));
+  border-radius: var(--share-icon-radius, var(--radius-circle, 50%));
   width: var(--share-icon-size, 48px);
   height: var(--share-icon-size, 48px);
   padding: var(--share-icon-padding, 10px);
   background-color: var(--share-icon-bg, var(--color-white));
   border: var(--share-icon-border, 1px solid var(--icon-border-color, var(--color-gray-medium)));
-  box-shadow: var(--share-icon-shadow, var(--shadow-soft));
+  box-shadow: var(--share-icon-shadow, var(--shadow-soft, 0 2px 6px rgba(0,0,0,0.1)));
   object-fit: var(--share-icon-object-fit, cover);
   object-position: var(--share-icon-object-position, center);
-  transition: transform 0.2s ease;
+  transition: transform var(--share-icon-hover-transition, 0.2s ease);
 }
 
 .share-buttons a img:hover {
-transform: scale(var(--share-icon-hover-scale, 1.1));
+  transform: scale(var(--share-icon-hover-scale, 1.1));
 }
-
-/* ===== תצוגת מסך מלא ===== */
-
-
-.fullscreen-gallery-overlay {
-position: fixed;
-  inset: 0;
-  background-color: var(--fullscreen-gallery-bg, rgba(0, 0, 0, 0.95));
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: var(--fullscreen-gallery-padding, 16px);
-}
-
-.fullscreen-gallery-swiper {
-width: 100%;
-  max-width: var(--fullscreen-gallery-max-width, 480px);
-}
-
-.fullscreen-gallery-swiper .swiper-slide {
-display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.fullscreen-gallery-swiper img {
-width: 100%;
-  height: auto;
-  max-height: var(--fullscreen-gallery-img-max-height, 80vh);
-  object-fit: var(--fullscreen-gallery-img-fit, contain);
-  border-radius: var(--fullscreen-gallery-img-radius, 12px);
-}
-
-/* ===== כפתור סגירה – ברירת מחדל ===== */
-.fullscreen-gallery-overlay .close-btn {
-position: absolute;
-  top: var(--fullscreen-gallery-close-top, 16px);
-  left: var(--fullscreen-gallery-close-left, 16px);
-  font-size: var(--fullscreen-gallery-close-size, 28px);
-  color: var(--fullscreen-gallery-close-color, #fff);
-  cursor: pointer;
-  z-index: 10001;
-}
-
-/* ===== Skeleton Loader – ברירת מחדל ===== */
-
 
 .loader-overlay {
 position: fixed;
@@ -1175,21 +1069,6 @@ margin-top: var(--loader-spinner-margin-top, 180px);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
-
-/* ✅ חיווי נגישות ברור על אייקונים */
-
-
-
-
-/* ✅ חיווי Focus נגיש לאקורדיון, וידאו וחיצי המלצות */
-
-
-
-/* ===== Accessibility Stage 1 – Focus לכל רכיב אינטראקטיבי ===== */
-
-
-
-/* ===== Accessibility Stage 2 – Contrast מינימלי ===== */
 
 .main-title, 
 .subtitle, 
