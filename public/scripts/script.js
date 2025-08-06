@@ -359,7 +359,22 @@ const mediaContainer = document.querySelector('[data-field="videoSrc"]');
 if (mediaContainer) {
   if (data.features?.video === true && window.cardData.videoSrc) {
     createVideoElement(mediaContainer);
-  } else {
+  }
+  // ✅ הסרת Placeholder בלחיצה על פליי
+const videoPoster = document.getElementById("videoPoster");
+const promoVideo = mediaContainer.querySelector("video");
+
+if (videoPoster && promoVideo) {
+  videoPoster.addEventListener("click", () => {
+    videoPoster.style.display = "none";
+    promoVideo.play();
+  });
+
+  promoVideo.addEventListener("play", () => {
+    videoPoster.style.display = "none";
+  });
+}
+ else {
     mediaContainer.style.display = 'none';
   }
 }

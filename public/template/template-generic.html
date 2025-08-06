@@ -95,13 +95,24 @@ data-email="להגדיר FALLBACK" data-whatsapp="להגדיר FALLBACK">
 </div>
 
 
-      <!-- ✅ סרטון תדמית -->
-      <div data-switch="video" role="region" aria-label="סרטון תדמית" tabindex="0">
-        <p class="main-title video-title">⬇️ לסרטון תדמית</p>
-        <div class="video-wrapper">
-          <div class="video-container" data-field="videoSrc"></div>
-        </div>
-      </div>
+<!-- ✅ סרטון תדמית -->
+<div data-switch="video" role="region" aria-label="סרטון תדמית" tabindex="0">
+  <p class="main-title video-title">⬇️ לסרטון תדמית</p>
+  
+  <div class="video-wrapper" style="position: relative;">
+    <!-- תמונת פליי גנרית (Placeholder) -->
+    <img src="/assets/media/video-placeholder.jpg" 
+         id="videoPoster" 
+         alt="הפעלת סרטון תדמית" 
+         style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 2; cursor: pointer;" />
+    
+    <!-- וידאו -->
+    <video id="promoVideo" controls style="width: 100%; z-index: 1;">
+      <source src="/assets/media/mov_bbb.mp4" type="video/mp4">
+      הדפדפן שלך לא תומך בווידאו.
+    </video>
+  </div>
+</div>
 
 
 
