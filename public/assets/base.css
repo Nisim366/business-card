@@ -366,17 +366,23 @@ display: inline-flex;
   margin-left: 4px;
   margin-right: 8px;
   vertical-align: middle;
-}
-
-body {
-margin: var(--body-margin, 0);
+}body {
+  /* מידות ומבנה */
+  margin: var(--body-margin, 0);
   padding: var(--body-padding, 0);
-  font-family: var(--body-font-family, var(--font-family-primary));
-  direction: var(--body-direction, rtl);
-  text-align: var(--body-text-align, center);
   min-height: var(--body-min-height, 100vh);
   overflow-y: var(--body-overflow-y, auto);
-  background-color: var(--body-bg-color, var(--dark-background-color));
+
+  /* טקסט וכיוון */
+  font-family: var(--body-font-family, var(--font-family-primary));
+  font-size: var(--font-size-medium, 14px);
+  line-height: var(--body-line-height, 1.4);
+  color: var(--body-text-color, var(--color-gray-dark));
+  direction: var(--body-direction, rtl);
+  text-align: var(--body-text-align, center);
+
+  /* צבע רקע */
+  background-color: var(--body-bg-color, var(--color-gray-light));
 }
 
 img {
@@ -1105,16 +1111,74 @@ color: red;
   margin-top: 4px;
 }
 
-body {
-font-size: 16px;
-  line-height: 1.5;
-}
 
 /* =========================================
    ♿ Accessibility Mode – קבוע בכל העמודים
    ========================================= */
+/* =========================================
+   ♿ Accessibility Mode – מאוחד ונקי
+   ========================================= */
 
-/* פוקוס כללי על כל אלמנט אינטראקטיבי */
+/* עיצוב כללי במצב נגישות */
+body.accessibility-mode {
+  background-color: #ffffff; /* רקע אחיד */
+  color: #000000;            /* טקסט כהה לניגודיות */
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* כותרות בניגודיות גבוהה */
+body.accessibility-mode .main-title,
+body.accessibility-mode .subtitle,
+body.accessibility-mode .section-title,
+body.accessibility-mode .name-role,
+body.accessibility-mode .about-section h3 {
+  color: #000000;
+}
+
+/* אזור אודות */
+body.accessibility-mode .about-section {
+  background-color: #ffffff;
+  color: #000000;
+}
+body.accessibility-mode .about-section h3 {
+  color: #000000;
+}
+body.accessibility-mode .about-highlight-text {
+  background-color: #222222;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* אזור המלצות */
+body.accessibility-mode .recommendations-section {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* לינקים */
+body.accessibility-mode a {
+  text-decoration: underline;
+  color: #0000EE;
+}
+body.accessibility-mode a:hover {
+  text-decoration: none;
+}
+
+/* כפתורים */
+body.accessibility-mode .btn,
+body.accessibility-mode .btn-contact,
+body.accessibility-mode button {
+  background-color: #000000;
+  color: #ffffff;
+}
+body.accessibility-mode .btn:hover,
+body.accessibility-mode .btn-contact:hover,
+body.accessibility-mode button:hover {
+  background-color: #333333;
+}
+
+/* פוקוס כללי */
 body.accessibility-mode a:focus,
 body.accessibility-mode button:focus,
 body.accessibility-mode input:focus,
@@ -1124,21 +1188,15 @@ body.accessibility-mode [data-field="videoSrc"]:focus,
 body.accessibility-mode .swiper-button-prev:focus,
 body.accessibility-mode .swiper-button-next:focus,
 body.accessibility-mode .icon-item a:focus {
-  outline: 2px solid #000 !important;
+  outline: 2px solid #000;
   outline-offset: 2px;
   border-radius: inherit;
   background-color: rgba(0,0,0,0.05);
 }
 
-/* אזור המלצות */
-body.accessibility-mode .recommendations-section {
-  background-color: #ffffff !important;
-  color: #000000 !important;
-}
-
 /* פוקוס על אייקוני יצירת קשר */
 body.accessibility-mode .icon-item a:focus {
-  outline: 3px solid #000 !important;
+  outline: 3px solid #000;
   outline-offset: 4px;
   border-radius: 50%;
   background-color: rgba(0,0,0,0.1);
@@ -1162,16 +1220,15 @@ body.accessibility-mode .swiper-button-next:focus {
   border-radius: 6px;
 }
 
-/* אזור אודות */
+/* אזור אודות עם פוקוס פנימי */
 body.accessibility-mode .about-section:focus-within {
   outline: 2px solid #000;
   outline-offset: 4px;
 }
-body.accessibility-mode .about-section p {
-  color: #000000;
-}
-body.accessibility-mode .about-highlight-text {
-  font-weight: bold;
+
+/* אייקונים – ניגודיות גבוהה */
+body.accessibility-mode .icon-item a img {
+  filter: contrast(120%);
 }
 
 /* כפתורי שיתוף */
@@ -1182,125 +1239,12 @@ body.accessibility-mode .share-buttons a:focus img {
   border-radius: 50%;
 }
 
-/* לינקים */
-body.accessibility-mode a {
-  text-decoration: underline;
-}
-body.accessibility-mode a:hover {
-  text-decoration: none;
-}
-
-/* צבעי רקע וטקסט כלליים */
-body.accessibility-mode {
-  background-color: #ffffff;
-  color: #222222;
-}
-
-/* אייקונים – ניגודיות גבוהה */
-body.accessibility-mode .icon-item a img {
-  filter: contrast(120%);
-}
-
-/* ===== Step 2: Default Non-Accessibility Styles ===== */
-body {
-background-color: var(--body-bg-color, var(--color-gray-light));
-  color: var(--color-gray-dark);
-  font-size: var(--font-size-medium);
-  line-height: 1.4;
-}
-
-a {
-text-decoration: none;
-  color: inherit;
-}
-
-a:hover {
-text-decoration: underline;
-}
-
-.icon-item a img {
-filter: none;
-}
-
-/* ===== Step 3: Full Accessibility Mode ===== */
-body.accessibility-mode {
-background-color: #ffffff;
-  color: #000000;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-/* Links */
-body.accessibility-mode a {
-text-decoration: underline;
-  color: #0000EE;
-}
-/* Accessibility mode for About section */
-body.accessibility-mode .about-section {
-  background-color: #ffffff; /* רקע בהיר אחיד */
-  color: #000000; /* טקסט כהה */
-}
-
-body.accessibility-mode .about-section h3 {
-  color: #000000; /* כותרת בניגודיות גבוהה */
-}
-
-body.accessibility-mode .about-highlight-text {
-  background-color: #222222; /* רקע כהה למודגש */
-  color: #ffffff; /* טקסט לבן בניגודיות גבוהה */
-}
-
-
-/* Headings high contrast */
-body.accessibility-mode .main-title,
-body.accessibility-mode .subtitle,
-body.accessibility-mode .section-title,
-body.accessibility-mode .name-role,
-body.accessibility-mode .about-section h3 {
-color: #000000;
-}
-
-/* Buttons high contrast */
-body.accessibility-mode .btn,
-body.accessibility-mode .btn-contact,
-body.accessibility-mode button {
-background-color: #000000;
-  color: #ffffff;
-}
-
-body.accessibility-mode .btn:hover,
-body.accessibility-mode .btn-contact:hover,
-body.accessibility-mode button:hover {
-background-color: #333333;
-}
-
-/* Focus outline */
-body.accessibility-mode a:focus,
-body.accessibility-mode button:focus,
-body.accessibility-mode input:focus,
-body.accessibility-mode textarea:focus,
-body.accessibility-mode select:focus,
-body.accessibility-mode [data-field="videoSrc"]:focus,
-body.accessibility-mode .swiper-button-prev:focus,
-body.accessibility-mode .swiper-button-next:focus,
-body.accessibility-mode .icon-item a:focus {
-outline: 2px solid #000;
-  outline-offset: 2px;
-  background-color: rgba(0,0,0,0.05);
-}
-
-/* Icons contrast */
-body.accessibility-mode .icon-item a img {
-filter: contrast(120%);
-}
-
-/* Form error styles */
+/* טופס – שגיאות */
 body.accessibility-mode input[aria-invalid="true"],
 body.accessibility-mode textarea[aria-invalid="true"] {
-border: 2px solid red;
+  border: 2px solid red;
 }
-
 body.accessibility-mode .error-message {
-color: red;
+  color: red;
   font-size: 14px;
 }
