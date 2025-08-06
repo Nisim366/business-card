@@ -355,29 +355,31 @@ function handleAccordionToggle(element) {
     });
   });
 
-const mediaContainer = document.querySelector('[data-field="videoSrc"]');
-if (mediaContainer) {
-  if (data.features?.video === true && window.cardData.videoSrc) {
-    createVideoElement(mediaContainer);
-  }
-  // ✅ הסרת Placeholder בלחיצה על פליי
 const videoPoster = document.getElementById("videoPoster");
-const promoVideo = mediaContainer.querySelector("video");
+const promoVideo = document.getElementById("promoVideo");
 
 if (videoPoster && promoVideo) {
   videoPoster.addEventListener("click", () => {
+    console.log("👆 קליק על התמונה");
     videoPoster.style.display = "none";
-    promoVideo.play();
-  });
 
-  promoVideo.addEventListener("play", () => {
-    videoPoster.style.display = "none";
+    // נגן רק כשמוכן
+    const tryPlay = () => {
+      promoVideo.play().then(() => {
+        console.log("🎬 הווידאו התחיל לנגן בהצלחה");
+      }).catch(err => {
+        console.error("❌ שגיאה בהפעלה:", err);
+      });
+    };
+
+    if (promoVideo.readyState >= 2) {
+      tryPlay();
+    } else {
+      promoVideo.addEventListener('canplaythrough', tryPlay, { once: true });
+    }
   });
 }
- else {
-    mediaContainer.style.display = 'none';
-  }
-}
+
 });
 
 
