@@ -178,7 +178,7 @@
   --share-icon-hover-scale: 1.1;
 
   /* ⭐ Recommendations - המלצות */
-  --recommendations-section-bg: var(--color-white);
+  --recommendations-section-bg: var(--main-background-color);
   --recommendations-section-padding: var(--spacing-medium);
   --recommendations-section-radius: var(--radius-large);
   --recommendations-section-margin-top: 40px;
@@ -199,7 +199,6 @@
   --recommend-name-color: var(--text-primary-color, var(--color-gray-dark));
   --recommend-name-font-size: var(--font-size-large);
   --recommend-name-font-weight: var(--font-weight-bold);
-  --recommend-title-color: var(--text-primary-color);
   --recommend-title-font-size: var(--font-size-small);
   --recommend-title-font-weight: var(--font-weight-normal);
   --recommend-content-color: var(--text-primary-color, var(--color-gray-dark));
@@ -220,8 +219,13 @@
   --read-more-font-weight: bold;
   --read-more-color: #007bff;
 
+
+  --main-background-color: var(--color-blue-light);
+  --main-title-color: var(--color-green-dark);
+  
+
   /* 📄 About Section - אזור אודות */
-  --about-bg-color: var(--recommendations-section-bg);
+  --about-bg-color: var(--main-background-color);
   --about-padding: var(--spacing-xxl);
   --about-radius: var(--radius-large);
   --about-text-align: center;
@@ -431,7 +435,7 @@ strong {
 
 .about-section {
   padding: var(--about-padding, var(--spacing-xxl));
-  background-color: var(--about-bg-color, #f2fef6);
+  background-color: var(--about-bg-color, var(--color-gray-medium));
   text-align: var(--about-text-align, center);
   border-radius: var(--about-radius, var(--radius-large));
 }
@@ -508,7 +512,7 @@ strong {
 
 .video-title {
   margin-bottom: var(--video-title-margin-bottom, 12px);
-  color: var(--video-title-color, var(--color-gold-medium));
+  color: var(--main-title-color, var(--color-gold-medium));
   font-size: var(--video-title-font-size, var(--font-size-title-small));
   text-align: var(--video-title-align, center);
 }
@@ -523,7 +527,7 @@ strong {
   align-items: center;
   margin-top: var(--recommendations-section-margin-top, 40px);
   padding: var(--recommendations-section-padding, var(--spacing-medium));
-  background-color: var(--recommendations-section-bg, var(--color-white));
+  background-color: var(--recommendations-section-bg, var(--color-gray-medium));
   border-radius: var(--recommendations-section-radius, var(--radius-large));
 }
 
@@ -576,7 +580,7 @@ strong {
 }
 
 .recommendations-section .elementor-testimonial__title {
-  color: var(--recommend-title-color);
+  color: var(--main-title-color, var(--color-gold-medium));
   font-size: var(--recommend-title-font-size);
   font-weight: var(--recommend-title-font-weight);
   margin-bottom: var(--spacing-small);
@@ -805,7 +809,7 @@ button:hover {
   display: block;
   margin-bottom: var(--contact-label-margin-bottom, var(--spacing-small));
   font-weight: var(--contact-label-font-weight, var(--font-weight-bold));
-  color: var(--contact-label-color, var(--color-gray-dark));
+  color: var(--main-title-color, var(--color-gold-medium));
 }
 
 .contact-form input,
