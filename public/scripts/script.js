@@ -1,4 +1,3 @@
-let gallerySwiper = null;
 let recommendationsSwiper = null;
 let isInitialized = false; // ← דגל למניעת טעינה כפולה
 
@@ -132,90 +131,94 @@ window.addEventListener("load", function () {
   document.body.dataset.whatsapp = data.phone;
   document.body.dataset.email = data.email;
   replaceAll();
+const swiperEl = document.querySelector('.recommendations-swiper');
+const recWrapper = document.getElementById('recommendationSlides');
+const recData = (data.recommendations || []).filter(rec => rec?.name && rec?.text);
 
-  const swiperEl = document.querySelector('.recommendations-swiper');
-  const recWrapper = document.getElementById('recommendationSlides');
-  const recData = (data.recommendations || []).filter(rec => rec?.name && rec?.text);
-
-  if (!swiperEl || recData.length === 0) {
-    swiperEl?.remove();
-  } else {
-    recWrapper.innerHTML = recData.map(rec => `
-      <div class="swiper-slide">
-        <div class="elementor-testimonial">
-          <div class="testimonial-top">
-            <span class="elementor-testimonial__name">${rec.name}</span>
-          </div>
-          <div class="testimonial-middle">
-            <div class="elementor-testimonial__content">
-              <span class="elementor-testimonial__text">${rec.text}</span>
-            </div>
+if (!swiperEl || recData.length === 0) {
+  swiperEl?.remove();
+} else {
+  recWrapper.innerHTML = recData.map(rec => `
+    <div class="swiper-slide">
+      <div class="elementor-testimonial">
+        <div class="testimonial-top">
+          <span class="elementor-testimonial__name">${rec.name}</span>
+          <span class="elementor-testimonial__title">${rec.title || ''}</span>
+        </div>
+        <div class="testimonial-middle">
+          <div class="elementor-testimonial__content">
+            <span class="elementor-testimonial__text">${rec.text}</span>
           </div>
         </div>
       </div>
-    `).join('');
+    </div>
+  `).join('');
 
-    recommendationsSwiper = new Swiper('.recommendations-swiper', {
-      slidesPerView: 1,
-      spaceBetween: 16,
-      loop: true,
-      threshold: 10,
-      touchRatio: 1.2,
-      allowSlidePrev: true,
-      allowSlideNext: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      autoHeight: false,
-      direction: 'horizontal',
-      speed: 700
-    });
-  }
+  recommendationsSwiper = new Swiper('.recommendations-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 16,
+    loop: true,
+    threshold: 10,
+    touchRatio: 1.2,
+    allowSlidePrev: true,
+    allowSlideNext: true,
+  pagination: {
+  el: '.recommendations-pagination',
+  clickable: true,
+},
+    autoHeight: false,
+    direction: 'horizontal',
+    speed: 700
+  });
+}
+// הסתרת פאגינציה אם יש פחות מ-2 המלצות
+if (document.querySelectorAll('#recommendationSlides .swiper-slide').length <= 1) {
+  document.querySelector('.recommendations-pagination').style.display = 'none';
+}
 
-  if (recommendationsSwiper) {
-    document.querySelectorAll(".elementor-testimonial").forEach(testimonial => {
-      const textEl = testimonial.querySelector(".elementor-testimonial__text");
-      if (!textEl) return;
-      const fullText = textEl.innerText.trim();
-      if (fullText.length > 300) {
-        const readMore = document.createElement("span");
-        readMore.className = "read-more";
-        readMore.textContent = "עוד";
-        readMore.addEventListener("click", () => {
-          testimonial.classList.toggle("expanded");
-          readMore.textContent = testimonial.classList.contains("expanded") ? "סגור" : "עוד";
-          recommendationsSwiper.updateAutoHeight(300);
-        });
-        testimonial.appendChild(readMore);
+if (recommendationsSwiper) {
+  document.querySelectorAll(".elementor-testimonial").forEach(testimonial => {
+    const textEl = testimonial.querySelector(".elementor-testimonial__text");
+    if (!textEl) return;
+    const fullText = textEl.innerText.trim();
+    if (fullText.length > 300) {
+      const readMore = document.createElement("span");
+      readMore.className = "read-more";
+      readMore.textContent = "עוד";
+      readMore.addEventListener("click", () => {
+        testimonial.classList.toggle("expanded");
+        readMore.textContent = testimonial.classList.contains("expanded") ? "סגור" : "עוד";
+        recommendationsSwiper.updateAutoHeight(300);
+      });
+      testimonial.appendChild(readMore);
+    }
+  });
+}
+if (recommendationsSwiper) {
+  // תמיכה במעבר בין המלצות עם מקלדת
+  const prevBtn = document.querySelector('.swiper-button-prev');
+  const nextBtn = document.querySelector('.swiper-button-next');
+
+  if (prevBtn) {
+    prevBtn.setAttribute('tabindex', '0');
+    prevBtn.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ' || event.code === 'Space') {
+        event.preventDefault();
+        recommendationsSwiper.slidePrev();
       }
     });
   }
-    if (recommendationsSwiper) {
-    // תמיכה במעבר בין המלצות עם מקלדת
-    const prevBtn = document.querySelector('.swiper-button-prev');
-    const nextBtn = document.querySelector('.swiper-button-next');
 
-    if (prevBtn) {
-      prevBtn.setAttribute('tabindex', '0');
-      prevBtn.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter' || event.key === ' ' || event.code === 'Space') {
-          event.preventDefault();
-          recommendationsSwiper.slidePrev();
-        }
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.setAttribute('tabindex', '0');
-      nextBtn.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter' || event.key === ' ' || event.code === 'Space') {
-          event.preventDefault();
-          recommendationsSwiper.slideNext();
-        }
-      });
-    }
+  if (nextBtn) {
+    nextBtn.setAttribute('tabindex', '0');
+    nextBtn.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ' || event.code === 'Space') {
+        event.preventDefault();
+        recommendationsSwiper.slideNext();
+      }
+    });
   }
+}
 
 
   window.sendToWhatsapp = function(event) {
@@ -352,17 +355,16 @@ function handleAccordionToggle(element) {
     });
   });
 
-  const mediaContainer = document.querySelector('[data-field="videoSrc"]');
-  if (mediaContainer) {
-    if (data.features?.video === true && window.cardData.videoSrc) {
-      createVideoElement(mediaContainer);
-    } else if (data.features?.imageGallery === true && Array.isArray(window.cardData.galleryImages)) {
-      createImageGallery(mediaContainer);
-    } else {
-      mediaContainer.style.display = 'none';
-    }
+const mediaContainer = document.querySelector('[data-field="videoSrc"]');
+if (mediaContainer) {
+  if (data.features?.video === true && window.cardData.videoSrc) {
+    createVideoElement(mediaContainer);
+  } else {
+    mediaContainer.style.display = 'none';
   }
+}
 });
+
 
 function createVideoElement(container) {
   const videoElement = document.createElement("video");
@@ -380,44 +382,6 @@ function createVideoElement(container) {
   container.appendChild(videoElement);
 }
 
-function createImageGallery(container) {
-  const gallery = document.getElementById("staticGallery");
-  const images = window.cardData?.galleryImages;
-  if (!gallery || !Array.isArray(images)) {
-    container?.remove();
-    return;
-  }
-  gallery.innerHTML = images.map((image, index) => `
-    <img src="${image.src}" alt="${image.text || `תמונה ${index + 1}`}" onclick="openFullscreenImageGallery(${index})" />
-  `).join("");
-}
-
-window.openFullscreenImageGallery = function(startIndex = 0) {
-  const overlay = document.getElementById("fullscreenOverlay");
-  const wrapper = overlay?.querySelector(".swiper-wrapper");
-  const images = window.cardData?.galleryImages;
-  if (!overlay || !wrapper || !Array.isArray(images)) return;
-  wrapper.innerHTML = images.map(image => `
-    <div class="swiper-slide">
-      <div class="elementor-testimonial image-mode" tabindex="0">
-        <img src="${image.src}" alt="${image.text || ''}" />
-        ${image.text ? `<div class="elementor-testimonial__text">${image.text}</div>` : ""}
-      </div>
-    </div>
-  `).join("");
-  overlay.style.display = "flex";
-  window.fullscreenSwiper = new Swiper(".fullscreen-swiper", {
-    loop: true,
-    initialSlide: startIndex,
-    slidesPerView: 1,
-    spaceBetween: 20,
-    grabCursor: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
-};
 // ✅ פקד נגישות – הפעלה/כיבוי מצב נגישות
 const accessibilityBtn = document.getElementById("accessibilityToggle");
 if (accessibilityBtn) {
@@ -435,7 +399,3 @@ if (accessibilityBtn) {
 }
 
 
-window.closeFullscreenImageGallery = function() {
-  const overlay = document.getElementById("fullscreenOverlay");
-  if (overlay) overlay.style.display = "none";
-};
