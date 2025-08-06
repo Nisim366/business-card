@@ -270,8 +270,6 @@ if (videoContainer) {
   }
 });
 
-
-  // הפעלה עם מקלדת (Enter/Space)
   videoContainer.setAttribute('tabindex', '0');
   videoContainer.addEventListener('keydown', function (event) {
     if (event.key === 'Enter' || event.key === ' ' || event.code === 'Space') {
