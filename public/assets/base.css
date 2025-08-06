@@ -3,6 +3,9 @@
    ========================================== */
 
 :root {
+
+
+  
 /* 🎨 צבעים – בסיסיים */
   --color-white: #ffffff;
   --color-black: #000000;
@@ -222,7 +225,7 @@
   --about-text-align: center;
 
   /* כותרת */
-  --about-title-color: ;
+  --about-title-color: var(--main-brand-color);
   --about-title-font-size: var(--font-size-title-medium);
   --about-title-font-weight: var(--font-weight-bold);
   --about-title-margin-bottom: var(--spacing-medium);
@@ -264,6 +267,7 @@
 --accessibility-btn-size: 70px;
 
 }
+
 
 * {
 box-sizing: border-box;
@@ -532,6 +536,8 @@ strong {
 
 }
 
+
+
 .about-section p strong.quote-symbol {
   font-family: var(--quote-font-family, "Georgia", "Garamond", serif); /* פונט עגול לציטוט */
   font-size: var(--quote-font-size, 50px); /* גודל בולט לגרשיים */
@@ -614,7 +620,7 @@ padding: var(--about-padding, var(--spacing-xxl));
 }
 
 .about-section h3 {
-color: var(--about-title-color, #bb1fae);
+color: var(--about-title-color,var(--color-black));
   margin-bottom: var(--about-title-margin-bottom, var(--spacing-medium));
 }
 
@@ -654,7 +660,7 @@ position: absolute;
 
 .video-title {
 margin-bottom: var(--video-title-margin-bottom, 12px);
-  color: var(--video-title-color);
+  color: var(--video-title-color, var(--color-gold-medium));
   font-size: var(--video-title-font-size, var(--font-size-title-small));
   text-align: var(--video-title-align, center);
 }
@@ -1025,13 +1031,7 @@ margin-top: var(--loader-spinner-margin-top, 180px);
 
 
 
-.main-title, 
-.subtitle, 
-.section-title, 
-.name-role, 
-.about-section h3 {
-  color: #000000; /* טקסט כותרות שחור לניגודיות */
-}
+
 .btn-contact,
 button {
   background-color: var(--btn-bg, #000000); /* ברירת מחדל שחור */
