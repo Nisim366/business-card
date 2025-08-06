@@ -88,7 +88,6 @@
 
   /* 🔘 Buttons - כפתורים כלליים */
   --btn-display: inline-block;
-  --btn-bg-filled: var(--color-gold-medium);
   --btn-text-color-filled: var(--color-white);
   --btn-hover-bg-filled: var(--color-gold-dark);
   --btn-hover-text-color-filled: var(--color-white);
@@ -108,7 +107,7 @@
   --btn-vcard-radius: var(--radius-medium);
 
   /* 📞 Contact Buttons - כפתורי יצירת קשר */
-  --btn-contact-bg: var(--btn-bg-filled);
+  --btn-contact-bg: var(--btn-border-bg-color);
   --btn-contact-color: var(--btn-text-color-filled);
   --btn-contact-hover-bg: var(--btn-hover-bg-filled);
   --btn-contact-hover-color: var(--btn-hover-text-color-filled);
@@ -199,8 +198,7 @@
   --recommend-name-color: var(--text-primary-color, var(--color-gray-dark));
   --recommend-name-font-size: var(--font-size-large);
   --recommend-name-font-weight: var(--font-weight-bold);
-  --recommend-title-font-size: var(--font-size-small);
-  --recommend-title-font-weight: var(--font-weight-normal);
+  --recommend-item-title-font-size: var(--font-size-medium); /* טייטל בתוך המלצה */  --recommend-title-font-weight: var(--font-weight-normal);
   --recommend-content-color: var(--text-primary-color, var(--color-gray-dark));
   --recommend-content-font-size: var(--font-size-small);
   --recommend-content-line-height: 1.5;
@@ -220,8 +218,12 @@
   --read-more-color: #007bff;
 
 
-  --main-background-color: var(--color-blue-light);
+  --main-background-color: var(--color-blue-light); /* כחול־תכלת חלש מאוד – בלי שקיפות */
   --main-title-color: var(--color-green-dark);
+  --btn-border-bg-color: var(--color-purple-dark);
+  --title-font-size: var(--font-size-tiny);
+
+
   
 
   /* 📄 About Section - אזור אודות */
@@ -230,7 +232,7 @@
   --about-radius: var(--radius-large);
   --about-text-align: center;
   --about-title-color: var(--main-brand-color);
-  --about-title-font-size: var(--font-size-title-medium);
+
   --about-title-font-weight: var(--font-weight-bold);
   --about-title-margin-bottom: var(--spacing-medium);
   --about-text-color: var(--color-black);
@@ -441,11 +443,14 @@ strong {
 }
 
 .about-section h3 {
+  font-size: var(--title-font-size, var(--font-size-title-large));
   color: var(--about-title-color, var(--color-black));
   margin-bottom: var(--about-title-margin-bottom, var(--spacing-medium));
 }
 
 .about-section p {
+
+
   line-height: var(--about-text-line-height, 1.6);
   max-width: var(--about-text-max-width, 800px);
   margin: var(--about-text-margin, 0 auto);
@@ -513,7 +518,7 @@ strong {
 .video-title {
   margin-bottom: var(--video-title-margin-bottom, 12px);
   color: var(--main-title-color, var(--color-gold-medium));
-  font-size: var(--video-title-font-size, var(--font-size-title-small));
+  font-size: var(--title-font-size, var(--font-size-title-large));
   text-align: var(--video-title-align, center);
 }
 
@@ -581,10 +586,16 @@ strong {
 
 .recommendations-section .elementor-testimonial__title {
   color: var(--main-title-color, var(--color-gold-medium));
-  font-size: var(--recommend-title-font-size);
+  font-size: var(--recommend-item-title-font-size, var(--font-size-medium));
   font-weight: var(--recommend-title-font-weight);
   margin-bottom: var(--spacing-small);
 }
+.recommendations-section .main-title {
+  font-size: var(--recommend-title-font-size);
+  color: var(--main-title-color, var(--color-gold-medium));
+}
+
+
 
 .recommendations-section .elementor-testimonial__content,
 .recommendations-section .elementor-testimonial__text {
@@ -654,7 +665,7 @@ strong {
   cursor: pointer;
   transition: var(--btn-transition, background-color 0.3s ease, transform 0.2s ease);
   margin: var(--btn-margin, var(--spacing-small) auto);
-  background-color: var(--btn-bg-filled, var(--color-gold-medium));
+  background-color: var(--btn-border-bg-color, var(--color-gold-medium));
   color: var(--btn-text-color-filled, var(--color-white));
 }
 
@@ -672,7 +683,7 @@ strong {
   cursor: pointer;
   transition: var(--btn-transition, background-color 0.3s ease, transform 0.2s ease);
   margin: var(--btn-margin, var(--spacing-small) auto);
-  background-color: var(--btn-contact-bg, var(--btn-bg-filled, var(--color-gold-medium)));
+  background-color: var(--btn-contact-bg, var(--btn-border-bg-color, var(--color-gold-medium)));
   color: var(--btn-contact-color, var(--btn-text-color-filled, var(--color-white)));
 }
 
@@ -819,7 +830,7 @@ button:hover {
   max-width: 100%;
   padding: var(--contact-input-padding, var(--spacing-medium));
   margin-bottom: var(--contact-input-margin-bottom, var(--spacing-medium));
-  border: 2px solid var(--contact-btn-bg, var(--btn-bg-filled));
+  border: 2px solid var(--contact-btn-bg, var(--btn-border-bg-color));
   border-radius: var(--contact-input-radius, var(--radius-medium));
   font-family: inherit;
   font-size: var(--contact-input-font-size, var(--font-size-medium));
@@ -830,8 +841,8 @@ button:hover {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: var(--contact-btn-bg, var(--btn-bg-filled));
-  box-shadow: 0 0 4px var(--contact-btn-bg, var(--btn-bg-filled));
+  border-color: var(--contact-btn-bg, var(--btn-border-bg-color));
+  box-shadow: 0 0 4px var(--contact-btn-bg, var(--btn-border-bg-color));
   outline: none;
 }
 
@@ -853,7 +864,7 @@ button:hover {
   width: 100%;
   max-width: 100%;
   padding: var(--contact-btn-padding, var(--spacing-medium));
-  background-color: var(--contact-btn-bg, var(--btn-bg-filled));
+  background-color: var(--contact-btn-bg, var(--btn-border-bg-color));
   color: var(--contact-btn-color, var(--btn-text-color-filled));
   border: none;
   border-radius: var(--contact-btn-radius, var(--radius-medium));
