@@ -2,11 +2,6 @@
    📦 base.css – מחסן עיצובים מקיף ומודולרי
    ========================================== */
 
-
-
-/* ===== 1. משתנים גלובליים :root ===== */
-
-
 :root {
 /* 🎨 צבעים – בסיסיים */
   --color-white: #ffffff;
@@ -15,8 +10,6 @@
   --color-gray-medium: #cccccc;
   --color-gray-dark: #666666;
   --color-blue: #6babba;
-
-  
 
 /* 🎨 צבעים – ברנדינג */
   --color-gold-light: #FFD700;
@@ -38,16 +31,12 @@
   --color-pink-medium: #FF69B4;
   --color-pink-dark: #C71585;
 
-  
-
 /* 🟢 רדיוסים */
   --radius-small: 6px;
   --radius-medium: 12px;
   --radius-large: 20px;
   --radius-extra-large: 30px;
   --radius-circle: 50%;
-
-  
 
 /* 🔠 טיפוגרפיה */
   --font-family-primary: "Assistant", sans-serif;
@@ -64,8 +53,6 @@
   --font-weight-normal: 400;
   --font-weight-bold: 700;
 
-  
-
 /* 📏 ריווחים */
   --spacing-tiny: 5px;
   --spacing-small: 10px;
@@ -74,13 +61,9 @@
   --spacing-xl: 30px;
   --spacing-xxl: 40px;
 
-  
-
 /* 📏 ריווחים נוספים לאייקונים */
   --spacing-icon-gap: 20px;
   --spacing-icon-gap-large: 30px;
-
-  
 
 /* 🌑 צללים */
   --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -89,14 +72,10 @@
   --shadow-glow-light: 0 0 15px rgba(255, 255, 255, 0.3);
   --shadow-glow-colored: 0 0 20px rgba(64, 224, 208, 0.4);
 
-  
-
 /* 📝 Placeholders */
   --about-placeholder-text: "מומלץ להכניס כאן טקסט על העסק או השירותים.";
   --testimonial-placeholder-text: "מומלץ להכניס כאן המלצה מלקוח מרוצה.";
   --contact-form-description: "מעוניינת לקבוע תור? מלאי את הטופס ואחזור אלייך בהקדם";
-
-  
 
 /* ⭐ Recommendations */
   --recommendations-section-bg: var(--color-white);
@@ -140,16 +119,12 @@
   --read-more-font-weight: bold;
   --read-more-color: #007bff;
 
-  
-
 /* 🎨 גרדיאנטים */
   --gradient-white: linear-gradient(135deg, #ffffff, #f5f5f5);
   --gradient-gold: linear-gradient(135deg, #FFD700, #B8860B);
   --gradient-blue: linear-gradient(135deg, #87CEEB, #2F4F4F);
   --gradient-turquoise: linear-gradient(135deg, #40E0D0, #008B8B);
   --gradient-multi: linear-gradient(45deg, #33cc99, #00aaff, #33cc99);
-
-  
 
 /* ✨ Gold Line */
   --gold-line-width: 100%;
@@ -165,8 +140,6 @@
   --gold-line-border-radius: 0;
   --gold-line-box-shadow: none;
 
-  
-
 /* 🔄 Share Section */
   --share-section-bg: transparent;
   --share-section-padding: var(--spacing-large) 0;
@@ -179,8 +152,6 @@
   --share-icon-padding: 10px;
   --share-icon-shadow: var(--shadow-soft);
   --share-icon-hover-scale: 1.1;
-
-  
 
 /* 🔘 Buttons */
   --btn-display: inline-block;
@@ -203,11 +174,6 @@
   --btn-transform-hover: translateY(-2px);
   --btn-vcard-radius: var(--radius-medium); 
 
-/* ברירת מחדל – פינות בינוניות */
-
-
-  
-
 /* 📞 Contact Buttons */
   --btn-contact-bg: #4682B4;
   --btn-contact-color: #ffffff;
@@ -218,8 +184,6 @@
   --btn-contact-radius: var(--radius-medium);
   --btn-contact-font-size: 14px;
   --btn-contact-font-weight: var(--font-weight-bold);
-
-  
 
 /* 🖼 Icon Grid */
   --icon-grid-display: grid;
@@ -243,8 +207,6 @@
   --icon-text-margin-top: 6px;
   --icon-text-font-size: 14px;
   --icon-text-color: var(--color-gray-dark);
-
-  
 
 /* 🖼 Icon Compatibility */
   --icon-font-size: var(--font-size-title-large);
@@ -278,50 +240,31 @@
   --about-highlight-padding: var(--spacing-tiny) var(--spacing-small);
   --about-highlight-radius: var(--radius-small);
 
-  
-
-/* 🎯 Profile */
+  /* 🎯 Profile */
   --profile-img-size: 140px;
   --profile-img-margin: -30px auto 0 auto;
-
---body-bg-color: var(--color-gray-light); 
-
-/* צבע רקע גוף הכרטיס כברירת מחדל (אפור בהיר) */
+  --body-bg-color: var(--color-gray-light); 
   --card-bg: #f8f8f8; 
+  --btn-contact-padding: 10px 20px;   
+  --btn-contact-font-size: 14px;
+  --recommendations-section-bg: #6babba; 
+  --recommendations-section-margin-top: 40px;
 
-/* צבע רקע הכרטיס כברירת מחדל (אפור חלש) */
-    --btn-contact-padding: 10px 20px;   
-
-/* גובה ורוחב הרקע */
-  --btn-contact-font-size: 14px;      
-
-/* גודל טקסט */
-
-  
-
+   
 /* 📞 Contact Buttons (סנכרון עם כפתורים רגילים) */
 --btn-contact-bg: var(--btn-bg-filled);
 --btn-contact-color: var(--btn-text-color-filled);
 --btn-contact-hover-bg: var(--btn-hover-bg-filled);
---btn-contact-hover-color: var(--btn-hover-text-color-filled);
-
-  --recommendations-section-bg: #6babba; 
-
-/* צבע ירקרק ברירת מחדל */
-  --about-bg-color: var(--recommendations-section-bg);
-    --recommendations-section-margin-top: 40px;
+--btn-contact-hover-color: var(--btn-hover-text-color-filled); --about-bg-color: var(--recommendations-section-bg);
 
 --accessibility-btn-bottom: auto;
 --accessibility-btn-right: 30px;
 --accessibility-btn-left: auto;
 --accessibility-btn-top: 30px;
-
-  --accessibility-btn-size: 70px;
-
+--accessibility-btn-size: 70px;
 
 }
 
-/* ===== 2. בסיס כללי ===== */
 * {
 box-sizing: border-box;
 }
@@ -1111,15 +1054,10 @@ color: red;
   margin-top: 4px;
 }
 
-
 /* =========================================
    ♿ Accessibility Mode – קבוע בכל העמודים
    ========================================= */
-/* =========================================
-   ♿ Accessibility Mode – מאוחד ונקי
-   ========================================= */
 
-/* עיצוב כללי במצב נגישות */
 body.accessibility-mode {
   background-color: #ffffff; /* רקע אחיד */
   color: #000000;            /* טקסט כהה לניגודיות */
@@ -1139,9 +1077,6 @@ body.accessibility-mode .about-section h3 {
 /* אזור אודות */
 body.accessibility-mode .about-section {
   background-color: #ffffff;
-  color: #000000;
-}
-body.accessibility-mode .about-section h3 {
   color: #000000;
 }
 body.accessibility-mode .about-highlight-text {
@@ -1186,8 +1121,7 @@ body.accessibility-mode textarea:focus,
 body.accessibility-mode select:focus,
 body.accessibility-mode [data-field="videoSrc"]:focus,
 body.accessibility-mode .swiper-button-prev:focus,
-body.accessibility-mode .swiper-button-next:focus,
-body.accessibility-mode .icon-item a:focus {
+body.accessibility-mode .swiper-button-next:focus {
   outline: 2px solid #000;
   outline-offset: 2px;
   border-radius: inherit;
