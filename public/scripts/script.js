@@ -256,16 +256,20 @@ if (recommendationsSwiper) {
   const videoContainer = document.querySelector('[data-field="videoSrc"]');
 if (videoContainer) {
   // הפעלה בנגיעה/לחיצה עם עכבר
-  videoContainer.addEventListener('click', function () {
-    const video = videoContainer.querySelector('video');
-    if (video) {
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    }
-  });
+  videoContainer.addEventListener('click', function (event) {
+  const video = videoContainer.querySelector('video');
+  if (!video) return;
+
+  // אל תפעיל אם לחצו ישירות על כפתור הפליי של הוידאו
+  if (event.target.tagName.toLowerCase() === 'video') return;
+
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+});
+
 
   // הפעלה עם מקלדת (Enter/Space)
   videoContainer.setAttribute('tabindex', '0');
