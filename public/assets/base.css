@@ -122,7 +122,7 @@
   --gold-line-height: 3px;
   --gold-line-bg: var(--color-gold-medium);
   --gold-line-margin: 20px;
-  --gold-line-padding: 0;
+  --gold-line-padding:  0;
   --gold-line-position: relative;
   --gold-line-top: -20px;
   --gold-line-bottom: 0;
@@ -307,20 +307,24 @@ img {
 }
 
 .card .gold-line {
-  width: var(--gold-line-width, 100%);
-  height: var(--gold-line-height, 3px);
-  background: var(--gold-line-bg, var(--color-gold-medium));
-  margin: var(--gold-line-margin, 20px auto);
-  padding: var(--gold-line-padding, 0);
-  position: var(--gold-line-position, relative);
-  top: var(--gold-line-top, auto);
-  bottom: var(--gold-line-bottom, 0);
-  left: var(--gold-line-left, 0);
-  right: var(--gold-line-right, 0);
-  border-radius: var(--gold-line-border-radius, 0);
-  box-shadow: var(--gold-line-box-shadow, none);
+  width: var(--gold-line-width);
+  height: var(--gold-line-height);
+  background: var(--gold-line-bg);
+  margin-left: calc(-1 * var(--card-padding));
+  margin-right: calc(-1 * var(--card-padding));
+  margin-top: var(--gold-line-margin);
+  margin-bottom: var(--gold-line-margin);
+  padding: var(--gold-line-padding);
+  position: var(--gold-line-position);
+  top: var(--gold-line-top);
+  bottom: var(--gold-line-bottom);
+  left: var(--gold-line-left);
+  right: var(--gold-line-right);
+  border-radius: var(--gold-line-border-radius);
+  box-shadow: var(--gold-line-box-shadow);
   display: var(--gold-line-display, block);
 }
+
 
 @media (min-width: 769px) {
   .card {
@@ -406,7 +410,7 @@ img {
    ========================================== */
 
 .main-title {
-  font-size: var(--main-title-font-size, var(--font-size-title-large));
+  font-size: var(--title-font-size, var(--font-size-title-large));
   font-weight: var(--main-title-font-weight, var(--font-weight-bold));
   color: var(--main-title-color, var(--color-gold-medium));
   margin-bottom: var(--main-title-margin-bottom, var(--spacing-medium));
