@@ -8,6 +8,9 @@ get pageTitle() {
   email: "hila@ample.com",
   phoneDigits: "0529395776",
   vcardLink: "./contact.vcf",
+  wazeLink: "https://waze.com/ul?ll=32.0853,34.7818&navigate=yes",
+  wazeLabel: "Waze",
+  wazeIconSrc: "/assets/icons/waves.svg",
 
   logoSrc: "/assets/media/logo-ortopok.png",
   profileImage: "/assets/media/profile.jpg",
