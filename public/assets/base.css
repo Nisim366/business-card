@@ -209,9 +209,7 @@
   --recommend-testimonial-max-height: 440px;
   --recommend-name-color: var(--text-primary-color, var(--color-gray-dark));
   --recommend-name-font-size: var(--font-size-title-small);
-  --recommend-name-font-weight: var(--font-weight-bold);
-  --recommend-item-title-font-size: var(--font-size-xl); /* טייטל בתוך המלצה */  --recommend-title-font-weight: var(--font-weight-normal);
-  --recommend-content-color: var(--text-primary-color, var(--color-gray-dark));
+  --recommend-item-title-font-size: var(--font-size-xl); /* טייטל בתוך המלצה */  
   --recommend-content-font-size: var(--font-size-xl);
   --recommend-content-line-height: 1.5;
   --testimonial-icon-size: var(--font-size-xl);
@@ -230,11 +228,11 @@
   --read-more-color: #007bff;
 
 
-  --main-background-color: var(--color-blue-light); /* כחול־תכלת חלש מאוד – בלי שקיפות */
-  --main-title-color: var(--color-green-dark);
-  --btn-border-bg-color: var(--color-purple-dark);
+  --main-background-color: #e0f7e9; /* כחול־תכלת חלש מאוד – בלי שקיפות */
+  --main-title-color: var(--color-black);
+  --btn-border-bg-color: #29a9ff;
   --title-font-size: var(--font-size-title-XLL);
-  --contact-btn-hover-bg: var(--color-purple-light);
+  --contact-btn-hover-bg: var(--color-blue-light);
 
 
   
@@ -464,7 +462,7 @@ strong {
 
 .about-section h3 {
   font-size: var(--title-font-size, var(--font-size-title-XL));
-  color: var(--about-title-color, var(--color-black));
+  color: var(--about-text-color, var(--color-black));
   margin-bottom: var(--about-title-margin-bottom, var(--spacing-medium));
 }
 
@@ -601,14 +599,14 @@ strong {
 .recommendations-section .elementor-testimonial__name {
   color: var(--recommend-name-color, var(--color-black));
   font-size: var(--recommend-name-font-size, var(--font-size-title-XL));
-  font-weight: var(--recommend-name-font-weight, 600);
+  font-weight: var(--recommend-name-font-weight, 900);
   margin-bottom: var(--spacing-tiny, 4px);
 }
 
 .recommendations-section .elementor-testimonial__title {
   color: var(--main-title-color, var(--color-gold-medium));
   font-size: var(--recommend-item-title-font-size, var(--recommend-name-font-size));
-  font-weight: var(--recommend-title-font-weight);
+  font-weight: var(--recommend-title-font-weight,700);
   margin-bottom: var(--spacing-small);
 }
 .recommendations-section .main-title {
@@ -623,6 +621,7 @@ strong {
   color: var(--recommend-content-color, var(--color-black));
   font-size: var(--recommend-content-font-size, 18px);
   line-height: var(--recommend-content-line-height, 1.6);
+  font-weight: var(--recommend-name-font-weight, 400);
   margin-bottom: var(--spacing-medium, 16px);
 }
 
