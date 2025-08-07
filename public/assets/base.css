@@ -206,14 +206,14 @@
   --recommend-testimonial-min-height: 180px;
   --recommend-testimonial-max-height: 440px;
   --recommend-name-color: var(--text-primary-color, var(--color-gray-dark));
-  --recommend-name-font-size: var(--font-size-large);
+  --recommend-name-font-size: var(--font-size-title-small);
   --recommend-name-font-weight: var(--font-weight-bold);
-  --recommend-item-title-font-size: var(--font-size-medium); /* טייטל בתוך המלצה */  --recommend-title-font-weight: var(--font-weight-normal);
+  --recommend-item-title-font-size: var(--font-size-xl); /* טייטל בתוך המלצה */  --recommend-title-font-weight: var(--font-weight-normal);
   --recommend-content-color: var(--text-primary-color, var(--color-gray-dark));
-  --recommend-content-font-size: var(--font-size-small);
+  --recommend-content-font-size: var(--font-size-xl);
   --recommend-content-line-height: 1.5;
   --testimonial-icon-size: var(--font-size-xl);
-  --testimonial-icon-color: var(--color-gray-dark);
+  --testimonial-icon-color: var(--color-gold-light);
   --testimonial-icon-margin-bottom: var(--spacing-small);
   --testimonial-read-more-color: var(--color-gray-dark);
   --testimonial-read-more-hover-color: var(--main-brand-color);
@@ -598,14 +598,14 @@ strong {
 
 .recommendations-section .elementor-testimonial__name {
   color: var(--recommend-name-color, var(--color-black));
-  font-size: var(--recommend-name-font-size, var(--font-size-medium));
+  font-size: var(--recommend-name-font-size, var(--font-size-title-small));
   font-weight: var(--recommend-name-font-weight, 600);
   margin-bottom: var(--spacing-tiny, 4px);
 }
 
 .recommendations-section .elementor-testimonial__title {
   color: var(--main-title-color, var(--color-gold-medium));
-  font-size: var(--recommend-item-title-font-size, var(--font-size-medium));
+  font-size: var(--recommend-item-title-font-size, var(--recommend-name-font-size));
   font-weight: var(--recommend-title-font-weight);
   margin-bottom: var(--spacing-small);
 }
@@ -619,7 +619,7 @@ strong {
 .recommendations-section .elementor-testimonial__content,
 .recommendations-section .elementor-testimonial__text {
   color: var(--recommend-content-color, var(--color-black));
-  font-size: var(--recommend-content-font-size, 14px);
+  font-size: var(--recommend-content-font-size, 18px);
   line-height: var(--recommend-content-line-height, 1.6);
   margin-bottom: var(--spacing-medium, 16px);
 }
