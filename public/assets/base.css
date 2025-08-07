@@ -1130,11 +1130,11 @@ body.accessibility-mode .error-message {
 .loader-overlay {
   position: fixed;
   inset: 0;
-  background-color: var(--loader-bg-color, #00bcd4);
-  background-image: var(--loader-bg-image, url('/assets/logo/myLogo.jpg'));
-  background-position: var(--loader-bg-position, center 40%);
+  background-color: #ffffff;
+  background-image:  url('/assets/logo/myLogo.jpg');
+  background-position: var(--loader-bg-position, center 30%);
   background-repeat: no-repeat;
-  background-size: var(--loader-bg-size, 140px auto);
+  background-size: var( 100px auto);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1151,12 +1151,29 @@ body.accessibility-mode .error-message {
   pointer-events: none;
 }
 
-.loader-spinner {
+.loader-overlay .loader-spinner {
   margin-top: var(--loader-spinner-margin-top, 180px);
-  width: var(--loader-spinner-size, 32px);
-  height: var(--loader-spinner-size, 32px);
-  border: var(--loader-spinner-border, 3px solid rgba(255,255,255,0.4));
-  border-top-color: var(--loader-spinner-border-top, #fff);
+  width: 90px;
+  height: 90px;
+  border: var(--loader-spinner-border, 6px solid #ffffff);
+  border-top-color: var(--loader-spinner-border-top, #999999);
   border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+  animation: spin 1s linear infinite;
 }
+.loader-overlay .loader-text {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold; /* ⬅️ מודגש */
+  color: #000000;
+  font-family: inherit;
+  direction: rtl;
+}
+
+
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+

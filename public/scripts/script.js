@@ -3,10 +3,7 @@ let isInitialized = false; // ← דגל למניעת טעינה כפולה
 
 // ✅ זיהוי סביבת הפקה או רנדר
 const isLive = location.hostname.includes("clix-marketing.co.il") || location.hostname.includes("render.com");
-console.log("📡 isLive:", isLive);
-
-document.addEventListener("DOMContentLoaded", function () {
-  // הבטחת מצב נגישות כבוי בטעינה ראשונית
+console.log("📡 isLive:", isLive);document.addEventListener("DOMContentLoaded", function () {
   document.body.classList.remove("accessibility-mode");
   document.body.style.filter = "";
   document.body.style.fontSize = "";
@@ -20,31 +17,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  window.addEventListener("load", () => {
-    console.log("✅ כל המשאבים נטענו - מסיר לואודר");
-    removeLoader();
-  });
-});
+  const isVisuallyReady = () => {
+    const mainContent = document.querySelector(".main-content");
+    const allImagesLoaded = Array.from(document.images).every(
+      (img) => img.complete && img.naturalHeight > 0
+    );
+    return !!window.cardData && !!mainContent && allImagesLoaded;
+  };
 
+  const waitUntilReady = () => {
+    const start = Date.now();
+    const fallbackTimeout = 2000; // 2 שניות
 
-// ✅ initCard – ירוץ רק כשה־cardData מוכן
-function initCard() {
-  if (!window.cardData) {
-    console.error("❌ cardData לא הוגדר. ודא שנטען data-client.js לפני script.js");
-    return;
-  }
+    const check = () => {
+      if (isVisuallyReady()) {
+        console.log("✅ הכל נטען ומוצג – מסיר את הספינר");
+        removeLoader();
+      } else if (Date.now() - start > fallbackTimeout) {
+        console.warn("⏱ עברו 10 שניות – מסיר את הספינר כפולבאק");
+        removeLoader();
+      } else {
+        requestAnimationFrame(check);
+      }
+    };
+    check();
+  };
 
-  console.log("📦 cardData loaded:", window.cardData);
-
-  const event = new Event("load");
-  window.dispatchEvent(event);
-}
-
-window.addEventListener("load", () => {
-  const loader = document.querySelector(".loader-overlay");
-  if (!loader) return;
-  loader.classList.add("fade-out");
-  setTimeout(() => loader.remove(), 400);
+  window.addEventListener("load", waitUntilReady);
 });
 
 // ✅ יצירת vCard דינמית
