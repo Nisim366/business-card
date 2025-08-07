@@ -308,7 +308,7 @@ img {
 .card {
   background-color: var(--card-bg, var(--color-white));
   border-radius: var(--card-radius, var(--radius-large));
-  box-shadow: var(--card-box-shadow, var(--shadow-medium));
+  box-shadow: var(--card-box-shadow, var(--shadow-strong));
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -518,6 +518,7 @@ strong {
   max-width: var(--video-max-width, 100%);
   background: var(--video-bg, --about-bg-color);
   margin-top: var(--video-margin-top, var(--spacing-xl));
+  box-shadow: var(--video-box-shadow, var(--shadow-medium));
   border-radius: var(--video-radius, var(--radius-large));
 }
 
