@@ -99,32 +99,43 @@ window.addEventListener("load", function () {
     const key = el.dataset.switch;
     if (data.features?.[key] !== true) el.remove();
   });
+const replaceAll = () => {
+  document.querySelectorAll("[data-field]").forEach(el => {
+    const field = el.dataset.field;
+    let value = data?.[field];
 
-  const replaceAll = () => {
-    document.querySelectorAll("[data-field]").forEach(el => {
-      const field = el.dataset.field;
-      let value = data?.[field];
-      if (field === "mediaTitle" && (!value || value.trim() === "")) {
-        value = "גלריית תמונות";
+    if (field === "mediaTitle" && (!value || value.trim() === "")) {
+      value = "גלריית תמונות";
+    }
+
+    // 🆕 favicon fallback
+    if (field === "favicon") {
+  el.setAttribute("href", value || "/assets/logo/favicon.ico");
+  return;
+}
+
+
+    if (value === undefined || value === null) return;
+
+    const tag = el.tagName;
+    if (tag === "IMG") {
+      el.src = value;
+    } else if (tag === "A") {
+      switch (field) {
+        case "phone": el.href = `tel:${value}`; break;
+        case "email": el.href = `mailto:${value}`; break;
+        case "whatsapp": el.href = `https://wa.me/972${data.phoneDigits}`; break;
+        case "sms": el.href = `sms:${data.phone}`; break;
+        case "addContact": el.href = data.vcardLink || "#"; break;
+        case "facebookLink": el.href = value; break;
+        default: el.href = value;
       }
-      if (value === undefined || value === null) return;
-      const tag = el.tagName;
-      if (tag === "IMG") el.src = value;
-      else if (tag === "A") {
-        switch (field) {
-          case "phone": el.href = `tel:${value}`; break;
-          case "email": el.href = `mailto:${value}`; break;
-          case "whatsapp": el.href = `https://wa.me/972${data.phoneDigits}`; break;
-          case "sms": el.href = `sms:${data.phone}`; break;
-          case "addContact": el.href = data.vcardLink || "#"; break;
-          case "facebookLink": el.href = value; break;
-          default: el.href = value;
-        }
-      } else {
-        el.innerHTML = value;
-      }
-    });
-  };
+    } else {
+      el.innerHTML = value;
+    }
+  });
+};
+
 
   document.title = data.pageTitle || "כרטיס ביקור דיגיטלי";
   document.body.dataset.whatsapp = data.phone;

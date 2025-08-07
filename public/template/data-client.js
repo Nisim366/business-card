@@ -7,6 +7,7 @@ window.cardData = {
   phoneDigits: "0529395776",
   vcardLink: "./contact.vcf",
 
+
   logoSrc: "/assets/media/logo-ortopok.png",
   profileImage: "/assets/media/profile.jpg",
   videoSrc: "/assets/media/mov_bbb.mp4",
