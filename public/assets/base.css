@@ -56,6 +56,8 @@
   --font-size-title-small: 20px;
   --font-size-title-medium: 24px;
   --font-size-title-large: 28px;
+  --font-size-title-XL: 32px;
+  --font-size-title-XLL: 40px;
   --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-bold: 700;
@@ -167,7 +169,7 @@
   --icon-text-margin-top: 6px;
   --icon-text-font-size: 14px;
   --icon-text-color: var(--color-gray-dark);
-  --icon-font-size: var(--font-size-title-large);
+  --icon-font-size: var(--font-size-title-XL);
   --icon-color: var(--color-gold-medium);
   --icon-margin-bottom: var(--spacing-small);
   --icon-desc-font-size: var(--font-size-small);
@@ -231,7 +233,7 @@
   --main-background-color: var(--color-blue-light); /* כחול־תכלת חלש מאוד – בלי שקיפות */
   --main-title-color: var(--color-green-dark);
   --btn-border-bg-color: var(--color-purple-dark);
-  --title-font-size: var(--font-size-tiny);
+  --title-font-size: var(--font-size-title-XLL);
   --contact-btn-hover-bg: var(--color-purple-light);
 
 
@@ -424,7 +426,7 @@ img {
    ========================================== */
 
 .main-title {
-  font-size: var(--title-font-size, var(--font-size-title-large));
+  font-size: var(--title-font-size, var(--font-size-title-XL));
   font-weight: var(--main-title-font-weight, var(--font-weight-bold));
   color: var(--main-title-color, var(--color-gold-medium));
   margin-bottom: var(--main-title-margin-bottom, var(--spacing-medium));
@@ -461,7 +463,7 @@ strong {
 }
 
 .about-section h3 {
-  font-size: var(--title-font-size, var(--font-size-title-large));
+  font-size: var(--title-font-size, var(--font-size-title-XL));
   color: var(--about-title-color, var(--color-black));
   margin-bottom: var(--about-title-margin-bottom, var(--spacing-medium));
 }
@@ -537,7 +539,7 @@ strong {
 .video-title {
   margin-bottom: var(--video-title-margin-bottom, 12px);
   color: var(--main-title-color, var(--color-gold-medium));
-  font-size: var(--title-font-size, var(--font-size-title-large));
+  font-size: var(--title-font-size, var(--font-size-title-XL));
   text-align: var(--video-title-align, center);
 }
 
@@ -598,7 +600,7 @@ strong {
 
 .recommendations-section .elementor-testimonial__name {
   color: var(--recommend-name-color, var(--color-black));
-  font-size: var(--recommend-name-font-size, var(--font-size-title-small));
+  font-size: var(--recommend-name-font-size, var(--font-size-title-XL));
   font-weight: var(--recommend-name-font-weight, 600);
   margin-bottom: var(--spacing-tiny, 4px);
 }
@@ -610,7 +612,7 @@ strong {
   margin-bottom: var(--spacing-small);
 }
 .recommendations-section .main-title {
-  font-size: var(--recommend-title-font-size);
+  font-size: var(--title-font-size, var(--font-size-title-XL));
   color: var(--main-title-color, var(--color-gold-medium));
 }
 

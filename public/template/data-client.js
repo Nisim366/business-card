@@ -1,18 +1,17 @@
 window.cardData = {
   fullName: "הילה סבן",
   jobTitle: "מטפלת רגשית ומדריכת הורים",
-  pageTitle: "הילה לוי - מטפלת רגשית והדרכת הורים",
+get pageTitle() {
+    return `${this.fullName} - ${this.jobTitle}`;
+  },
   phone: "052-939-5776",
   email: "hila@ample.com",
   phoneDigits: "0529395776",
   vcardLink: "./contact.vcf",
 
-
   logoSrc: "/assets/media/logo-ortopok.png",
   profileImage: "/assets/media/profile.jpg",
   videoSrc: "/assets/media/mov_bbb.mp4",
-
-
   facebookLink: "https://facebook.com/hila.page",
 
   phoneIconSrc: "/assets/contact_icons/green/phone.svg",
@@ -36,7 +35,7 @@ features: {
   video: true,
   about: true,
   recommendations: true,
- sendEmail: true,
+  sendEmail: true,
   sendWhatsapp: false // ✅ הפעלה/כיבוי כפתור וואטסאפ
 },
     shareOptions: {
