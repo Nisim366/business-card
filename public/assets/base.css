@@ -352,7 +352,7 @@ img {
   height: var(--header-height, 180px);
   margin: var(--header-margin, 0);
   padding: var(--header-padding, 0);
-  background: var(--header-bg-color, var(--gradient-blue));
+  background: var(--header-bg-color, var(--gradient-white));
   border-radius: var(--header-radius, 0);
   overflow: visible;
 }
