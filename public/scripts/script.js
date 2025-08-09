@@ -44,6 +44,14 @@ console.log("📡 isLive:", isLive);document.addEventListener("DOMContentLoaded"
   };
 
   window.addEventListener("load", waitUntilReady);
+
+  const scrollBtn = document.querySelector('.scroll-to-contact-btn');
+  const contactForm = document.querySelector('#contactForm'); // ודא שלטופס יש ID כזה
+  if (scrollBtn && contactForm) {
+    scrollBtn.addEventListener('click', function () {
+      contactForm.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
 });
 
 // ✅ יצירת vCard דינמית

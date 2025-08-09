@@ -453,6 +453,13 @@ strong {
    📄 ABOUT SECTION - אזור אודות
    ========================================== */
 
+[data-field="aboutLine1"] {
+  font-size: var(--about-line1-font-size, 18px);
+  font-weight: var(--about-line1-font-weight, bold);
+  margin-bottom: var(--about-line1-margin-bottom, 8px);
+}
+
+
 .about-section {
   padding: var(--about-padding, var(--spacing-xxl));
   background-color: var(--about-bg-color, var(--color-gray-medium));
@@ -467,12 +474,10 @@ strong {
 }
 
 .about-section p {
-
-
   line-height: var(--about-text-line-height, 1.6);
   max-width: var(--about-text-max-width, 800px);
   margin: var(--about-text-margin, 0 auto);
-  color: var(--about-text-color, var(--color-gray-dark));
+  color: var(--about-text-color, var(--color-black));
   font-size: var(--about-text-font-size, var(--font-size-medium));
   text-align: var(--about-text-align, right);
   direction: var(--about-text-direction, rtl);
@@ -485,15 +490,35 @@ strong {
   font-weight: var(--about-strong-font-weight, var(--font-weight-bold));
   margin-bottom: var(--about-strong-margin-bottom, 8px);
   font-family: var(--about-strong-font-family, sans-serif);
-  color: var(--quote-font-color, var(--color-gray-dark));
+  color: var(--quote-font-color, var(--color-black));
   text-align: var(--about-strong-text-align, center);
 }
+.scroll-to-contact-btn {
+  display: inline-block;
+  background-color: var(--btn-border-bg-color, var(--color-gold-medium));
+  color: var(--scroll-btn-color, var(--color-white));
+  font-size: var(--scroll-btn-font-size, 16px);
+  padding: var(--scroll-btn-padding, 10px 20px);
+  border-radius: var(--scroll-btn-radius, 8px);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: var(--scroll-btn-margin-top, 20px);
+}
+
+.scroll-to-contact-btn:hover,
+.scroll-to-contact-btn:focus {
+  background-color: var(--contact-btn-hover-bg, var(--color-gold-medium));
+  outline: none;
+}
+
+
 
 .about-section p strong.quote-symbol {
   font-family: var(--quote-font-family, "Georgia", "Garamond", serif);
   font-size: var(--quote-font-size, 50px);
   font-style: italic;
-  color: var(--quote-font-color, var(--color-gray-dark));
+  color: var(--quote-font-color, var(--color-black));
   line-height: 1;
   display: block;
   margin-bottom: var(--quote-margin-bottom, 0px);
@@ -724,6 +749,13 @@ button {
 button:hover {
   background-color: var(--btn-hover-bg, #333333);
 }
+#vcardDownload.btn {
+  display: inline-block;
+  width: var(--vcard-btn-width, 100%); /* ברירת מחדל: כל הרוחב הזמין */
+  max-width: var(--vcard-btn-max-width, 300px); /* מגבלה עליונה */
+
+}
+
 
 /* ==========================================
    🖼️ ICON GRID - רשת אייקונים

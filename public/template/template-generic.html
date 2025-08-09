@@ -127,6 +127,10 @@
           <p>מומלץ להכניס כאן טקסט אישי נוסף.</p>
         </div>
       </div>
+      <button class="scroll-to-contact-btn" aria-label="מעבר לטופס יצירת קשר" data-field="scrollToContactText">
+  השאר פרטים ואחזור אליך
+</button>
+
     </div>
   </div>
 </div>
@@ -149,24 +153,26 @@
   </div>
 </section>
 
-      <!-- ✅ טופס יצירת קשר -->
-      <h3 class="main-title" id="contactFormTitle" tabindex="0">השארת פרטים</h3>
-      <div class="contact-form" role="form" aria-labelledby="contactFormTitle" tabindex="0">
-        <div class="form-description" aria-live="polite"></div>
-        <form onsubmit="return validateForm(event)">
-          <div class="input-row">
-            <input id="fullName" placeholder="שם מלא" required type="text" aria-label="שם מלא" aria-required="true" aria-invalid="false" tabindex="0" />
-            <div id="errorFullName" class="error-message" aria-live="polite"></div>
-            <input id="phoneNumber" placeholder="מספר טלפון" required type="tel" aria-label="מספר טלפון" aria-required="true" aria-invalid="false" tabindex="0" />
-            <div id="errorPhone" class="error-message" aria-live="polite"></div>
-          </div>
-          <textarea id="message" placeholder="הודעה חופשית" aria-label="הודעה חופשית" tabindex="0"></textarea>
-          <button type="button" onclick="sendToWhatsapp(event)" data-action="sendWhatsapp" aria-label="שלח לוואטסאפ" tabindex="0">שלח לוואטסאפ</button>
-<button type="button" class="btn" onclick="sendToEmail(event)" data-action="sendEmail" aria-label="שלח למייל" tabindex="0">
-  שלח למייל
-</button>
-        </form>
-     
+<!-- ✅ טופס יצירת קשר -->
+<h3 class="main-title" id="contactFormTitle" tabindex="0">
+  השאירו פרטים<br>ואחזור אליכם בהקדם :
+</h3>
+<div id="contactForm" class="contact-form" role="form" aria-labelledby="contactFormTitle" tabindex="0">
+  <div class="form-description" aria-live="polite"></div>
+  <form onsubmit="return validateForm(event)">
+    <div class="input-row">
+      <input id="fullName" placeholder="שם מלא" required type="text" aria-label="שם מלא" aria-required="true" aria-invalid="false" tabindex="0" />
+      <div id="errorFullName" class="error-message" aria-live="polite"></div>
+      <input id="phoneNumber" placeholder="מספר טלפון" required type="tel" aria-label="מספר טלפון" aria-required="true" aria-invalid="false" tabindex="0" />
+      <div id="errorPhone" class="error-message" aria-live="polite"></div>
+    </div>
+    <textarea id="message" placeholder="הודעה חופשית" aria-label="הודעה חופשית" tabindex="0"></textarea>
+    <button type="button" onclick="sendToWhatsapp(event)" data-action="sendWhatsapp" aria-label="שלח לוואטסאפ" tabindex="0">שלח לוואטסאפ</button>
+    <button type="button" class="btn" onclick="sendToEmail(event)" data-action="sendEmail" aria-label="שלח למייל" tabindex="0">
+דברו איתי !     </button>
+  </form>
+</div>
+
 
       <!-- ✅ שיתוף -->
       <div class="share-section" role="region" aria-label="שיתוף כרטיס הביקור" tabindex="0">
