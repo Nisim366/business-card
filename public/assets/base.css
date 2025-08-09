@@ -522,7 +522,25 @@ strong {
   line-height: 1;
   display: block;
   margin-bottom: var(--quote-margin-bottom, 0px);
+}/* base.css – שכבת בסיס */
+.about-decor{
+  width: var(--decor-width, 100%);
+  margin: var(--decor-margin, 16px auto 8px);
 }
+.about-decor svg{
+  display:block;
+  width:100%;
+  height: var(--decor-height, 16px);
+  color: var(--decor-color,--about-bg-color);
+}
+.about-decor .wave-stroke{
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--decor-stroke-width, 4);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 
 .about-highlight-text {
   background-color: var(--about-highlight-bg, rgba(0, 0, 0, 0.1));
@@ -751,8 +769,9 @@ button:hover {
 }
 #vcardDownload.btn {
   display: inline-block;
-  width: var(--vcard-btn-width, 100%); /* ברירת מחדל: כל הרוחב הזמין */
-  max-width: var(--vcard-btn-max-width, 300px); /* מגבלה עליונה */
+  width: var(--vcard-btn-width, 100%); 
+  max-width: var(--vcard-btn-max-width, 300px); 
+  margin-bottom: var(--vcard-btn-margin-bottom, 20px);
 
 }
 
