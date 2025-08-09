@@ -80,9 +80,16 @@ features: {
     <p>גם מי שמעוניין בהתפתחות אישית, חיזוק תקשורת זוגית או שיפור הורות ימצא מקום מכיל, מדויק ומקדם.</p>
   `,
 
-  recommendationsTitle: "המלצות",
+  scrollToContactText: "השאר פרטים ואחזור אליך",
+  recommendationsMainTitle: "לקוחות ממליצים : ",
+  videoMainTitle: "⬇️ לסרטון תדמית",
+  contactFormTitle: "השאירו פרטים<br>ואחזור אליכם בהקדם :",
+  shareCardTitle: "שיתוף כרטיס הביקור",
 
-recommendations: [
+
+
+
+    recommendations: [
   { 
     name: "נועה", 
     title: " - אם לילד עם צרכים מיוחדים", // כותרת ממליץ

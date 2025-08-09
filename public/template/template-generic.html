@@ -163,9 +163,8 @@
           <p>מומלץ להכניס כאן טקסט אישי נוסף.</p>
         </div>
       </div>
-      <button class="scroll-to-contact-btn" aria-label="מעבר לטופס יצירת קשר" data-field="scrollToContactText">
-  השאר פרטים ואחזור אליך
-</button>
+     <button class="scroll-to-contact-btn" aria-label="מעבר לטופס יצירת קשר" data-field="scrollToContactText"></button>
+
 
     </div>
   </div>
@@ -173,15 +172,16 @@
 
 <!-- ✅ סרטון תדמית -->
 <div data-switch="video" role="region" aria-label="סרטון תדמית" tabindex="0">
-  <p class="main-title video-title">⬇️ לסרטון תדמית</p>
+  <p class="main-title video-title" data-field="videoMainTitle"></p>
   <div class="video-wrapper">
     <div class="video-container" data-field="videoSrc"></div>
   </div>
 </div>
 
 
+
 <!-- ✅ המלצות -->
-   <h2 class="main-title" data-field="recommendationsTitle">המלצות</h2>
+<h2 class="main-title" data-field="recommendationsMainTitle"></h2>
 <section class="recommendations-section" data-switch="recommendations" role="region" aria-label="המלצות לקוחות" tabindex="0">
   <div class="swiper recommendations-swiper" dir="rtl">
     <div class="swiper-wrapper" id="recommendationSlides"></div>
@@ -190,9 +190,8 @@
 </section>
 
 <!-- ✅ טופס יצירת קשר -->
-<h3 class="main-title" id="contactFormTitle" tabindex="0">
-  השאירו פרטים<br>ואחזור אליכם בהקדם :
-</h3>
+<h3 class="main-title" id="contactFormTitle" tabindex="0" data-field="contactFormTitle"></h3>
+
 <div id="contactForm" class="contact-form" role="form" aria-labelledby="contactFormTitle" tabindex="0">
   <div class="form-description" aria-live="polite"></div>
   <form onsubmit="return validateForm(event)">
@@ -212,9 +211,8 @@
 
       <!-- ✅ שיתוף -->
       <div class="share-section" role="region" aria-label="שיתוף כרטיס הביקור" tabindex="0">
-<h3 class="main-title" id="shareCardTitle" tabindex="0" data-field="shareCardTitle">
-  שיתוף כרטיס הביקור
-</h3>
+<h3 class="main-title" id="shareCardTitle" tabindex="0" data-field="shareCardTitle"></h3>
+
         <div class="share-buttons">
           <a data-type="email" href="#" aria-label="שיתוף באימייל" tabindex="0"><img data-field="shareEmailIconSrc" src="#" alt="אימייל" /></a>
           <a data-type="whatsapp" href="#" aria-label="שיתוף בוואטסאפ" tabindex="0"><img data-field="shareWhatsappIconSrc" src="#" alt="וואטסאפ" /></a>
