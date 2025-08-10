@@ -129,18 +129,6 @@
   --btn-contact-font-weight: var(--font-weight-bold);
 
   /* ✨ Gold Line - קו זהב */
-  --gold-line-width: 100%;
-  --gold-line-height: 3px;
-  --gold-line-bg: var(--color-gold-medium);
-  --gold-line-margin: 20px;
-  --gold-line-padding:  0;
-  --gold-line-position: relative;
-  --gold-line-top: -20px;
-  --gold-line-bottom: 0;
-  --gold-line-left: 0;
-  --gold-line-right: 0;
-  --gold-line-border-radius: 0;
-  --gold-line-box-shadow: none;
 
   /* 🎯 Profile - תמונת פרופיל */
   --profile-img-size: 140px;
@@ -292,7 +280,7 @@ img {
    ========================================== */
 
 .card {
-  background-color: var(--card-bg, var(--color-white));
+  background-color: var(--card-bg, var(--color-gray-light));
   border-radius: var(--card-radius, var(--radius-large));
   box-shadow: var(--card-box-shadow, var(--shadow-strong));
   overflow: hidden;
@@ -310,7 +298,7 @@ img {
   margin-right: calc(-1 * var(--card-padding, 0px));
   margin-top: var(--gold-line-margin, 20px);
   margin-bottom: var(--gold-line-margin, 20px);
-  padding: var(--gold-line-padding, 0);
+  padding: var(--gold-line-padding, 0px);
   position: var(--gold-line-position, relative);
   top: var(--gold-line-top, -20px);
   bottom: var(--gold-line-bottom, 0);
