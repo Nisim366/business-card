@@ -566,7 +566,7 @@ strong {
 
 .video-title {
   margin-bottom: var(--video-title-margin-bottom, 12px);
-  color: var(--main-title-color, var(--color-gold-medium));
+  color: var(--video-title-color, var(--main-title-color));
   font-size: var(--title-font-size, var(--font-size-title-XL));
   text-align: var(--video-title-align, center);
 }
@@ -880,7 +880,7 @@ button:hover {
   display: block;
   margin-bottom: var(--contact-label-margin-bottom, var(--spacing-small));
   font-weight: var(--contact-label-font-weight, var(--font-weight-bold));
-  color: var(--main-title-color, var(--color-gold-medium));
+  color: var(--contact-label-color, var(--main-title-color));
 }
 
 .contact-form input,
