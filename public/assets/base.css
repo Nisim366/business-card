@@ -309,7 +309,6 @@ img {
   display: var(--gold-line-display, block);
 }
 
-
 @media (min-width: 769px) {
   .card {
     max-width: 600px;
@@ -323,10 +322,9 @@ img {
 .header-top,
 .top-section {
   width: var(--header-width, 100%);
-  height: var(--header-height, 180px);
+  height: var(--header-height, 280px);
   margin: var(--header-margin, 0);
   padding: var(--header-padding, 0);
-  background: var(--header-bg-color, var(--gradient-white));
   border-radius: var(--header-radius, 0);
   overflow: visible;
 }
