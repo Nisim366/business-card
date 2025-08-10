@@ -353,7 +353,7 @@ img {
   border-radius: var(--profile-img-radius, var(--radius-circle));
   border-width: var(--profile-img-border-width, 3px);
   border-style: var(--profile-img-border-style, solid);
-  border-color: var(--main-background-color, var(--color-gray-dark));
+  border-color: var(--main-background-color, var(--color-white));
   box-shadow: var(--profile-img-box-shadow, var(--shadow-soft));
 }
 
@@ -369,16 +369,13 @@ img {
 
 .name-role .main-title  {
   text-align: var(--name-role-text-align, center);
-  margin: var(--name-role-margin, var(--spacing-large) 0);
+  margin: var(--name-role-margin, var(--spacing-large));
   padding: var(--name-role-padding, 0);
   font-family: var(--name-role-font-family, var(--global-font-family));
   color: var(--name-role-color, var(--color-gray-dark));
   font-size: var(--name-role-font-size, var(--font-size-title-large));
   font-weight: var(--name-role-font-weight, var(--font-weight-bold));
 }
-
-
-
 
 /* ==========================================
    📖 TYPOGRAPHY - טיפוגרפיה
@@ -392,20 +389,6 @@ img {
   margin-bottom: var(--main-title-margin-bottom, var(--spacing-medium));
 }
 
-
-.subtitle {
-  font-size: var(--subtitle-font-size, var(--font-size-large));
-  color: var(--subtitle-color, var(--color-gray-dark));
-  margin-bottom: var(--subtitle-margin-bottom, var(--spacing-xl));
-}
-
-.section-title {
-  font-size: var(--section-title-font-size, var(--font-size-title-medium));
-  font-weight: var(--section-title-font-weight, var(--font-weight-bold));
-  color: var(--section-title-color, var(--color-gray-dark));
-  margin-bottom: var(--section-title-margin-bottom, var(--spacing-large));
-}
-
 strong {
   font-size: var(--strong-font-size, var(--font-size-large));
   font-weight: var(--strong-font-weight, var(--font-weight-bold));
@@ -416,11 +399,6 @@ strong {
    📄 ABOUT SECTION - אזור אודות
    ========================================== */
 
-[data-field="aboutLine1"] {
-  font-size: var(--about-line1-font-size, 18px);
-  font-weight: var(--about-line1-font-weight, bold);
-  margin-bottom: var(--about-line1-margin-bottom, 8px);
-}
 
 
 .about-section {
