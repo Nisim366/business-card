@@ -1,7 +1,7 @@
 window.cardData = {
-  fullName: "הילה סבן",
-  jobTitle: "מטפלת רגשית ומדריכת הורים",
-get pageTitle() {
+fullName: "הילה סבן | מטפלת רגשית ומדריכת הורים",
+
+  get pageTitle() {
     return `${this.fullName} - ${this.jobTitle}`;
   },
   phone: "052-939-5776",
