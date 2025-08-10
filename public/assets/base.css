@@ -407,7 +407,7 @@ img {
 
 .main-title {
   font-family: var(--main-title-font-family, var(--global-font-family));
-  font-size: var(--title-font-size, var(--font-size-title-XL));
+  font-size: var(--main-title-font-size, var(--title-font-size));
   font-weight: var(--main-title-font-weight, var(--font-weight-bold));
   color: var(--main-title-bg, var(--main-title-color));
   margin-bottom: var(--main-title-margin-bottom, var(--spacing-medium));
@@ -452,7 +452,7 @@ strong {
 }
 
 .about-section h3 {
-  font-size: var(--title-font-size, var(--font-size-title-XL));
+  font-size: var(--about-title-font-size, var(--title-font-size));
   color: var(--about-text-color, var(--color-black));
   margin-bottom: var(--about-title-margin-bottom, var(--spacing-medium));
 }
@@ -565,7 +565,7 @@ strong {
 .video-title {
   margin-bottom: var(--video-title-margin-bottom, 12px);
   color: var(--video-title-color, var(--main-title-color));
-  font-size: var(--title-font-size, var(--font-size-title-XL));
+  font-size: var(--video-title-font-size, var(--title-font-size));
   text-align: var(--video-title-align, center);
 }
 
@@ -638,7 +638,7 @@ strong {
   margin-bottom: var(--spacing-small);
 }
 .recommendations-section .main-title {
-  font-size: var(--title-font-size, var(--font-size-title-XL));
+  font-size: var(--recommend-title-font-size, var(--title-font-size));
   color: var(--recommendations-main-title-color, var(--main-title-color));
 }
 
