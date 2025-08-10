@@ -207,7 +207,6 @@
   --recommend-testimonial-margin-top: var(--spacing-medium);
   --recommend-testimonial-min-height: 180px;
   --recommend-testimonial-max-height: 440px;
-  --recommend-name-color: var(--text-primary-color, var(--color-gray-dark));
   --recommend-name-font-size: var(--font-size-title-small);
   --recommend-item-title-font-size: var(--font-size-xl); /* טייטל בתוך המלצה */  
   --recommend-content-font-size: var(--font-size-xl);
@@ -222,20 +221,16 @@
   --recommend-bullet-size: 8px;
   --recommend-bullet-bg: var(--color-gray-dark);
   --recommend-bullet-active-bg: var(--main-brand-color);
-  --read-more-margin-top: 8px;
-  --read-more-font-size: 14px;
-  --read-more-font-weight: bold;
-  --read-more-color: #007bff;
+
+  --recommend-title-color: var(--color-blue-medium);
 
 
   --main-background-color: #e0f7e9; /* כחול־תכלת חלש מאוד – בלי שקיפות */
   --main-title-color: var(--color-black);
   --btn-border-bg-color: #29a9ff;
-  --title-font-size: var(--font-size-title-XLL);
   --contact-btn-hover-bg: var(--color-blue-light);
-
-
-  
+  --title-font-size: var(--font-size-title-XLL);
+  --global-font-family: var(--font-family-modern, sans-serif);
 
   /* 📄 About Section - אזור אודות */
   --about-bg-color: var(--main-background-color);
@@ -319,7 +314,7 @@ img {
 .card .gold-line {
   width: var(--gold-line-width, 100%);
   height: var(--gold-line-height, 3px);
-  background: var(--main-title-color, var(--color-gold-medium));
+  background: var(--gold-line-bg, var(--main-title-color));
   margin-left: calc(-1 * var(--card-padding, 0px));
   margin-right: calc(-1 * var(--card-padding, 0px));
   margin-top: var(--gold-line-margin, 20px);
@@ -399,7 +394,7 @@ img {
   text-align: var(--name-role-text-align, center);
   margin: var(--name-role-margin, var(--spacing-large) 0);
   padding: var(--name-role-padding, 0);
-  font-family: var(--name-role-font-family, var(--font-family-primary));
+  font-family: var(--name-role-font-family, var(--global-font-family));
   color: var(--name-role-color, var(--color-gray-dark));
   font-size: var(--name-role-font-size, var(--font-size-title-large));
   font-weight: var(--name-role-font-weight, var(--font-weight-bold));
@@ -413,11 +408,13 @@ img {
    ========================================== */
 
 .main-title {
+  font-family: var(--main-title-font-family, var(--global-font-family));
   font-size: var(--title-font-size, var(--font-size-title-XL));
   font-weight: var(--main-title-font-weight, var(--font-weight-bold));
-  color: var(--main-title-color, var(--color-gold-medium));
+  color: var(--main-title-bg, var(--main-title-color));
   margin-bottom: var(--main-title-margin-bottom, var(--spacing-medium));
 }
+
 
 .subtitle {
   font-size: var(--subtitle-font-size, var(--font-size-large));
@@ -450,8 +447,8 @@ strong {
 
 
 .about-section {
-  padding: var(--about-padding, var(--spacing-xxl));
-  background-color: var(--about-bg-color, var(--color-gray-medium));
+  padding: var(--about-section-padding, var(--about-padding));
+  background-color: var(--about-section-bg, var(--about-bg-color));
   text-align: var(--about-text-align, center);
   border-radius: var(--about-radius, var(--radius-large));
 }
@@ -470,7 +467,7 @@ strong {
   font-size: var(--about-text-font-size, var(--font-size-medium));
   text-align: var(--about-text-align, right);
   direction: var(--about-text-direction, rtl);
-  font-family: var(--about-text-font-family, "Open Sans"), sans-serif;
+  font-family: var(--about-text-font-family, var(--global-font-family));
 }
 
 .about-section p strong {
@@ -478,12 +475,13 @@ strong {
   font-size: var(--about-strong-font-size, 20px);
   font-weight: var(--about-strong-font-weight, var(--font-weight-bold));
   margin-bottom: var(--about-strong-margin-bottom, 8px);
-  font-family: var(--about-strong-font-family, sans-serif);
+  font-family: var(--about-strong-font-family,var(--global-font-family));
   color: var(--quote-font-color, var(--color-black));
   text-align: var(--about-strong-text-align, center);
 }
 .scroll-to-contact-btn {
   display: inline-block;
+    font-family: var(--scroll-btn-font-family, var(--global-font-family));
   background-color: var(--btn-border-bg-color, var(--color-gold-medium));
   color: var(--scroll-btn-color, var(--color-white));
   font-size: var(--scroll-btn-font-size, 16px);
@@ -504,7 +502,7 @@ strong {
 
 
 .about-section p strong.quote-symbol {
-  font-family: var(--quote-font-family, "Georgia", "Garamond", serif);
+  font-family: var(--quote-font-family, var(--global-font-family));
   font-size: var(--quote-font-size, 50px);
   font-style: italic;
   color: var(--quote-font-color, var(--color-black));
@@ -519,8 +517,8 @@ strong {
 .about-decor svg{
   display:block;
   width:100%;
-  height: var(--decor-height, 16px);
-  color: var(--decor-color,--about-bg-color);
+  height: var(--about-decor-height, 16px);
+  color: var(--about-decor-color,var(--about-bg-color));
 }
 .about-decor .wave-stroke{
   fill: none;
@@ -636,14 +634,14 @@ strong {
 }
 
 .recommendations-section .elementor-testimonial__title {
-  color: var(--main-title-color, var(--color-gold-medium));
+  color: var(--recommend-title-color, var(--main-title-color));
   font-size: var(--recommend-item-title-font-size, var(--recommend-name-font-size));
   font-weight: var(--recommend-title-font-weight,700);
   margin-bottom: var(--spacing-small);
 }
 .recommendations-section .main-title {
   font-size: var(--title-font-size, var(--font-size-title-XL));
-  color: var(--main-title-color, var(--color-gold-medium));
+  color: var(--recommendations-main-title-color, var(--main-title-color));
 }
 
 
@@ -659,7 +657,7 @@ strong {
 
 .elementor-testimonial__content::before {
   content: "\f005";
-  font-family: "Font Awesome 5 Free";
+  font-family: var(--testimonial-icon-font-family, "Font Awesome 5 Free");
   font-weight: 900;
   font-style: normal;
   display: inline-block;
@@ -709,7 +707,7 @@ strong {
   padding: var(--btn-padding, var(--spacing-tiny) var(--spacing-medium));
   border: none;
   border-radius: var(--btn-radius, var(--radius-medium));
-  font-family: inherit;
+  font-family: var(--main-title-font-family, var(--global-font-family));
   font-size: var(--btn-font-size, var(--font-size-small));
   font-weight: var(--btn-font-weight, var(--font-weight-bold));
   text-decoration: var(--btn-text-decoration, none);
@@ -727,7 +725,7 @@ strong {
   padding: var(--btn-contact-padding, var(--btn-padding, var(--spacing-small) var(--spacing-large)));
   border: none;
   border-radius: var(--btn-vcard-radius, var(--btn-radius, var(--radius-medium)));
-  font-family: inherit;
+  font-family: var(--btn-font-family, var(--global-font-family));
   font-size: var(--btn-contact-font-size, var(--font-size-medium));
   font-weight: var(--btn-font-weight, var(--font-weight-bold));
   text-decoration: var(--btn-text-decoration, none);
@@ -813,6 +811,8 @@ button:hover {
   margin-top: var(--icon-text-margin-top, 6px);
   font-size: var(--icon-text-font-size, 14px);
   color: var(--icon-text-color, var(--color-gray-dark));
+  font-family: var(--icon-text-font-family, var(--global-font-family));
+
 }
 
 /* ==========================================
@@ -892,7 +892,7 @@ button:hover {
   margin-bottom: var(--contact-input-margin-bottom, var(--spacing-medium));
   border: 2px solid var(--contact-btn-bg, var(--btn-border-bg-color));
   border-radius: var(--contact-input-radius, var(--radius-medium));
-  font-family: inherit;
+  font-family: var(--contact-input-font-family, var(--global-font-family));
   font-size: var(--contact-input-font-size, var(--font-size-medium));
   box-sizing: border-box;
   text-align: var(--contact-input-text-align, right);
@@ -1221,7 +1221,7 @@ body.accessibility-mode .error-message {
   font-size: 20px;
   font-weight: bold; /* ⬅️ מודגש */
   color: #000000;
-  font-family: inherit;
+  font-family: var(--loader-text-font-family, var(--global-font-family));
   direction: rtl;
 }
 
