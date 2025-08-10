@@ -236,6 +236,8 @@
   --about-radius: var(--radius-large);
   --about-text-align: center;
   --about-title-color: var(--main-brand-color);
+  --card-bg: var(--color-gray-light);
+
 
   --about-title-font-weight: var(--font-weight-bold);
   --about-title-margin-bottom: var(--spacing-medium);
@@ -249,9 +251,7 @@
   --about-highlight-padding: var(--spacing-tiny) var(--spacing-small);
   --about-highlight-radius: var(--radius-small);
 
-  /* 🎯 Body & Layout - עיצוב גוף העמוד */
-  --body-bg-color: var(--color-gray-light);
-  --card-bg: #f8f8f8;
+
 
   /* ♿ Accessibility - נגישות */
   --accessibility-btn-bottom: auto;
@@ -270,22 +270,15 @@
 }
 
 body {
-  /* מידות ומבנה */
   margin: var(--body-margin, 0);
   padding: var(--body-padding, 0);
   min-height: var(--body-min-height, 100vh);
   overflow-y: var(--body-overflow-y, auto);
-
-  /* טקסט וכיוון */
-  font-family: var(--body-font-family, var(--font-family-));
-  font-size: var(--font-size-medium, 14px);
+  font-family: var(--body-font-family, var(--global-font-family));
+  font-size: var(--body-font-size-medium, var(--font-size-medium));
   line-height: var(--body-line-height, 1.4);
-  color: var(--body-text-color, var(--color-gray-dark));
   direction: var(--body-direction, rtl);
   text-align: var(--body-text-align, center);
-
-  /* צבע רקע */
-  background-color: var(--body-bg-color, var(--color-gray-light));
 }
 
 img {
