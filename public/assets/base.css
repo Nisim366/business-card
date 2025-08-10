@@ -396,9 +396,21 @@ strong {
 }
 
 /* ==========================================
-   📄 ABOUT SECTION - אזור אודות
+   📄 ABOUT SECTION - אזור אודות (base.css)
    ========================================== */
+.about-section [data-field="aboutLine1"] {
+  font-size: var(--about-line1-font-size, 18px);
+  font-weight: var(--about-line1-font-weight, 600);
+  margin-bottom: var(--about-line1-margin-bottom, 8px);
+  line-height: var(--about-line1-line-height, 1.4);
+}
 
+/* מבטל דריסת strong בתוך aboutLine1 (כולל יישור) */
+.about-section [data-field="aboutLine1"] strong {
+  font: inherit;
+  font-weight: inherit;
+  text-align: inherit;
+}
 
 
 .about-section {
@@ -406,12 +418,6 @@ strong {
   background-color: var(--about-section-bg, var(--about-bg-color));
   text-align: var(--about-text-align, center);
   border-radius: var(--about-radius, var(--radius-large));
-}
-
-.about-section h3 {
-  font-size: var(--about-title-font-size, var(--title-font-size));
-  color: var(--about-text-color, var(--color-black));
-  margin-bottom: var(--about-title-margin-bottom, var(--spacing-medium));
 }
 
 .about-section p {
