@@ -53,6 +53,11 @@ console.log("📡 isLive:", isLive);document.addEventListener("DOMContentLoaded"
     });
   }
 });
+function formatForWa(phoneDigits = "") {
+  const raw = String(phoneDigits).replace(/\D/g, "");
+  const noLeadingZeros = raw.replace(/^0+/, "");
+  return noLeadingZeros.startsWith("972") ? noLeadingZeros : `972${noLeadingZeros}`;
+}
 
 // ✅ יצירת vCard דינמית
 function generateVCard() {
@@ -122,27 +127,69 @@ const replaceAll = () => {
   return;
 }
 
-
-    if (value === undefined || value === null) return;
-
-    const tag = el.tagName;
-    if (tag === "IMG") {
-      el.src = value;
-    } else if (tag === "A") {
-      switch (field) {
-        case "phone": el.href = `tel:${value}`; break;
-        case "email": el.href = `mailto:${value}`; break;
-        case "whatsapp": el.href = `https://wa.me/972${data.phoneDigits}`; break;
-        case "sms": el.href = `sms:${data.phone}`; break;
-        case "addContact": el.href = data.vcardLink || "#"; break;
-        case "facebookLink": el.href = value; break;
-        default: el.href = value;
+if (value === undefined || value === null) {
+  // אם זה <a> לוואטסאפ או SMS – נבנה בכל מקרה
+  const tag = el.tagName;
+  if (tag === "A") {
+    switch (field) {
+      case "whatsapp": {
+        const wa = String(data.phoneDigits || "").replace(/\D/g, "").replace(/^0+/, "");
+        if (wa) {
+          el.href = `https://wa.me/972${wa}`;
+          el.setAttribute("target", "_blank");
+          el.setAttribute("rel", "noopener");
+        }
+        break;
       }
-    } else {
+      case "sms": {
+        const sms = String(data.phoneDigits || "").replace(/\D/g, "").replace(/^0+/, "");
+        if (sms) {
+          el.href = `sms:+972${sms}`;
+        }
+        break;
+      }
+    }
+  }
+  return;
+}
+
+const tag = el.tagName;
+if (tag === "IMG") {
+  el.src = value;
+} else if (tag === "A") {
+  switch (field) {
+    case "phone":
+      el.href = `tel:${value}`;
+      break;
+    case "email":
+      el.href = `mailto:${value}`;
+      break;
+    case "whatsapp": {
+      const wa = String(data.phoneDigits || "").replace(/\D/g, "").replace(/^0+/, "");
+      el.href = `https://wa.me/972${wa}`;
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener");
+      break;
+    }
+    case "sms": {
+      const sms = String(data.phoneDigits || "").replace(/\D/g, "").replace(/^0+/, "");
+      el.href = `sms:+972${sms}`;
+      break;
+    }
+    case "addContact":
+      el.href = data.vcardLink || "#";
+      break;
+    case "facebookLink":
+      el.href = value;
+      break;
+    default:
+      el.href = value;
+  }
+} else {
       el.innerHTML = value;
     }
   });
-};
+}; //
 
 
   document.title = data.pageTitle || "כרטיס ביקור דיגיטלי";
