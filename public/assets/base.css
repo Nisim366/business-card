@@ -115,7 +115,6 @@
   --btn-font-weight: var(--font-weight-bold);
   --btn-text-decoration: none;
   --btn-transition: background-color 0.3s ease, transform 0.2s ease;
-  --btn-transform-hover: translateY(-2px);
   --btn-vcard-radius: var(--radius-medium);
 
   /* 📞 Contact Buttons - כפתורי יצירת קשר */
@@ -220,10 +219,8 @@
   --global-font-family: var(--font-family-modern, sans-serif);
 
   /* 📄 About Section - אזור אודות */
-  --about-bg-color: var(--main-background-color);
   --about-padding: var(--spacing-xxl);
   --about-radius: var(--radius-large);
-  --about-text-align: center;
   --about-title-color: var(--main-brand-color);
   --card-bg: var(--color-gray-light);
 
@@ -413,7 +410,7 @@ strong {
 
 .about-section {
   padding: var(--about-section-padding, var(--about-padding));
-  background-color: var(--about-section-bg, var(--about-bg-color));
+  background-color: var(--about-section-bg, var(--main-background-color));
   text-align: var(--about-text-align, center);
   border-radius: var(--about-radius, var(--radius-large));
 }
@@ -678,12 +675,7 @@ strong {
   color: var(--btn-text-color-filled, var(--btn-scl-text-color-filled));
 }
 
-.btn:hover,
-.btn-contact:hover {
-  background-color: var(--scroll-btn-hover-bg, var(--contact-btn-hover-bg));
-  color: var(--btn-contact-hover-color, var(--btn-hover-text-color-filled, var(--color-white)));
-  transform: var(--btn-transform-hover, translateY(-2px));
-}
+
 
 #vcardDownload.btn {
   display: inline-block;
@@ -865,14 +857,18 @@ strong {
   cursor: pointer;
   margin-top: var(--contact-btn-margin-top, var(--spacing-medium));
   box-sizing: border-box;
-  transition: background-color 0.3s ease;
 }
 
+
+.btn:hover,
+.btn-contact:hover,
 .contact-form button:hover {
   background-color: var(--scroll-btn-hover-bg, var(--contact-btn-hover-bg));
+  color: var(--btn-contact-hover-color, var(--btn-hover-text-color-filled, var(--color-white)));
+  transform: var(--btn-transform-hover, translateY(-2px));
 }
 
-input[aria-invalid="true"],
+
 textarea[aria-invalid="true"] {
   border: 2px solid red;
 }
