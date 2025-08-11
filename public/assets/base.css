@@ -526,7 +526,6 @@ strong {
   font-size: var(--video-title-font-size, var(--title-font-size));
   text-align: var(--video-title-align, center);
 }
-
 /* ==========================================
    ⭐ RECOMMENDATIONS SECTION - המלצות
    ========================================== */
