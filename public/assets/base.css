@@ -213,6 +213,7 @@
 
   --main-background-color: #e0f7e9; /* כחול־תכלת חלש מאוד – בלי שקיפות */
   --main-title-color: var(--color-black);
+  --about-section-p-text-color: var(--color-black);
   --btn-border-bg-color: #29a9ff;
   --contact-btn-hover-bg: var(--color-blue-light);
   --title-font-size: var(--font-size-title-XLL);
@@ -229,10 +230,7 @@
 
   --about-title-font-weight: var(--font-weight-bold);
   --about-title-margin-bottom: var(--spacing-medium);
-  --about-text-color: var(--color-black);
   --about-text-font-size: var(--font-size-medium);
-  --about-text-line-height: 1.6;
-  --about-text-max-width: 800px;
   --about-text-margin: 0 auto;
   --about-highlight-bg: rgba(0, 0, 0, 0.1);
   --about-highlight-color: var(--color-white);
@@ -424,9 +422,9 @@ strong {
   line-height: var(--about-text-line-height, 1.6);
   max-width: var(--about-text-max-width, 800px);
   margin: var(--about-text-margin, 0 auto);
-  color: var(--about-text-color, var(--color-black));
+  color: var(--about-text-color, var(--about-section-p-text-color));
   font-size: var(--about-text-font-size, var(--font-size-medium));
-  text-align: var(--about-text-align, right);
+  text-align: var(--about-section-p-text-align, center);
   direction: var(--about-text-direction, rtl);
   font-family: var(--about-text-font-family, var(--global-font-family));
 }
