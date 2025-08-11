@@ -54,7 +54,7 @@ features: {
 
   aboutParagraphs: `
 <p><strong class="quote-symbol">''</strong></p>
-<p data-field="aboutLine1"><strong>נעים מאוד, אני הילה סבן מאור עקיבה</strong></p>
+<p data-field="aboutLine1"><strong>נעים מאוד, אני הילה סבן מאור עקיבא</strong></p>
 <p data-field="aboutEmptyLine">&nbsp;</p>
 
 
