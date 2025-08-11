@@ -157,11 +157,11 @@
   --global-font-family: var(--font-family-modern, sans-serif);
   --name-role-title-color: var(--color-gray-dark);
 
+
   /* 📄 About Section - אזור אודות */
   --about-padding: var(--spacing-xxl);
   --about-radius: var(--radius-large);
   --about-title-color: var(--main-brand-color);
-  --card-bg: var(--color-gray-light);
 
 
   --about-title-font-weight: var(--font-weight-bold);

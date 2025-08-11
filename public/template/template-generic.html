@@ -2,27 +2,24 @@
 <html lang="he">
 <head>
   <meta charset="utf-8" />
-<!-- פאביקון ברירת מחדל (נטען מיד) -->
-<link id="dynamicFavicon" rel="icon" type="image/png" href="/assets/logo/myLogo.jpg" data-field="favicon">
+  <link id="dynamicFavicon" rel="icon" type="image/png" href="/assets/logo/myLogo.jpg" data-field="favicon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title data-field="pageTitle">כרטיס ביקור דיגיטלי</title>
-
   <script src="/template/data-client.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="/assets/base.css">
+  <link rel="stylesheet" href="/assets/themes.css"> <!-- נטען אחרון כדי לדרוס -->
   <script src="/scripts/script.js" defer></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
-
-
 </head>
 
-<body data-email="להגדיר FALLBACK" data-whatsapp="להגדיר FALLBACK">
+<body class="theme-modern" data-email="להגדיר FALLBACK" data-whatsapp="להגדיר FALLBACK">
   <div class="loader-overlay" role="status" aria-live="polite" tabindex="0">
     <div class="loader-spinner" aria-hidden="true"></div>
     <p class="loader-text">טוען...</p>
   </div>
-
+</body>
 
   <div class="card" role="main" tabindex="1">
     <div class="top-section" role="banner" aria-label="חלק עליון" tabindex="2">
@@ -40,50 +37,49 @@
       <div class="name-role" tabindex="0">
         <h1 class="main-title" data-field="fullName"><span data-field="fullName">שם מלא</span></h1>
       </div>
-<nav class="icons icon-grid" role="navigation" aria-label="קישורי יצירת קשר">
-  <div class="icon-item">
-    <a href="#" data-field="phone" aria-label="חיוג טלפון" tabindex="0">
-      <img data-field="phoneIconSrc" src="#" alt="טלפון" />
-    </a>
-    <span>טלפון</span>
-  </div>
+      <nav class="icons icon-grid" role="navigation" aria-label="קישורי יצירת קשר">
+        <div class="icon-item">
+          <a href="#" data-field="phone" aria-label="חיוג טלפון" tabindex="0">
+            <img data-field="phoneIconSrc" src="#" alt="טלפון" />
+          </a>
+          <span>טלפון</span>
+        </div>
 
-  <div class="icon-item">
-    <a href="#" data-field="whatsapp" aria-label="שליחת הודעת וואטסאפ" tabindex="0">
-      <img data-field="whatsappIconSrc" src="#" alt="וואטסאפ" />
-    </a>
-    <span>וואטסאפ</span>
-  </div>
+        <div class="icon-item">
+          <a href="#" data-field="whatsapp" aria-label="שליחת הודעת וואטסאפ" tabindex="0">
+            <img data-field="whatsappIconSrc" src="#" alt="וואטסאפ" />
+          </a>
+          <span>וואטסאפ</span>
+        </div>
 
-  <div class="icon-item">
-    <a href="#" data-field="email" aria-label="שליחת מייל" tabindex="0">
-      <img data-field="emailIconSrc" src="#" alt="מייל" />
-    </a>
-    <span>מייל</span>
-  </div>
+        <div class="icon-item">
+          <a href="#" data-field="email" aria-label="שליחת מייל" tabindex="0">
+            <img data-field="emailIconSrc" src="#" alt="מייל" />
+          </a>
+          <span>מייל</span>
+        </div>
 
-  <div class="icon-item">
-    <a href="#" data-field="sms" aria-label="שליחת הודעת SMS" tabindex="0">
-      <img data-field="smsIconSrc" src="#" alt="הודעה" />
-    </a>
-    <span>הודעה</span>
-  </div>
+        <div class="icon-item">
+          <a href="#" data-field="sms" aria-label="שליחת הודעת SMS" tabindex="0">
+            <img data-field="smsIconSrc" src="#" alt="הודעה" />
+          </a>
+          <span>הודעה</span>
+        </div>
 
-  <div class="icon-item">
-    <a href="#" data-field="facebookLink" aria-label="עמוד פייסבוק" tabindex="0">
-      <img data-field="facebookIconSrc" src="#" alt="פייסבוק" />
-    </a>
-    <span>פייסבוק</span>
-  </div>
+        <div class="icon-item">
+          <a href="#" data-field="facebookLink" aria-label="עמוד פייסבוק" tabindex="0">
+            <img data-field="facebookIconSrc" src="#" alt="פייסבוק" />
+          </a>
+          <span>פייסבוק</span>
+        </div>
 
-<div class="icon-item">
-  <a href="#" data-icon-action="link" data-field="wazeLink" aria-label="נווט עם Waze" tabindex="0">
-    <img data-field="wazeIconSrc" src="#" alt="Waze" />
-  </a>
-  <span data-field="wazeLabel">Waze</span>
-</div>
-
-</nav>
+        <div class="icon-item">
+          <a href="#" data-icon-action="link" data-field="wazeLink" aria-label="נווט עם Waze" tabindex="0">
+            <img data-field="wazeIconSrc" src="#" alt="Waze" />
+          </a>
+          <span data-field="wazeLabel">Waze</span>
+        </div>
+      </nav>
 
       <a href="#" class="btn" data-field="addContact" id="vcardDownload" role="button" aria-label="הוסף איש קשר" tabindex="0">
         ➕ הוסף לאנשי קשר
@@ -126,114 +122,108 @@
 
     <!-- <h3 class="main-title" id="aboutSectionTitle" tabindex="0">אודות</h3> -->
      
-<div class="about-parallax-wrapper" role="region" aria-labelledby="aboutSectionTitle" tabindex="0">
-  <div class="about-section" role="region" aria-label="תיאור העסק">
-    <div data-field="aboutParagraphs" role="document" aria-live="polite" tabindex="0">
-    </div>
+        <div class="about-parallax-wrapper" role="region" aria-labelledby="aboutSectionTitle" tabindex="0">
+          <div class="about-section" role="region" aria-label="תיאור העסק">
+            <div data-field="aboutParagraphs" role="document" aria-live="polite" tabindex="0">
+            </div>
 
+            <!-- ✅ אקורדיון 1 -->
+            <div class="elementor-toggle-wrapper" role="group" aria-labelledby="accordionTitle1">
+              <div class="elementor-tab-title override-right" id="accordionTitle1" data-tab="generic1" role="button" tabindex="0" aria-controls="elementor-tab-content-generic1" aria-expanded="false">
+                <span class="elementor-toggle-icon elementor-toggle-icon-right">
+                  
+                </span>
+                <span class="elementor-toggle-title" data-field="accordionTitle1">כותרת נפתחת 1</span>
+              </div>
+              <div class="elementor-tab-content" hidden id="elementor-tab-content-generic1" role="region" aria-label="תוכן כותרת נפתחת 1" tabindex="0">
+                <div class="accordion-text-block" data-field="accordionText1">
+                  <p>מומלץ להכניס כאן טקסט אישי עבור כותרת זו.</p>
+                </div>
+              </div>
+            </div>
 
-
-
-    <!-- ✅ אקורדיון 1 -->
-    <div class="elementor-toggle-wrapper" role="group" aria-labelledby="accordionTitle1">
-      <div class="elementor-tab-title override-right" id="accordionTitle1" data-tab="generic1" role="button" tabindex="0" aria-controls="elementor-tab-content-generic1" aria-expanded="false">
-        <span class="elementor-toggle-icon elementor-toggle-icon-right">
-          
-        </span>
-        <span class="elementor-toggle-title" data-field="accordionTitle1">כותרת נפתחת 1</span>
-      </div>
-      <div class="elementor-tab-content" hidden id="elementor-tab-content-generic1" role="region" aria-label="תוכן כותרת נפתחת 1" tabindex="0">
-        <div class="accordion-text-block" data-field="accordionText1">
-          <p>מומלץ להכניס כאן טקסט אישי עבור כותרת זו.</p>
+            <!-- ✅ אקורדיון 2 -->
+            <div class="elementor-toggle-wrapper" role="group" aria-labelledby="accordionTitle2">
+              <div class="elementor-tab-title override-right" id="accordionTitle2" data-tab="generic2" role="button" tabindex="0" aria-controls="elementor-tab-content-generic2" aria-expanded="false">
+                <span class="elementor-toggle-icon elementor-toggle-icon-right">
+                
+                </span>
+                <span class="elementor-toggle-title" data-field="accordionTitle2">כותרת נפתחת 2</span>
+              </div>
+              <div class="elementor-tab-content" hidden id="elementor-tab-content-generic2" role="region" aria-label="תוכן כותרת נפתחת 2" tabindex="0">
+                <div class="accordion-text-block" data-field="accordionText2">
+                  <p>מומלץ להכניס כאן טקסט אישי נוסף.</p>
+                </div>
+              </div>
+            <button class="scroll-to-contact-btn" aria-label="מעבר לטופס יצירת קשר" data-field="scrollToContactText"></button>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- ✅ אקורדיון 2 -->
-    <div class="elementor-toggle-wrapper" role="group" aria-labelledby="accordionTitle2">
-      <div class="elementor-tab-title override-right" id="accordionTitle2" data-tab="generic2" role="button" tabindex="0" aria-controls="elementor-tab-content-generic2" aria-expanded="false">
-        <span class="elementor-toggle-icon elementor-toggle-icon-right">
-         
-        </span>
-        <span class="elementor-toggle-title" data-field="accordionTitle2">כותרת נפתחת 2</span>
-      </div>
-      <div class="elementor-tab-content" hidden id="elementor-tab-content-generic2" role="region" aria-label="תוכן כותרת נפתחת 2" tabindex="0">
-        <div class="accordion-text-block" data-field="accordionText2">
-          <p>מומלץ להכניס כאן טקסט אישי נוסף.</p>
+        <!-- ✅ סרטון תדמית -->
+        <div data-switch="video" role="region" aria-label="סרטון תדמית" tabindex="0">
+          <p class="main-title video-title" data-field="videoMainTitle"></p>
+          <div class="video-wrapper">
+            <div class="video-container" data-field="videoSrc"></div>
+          </div>
         </div>
-      </div>
-     <button class="scroll-to-contact-btn" aria-label="מעבר לטופס יצירת קשר" data-field="scrollToContactText"></button>
-
-
-    </div>
-  </div>
-
-
-<!-- ✅ סרטון תדמית -->
-<div data-switch="video" role="region" aria-label="סרטון תדמית" tabindex="0">
-  <p class="main-title video-title" data-field="videoMainTitle"></p>
-  <div class="video-wrapper">
-    <div class="video-container" data-field="videoSrc"></div>
-  </div>
-</div>
 
 
 
-<!-- ✅ המלצות -->
-<h2 class="main-title" data-field="recommendationsMainTitle"></h2>
-<section class="recommendations-section" data-switch="recommendations" role="region" aria-label="המלצות לקוחות" tabindex="0">
-  <div class="swiper recommendations-swiper" dir="rtl">
-    <div class="swiper-wrapper" id="recommendationSlides"></div>
-    <div class="swiper-pagination recommendations-pagination"></div>
-  </div>
-</section>
+          <!-- ✅ המלצות -->
+          <h2 class="main-title" data-field="recommendationsMainTitle"></h2>
+          <section class="recommendations-section" data-switch="recommendations" role="region" aria-label="המלצות לקוחות" tabindex="0">
+            <div class="swiper recommendations-swiper" dir="rtl">
+              <div class="swiper-wrapper" id="recommendationSlides"></div>
+              <div class="swiper-pagination recommendations-pagination"></div>
+            </div>
+          </section>
 
-<!-- ✅ טופס יצירת קשר -->
-<h3 class="main-title" id="contactFormTitle" tabindex="0" data-field="contactFormTitle"></h3>
+          <!-- ✅ טופס יצירת קשר -->
+          <h3 class="main-title" id="contactFormTitle" tabindex="0" data-field="contactFormTitle"></h3>
 
-<div id="contactForm" class="contact-form" role="form" aria-labelledby="contactFormTitle" tabindex="0">
-  <div class="form-description" aria-live="polite"></div>
-  <form onsubmit="return validateForm(event)">
-    <div class="input-row">
-      <input id="fullName" placeholder="שם מלא" required type="text" aria-label="שם מלא" aria-required="true" aria-invalid="false" tabindex="0" />
-      <div id="errorFullName" class="error-message" aria-live="polite"></div>
-      <input id="phoneNumber" placeholder="מספר טלפון" required type="tel" aria-label="מספר טלפון" aria-required="true" aria-invalid="false" tabindex="0" />
-      <div id="errorPhone" class="error-message" aria-live="polite"></div>
-    </div>
-    <textarea id="message" placeholder="הודעה חופשית" aria-label="הודעה חופשית" tabindex="0"></textarea>
-    <button type="button" onclick="sendToWhatsapp(event)" data-action="sendWhatsapp" aria-label="שלח לוואטסאפ" tabindex="0">שלח לוואטסאפ</button>
-    <button type="button" class="btn" onclick="sendToEmail(event)" data-action="sendEmail" aria-label="שלח למייל" tabindex="0">
-דברו איתי !     </button>
-  </form>
-</div>
+          <div id="contactForm" class="contact-form" role="form" aria-labelledby="contactFormTitle" tabindex="0">
+            <div class="form-description" aria-live="polite"></div>
+            <form onsubmit="return validateForm(event)">
+              <div class="input-row">
+                <input id="fullName" placeholder="שם מלא" required type="text" aria-label="שם מלא" aria-required="true" aria-invalid="false" tabindex="0" />
+                <div id="errorFullName" class="error-message" aria-live="polite"></div>
+                <input id="phoneNumber" placeholder="מספר טלפון" required type="tel" aria-label="מספר טלפון" aria-required="true" aria-invalid="false" tabindex="0" />
+                <div id="errorPhone" class="error-message" aria-live="polite"></div>
+              </div>
+              <textarea id="message" placeholder="הודעה חופשית" aria-label="הודעה חופשית" tabindex="0"></textarea>
+              <button type="button" onclick="sendToWhatsapp(event)" data-action="sendWhatsapp" aria-label="שלח לוואטסאפ" tabindex="0">שלח לוואטסאפ</button>
+              <button type="button" class="btn" onclick="sendToEmail(event)" data-action="sendEmail" aria-label="שלח למייל" tabindex="0">
+          דברו איתי !     </button>
+            </form>
+          </div>
 
 
-      <!-- ✅ שיתוף -->
-      <div class="share-section" role="region" aria-label="שיתוף כרטיס הביקור" tabindex="0">
-<h3 class="main-title" id="shareCardTitle" tabindex="0" data-field="shareCardTitle"></h3>
+          <!-- ✅ שיתוף -->
+          <div class="share-section" role="region" aria-label="שיתוף כרטיס הביקור" tabindex="0">
+          <h3 class="main-title" id="shareCardTitle" tabindex="0" data-field="shareCardTitle"></h3>
 
-        <div class="share-buttons">
+            <div class="share-buttons">
           <a data-type="email" href="#" aria-label="שיתוף באימייל" tabindex="0"><img data-field="shareEmailIconSrc" src="#" alt="אימייל" /></a>
           <a data-type="whatsapp" href="#" aria-label="שיתוף בוואטסאפ" tabindex="0"><img data-field="shareWhatsappIconSrc" src="#" alt="וואטסאפ" /></a>
           <a data-type="linkedin" href="#" aria-label="שיתוף בלינקדאין" tabindex="0"><img data-field="shareLinkedinIconSrc" src="#" alt="לינקדאין" /></a>
           <a data-type="twitter" href="#" aria-label="שיתוף בטוויטר" tabindex="0"><img data-field="shareTwitterIconSrc" src="#" alt="טוויטר" /></a>
           <a data-type="facebook" href="#" aria-label="שיתוף בפייסבוק" tabindex="0"><img data-field="shareFacebookIconSrc" src="#" alt="פייסבוק" /></a>
           <a data-type="telegram" href="#" aria-label="שיתוף בטלגרם" tabindex="0"><img data-field="shareTelegramIconSrc" src="#" alt="טלגרם" /></a>
+           </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-   </div>
+      </div>
 
-  <!-- ✅ קרדיט -->
-  <div class="credit" role="contentinfo" aria-label="קרדיט על פיתוח הכרטיס" tabindex="0">
-    <p>This business card was built by Clix</p>
-    <button class="cardly-btn" aria-label="כפתור Clix" tabindex="0">Clix</button>
-    <p>© כל הזכויות שמורות Clix</p>
-  </div>
-  
-<button id="accessibilityToggle" aria-label="הפעלת מצב נגישות">
-  <img src="/assets/logo/accessibility-icon.png" alt="אייקון מצב נגישות" />
-</button>
-</body>
-</html>
+        <!-- ✅ קרדיט -->
+        <div class="credit" role="contentinfo" aria-label="קרדיט על פיתוח הכרטיס" tabindex="0">
+          <p>This business card was built by Clix</p>
+          <button class="cardly-btn" aria-label="כפתור Clix" tabindex="0">Clix</button>
+          <p>© כל הזכויות שמורות Clix</p>
+        </div>
+        
+      <button id="accessibilityToggle" aria-label="הפעלת מצב נגישות">
+        <img src="/assets/logo/accessibility-icon.png" alt="אייקון מצב נגישות" />
+      </button>
+      </body>
+      </html>

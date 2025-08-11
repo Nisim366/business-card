@@ -1,0 +1,117 @@
+/* =========================
+   /assets/themes.css – התאמה לשמות המשתנים בקוד הקיים
+   טען אחרי base.css ו-style.css
+   ========================= */
+
+/* 1) קלאסי ונקי */
+.theme-classic {
+  /* רקעים */
+  --card-bg: #ffffff;
+  --about-section-bg: #f9f9f9;
+  --recommendations-section-bg: #f9f9f9;
+  --main-background-color: #f9f9f9;
+
+  /* טקסטים וכותרות */
+  --main-title-color: var(--color-black);
+  --main-title-bg: var(--main-title-color);
+  --about-text-color: var(--color-black);
+  --about-section-p-text-color: var(--color-black);
+  --name-role-color: var(--color-gray-dark);
+
+  /* כפתורים */
+  --contact-btn-bg: #29a9ff;
+  --btn-border-bg-color: #29a9ff;      /* תאימות להגדרות קוד קיימות */
+  --contact-btn-hover-bg: var(--color-blue-light);
+
+  /* טיפוגרפיה כללית */
+  --title-font-size: var(--font-size-title-XLL);
+  --global-font-family: var(--font-family-modern, sans-serif);
+}
+
+/* 2) מודרני ורענן */
+.theme-modern {
+  --card-bg: #f0f8ff;                  /* AliceBlue */
+  --about-section-bg: #e6f0ff;
+  --recommendations-section-bg: #e6f0ff;
+  --main-background-color: #e6f0ff;
+
+  --main-title-color: #003366;
+  --main-title-bg: #003366;
+  --about-text-color: #003366;
+  --about-section-p-text-color: #003366;
+  --name-role-color: var(--color-gray-dark);
+
+  --contact-btn-bg: #1d6fff;
+  --btn-border-bg-color: #1d6fff;
+  --contact-btn-hover-bg: #3d82ff;
+
+  --title-font-size: var(--font-size-title-XLL);
+  --global-font-family: var(--font-family-modern, sans-serif);
+}
+
+/* 3) חמים ואישי */
+.theme-warm {
+  --card-bg: #fffaf3;
+  --about-section-bg: #f5ede0;
+  --recommendations-section-bg: #f5ede0;
+  --main-background-color: #f5ede0;
+
+  --main-title-color: #5a3e2b;
+  --main-title-bg: #5a3e2b;
+  --about-text-color: #5a3e2b;
+  --about-section-p-text-color: #5a3e2b;
+  --name-role-color: var(--color-gray-dark);
+
+  --contact-btn-bg: #c67c3a;
+  --btn-border-bg-color: #c67c3a;
+  --contact-btn-hover-bg: #e28d45;
+
+  --title-font-size: var(--font-size-title-XLL);
+  --global-font-family: var(--font-family-modern, sans-serif);
+}
+
+/* 4) יוקרתי (כהה + זהב) */
+.theme-luxe {
+  --card-bg: #111111;
+  --about-section-bg: #1a1a1a;
+  --recommendations-section-bg: #1a1a1a;
+  --main-background-color: #1a1a1a;
+
+  --main-title-color: #d4af37;
+  --main-title-bg: #d4af37;
+  --about-text-color: #e0e0e0;
+  --about-section-p-text-color: #e0e0e0;
+  --name-role-color: var(--color-gray-dark);
+
+  --contact-btn-bg: #d4af37;
+  --btn-border-bg-color: #d4af37;
+  --contact-btn-hover-bg: #f5d05c;
+
+  --title-font-size: var(--font-size-title-XLL);
+  --global-font-family: var(--font-family-modern, sans-serif);
+}
+
+/* 5) טבעי ואורגני */
+.theme-organic {
+  --card-bg: #e9f5ec;
+  --about-section-bg: #d6ebdc;
+  --recommendations-section-bg: #d6ebdc;
+  --main-background-color: #d6ebdc;
+
+  --main-title-color: #2f5d38;
+  --main-title-bg: #2f5d38;
+  --about-text-color: #2f5d38;
+  --about-section-p-text-color: #2f5d38;
+  --name-role-color: var(--color-gray-dark);
+
+  --contact-btn-bg: #4aa96c;
+  --btn-border-bg-color: #4aa96c;
+  --contact-btn-hover-bg: #65c287;
+
+  --title-font-size: var(--font-size-title-XLL);
+  --global-font-family: var(--font-family-modern, sans-serif);
+}
+
+/* אופציונלי: חיזוק ניגודיות כותרות */
+.theme-strong-titles { --main-title-color: #111111; --main-title-bg: #111111; }
+.theme-luxe.theme-strong-titles { --main-title-color: #f6d97a; --main-title-bg: #f6d97a; }
