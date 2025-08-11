@@ -832,15 +832,10 @@ textarea[aria-invalid="true"] {
   font-size: var(--accordion-title-font-size, var(--font-size-small));
   font-weight: var(--accordion-title-font-weight, var(--font-weight-bold));
   color: var(--accordion-title-color, var(--color-black));
+  font-family: var(--elementor-toggle-title-font-family, var(--global-font-family));
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.elementor-toggle-icon {
-  margin-left: var(--accordion-icon-margin-left, 8px);
-  font-size: var(--accordion-icon-size, var(--font-size-medium));
-  color: var(--accordion-icon-color, var(--color-primary));
 }
 
 /* ==========================================
