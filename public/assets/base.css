@@ -99,7 +99,6 @@
   --contact-form-description: "מעוניינת לקבוע תור? מלאי את הטופס ואחזור אלייך בהקדם";
 
   /* 🔘 Buttons - כפתורים כלליים */
-  --btn-display: inline-block;
   --btn-text-color-filled: var(--color-white);
   --btn-hover-bg-filled: var(--color-gold-dark);
   --btn-hover-text-color-filled: var(--color-white);
@@ -108,13 +107,6 @@
   --btn-border-outline: 2px solid var(--color-gold-medium);
   --btn-hover-bg-outline: var(--color-gold-medium);
   --btn-hover-text-color-outline: var(--color-white);
-  --btn-radius: var(--radius-medium);
-  --btn-padding: var(--spacing-small) var(--spacing-large);
-  --btn-margin: var(--spacing-small) auto;
-  --btn-font-size: var(--font-size-medium);
-  --btn-font-weight: var(--font-weight-bold);
-  --btn-text-decoration: none;
-  --btn-transition: background-color 0.3s ease, transform 0.2s ease;
   --btn-vcard-radius: var(--radius-medium);
 
   /* 📞 Contact Buttons - כפתורי יצירת קשר */
@@ -624,11 +616,11 @@ strong {
 
 .btn {
   display: var(--btn-display, inline-block);
-  padding: var(--btn-padding, var(--spacing-tiny) var(--spacing-medium));
+  padding: var(--btn-padding, var(--spacing-small));
   border: none;
   border-radius: var(--btn-radius, var(--radius-medium));
   font-family: var(--main-title-font-family, var(--global-font-family));
-  font-size: var(--btn-font-size, var(--font-size-small));
+  font-size: var(--btn-font-size, var(--font-size-medium));
   font-weight: var(--btn-font-weight, var(--font-weight-bold));
   text-decoration: var(--btn-text-decoration, none);
   text-align: center;
@@ -639,16 +631,12 @@ strong {
   color: var(--btn-text-color-filled, var(--btn-scl-text-color-filled));
 }
 
-
-
 #vcardDownload.btn {
   display: inline-block;
   width: var(--vcard-btn-width, 100%); 
-  max-width: var(--vcard-btn-max-width, 300px); 
-  margin-bottom: var(--vcard-btn-margin-bottom, 20px);
-
+  max-width: var(--vcard-btn-max-width, 350px); 
+  margin-bottom: var(--vcard-btn-margin-bottom, 25px);
 }
-
 
 /* ==========================================
    🖼️ ICON GRID - רשת אייקונים
