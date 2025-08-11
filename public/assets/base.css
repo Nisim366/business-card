@@ -851,18 +851,6 @@ textarea[aria-invalid="true"] {
   margin: var(--separator-margin, var(--spacing-xl) 0);
 }
 
-/* ==========================================
-   🦶 FOOTER - פוטר
-   ========================================== */
-
-.footer-bottom {
-  padding: var(--footer-padding, var(--spacing-large) 0);
-  background-color: var(--footer-bg-color, var(--color-gray-dark));
-  color: var(--footer-text-color, var(--color-white));
-  border-top-left-radius: var(--footer-radius-left, var(--radius-large));
-  border-top-right-radius: var(--footer-radius-right, var(--radius-large));
-  margin-top: var(--footer-margin-top, var(--spacing-xxl));
-}
 
 /* ==========================================
    📱 SECTIONS - אזורים כלליים
