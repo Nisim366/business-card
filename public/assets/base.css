@@ -175,26 +175,9 @@
   --share-icon-hover-scale: 1.1;
 
   /* ⭐ Recommendations - המלצות */
-  --recommendations-section-bg: var(--main-background-color);
-  --recommendations-section-padding: var(--spacing-medium);
-  --recommendations-section-radius: var(--radius-large);
-  --recommendations-section-margin-top: 40px;
   --recommend-swiper-radius: 12px;
   --recommend-swiper-bg: #f7f7f7;
   --recommend-swiper-padding: 8px;
-  --recommend-slide-min-height: 180px;
-  --recommend-slide-max-height: 280px;
-  --recommend-slide-padding: 12px;
-  --recommend-testimonial-gap: var(--spacing-large);
-  --recommend-testimonial-radius: var(--radius-large);
-  --recommend-testimonial-bg: var(--color-white);
-  --recommend-testimonial-border: 1px solid var(--main-brand-color);
-  --recommend-testimonial-padding: var(--spacing-large);
-  --recommend-testimonial-margin-top: var(--spacing-medium);
-  --recommend-testimonial-min-height: 180px;
-  --recommend-testimonial-max-height: 440px;
-  --recommend-name-font-size: var(--font-size-title-small);
-  --recommend-item-title-font-size: var(--font-size-xl); /* טייטל בתוך המלצה */  
   --recommend-content-font-size: var(--font-size-xl);
   --recommend-content-line-height: 1.5;
   --testimonial-icon-size: var(--font-size-xl);
@@ -536,8 +519,9 @@ strong {
   align-items: center;
   margin-top: var(--recommendations-section-margin-top, 40px);
   padding: var(--recommendations-section-padding, var(--spacing-medium));
-  background-color: var(--recommendations-section-bg, var(--color-gray-medium));
+  background-color: var(--recommendations-section-bg, var(--main-background-color));
   border-radius: var(--recommendations-section-radius, var(--radius-large));
+  font-family: var(--recommend-font-family, var(--global-font-family));
 }
 
 .recommendations-section .recommendations-swiper,
@@ -560,40 +544,42 @@ strong {
   flex: 0 0 100%;
   max-width: 100%;
   display: flex;
-  min-height: var(--recommend-slide-min-height);
-  max-height: var(--recommend-slide-max-height);
-  padding: var(--recommend-slide-padding);
+  min-height: var(--recommend-slide-min-height, auto);
+  max-height: var(--recommend-slide-max-height, none);
+  padding: var(--recommend-slide-padding, var(--spacing-medium));
   box-sizing: border-box;
 }
+
 
 .recommendations-section .elementor-testimonial {
   flex-grow: 1;
   width: 100%;
   height: 100%;
-  border-radius: var(--recommend-testimonial-radius);
-  background-color: var(--recommend-testimonial-bg);
-  border: var(--recommend-testimonial-border);
-  padding: var(--recommend-testimonial-padding);
-  margin-top: var(--recommend-testimonial-margin-top);
+  border-radius: var(--recommend-testimonial-radius, var(--radius-large));
+  background-color: var(--recommend-testimonial-bg, var(--color-white));
+  border: var(--recommend-testimonial-border, none);
+  padding: var(--recommend-testimonial-padding, var(--spacing-large));
+  margin-top: var(--recommend-testimonial-margin-top, 0);
   margin-bottom: var(--recommend-testimonial-gap, var(--spacing-large));
-  min-height: var(--recommend-testimonial-min-height);
-  max-height: var(--recommend-testimonial-max-height);
+  min-height: var(--recommend-testimonial-min-height, auto);
+  max-height: var(--recommend-testimonial-max-height, none);
   overflow: hidden;
 }
 
 .recommendations-section .elementor-testimonial__name {
   color: var(--recommend-name-color, var(--color-black));
-  font-size: var(--recommend-name-font-size, var(--font-size-title-XL));
+  font-size: var(--recommend-name-font-size, var(--font-size-title-small));
   font-weight: var(--recommend-name-font-weight, 900);
-  margin-bottom: var(--spacing-tiny, 4px);
+  margin-bottom: var(--spacing-tiny, 5px);
 }
 
 .recommendations-section .elementor-testimonial__title {
   color: var(--recommend-title-color, var(--main-title-color));
-  font-size: var(--recommend-item-title-font-size, var(--recommend-name-font-size));
-  font-weight: var(--recommend-title-font-weight,700);
-  margin-bottom: var(--spacing-small);
+  font-size: var(--recommend-item-title-font-size, var(--font-size-large)); /* טייטל בתוך המלצה */
+  font-weight: var(--recommend-title-font-weight,100);
+  margin-bottom: var(--spacing-small, 10px);
 }
+
 .recommendations-section .main-title {
   font-size: var(--recommend-title-font-size, var(--title-font-size));
   color: var(--recommendations-main-title-color, var(--main-title-color));
