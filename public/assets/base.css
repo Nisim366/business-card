@@ -178,17 +178,10 @@
   --recommend-swiper-radius: 12px;
   --recommend-swiper-bg: #f7f7f7;
   --recommend-swiper-padding: 8px;
-  --recommend-content-font-size: var(--font-size-xl);
-  --recommend-content-line-height: 1.5;
-  --testimonial-icon-size: var(--font-size-xl);
-  --testimonial-icon-color: var(--color-gold-light);
   --testimonial-icon-margin-bottom: var(--spacing-small);
   --testimonial-read-more-color: var(--color-gray-dark);
   --testimonial-read-more-hover-color: var(--main-brand-color);
   --testimonial-read-more-text-decoration: underline;
-  --recommend-pagination-margin: 12px;
-  --recommend-bullet-size: 8px;
-  --recommend-bullet-bg: var(--color-gray-dark);
   --recommend-bullet-active-bg: var(--main-brand-color);
   --recommend-title-color: var(--color-blue-medium);
 
@@ -590,10 +583,10 @@ strong {
 .recommendations-section .elementor-testimonial__content,
 .recommendations-section .elementor-testimonial__text {
   color: var(--recommend-content-color, var(--color-black));
-  font-size: var(--recommend-content-font-size, 18px);
-  line-height: var(--recommend-content-line-height, 1.6);
-  font-weight: var(--recommend-name-font-weight, 400);
-  margin-bottom: var(--spacing-medium, 16px);
+  font-size: var(--recommend-content-font-size, var(--font-size-xl));
+  line-height: var(--recommend-content-line-height, 1.5);
+  font-weight: var(--recommend-text-font-weight, 500);
+  margin-bottom: var(--spacing-medium, 15px);
 }
 
 .elementor-testimonial__content::before {
@@ -602,7 +595,7 @@ strong {
   font-weight: 900;
   font-style: normal;
   display: inline-block;
-  color: var(--testimonial-icon-color, var(--color-gold-medium));
+  color: var(--testimonial-icon-color, var(--color-gold-light));
   font-size: var(--testimonial-icon-size, var(--font-size-xl));
   margin-left: 4px;
   margin-right: 8px;
@@ -623,20 +616,6 @@ strong {
   border-radius: 50%;
   margin: 0 4px;
   transition: opacity 0.3s ease;
-}
-
-.recommendations-section .swiper-pagination-bullet-active {
-  background: var(--recommend-bullet-active-bg);
-}
-
-.swiper-pagination-bullet {
-  background: var(--swiper-bullet-bg, var(--color-primary));
-  opacity: var(--swiper-bullet-opacity, 0.7);
-  transition: opacity 0.3s ease;
-}
-
-.swiper-pagination-bullet-active {
-  opacity: 1;
 }
 
 /* ==========================================
