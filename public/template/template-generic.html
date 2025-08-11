@@ -235,43 +235,5 @@
 <button id="accessibilityToggle" aria-label="הפעלת מצב נגישות">
   <img src="/assets/logo/accessibility-icon.png" alt="אייקון מצב נגישות" />
 </button>
-
-
-
-  <script>
-    function validateForm(event) {
-      let valid = true;
-      const fullName = document.getElementById("fullName");
-      const phone = document.getElementById("phoneNumber");
-      const errorFullName = document.getElementById("errorFullName");
-      const errorPhone = document.getElementById("errorPhone");
-
-      // בדיקת שם
-      if (fullName.value.trim() === "") {
-        fullName.setAttribute("aria-invalid", "true");
-        errorFullName.textContent = "אנא הזן שם מלא";
-        valid = false;
-      } else {
-        fullName.setAttribute("aria-invalid", "false");
-        errorFullName.textContent = "";
-      }
-
-      // בדיקת טלפון
-      if (phone.value.trim() === "") {
-        phone.setAttribute("aria-invalid", "true");
-        errorPhone.textContent = "אנא הזן מספר טלפון";
-        valid = false;
-      } else {
-        phone.setAttribute("aria-invalid", "false");
-        errorPhone.textContent = "";
-      }
-
-      if (!valid) {
-        event.preventDefault();
-      }
-      return valid;
-    }
-  </script>
-
 </body>
 </html>

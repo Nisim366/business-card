@@ -400,22 +400,47 @@ function createVideoElement(container) {
   videoElement.appendChild(sourceElement);
   container.innerHTML = "";
   container.appendChild(videoElement);
-}
+}// ✅ פקד נגישות – הפעלה/כיבוי מצב נגישות (עם שמירת מצב ו-ARIA)
+(() => {
+  const accessibilityBtn = document.getElementById("accessibilityToggle");
+  if (!accessibilityBtn) return;
 
-// ✅ פקד נגישות – הפעלה/כיבוי מצב נגישות
-const accessibilityBtn = document.getElementById("accessibilityToggle");
-if (accessibilityBtn) {
-  accessibilityBtn.addEventListener("click", function () {
-    document.body.classList.toggle("accessibility-mode");
-
-    if (document.body.classList.contains("accessibility-mode")) {
+  // החלת המצב בפועל + עדכון ARIA + שמירה
+  const applyAccessibility = (on) => {
+    if (on) {
+      document.body.classList.add("accessibility-mode");
       document.body.style.filter = "contrast(1.2)";
       document.body.style.fontSize = "110%";
     } else {
+      document.body.classList.remove("accessibility-mode");
       document.body.style.filter = "";
       document.body.style.fontSize = "";
     }
+    accessibilityBtn.setAttribute("aria-pressed", on ? "true" : "false");
+    localStorage.setItem("accessibilityMode", on ? "1" : "0");
+  };
+
+  // שחזור מצב אחרון
+  const saved = localStorage.getItem("accessibilityMode") === "1";
+  applyAccessibility(saved);
+
+  // קליק עכבר
+  accessibilityBtn.addEventListener("click", () => {
+    const next = !document.body.classList.contains("accessibility-mode");
+    applyAccessibility(next);
   });
-}
+
+  // תמיכה במקלדת (Enter / Space)
+  accessibilityBtn.setAttribute("tabindex", "0");
+  accessibilityBtn.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " " || e.code === "Space") {
+      e.preventDefault();
+      const next = !document.body.classList.contains("accessibility-mode");
+      applyAccessibility(next);
+    }
+  });
+})();
+
+
 
 
