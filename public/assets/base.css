@@ -675,25 +675,7 @@ strong {
   transition: var(--btn-transition, background-color 0.3s ease, transform 0.2s ease);
   margin: var(--btn-margin, var(--spacing-small) auto);
   background-color: var(--btn-bg, var(--btn-border-bg-color));
-  color: var(--btn-text-color-filled, var(--color-white));
-}
-
-.btn,
-.btn-contact {
-  display: var(--btn-display, inline-block);
-  padding: var(--btn-contact-padding, var(--btn-padding, var(--spacing-small) var(--spacing-large)));
-  border: none;
-  border-radius: var(--btn-vcard-radius, var(--btn-radius, var(--radius-medium)));
-  font-family: var(--btn-font-family, var(--global-font-family));
-  font-size: var(--btn-contact-font-size, var(--font-size-medium));
-  font-weight: var(--btn-font-weight, var(--font-weight-bold));
-  text-decoration: var(--btn-text-decoration, none);
-  text-align: center;
-  cursor: pointer;
-  transition: var(--btn-transition, background-color 0.3s ease, transform 0.2s ease);
-  margin: var(--btn-margin, var(--spacing-small) auto);
-  background-color: var(--btn-contact-bg, var(--btn-border-bg-color));
-  color: var(--btn-contact-color, var(--btn-text-color-filled, var(--color-white)));
+  color: var(--btn-text-color-filled, var(--btn-scl-text-color-filled));
 }
 
 .btn:hover,
@@ -703,16 +685,6 @@ strong {
   transform: var(--btn-transform-hover, translateY(-2px));
 }
 
-.btn-contact,
-button {
-  background-color: var(--btn-bg, #000000);
-  color: var(--btn-text-color, #ffffff);
-}
-
-.btn-contact:hover,
-button:hover {
-  background-color: var(--btn-hover-bg, #333333);
-}
 #vcardDownload.btn {
   display: inline-block;
   width: var(--vcard-btn-width, 100%); 
@@ -884,9 +856,9 @@ button:hover {
   max-width: 100%;
   padding: var(--contact-btn-padding, var(--spacing-medium));
   background-color: var(--contact-btn-bg, var(--btn-border-bg-color));
-  color: var(--contact-btn-color, var(--btn-text-color-filled));
+  color: var(--contact-btn-color, var(--btn-scl-text-color-filled));
   border: none;
-  border-radius: var(--contact-btn-radius, var(--radius-medium));
+  border-radius: var(--contact-btn-radius, var(--radius-large));
   font-size: var(--contact-btn-font-size, var(--font-size-medium));
   font-weight: var(--contact-btn-font-weight, var(--font-weight-bold));
   text-align: center;
