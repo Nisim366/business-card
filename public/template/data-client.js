@@ -5,17 +5,16 @@ fullName: "הילה סבן | מטפלת רגשית ומדריכת הורים",
     return `${this.fullName} - ${this.jobTitle}`;
   },
   phone: "052-939-5776",
-  email: "hila@ample.com",
+  email: "nisimelec77@gmail.com",
   phoneDigits: "0529395776",
   vcardLink: "./contact.vcf",
-  wazeLink: "https://waze.com/ul?ll=32.0853,34.7818&navigate=yes",
+  wazeLink: "https://waze.com/ul/hsv8ybptzp",
   wazeLabel: "Waze",
-  wazeIconSrc: "/assets/icons/waves.svg",
 
   logoSrc: "/assets/media/logo-ortopok.png",
   profileImage: "/assets/media/profile.jpg",
   videoSrc: "/assets/media/mov_bbb.mp4",
-  facebookLink: "https://facebook.com/hila.page",
+ facebookLink: "https://www.facebook.com/share/1HjZkESvSX/?mibextid=wwXIfr",
 
   phoneIconSrc: "/assets/contact_icons/green/phone.svg",
   whatsappIconSrc: "/assets/contact_icons/green/whatsapp.svg",
@@ -23,6 +22,8 @@ fullName: "הילה סבן | מטפלת רגשית ומדריכת הורים",
   smsIconSrc: "/assets/contact_icons/green/sms.svg",
   facebookIconSrc: "/assets/contact_icons/green/facebook.svg",
   recommendationIconSrc: "/assets/contact_icons/green/star.svg",
+  wazeIconSrc: "/assets/icons/waves.svg",
+
 
   shareEmailIconSrc: "/assets/share_icons/blue/email.png",
   shareWhatsappIconSrc: "/assets/share_icons/blue/whatsapp.png",
@@ -82,7 +83,7 @@ features: {
 
   scrollToContactText: "השאר פרטים ואחזור אליך",
   recommendationsMainTitle: "לקוחות ממליצים : ",
-  videoMainTitle: "⬇️ לסרטון תדמית",
+  videoMainTitle: " לסרטון תדמית",
   contactFormTitle: "השאירו פרטים<br>ואחזור אליכם בהקדם :",
   shareCardTitle: "שיתוף כרטיס הביקור",
 
