@@ -155,6 +155,7 @@
   --contact-btn-hover-bg: var(--color-blue-light);
   --title-font-size: var(--font-size-title-XLL);
   --global-font-family: var(--font-family-modern, sans-serif);
+  --name-role-title-color: var(--color-gray-dark);
 
   /* 📄 About Section - אזור אודות */
   --about-padding: var(--spacing-xxl);
@@ -321,6 +322,12 @@ img {
   color: var(--main-title-bg, var(--main-title-color));
   margin-bottom: var(--main-title-margin-bottom, var(--spacing-medium));
 }
+.name-role .main-title {
+  font-size: var(--name-role-title-size, 24px);
+  font-weight: var(--font-weight-bold);
+  color: var(--name-role-title-color, var(--main-title-color));
+}
+
 
 strong {
   font-size: var(--strong-font-size, var(--font-size-large));
