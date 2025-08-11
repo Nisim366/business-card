@@ -851,17 +851,6 @@ textarea[aria-invalid="true"] {
   margin: var(--separator-margin, var(--spacing-xl) 0);
 }
 
-
-/* ==========================================
-   📱 SECTIONS - אזורים כלליים
-   ========================================== */
-
-.section {
-  padding: var(--section-padding, var(--spacing-xxl) 0);
-  background-color: var(--section-bg-color, transparent);
-  color: var(--section-text-color, inherit);
-}
-
 /* ==========================================
    ♿ ACCESSIBILITY - נגישות
    ========================================== */
@@ -886,10 +875,6 @@ textarea[aria-invalid="true"] {
   border-radius: 50%;
   object-fit: cover;
 }
-
-/* =========================================
-   ♿ Accessibility Mode – מצב נגישות
-   ========================================= */
 
 body.accessibility-mode {
   background-color: #ffffff;
