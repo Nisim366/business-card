@@ -135,16 +135,6 @@
   --icon-desc-color: var(--color-gray-dark);
 
   /* 🔄 Share Section - אזור שיתוף */
-  --share-section-bg: transparent;
-  --share-section-padding: var(--spacing-large) 0;
-  --share-section-gap: var(--spacing-medium);
-  --share-section-color: var(--color-gray-dark);
-  --share-icon-size: 60px;
-  --share-icon-radius: var(--radius-circle);
-  --share-icon-bg: var(--color-white);
-  --share-icon-border: 1px solid var(--icon-border-color);
-  --share-icon-padding: 10px;
-  --share-icon-shadow: var(--shadow-soft);
   --share-icon-hover-scale: 1.1;
 
   /* ⭐ Recommendations - המלצות */
@@ -676,6 +666,7 @@ strong {
    🔄 SHARE SECTION - אזור שיתוף
    ========================================== */
 
+/* ===== Share section ===== */
 .share-section {
   display: flex;
   flex-direction: column;
@@ -683,40 +674,44 @@ strong {
   justify-content: center;
   flex-wrap: wrap;
   gap: var(--share-section-gap, 12px);
-  padding: var(--share-section-padding, 16px);
-  background-color: var(--share-section-bg, var(--color-white));
+  padding: var(--share-section-padding, 20px);
+  background-color: var(--share-section-bg, transparent);
   color: var(--share-section-color, var(--color-gray-dark));
   text-align: center;
 }
 
+/* ===== Share buttons row ===== */
 .share-buttons {
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  gap: var(--share-buttons-gap, 12px);
-  margin: var(--share-buttons-margin-vertical, 24px) var(--share-buttons-margin-horizontal, 0);
+  gap: var(--share-buttons-gap, 15px);
+  margin: var(--share-buttons-margin-vertical, 24px)
+          var(--share-buttons-margin-horizontal, 0);
 }
 
+/* ===== Share icon ===== */
 .share-buttons a img {
-  border-radius: var(--share-icon-radius, var(--radius-circle, 50%));
-  width: var(--share-icon-size, 48px);
-  height: var(--share-icon-size, 48px);
-  padding: var(--share-icon-padding, 10px);
+  width: var(--share-icon-size, 65px);
+  height: var(--share-icon-size, 65px);
+  padding: var(--share-icon-padding, 0px);
+  border-radius: var(--share-icon-radius, var(--radius-circle));
   background-color: var(--share-icon-bg, var(--color-white));
-  border: var(--share-icon-border, 1px solid var(--icon-border-color, var(--color-gray-medium)));
-  box-shadow: var(--share-icon-shadow, var(--shadow-soft, 0 2px 6px rgba(0,0,0,0.1)));
+  border: var(--share-icon-border, 5px solid var(--main-background-color, #fff));
+  box-shadow: var(--share-icon-shadow, var(--shadow-soft));
   object-fit: var(--share-icon-object-fit, cover);
   object-position: var(--share-icon-object-position, center);
   transition: transform var(--share-icon-hover-transition, 0.2s ease);
+  will-change: transform;
 }
 
-.share-buttons a img:hover {
+/* Hover + Keyboard focus */
+.share-buttons a img:hover,
+.share-buttons a:focus-visible img {
   transform: scale(var(--share-icon-hover-scale, 1.1));
-}
-
-.color-share-icon-hover:hover {
-  color: var(--share-icon-hover-color, #666);
+  outline: var(--share-icon-focus-outline, 2px solid transparent);
+  outline-offset: 2px;
 }
 
 /* ==========================================
