@@ -3,7 +3,8 @@ let isInitialized = false; // ← דגל למניעת טעינה כפולה
 
 // ✅ זיהוי סביבת הפקה או רנדר
 const isLive = location.hostname.includes("clix-marketing.co.il") || location.hostname.includes("render.com");
-console.log("📡 isLive:", isLive);document.addEventListener("DOMContentLoaded", function () {
+console.log("📡 isLive:", isLive);
+document.addEventListener("DOMContentLoaded", function () {
   document.body.classList.remove("accessibility-mode");
   document.body.style.filter = "";
   document.body.style.fontSize = "";
@@ -46,12 +47,21 @@ console.log("📡 isLive:", isLive);document.addEventListener("DOMContentLoaded"
   window.addEventListener("load", waitUntilReady);
 
   const scrollBtn = document.querySelector('.scroll-to-contact-btn');
-  const contactForm = document.querySelector('#contactForm'); // ודא שלטופס יש ID כזה
-  if (scrollBtn && contactForm) {
-    scrollBtn.addEventListener('click', function () {
-      contactForm.scrollIntoView({ behavior: 'smooth' });
-    });
-  }
+const contactForm = document.querySelector('#contactForm');
+if (scrollBtn && contactForm) {
+  scrollBtn.addEventListener('click', function () {
+    contactForm.scrollIntoView({ behavior: 'smooth' });
+
+    // ממתין קצת עד שהגלילה תסתיים, ואז נותן פוקוס לשדה השם
+    setTimeout(() => {
+      const firstInput = contactForm.querySelector('#fullName');
+      if (firstInput) {
+        firstInput.focus();
+      }
+    }, 600); // זמן התאמה לגלילה החלקה
+  });
+}
+
 });
 function formatForWa(phoneDigits = "") {
   const raw = String(phoneDigits).replace(/\D/g, "");
