@@ -1,9 +1,9 @@
 window.cardData = {
-fullName: "הילה סבן | מטפלת רגשית ומדריכת הורים",
+fullName: "הילה סבן <br>מטפלת רגשית ומדריכת הורים",
 
-  get pageTitle() {
-    return `${this.fullName} - ${this.jobTitle}`;
-  },
+// שדה ייעודי לכותרת האתר
+pageTitle: "הילה סבן | כרטיס ביקור",
+
   phone: "052-939-5776",
   email: "nisimelec77@gmail.com",
   phoneDigits: "0529395776",
@@ -52,7 +52,6 @@ features: {
   aboutParagraphs: `
 <p><strong class="quote-symbol">''</strong></p>
 <p data-field="aboutLine1"><strong>נעים מאוד, אני הילה סבן מאור עקיבא</strong></p>
-<p data-field="aboutEmptyLine">&nbsp;</p>
 
 
   <p>במהלך השנים צברתי ידע וכלים מעשיים בתחומי הייעוץ, התמיכה וההדרכה, תוך דגש על שילוב בין מקצועיות גבוהה לגישה אנושית ונגישה.</p>
@@ -77,11 +76,11 @@ features: {
     <p>גם מי שמעוניין בהתפתחות אישית, חיזוק תקשורת זוגית או שיפור הורות ימצא מקום מכיל, מדויק ומקדם.</p>
   `,
 
-  scrollToContactText: "השאר פרטים ואחזור אליך",
+  scrollToContactText: "השאר פרטים ונחזור אליך",
   recommendationsMainTitle: "לקוחות ממליצים : ",
-  videoMainTitle: " לסרטון תדמית",
+  videoMainTitle: " קצת עלי ",
   contactFormTitle: "השאירו פרטים<br>ואחזור אליכם בהקדם :",
-  shareCardTitle: "שיתוף כרטיס הביקור",
+  shareCardTitle: " כרטיס ביקור",
 
 
 
