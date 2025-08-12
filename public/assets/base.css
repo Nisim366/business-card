@@ -667,6 +667,17 @@ strong {
   white-space: nowrap;
 }
 
+/* base.css – עיצוב אחיד לכל ה־SVGים של האייקונים */
+.icon-item .icon-svg {
+  width: var(--icon-img-size, 56px);
+  height: var(--icon-img-size, 56px);
+  display: inline-block;
+  fill: currentColor; /* ירש את הצבע מה־color של ההורה */
+  color: #000; /* שחור קבוע */
+}
+
+
+
 
 /* ==========================================
    🔄 SHARE SECTION - אזור שיתוף
