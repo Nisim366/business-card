@@ -25,10 +25,15 @@ features: {
   video: true,
   about: true,
   recommendations: true,
+  contactWhatsapp: true, // ← החדש
+
 
 
   sendEmail: true,
-  sendWhatsapp: true,
+  sendWhatsApp: false,
+
+
+  contactWhatsapp: true, // ← החדש
   facebookLink: true,
   waze: true,
   phone: true,
