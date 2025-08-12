@@ -720,58 +720,100 @@ strong {
     --icon-svg-size: 46px;
   }
 }
-
+/* ==========================================
+   🎯 SHARE SECTION – בידול בלי :root (Layer: base.css)
+   ========================================== */
+/* ברירת מחדל לשיתוף – קופסאות מרובעות/מעוגלות, צבע מותאם, צל */
+.share-section .share-buttons{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;
+  margin:24px 0;
+}
+.share-section .share-buttons a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:72px;
+  height:72px;
+  border-radius:12px;                 /* לא עגול מלא – מובדל מהאייקונים העליונים */
+  background:#fff8e1;                 /* רקע בהיר */
+  color:#ff9800;                      /* צבע האייקון (FontAwesome ::before משתמש currentColor) */
+  border:2px solid #ff9800;           /* מסגרת ידועה */
+  box-shadow:0 2px 6px rgba(0,0,0,.12);
+  text-decoration:none;
+  outline:0;
+  transition:background-color .2s ease, color .2s ease, transform .1s ease;
+}
+/* גודל האייקון הפנימי (Font Awesome ::before שקיים כבר ב־base.css) */
+.share-section .share-buttons a::before{
+  font-size:34px;
+  line-height:1;
+  display:block;
+  color:currentColor;
+}
+/* אפקט ריחוף */
+.share-section .share-buttons a:hover{
+  transform:scale(1.08);
+  background:#ff9800;
+  color:#ffffff;
+}
+/* מובייל */
+@media (max-width:420px){
+  .share-section .share-buttons a{
+    width:60px;
+    height:60px;
+  }
+  .share-section .share-buttons a::before{
+    font-size:30px;
+  }
+}
 
 /* ==========================================
-   🔄 SHARE SECTION - אזור שיתוף
+   🧩 הוקים לדריסה ע"י מחלקות מודיפייר (Layer: style.css / לקוח)
+   – הוסף אחת מהמחלקות הבאות ל־.share-section לפי צורך
    ========================================== */
 
-/* ===== Share section ===== */
-.share-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--share-section-gap, 12px);
-  padding: var(--share-section-padding, 20px);
-  background-color: var(--share-section-bg, transparent);
-  color: var(--share-section-color, var(--color-gray-dark));
-  text-align: center;
+/* וריאנט: קפסולות עגולות */
+.share-section.is-rounded .share-buttons a{
+  border-radius:50%;
 }
 
-/* ===== Share buttons row ===== */
-.share-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--share-buttons-gap, 15px);
-  margin: var(--share-buttons-margin-vertical, 24px)
-          var(--share-buttons-margin-horizontal, 0);
+/* וריאנט: כחול־מותג */
+.share-section.is-brand-blue .share-buttons a{
+  background:#e9f2ff;
+  color:#1f4fff;
+  border:2px solid #1f4fff;
 }
 
-/* ===== Share icon ===== */
-.share-buttons a img {
-  width: var(--share-icon-size, 65px);
-  height: var(--share-icon-size, 65px);
-  padding: var(--share-icon-padding, 0px);
-  border-radius: var(--share-icon-radius, var(--radius-circle));
-  background-color: var(--share-icon-bg, var(--color-white));
-  border: var(--share-icon-border, 5px solid var(--main-background-color, #fff));
-  box-shadow: var(--share-icon-shadow, var(--shadow-soft));
-  object-fit: var(--share-icon-object-fit, cover);
-  object-position: var(--share-icon-object-position, center);
-  transition: transform var(--share-icon-hover-transition, 0.2s ease);
-  will-change: transform;
+/* וריאנט: כהה */
+.share-section.is-dark .share-buttons a{
+  background:#222;
+  color:#fff;
+  border:2px solid #222;
 }
 
-/* Hover + Keyboard focus */
-.share-buttons a img:hover,
-.share-buttons a:focus-visible img {
-  transform: scale(var(--share-icon-hover-scale, 1.1));
-  outline: var(--share-icon-focus-outline, 2px solid transparent);
-  outline-offset: 2px;
+/* וריאנט: outline בלבד */
+.share-section.is-outline .share-buttons a{
+  background:#ffffff;
+  color:#9c27b0;
+  border:2px dashed #9c27b0;
+}
+
+/* וריאנט: טלגרם מודגש */
+.share-section.is-telegram-strong .share-buttons a[data-type="telegram"]{
+  background:#e6f5fc;
+  color:#229ED9;
+  border:2px solid #229ED9;
+}
+
+/* וריאנט: וואטסאפ מודגש */
+.share-section.is-whatsapp-strong .share-buttons a[data-type="whatsapp"]{
+  background:#e9f9ef;
+  color:#25D366;
+  border:2px solid #25D366;
 }
 
 /* ==========================================

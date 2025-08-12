@@ -18,25 +18,9 @@ fullName: "הילה סבן | מטפלת רגשית ומדריכת הורים",
   videoSrc: "/assets/media/mov_bbb.mp4",
  facebookLink: "https://www.facebook.com/share/1HjZkESvSX/?mibextid=wwXIfr",
 
-  phoneIconSrc: "/assets/contact_icons/green/phone.svg",
-  whatsappIconSrc: "/assets/contact_icons/green/whatsapp.svg",
-  emailIconSrc: "/assets/contact_icons/green/email.svg",
-  smsIconSrc: "/assets/contact_icons/green/sms.svg",
-  facebookIconSrc: "/assets/contact_icons/green/facebook.svg",
-  recommendationIconSrc: "/assets/contact_icons/green/star.svg",
-  wazeIconSrc: "/assets/icons/waves.svg",
-
-
-  shareEmailIconSrc: "/assets/share_icons/blue/email.png",
-  shareWhatsappIconSrc: "/assets/share_icons/blue/whatsapp.png",
-  shareLinkedinIconSrc: "/assets/share_icons/blue/linkedin.png",
-  shareTwitterIconSrc: "/assets/share_icons/blue/twitter.png",
-  shareFacebookIconSrc: "/assets/share_icons/blue/facebook.png",
-  shareTelegramIconSrc: "/assets/share_icons/blue/Telegram.png",
-
   // 📌 לינק דינמי ל-Telegram (כותרת + תיאור מתוך הנתונים)
   telegramLink: `https://t.me/share/url?url=${encodeURIComponent("https://example.com")}&text=${encodeURIComponent("הילה לוי - מטפלת רגשית והדרכת הורים")}`,
-
+   
 features: {
   video: true,
   about: true,
