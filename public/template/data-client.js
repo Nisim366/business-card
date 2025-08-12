@@ -30,10 +30,9 @@ features: {
 
 
   sendEmail: true,
-  sendWhatsApp: false,
+  sendWhatsApp: true,
 
-
-  contactWhatsapp: true, // ← החדש
+  contactWhatsApp: true, // ← החדש
   facebookLink: true,
   waze: true,
   phone: true,
