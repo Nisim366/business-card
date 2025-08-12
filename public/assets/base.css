@@ -615,15 +615,12 @@ strong {
   margin-bottom: var(--vcard-btn-margin-bottom, 25px);
 }
 
-/* ==========================================
-   🖼️ ICON GRID - רשת אייקונים
-   ========================================== */
-/* גריד האייקונים */
-.icon-grid {
+/* Container */
+.icon-grid{
   display: var(--icon-grid-display, grid);
   grid-template-columns: var(--icon-grid-template, repeat(3, 1fr));
-  gap: var(--icon-grid-gap, var(--spacing-icon-gap));
-  margin: var(--icon-grid-margin, var(--spacing-xl) 0);
+  gap: var(--icon-grid-gap, 16px);
+  margin: var(--icon-grid-margin, 24px 0);
   justify-items: var(--icon-grid-justify-items, center);
   background-color: var(--icon-grid-bg, transparent);
   padding: var(--icon-grid-padding, 0);
@@ -631,52 +628,80 @@ strong {
   box-shadow: var(--icon-grid-shadow, none);
 }
 
-/* הקישור שמכיל את האייקון – מרכז את האייקון לבד */
-.icon-grid .icon-item a {
+/* Item */
+.icon-grid .icon-item{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0; /* מונע גלישה */
+}
+
+/* Button/capsule */
+.icon-grid .icon-item > a{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: var(--icon-size, 70px);
-  height: var(--icon-size, 70px);
+  width: var(--icon-button-size, 70px);
+  height: var(--icon-button-size, 70px);
+  border-radius: var(--icon-button-radius, 50%);
+  background: var(--icon-button-bg, #fff);
+  border: var(--icon-button-border, 0);
+  box-shadow: var(--icon-button-shadow, none);
+  padding: var(--icon-button-padding, 12px);
+  color: var(--icon-color, #111);            /* משפיע על ה‑SVG */
+  text-decoration: none;
+  transition: background-color .2s ease, color .2s ease, transform .1s ease;
+  outline: none;
+}
+.icon-grid .icon-item > a:hover{ color: var(--icon-color-hover, #000); }
+.icon-grid .icon-item > a:focus-visible{ box-shadow: var(--icon-focus-ring); }
+.icon-grid .icon-item > a:active{ transform: scale(.98); }
+
+/* ICON (SVG/IMG) – מאוחד */
+.icon-grid .icon-item .icon-svg,
+.icon-grid .icon-item img{
+  width: var(--icon-svg-size, 56px);
+  height: var(--icon-svg-size, 56px);
+  display: inline-block;
+  object-fit: contain;
 }
 
-/* האייקון (תמונה) */
-.icon-grid .icon-item img {
-  width: var(--icon-img-size, 65px);
-  height: var(--icon-img-size, 65px);
-  border-radius: var(--icon-img-radius, 50%);
-  background-color: var(--icon-img-bg, var(--color-white));
-  padding: var(--icon-img-padding, 12px);
-  box-shadow: var(--icon-img-shadow, var(--shadow-soft));
-  object-fit: var(--icon-img-object-fit, contain);
-  transition: transform 0.2s ease;
+/* SVG נצבע לפי currentColor של הקפסולה */
+.icon-grid .icon-item .icon-svg{
+  fill: currentColor;
+  stroke: currentColor;
 }
 
-/* הטקסט מתחת לאייקון – יישור/עיצוב רק לטקסט */
-.icon-grid .icon-item > span {
+/* Label */
+.icon-grid .icon-item > span{
   display: var(--icon-text-display, block);
   margin-top: var(--icon-text-margin-top, 6px);
   font-size: var(--icon-text-font-size, 14px);
-  font-weight: var(--icon-text-font-weight, 400);
-  color: var(--icon-text-color, var(--color-gray-dark));
-  font-family: var(--icon-text-font-family, var(--global-font-family));
+  font-weight: var(--icon-text-font-weight, 500);
+  color: var(--icon-text-color, #111827);
   text-align: var(--icon-item-text-align, center);
-  line-height: var(--icon-text-line-height, 1.4);
+  line-height: var(--icon-text-line-height, 1.3);
   letter-spacing: var(--icon-text-letter-spacing, 0);
   text-transform: var(--icon-text-transform, none);
   white-space: nowrap;
 }
 
-/* base.css – עיצוב אחיד לכל ה־SVGים של האייקונים */
-.icon-item .icon-svg {
-  width: var(--icon-img-size, 56px);
-  height: var(--icon-img-size, 56px);
-  display: inline-block;
-  fill: currentColor; /* ירש את הצבע מה־color של ההורה */
-  color: #000; /* שחור קבוע */
+/* Per‑icon optional overrides (inherit with fallback) */
+.icon-item[data-switch="phone"]        > a{ color: var(--icon-phone-color,       var(--icon-color)); }
+.icon-item[data-switch="sendWhatsapp"] > a{ color: var(--icon-whatsapp-color,    var(--icon-color)); }
+.icon-item[data-switch="sendEmail"]    > a{ color: var(--icon-email-color,       var(--icon-color)); }
+.icon-item[data-switch="facebookLink"] > a{ color: var(--icon-facebook-color,    var(--icon-color)); }
+.icon-item[data-switch="waze"]         > a{ color: var(--icon-waze-color,        var(--icon-color)); }
+.icon-item[data-switch="instagram"]    > a{ color: var(--icon-instagram-color,   var(--icon-color)); }
+
+/* Mobile */
+@media (max-width:420px){
+  :root{
+    --icon-button-size: 60px;
+    --icon-svg-size: 46px;
+  }
 }
-
-
 
 
 /* ==========================================
