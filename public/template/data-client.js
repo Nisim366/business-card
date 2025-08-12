@@ -39,8 +39,13 @@ features: {
   video: true,
   about: true,
   recommendations: true,
+
+
   sendEmail: true,
-  sendWhatsapp: false // ✅ הפעלה/כיבוי כפתור וואטסאפ
+  sendWhatsapp: false,
+  facebookLink: false,
+  waze: true,
+  phone: true
 },
     shareOptions: {
     email: true,

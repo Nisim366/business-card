@@ -107,11 +107,12 @@ window.addEventListener("load", function () {
   }
 
   isInitialized = true;
+document.querySelectorAll("[data-switch]").forEach(el => {
+  const key = el.dataset.switch;
+  if (data.features?.[key] !== true) el.remove();
+});
 
-  document.querySelectorAll("[data-switch]").forEach(el => {
-    const key = el.dataset.switch;
-    if (data.features?.[key] !== true) el.remove();
-  });
+// --- מעודכן: replaceAll + תמיכה מלאה בתמונות/קישורים ---
 const replaceAll = () => {
   document.querySelectorAll("[data-field]").forEach(el => {
     const field = el.dataset.field;
@@ -123,9 +124,9 @@ const replaceAll = () => {
 
     // 🆕 favicon fallback
     if (field === "favicon") {
-  el.setAttribute("href", value || "/assets/logo/favicon.ico");
-  return;
-}
+      el.setAttribute("href", value || "/assets/logo/favicon.ico");
+      return;
+    }
 
 if (value === undefined || value === null) {
   // אם זה <a> לוואטסאפ או SMS – נבנה בכל מקרה
