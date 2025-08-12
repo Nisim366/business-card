@@ -10,6 +10,8 @@ fullName: "הילה סבן | מטפלת רגשית ומדריכת הורים",
   vcardLink: "./contact.vcf",
   wazeLink: "https://waze.com/ul/hsv8ybptzp",
   wazeLabel: "Waze",
+  instagramLink: "https://www.instagram.com/username",
+  instagramText: "אינסטגרם",
 
   logoSrc: "/assets/media/logo-ortopok.png",
   profileImage: "/assets/media/profile.jpg",
@@ -42,10 +44,11 @@ features: {
 
 
   sendEmail: true,
-  sendWhatsapp: false,
-  facebookLink: false,
+  sendWhatsapp: true,
+  facebookLink: true,
   waze: true,
-  phone: true
+  phone: true,
+  instagram: true
 },
     shareOptions: {
     email: true,
