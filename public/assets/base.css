@@ -107,6 +107,7 @@
   --btn-hover-text-color-outline: var(--color-white);
   --btn-vcard-radius: var(--radius-medium);
 
+
   /* 📞 Contact Buttons - כפתורי יצירת קשר */
   --btn-contact-hover-bg: var(--btn-hover-bg-filled);
   --btn-contact-hover-color: var(--btn-hover-text-color-filled);
@@ -128,7 +129,6 @@
 
   --icon-img-hover-transform: scale(1.1);
   --icon-font-size: var(--font-size-title-XL);
-  --icon-color: var(--color-gold-medium);
   --icon-margin-bottom: var(--spacing-small);
   --icon-desc-font-size: var(--font-size-small);
   --icon-desc-color: var(--color-gray-dark);
@@ -156,6 +156,7 @@
   --title-font-size: var(--font-size-title-XLL);
   --global-font-family: var(--font-family-modern, sans-serif);
   --name-role-title-color: var(--color-gray-dark);
+  --icon-color: var(--color-blue-medium);
 
 
   /* 📄 About Section - אזור אודות */
@@ -615,8 +616,9 @@ strong {
   margin-bottom: var(--vcard-btn-margin-bottom, 25px);
 }
 
+
 /* Container */
-.icon-grid{
+.icon-grid {
   display: var(--icon-grid-display, grid);
   grid-template-columns: var(--icon-grid-template, repeat(3, 1fr));
   gap: var(--icon-grid-gap, 16px);
@@ -629,57 +631,73 @@ strong {
 }
 
 /* Item */
-.icon-grid .icon-item{
+.icon-grid .icon-item {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-width: 0; /* מונע גלישה */
+  min-width: 0;
 }
 
 /* Button/capsule */
-.icon-grid .icon-item > a{
+.icon-grid .icon-item > a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: var(--icon-button-size, 70px);
   height: var(--icon-button-size, 70px);
   border-radius: var(--icon-button-radius, 50%);
-  background: var(--icon-button-bg, #fff);
+  background: var(--icon-button-bg, #f2f2f2); /* אפור חלש */
   border: var(--icon-button-border, 0);
   box-shadow: var(--icon-button-shadow, none);
-  padding: var(--icon-button-padding, 12px);
-  color: var(--icon-color, #111);            /* משפיע על ה‑SVG */
+  padding: 0;
+  color: var(--icon-color, #007bff); /* כחול כברירת מחדל */
   text-decoration: none;
-  transition: background-color .2s ease, color .2s ease, transform .1s ease;
+  transition: transform .1s ease;
   outline: none;
 }
-.icon-grid .icon-item > a:hover{ color: var(--icon-color-hover, #000); }
-.icon-grid .icon-item > a:focus-visible{ box-shadow: var(--icon-focus-ring); }
-.icon-grid .icon-item > a:active{ transform: scale(.98); }
 
-/* ICON (SVG/IMG) – מאוחד */
+/* Hover effect - Flash animation */
+@keyframes icon-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.icon-grid .icon-item > a:hover {
+  animation: icon-flash 0.6s ease-in-out;
+}
+
+/* Focus + Active */
+.icon-grid .icon-item > a:focus-visible {
+  box-shadow: var(--icon-focus-ring, 0 0 0 3px rgba(14,165,233,.35));
+}
+.icon-grid .icon-item > a:active {
+  transform: scale(.98);
+}
+
+/* ICON fills the background */
 .icon-grid .icon-item .icon-svg,
-.icon-grid .icon-item img{
-  width: var(--icon-svg-size, 56px);
-  height: var(--icon-svg-size, 56px);
+.icon-grid .icon-item img {
+  width: var(--icon-svg-size, 64px);
+  height: var(--icon-svg-size, 64px);
   display: inline-block;
   object-fit: contain;
 }
 
-/* SVG נצבע לפי currentColor של הקפסולה */
-.icon-grid .icon-item .icon-svg{
-  fill: currentColor;
-  stroke: currentColor;
+/* Force SVG to follow currentColor */
+.icon-grid .icon-item .icon-svg,
+.icon-grid .icon-item .icon-svg * {
+  fill: currentColor !important;
+  stroke: currentColor !important;
 }
 
 /* Label */
-.icon-grid .icon-item > span{
+.icon-grid .icon-item > span {
   display: var(--icon-text-display, block);
   margin-top: var(--icon-text-margin-top, 6px);
   font-size: var(--icon-text-font-size, 14px);
   font-weight: var(--icon-text-font-weight, 500);
-  color: var(--icon-text-color, #111827);
+  color: var(--icon-text-color, #273f74);
   text-align: var(--icon-item-text-align, center);
   line-height: var(--icon-text-line-height, 1.3);
   letter-spacing: var(--icon-text-letter-spacing, 0);
@@ -687,13 +705,13 @@ strong {
   white-space: nowrap;
 }
 
-/* Per‑icon optional overrides (inherit with fallback) */
-.icon-item[data-switch="phone"]        > a{ color: var(--icon-phone-color,       var(--icon-color)); }
-.icon-item[data-switch="sendWhatsapp"] > a{ color: var(--icon-whatsapp-color,    var(--icon-color)); }
-.icon-item[data-switch="sendEmail"]    > a{ color: var(--icon-email-color,       var(--icon-color)); }
-.icon-item[data-switch="facebookLink"] > a{ color: var(--icon-facebook-color,    var(--icon-color)); }
-.icon-item[data-switch="waze"]         > a{ color: var(--icon-waze-color,        var(--icon-color)); }
-.icon-item[data-switch="instagram"]    > a{ color: var(--icon-instagram-color,   var(--icon-color)); }
+/* Per-icon optional overrides */
+.icon-item[data-switch="phone"]        > a { color: var(--icon-phone-color, var(--icon-color, #007bff)); }
+.icon-item[data-switch="sendWhatsapp"] > a { color: var(--icon-whatsapp-color, var(--icon-color, #007bff)); }
+.icon-item[data-switch="sendEmail"]    > a { color: var(--icon-email-color, var(--icon-color, #007bff)); }
+.icon-item[data-switch="facebookLink"] > a { color: var(--icon-facebook-color, var(--icon-color, #007bff)); }
+.icon-item[data-switch="waze"]         > a { color: var(--icon-waze-color, var(--icon-color, #007bff)); }
+.icon-item[data-switch="instagram"]    > a { color: var(--icon-instagram-color, var(--icon-color, #007bff)); }
 
 /* Mobile */
 @media (max-width:420px){
