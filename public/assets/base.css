@@ -93,101 +93,7 @@
   --gradient-blue: linear-gradient(135deg, #87CEEB, #2F4F4F);
   --gradient-turquoise: linear-gradient(135deg, #40E0D0, #008B8B);
   --gradient-multi: linear-gradient(45deg, #33cc99, #00aaff, #33cc99);
-
-  /* 📝 Placeholders */
-  --about-placeholder-text: "מומלץ להכניס כאן טקסט על העסק או השירותים.";
-  --testimonial-placeholder-text: "מומלץ להכניס כאן המלצה מלקוח מרוצה.";
-
-  /* 🔘 Buttons - כפתורים כלליים */
-  --btn-hover-bg-filled: var(--color-gold-dark);
-  --btn-hover-text-color-filled: var(--color-white);
-  --btn-bg-outline: transparent;
-  --btn-text-color-outline: var(--color-gold-medium);
-  --btn-border-outline: 2px solid var(--color-gold-medium);
-  --btn-hover-bg-outline: var(--color-gold-medium);
-  --btn-hover-text-color-outline: var(--color-white);
-  --btn-vcard-radius: var(--radius-medium);
-
-
-  /* 📞 Contact Buttons - כפתורי יצירת קשר */
-  --btn-contact-hover-bg: var(--btn-hover-bg-filled);
-  --btn-contact-hover-color: var(--btn-hover-text-color-filled);
-  --btn-contact-padding: 10px 20px;
-  --btn-contact-margin: 10px 0;
-  --btn-contact-radius: var(--radius-medium);
-  --btn-contact-font-size: 14px;
-  --btn-contact-font-weight: var(--font-weight-bold);
-
-  --btn-scl-text-color-filled: var(--color-white);
-
-  /* ✨ Gold Line - קו זהב */
-
-  /* 🎯 Profile - תמונת פרופיל */
-  --profile-img-size: 140px;
-  --profile-img-margin: -30px auto 0 auto;
-
-  /* 🖼 Icon Grid - רשת אייקונים */
-
-  --icon-img-hover-transform: scale(1.1);
-  --icon-font-size: var(--font-size-title-XL);
-  --icon-margin-bottom: var(--spacing-small);
-  --icon-desc-font-size: var(--font-size-small);
-  --icon-desc-color: var(--color-gray-dark);
-
-  /* 🔄 Share Section - אזור שיתוף */
-  --share-icon-hover-scale: 1.1;
-
-  /* ⭐ Recommendations - המלצות */
-  --recommend-swiper-radius: 12px;
-  --recommend-swiper-bg: #f7f7f7;
-  --recommend-swiper-padding: 8px;
-  --testimonial-icon-margin-bottom: var(--spacing-small);
-  --testimonial-read-more-color: var(--color-gray-dark);
-  --testimonial-read-more-hover-color: var(--main-brand-color);
-  --testimonial-read-more-text-decoration: underline;
-  --recommend-bullet-active-bg: var(--main-brand-color);
-  --recommend-title-color: var(--color-blue-medium);
-
-
-  --main-background-color: #e0f7e9; /* כחול־תכלת חלש מאוד – בלי שקיפות */
-  --main-title-color: var(--color-black);
-  --about-section-p-text-color: var(--color-black);
-  --btn-border-bg-color: #29a9ff;
-  --contact-btn-hover-bg: var(--color-blue-light);
-  --title-font-size: var(--font-size-title-large);
-  --global-font-family: var(--font-family-handwritten );
-  --name-role-title-color: var(--color-gray-dark);
-  --icon-color: var(--color-blue-medium);
-
-
-  /* 📄 About Section - אזור אודות */
-  --about-padding: var(--spacing-xxl);
-  --about-radius: var(--radius-large);
-  --about-title-color: var(--main-brand-color);
-
-
-  --about-title-font-weight: var(--font-weight-bold);
-  --about-title-margin-bottom: var(--spacing-medium);
-  --about-text-font-size: var(--font-size-medium);
-  --about-text-margin: 0 auto;
-  --about-highlight-bg: rgba(0, 0, 0, 0.1);
-  --about-highlight-color: var(--color-white);
-  --about-highlight-padding: var(--spacing-tiny) var(--spacing-small);
-  --about-highlight-radius: var(--radius-small);
-
-
-
-  /* ♿ Accessibility - נגישות */
-  --accessibility-btn-bottom: auto;
-  --accessibility-btn-right: 30px;
-  --accessibility-btn-left: auto;
-  --accessibility-btn-top: 30px;
-  --accessibility-btn-size: 70px;
 }
-
-/* ==========================================
-   🌐 GLOBAL STYLES - עיצובים גלובליים
-   ========================================== */
 
 * {
   box-sizing: border-box;
@@ -284,7 +190,7 @@ img {
   z-index: 10;
   width: var(--profile-img-size, 140px);
   height: var(--profile-img-size, 140px);
-  margin: var(--profile-img-margin, -60px auto 0 auto);
+  margin: var(--profile-img-margin, -30px auto 0 auto);
   object-fit: cover;
   border-radius: var(--profile-img-radius, var(--radius-circle));
   border-width: var(--profile-img-border-width, 3px);
@@ -356,7 +262,7 @@ strong {
 
 
 .about-section {
-  padding: var(--about-section-padding, var(--about-padding));
+  padding: var(--about-section-padding, var(--spacing-xxl));
   background-color: var(--about-section-bg, var(--main-background-color));
   text-align: var(--about-text-align, center);
   border-radius: var(--about-radius, var(--radius-large));
@@ -561,13 +467,12 @@ strong {
 }
 
 .elementor-testimonial__content::before {
-  content: "\f005";
-  font-family: var(--testimonial-icon-font-family, "Font Awesome 5 Free");
-  font-weight: 900;
-  font-style: normal;
+  content: var(--testimonial-icon-content, "★"); /* ברירת מחדל - כוכב טקסט */
+  font-family: var(--testimonial-icon-font-family, inherit);
+  font-weight: var(--testimonial-icon-weight, 700);
   display: inline-block;
-  color: var(--testimonial-icon-color, var(--color-gold-light));
-  font-size: var(--testimonial-icon-size, var(--font-size-xl));
+  color: var(--testimonial-icon-color, var(--color-gold-light)); /* שליטה בצבע */
+  font-size: var(--testimonial-icon-size, var(--font-size-large));
   margin-left: 4px;
   margin-right: 8px;
   vertical-align: middle;
