@@ -77,10 +77,10 @@ features: {
   `,
 
   scrollToContactText: "השאר פרטים ונחזור אליך",
-  recommendationsMainTitle: "לקוחות ממליצים : ",
-  videoMainTitle: " קצת עלי ",
-  contactFormTitle: "השאירו פרטים<br>ואחזור אליכם בהקדם :",
-  shareCardTitle: " כרטיס ביקור",
+  recommendationsMainTitle: "לקוחות ממליצים",
+  videoMainTitle: " קצת עלי",
+  contactFormTitle: "השאירו פרטים<br>ואחזור אליכם בהקדם",
+  shareCardTitle: " שיתוף הכרטיס",
 
 
 
