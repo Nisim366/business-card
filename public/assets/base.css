@@ -714,7 +714,7 @@ strong {
 .icon-item[data-switch="instagram"]    > a { color: var(--icon-instagram-color, var(--icon-color, #007bff)); }
 
 /* Mobile */
-@media (max-width:420px){
+@media (max-width:390px){
   :root{
     --icon-button-size: 60px;
     --icon-svg-size: 46px;
@@ -770,7 +770,7 @@ strong {
 }
 
 /* מובייל */
-@media (max-width: 420px) {
+@media (max-width: 390px) {
   .share-section .share-buttons a {
     width: var(--s-size-m, 60px);
     height: var(--s-size-m, 60px);
@@ -1098,7 +1098,7 @@ body.accessibility-mode .error-message {
   background-image:  url('/assets/logo/myLogo.jpg');
   background-position: var(--loader-bg-position, center 30%);
   background-repeat: no-repeat;
-  background-size: var( 100px auto);
+background-size:300px auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1108,6 +1108,12 @@ body.accessibility-mode .error-message {
   opacity: 1;
   transition: opacity 0.4s ease, visibility 0.4s ease;
 }
+@media (max-width: 390px) {
+  .loader-overlay {
+    background-size: 80px auto; /* לדוגמה */
+  }
+}
+
 
 .loader-overlay.fade-out {
   opacity: 0;
