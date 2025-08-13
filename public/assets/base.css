@@ -86,6 +86,7 @@
   --shadow-glow-light: 0 0 15px rgba(255, 255, 255, 0.3);
   --shadow-glow-colored: 0 0 20px rgba(64, 224, 208, 0.4);
 
+
   /* 🎨 גרדיאנטים */
   --gradient-white: linear-gradient(135deg, #ffffff, #f5f5f5);
   --gradient-gold: linear-gradient(135deg, #FFD700, #B8860B);
@@ -632,29 +633,29 @@ strong {
 
 /* Item */
 .icon-grid .icon-item {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-width: 0;
+  display: var(--icon-item-display, inline-flex);
+  flex-direction: var(--icon-item-direction, column);
+  align-items: var(--icon-item-align, center);
+  justify-content: var(--icon-item-justify, flex-start);
+  min-width: var(--icon-item-min-width, 0); /* מונע גלישה */
 }
 
 /* Button/capsule */
 .icon-grid .icon-item > a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: var(--icon-button-display, inline-flex);
+  align-items: var(--icon-button-align, center);
+  justify-content: var(--icon-button-justify, center);
   width: var(--icon-button-size, 70px);
   height: var(--icon-button-size, 70px);
   border-radius: var(--icon-button-radius, 50%);
   background: var(--icon-button-bg, #f2f2f2); /* אפור חלש */
   border: var(--icon-button-border, 0);
   box-shadow: var(--icon-button-shadow, none);
-  padding: 0;
+  padding: var(--icon-button-padding, 0);
   color: var(--icon-color, #007bff); /* כחול כברירת מחדל */
-  text-decoration: none;
-  transition: transform .1s ease;
-  outline: none;
+  text-decoration: var(--icon-button-text-decoration, none);
+  transition: var(--icon-button-transition, transform .1s ease);
+  outline: var(--icon-button-outline, none);
 }
 
 /* Hover effect - Flash animation */
@@ -662,9 +663,8 @@ strong {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
 }
-
 .icon-grid .icon-item > a:hover {
-  animation: icon-flash 0.6s ease-in-out;
+  animation: var(--icon-hover-animation, icon-flash 0.6s ease-in-out);
 }
 
 /* Focus + Active */
@@ -672,7 +672,7 @@ strong {
   box-shadow: var(--icon-focus-ring, 0 0 0 3px rgba(14,165,233,.35));
 }
 .icon-grid .icon-item > a:active {
-  transform: scale(.98);
+  transform: var(--icon-active-transform, scale(.98));
 }
 
 /* ICON fills the background */
@@ -680,8 +680,8 @@ strong {
 .icon-grid .icon-item img {
   width: var(--icon-svg-size, 64px);
   height: var(--icon-svg-size, 64px);
-  display: inline-block;
-  object-fit: contain;
+  display: var(--icon-svg-display, inline-block);
+  object-fit: var(--icon-object-fit, contain);
 }
 
 /* Force SVG to follow currentColor */
@@ -726,49 +726,49 @@ strong {
 
 /* קונטיינר – מרווח בין הריבועים */
 .share-section .share-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: var(--s-container-display, flex);
+  flex-wrap: var(--s-container-wrap, wrap);
+  justify-content: var(--s-container-justify, center);
   gap: var(--s-gap, 10px);
-  margin: 24px 0;
+  margin: var(--s-container-margin, 24px 0);
 }
 
 /* קפסולה */
 .share-section .share-buttons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: var(--s-display, inline-flex);
+  align-items: var(--s-align, center);
+  justify-content: var(--s-justify, center);
   width: var(--s-size, 50px);
   height: var(--s-size, 50px);
   border-radius: var(--s-radius, 12px);
-  background: var(--s-bg, #eef0f2); /* צבע רקע מותאם */
-  color: var(--s-color, #528095);   /* צבע האייקון */
+  background: var(--s-bg, #eef0f2);         /* רקע */
+  color: var(--s-color, #528095);           /* צבע אייקון */
   border: var(--s-border, 2px solid currentColor);
   box-shadow: var(--s-shadow, 0 2px 6px rgba(0,0,0,.12));
-  text-decoration: none;
-  outline: 0;
-  transition: transform .1s ease, background-color .2s ease, color .2s ease, box-shadow .2s ease;
+  text-decoration: var(--s-text-decoration, none);
+  outline: var(--s-outline, 0);
+  transition: var(--s-transition, transform .1s ease, background-color .2s ease, color .2s ease, box-shadow .2s ease);
 }
 
 /* אייקון SVG פנימי – מקבל צבע מ-currentColor */
 .share-section .share-buttons a svg {
   width: var(--s-icon, 60px);
   height: var(--s-icon, 60px);
-  display: block;
-  fill: currentColor;
-  stroke: currentColor;
+  display: var(--s-icon-display, block);
+  fill: var(--s-icon-fill, currentColor);
+  stroke: var(--s-icon-stroke, currentColor);
 }
 
 /* ריחוף/פוקוס */
 .share-section .share-buttons a:hover {
-  transform: scale(1.06);
-  background: var(--s-hover-bg, var(--s-color, #8ce56e));
+  transform: var(--share-hover-transform, scale(1.06));
+  background: var(--s-hover-bg, #8ce56e);
   color: var(--s-hover-color, #ffffff);
 }
-.share-section .share-buttons a:focus-visible {
-  box-shadow: 0 0 0 3px rgba(31,79,255,.35);
-}
 
+.share-section .share-buttons a:focus-visible {
+  box-shadow: var(--share-focus-ring, 0 0 0 3px rgba(31,79,255,.35));
+}
 /* מובייל */
 @media (max-width: 390px) {
   .share-section .share-buttons a {
