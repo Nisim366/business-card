@@ -94,7 +94,32 @@
   --gradient-blue: linear-gradient(135deg, #87CEEB, #2F4F4F);
   --gradient-turquoise: linear-gradient(135deg, #40E0D0, #008B8B);
   --gradient-multi: linear-gradient(45deg, #33cc99, #00aaff, #33cc99);
+
 }
+
+/* ===== base.css ===== */
+/* ברירת מחדל ל-strong עם אפשרות דריסה נקודתית */
+:where(body) strong {
+  font-weight: var(--strong-font-weight, var(--font-weight-bold, 700)) !important;
+}
+
+
+strong.fw-300 { --strong-font-weight: 300; }
+strong.fw-400 { --strong-font-weight: 400; }
+strong.fw-500 { --strong-font-weight: 500; }
+strong.fw-600 { --strong-font-weight: 600; }
+strong.fw-700 { --strong-font-weight: 700; }
+strong.fw-800 { --strong-font-weight: 800; }
+strong.fw-900 { --strong-font-weight: 900; }
+/* חלופה מבוססת data-attr אם מעדיף בלי קלאסים */
+strong[data-weight="300"]{ --strong-font-weight: 300; }
+strong[data-weight="400"]{ --strong-font-weight: 400; }
+strong[data-weight="500"]{ --strong-font-weight: 500; }
+strong[data-weight="600"]{ --strong-font-weight: 600; }
+strong[data-weight="700"]{ --strong-font-weight: 700; }
+strong[data-weight="800"]{ --strong-font-weight: 800; }
+strong[data-weight="900"]{ --strong-font-weight: 900; }
+
 
 * {
   box-sizing: border-box;
