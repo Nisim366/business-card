@@ -32,7 +32,7 @@ features: {
   sendEmail: true,
   sendWhatsApp: true,
 
-  contactWhatsApp: true, // ← החדש
+  contactWhatsApp: true,
   facebookLink: true,
   waze: true,
   phone: true,
