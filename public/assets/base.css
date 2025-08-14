@@ -229,7 +229,8 @@ img {
   font-size: var(--main-title-font-size, var(--title-font-size));
   font-weight: var(--main-title-font-weight, var(--font-weight-bold));
   color: var(--main-title-bg, var(--main-title-color));
-  margin-bottom: var(--main-title-margin-bottom, var(--spacing-medium));
+  margin-bottom: var(--main-title-margin-bottom, var(--spacing-tiny));
+  margin-top: var(--main-title-margin-top, var(--spacing-xxl));
 }
 .name-role .main-title {
   font-size: var(--name-role-title-size, 24px);
