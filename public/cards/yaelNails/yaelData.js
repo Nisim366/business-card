@@ -1,8 +1,9 @@
 window.cardData = {
 fullName: "יעל חן<br>אקדמיית ציפורניים",
 
-get pageTitle() {
-    return `${this.fullName.replace(/<br\s*\/?>/gi, " ")} | כרטיס ביקור`;},
+// שדה ייעודי לכותרת האתר
+pageTitle: " יעל חן | כרטיס ביקור",
+
   phone: "052-939-5776",
   email: "nisimelec77@gmail.com",
   phoneDigits: "0529395776",
