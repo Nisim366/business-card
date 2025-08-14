@@ -13,9 +13,9 @@ pageTitle: "הילה סבן | כרטיס ביקור",
   instagramLink: "https://www.instagram.com/username",
   instagramText: "אינסטגרם",
 
-  logoSrc: "/assets/media/logo-ortopok.png",
-  profileImage: "/assets/media/profile.jpg",
-  videoSrc: "/assets/media/mov_bbb.mp4",
+  logoSrc: "/assets/media/test/logo-ortopok.png",
+  profileImage: "/assets/media/test/profile.jpg",
+  videoSrc: "/assets/media/test/mov_bbb.mp4",
  facebookLink: "https://www.facebook.com/share/1HjZkESvSX/?mibextid=wwXIfr",
 
   // 📌 לינק דינמי ל-Telegram (כותרת + תיאור מתוך הנתונים)
