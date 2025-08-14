@@ -1,7 +1,4 @@
-/* =========================
-   /assets/themes.css – התאמה לשמות המשתנים בקוד הקיים
-   טען אחרי base.css ו-style.css
-   ========================= */
+@import url("base.css");
 
 /* 1) קלאסי ונקי */
 .theme-classic {
@@ -34,7 +31,7 @@
   --contact-form-bg: #f9f9f9;
 
   /* טיפוגרפיה כללית */
-  --title-font-size: var(--font-size-title-XLL);
+  --title-font-size: var(--font-size-title-XL);
   --global-font-family: var(--font-family-modern, sans-serif);
 }
 
@@ -65,7 +62,7 @@
   /* טופס יצירת קשר */
   --contact-form-bg: #e6f0ff;
 
-  --title-font-size: var(--font-size-title-XLL);
+  --title-font-size: var(--font-size-title-XL);
   --global-font-family: var(--font-family-modern, sans-serif);
 }
 
@@ -96,7 +93,7 @@
   /* טופס יצירת קשר */
   --contact-form-bg: #f5ede0;
 
-  --title-font-size: var(--font-size-title-XLL);
+  --title-font-size: var(--font-size-title-XL);
   --global-font-family: var(--font-family-modern, sans-serif);
 }
 
@@ -127,7 +124,7 @@
   /* טופס יצירת קשר */
   --contact-form-bg: #1a1a1a;
 
-  --title-font-size: var(--font-size-title-XLL);
+  --title-font-size: var(--font-size-title-XL);
   --global-font-family: var(--font-family-modern, sans-serif);
 }
 
@@ -158,7 +155,7 @@
   /* טופס יצירת קשר */
   --contact-form-bg: #d6ebdc;
 
-  --title-font-size: var(--font-size-title-XLL);
+  --title-font-size: var(--font-size-title-XL);
   --global-font-family: var(--font-family-modern, sans-serif);
 }
 
