@@ -504,6 +504,43 @@ function handleAccordionToggle(element) {
   }
 }
 
+/* =========================
+   Share Buttons – script-generic.js
+   ========================= */
+(function initShareButtons(){
+  const PROD_ORIGIN = "https://www.clix-marketing.co.il";
+
+  function buildPublicUrlFromLocal(href){
+    try{
+      // תמיכה גם ב-file: (פותח מהקובץ)
+      if (location.protocol === "file:") {
+        // במקרה כזה אין origin – נייצר ישירות מהנתיב
+        return PROD_ORIGIN + href.replace(/^file:\/\//, "").replace(/^[^/]+/, "");
+      }
+
+      const u = new URL(href);
+      const isLocal =
+        u.hostname === "localhost" ||
+        u.hostname === "127.0.0.1";
+
+      if (isLocal) {
+        // שימור path, query, hash
+        return PROD_ORIGIN + u.pathname + u.search + u.hash;
+      }
+      // כבר דומיין ציבורי
+      return href;
+    } catch {
+      // פולבאק: אם מכל סיבה יש בעיה – נחזיר את הכתובת המקורית
+      return href;
+    }
+  }
+
+  function getShareableUrl(){
+    // אם יש כבר publicShareUrl גלובלי – נכבד אותו; אחרת נמפה אוטומטית
+    const explicit = window.cardData?.publicShareUrl && String(window.cardData.publicShareUrl).trim();
+    const current  = location.href;
+    return explicit || buildPublicUrlFromLocal(current);
+  }
 
   document.querySelectorAll('.share-buttons a').forEach(button => {
     const type = button.dataset.type;
@@ -512,33 +549,53 @@ function handleAccordionToggle(element) {
       button.style.display = 'none';
       return;
     }
-    button.addEventListener('click', function () {
-      const url = encodeURIComponent(location.href);
-      const title = encodeURIComponent(document.title);
+
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const rawUrl    = getShareableUrl().replace(/\s+/g, '').replace(/#$/, '');
+      const rawTitle  = document.title || '';
+      const safeUrl   = encodeURIComponent(rawUrl);
+      const safeTitle = encodeURIComponent(rawTitle);
+
       let shareUrl = "#";
       switch (type) {
         case "whatsapp":
-          shareUrl = `https://wa.me/?text=${title}%0A${url}`;
+          // URL נקי כדי להיות לחיץ
+          shareUrl = `https://wa.me/?text=${rawUrl}`;
           break;
-        case "facebook":
-          shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-          break;
-        case "linkedin":
-          shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-          break;
-        case "twitter":
-          shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
-          break;
-        case "email":
-          shareUrl = `mailto:?subject=${title}&body=${url}`;
-          break;
+
         case "telegram":
-          shareUrl = window.cardData?.telegramLink || `https://t.me/share/url?url=${url}&text=${title}`;
+          shareUrl = `https://t.me/share/url?url=${safeUrl}&text=${safeTitle}`;
+          break;
+
+        case "facebook":
+          shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${safeUrl}`;
+          break;
+
+        case "linkedin":
+          shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${safeUrl}`;
+          break;
+
+        case "twitter":
+        case "x":
+          shareUrl = `https://twitter.com/intent/tweet?url=${safeUrl}&text=${safeTitle}`;
+          break;
+
+        case "email":
+          shareUrl = `mailto:?subject=${safeTitle}&body=${encodeURIComponent(rawTitle + "\n" + rawUrl)}`;
+          break;
+
+        default:
+          const existing = button.getAttribute('href') || '#';
+          shareUrl = existing !== '#' ? existing : rawUrl;
           break;
       }
-      window.open(shareUrl, '_blank');
+
+      window.open(shareUrl, '_blank', 'noopener,noreferrer');
     });
   });
+})();
 
 const mediaContainer = document.querySelector('[data-field="videoSrc"]');
 if (mediaContainer) {

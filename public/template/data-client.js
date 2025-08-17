@@ -8,19 +8,15 @@ pageTitle: "הילה סבן | כרטיס ביקור",
   email: "nisimelec77@gmail.com",
   phoneDigits: "0529395776",
   vcardLink: "./contact.vcf",
-  wazeLink: "https://waze.com/ul/hsv8ybptzp",
-  wazeLabel: "Waze",
-  instagramLink: "https://www.instagram.com/username",
-  instagramText: "אינסטגרם",
+
+  wazeLink: "https://waze.com/ul/hsv8wxcjtf",
+  instagramLink: "https://www.instagram.com/yael_art_gallery?igsh=MTJuNzh4NTQ5aDV4YQ%3D%3D&utm_source=qr",
+  facebookLink: "https://www.facebook.com/share/178LGRDcLN/?mibextid=wwXIfr",
 
   logoSrc: "/assets/media/test/logo-ortopok.png",
   profileImage: "/assets/media/test/profile.jpg",
   videoSrc: "/assets/media/test/mov_bbb.mp4",
- facebookLink: "https://www.facebook.com/share/1HjZkESvSX/?mibextid=wwXIfr",
 
-  // 📌 לינק דינמי ל-Telegram (כותרת + תיאור מתוך הנתונים)
-  telegramLink: `https://t.me/share/url?url=${encodeURIComponent("https://example.com")}&text=${encodeURIComponent("הילה לוי - מטפלת רגשית והדרכת הורים")}`,
-   
 features: {
   video: true,
   about: true,
