@@ -512,31 +512,20 @@ function handleAccordionToggle(element) {
 
   function buildPublicUrlFromLocal(href){
     try{
-      // תמיכה גם ב-file: (פותח מהקובץ)
       if (location.protocol === "file:") {
-        // במקרה כזה אין origin – נייצר ישירות מהנתיב
         return PROD_ORIGIN + href.replace(/^file:\/\//, "").replace(/^[^/]+/, "");
       }
-
       const u = new URL(href);
-      const isLocal =
-        u.hostname === "localhost" ||
-        u.hostname === "127.0.0.1";
-
-      if (isLocal) {
-        // שימור path, query, hash
+      if (u.hostname === "localhost" || u.hostname === "127.0.0.1") {
         return PROD_ORIGIN + u.pathname + u.search + u.hash;
       }
-      // כבר דומיין ציבורי
       return href;
     } catch {
-      // פולבאק: אם מכל סיבה יש בעיה – נחזיר את הכתובת המקורית
       return href;
     }
   }
 
   function getShareableUrl(){
-    // אם יש כבר publicShareUrl גלובלי – נכבד אותו; אחרת נמפה אוטומטית
     const explicit = window.cardData?.publicShareUrl && String(window.cardData.publicShareUrl).trim();
     const current  = location.href;
     return explicit || buildPublicUrlFromLocal(current);
@@ -558,32 +547,36 @@ function handleAccordionToggle(element) {
       const safeUrl   = encodeURIComponent(rawUrl);
       const safeTitle = encodeURIComponent(rawTitle);
 
+      // ✅ טקסט משותף לכל השיתופים
+      const fullName  = (window.cardData?.fullName || "").trim();
+      const shareText = `כרטיס ביקור – ${fullName}\n${rawUrl}`;
+      const safeShareText = encodeURIComponent(shareText);
+
       let shareUrl = "#";
       switch (type) {
         case "whatsapp":
-          // URL נקי כדי להיות לחיץ
-          shareUrl = `https://wa.me/?text=${rawUrl}`;
+          shareUrl = `https://wa.me/?text=${safeShareText}`;
           break;
 
         case "telegram":
-          shareUrl = `https://t.me/share/url?url=${safeUrl}&text=${safeTitle}`;
+          shareUrl = `https://t.me/share/url?url=${safeUrl}&text=${encodeURIComponent("כרטיס ביקור – " + fullName)}`;
           break;
 
         case "facebook":
-          shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${safeUrl}`;
+          shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${safeUrl}&quote=${safeShareText}`;
           break;
 
         case "linkedin":
-          shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${safeUrl}`;
+          shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${safeUrl}&summary=${safeShareText}`;
           break;
 
         case "twitter":
         case "x":
-          shareUrl = `https://twitter.com/intent/tweet?url=${safeUrl}&text=${safeTitle}`;
+          shareUrl = `https://twitter.com/intent/tweet?url=${safeUrl}&text=${safeShareText}`;
           break;
 
         case "email":
-          shareUrl = `mailto:?subject=${safeTitle}&body=${encodeURIComponent(rawTitle + "\n" + rawUrl)}`;
+          shareUrl = `mailto:?subject=${encodeURIComponent("כרטיס ביקור – " + fullName)}&body=${safeShareText}`;
           break;
 
         default:
