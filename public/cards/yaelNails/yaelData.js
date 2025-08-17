@@ -1,18 +1,19 @@
 window.cardData = {
-fullName: "יעל חן ",
-role: "ציפורניים",
+fullName: "יעל חן",
+role: "אומנות הציפורניים סטודיו ואקדמיה",
 
 // שדה ייעודי לכותרת האתר
 pageTitle: " יעל חן | כרטיס ביקור",
 
-  phone: "052-939-5776",
-  email: "nisimelec77@gmail.com",
-  phoneDigits: "0529395776",
+  phone: "054-8787-702",
+  email: "yaelartgallery@gmail.com",
+  phoneDigits: "548787702",
   vcardLink: "./contact.vcf",
+  company: "Cardly",
+  cardUrl: "https://www.clix-marketing.co.il/cards/yaelNails/yael.html#",
+  vcard: { filename: "contact.vcf" },
   wazeLink: "https://waze.com/ul/hsv8ybptzp",
-  wazeLabel: "Waze",
   instagramLink: "https://www.instagram.com/username",
-  instagramText: "אינסטגרם",
 
   logoSrc: "/assets/media/test/logo-ortopok.png",
   profileImage: "/assets/media/test/profile.jpg",

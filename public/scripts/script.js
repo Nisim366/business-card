@@ -68,30 +68,137 @@ function formatForWa(phoneDigits = "") {
   const noLeadingZeros = raw.replace(/^0+/, "");
   return noLeadingZeros.startsWith("972") ? noLeadingZeros : `972${noLeadingZeros}`;
 }
+/* =========================
+   vCard Auto from DATA – no anchor required
+   ========================= */
+(() => {
+  // שמירה מקומית על אובייקטים כדי לשחרר כתובות קודמות
+  let vcardBlob = null;
+  let vcardURL  = null;
 
-// ✅ יצירת vCard דינמית
-function generateVCard() {
-  if (!window.cardData) return;
-  const { fullName, phoneDigits, email } = window.cardData;
-  const vcardContent = `
-BEGIN:VCARD
-VERSION:3.0
-FN:${fullName}
-TEL;TYPE=CELL:+972${phoneDigits}
-EMAIL:${email}
-END:VCARD
-`.trim();
+  // מילוט בסיסי לערכי vCard
+  const esc = (v) => String(v ?? "")
+    .replace(/\\/g, "\\\\")
+    .replace(/\n/g, "\\n")
+    .replace(/,/g, "\\,")
+    .replace(/;/g, "\\;")
+    .trim();
 
-  const blob = new Blob([vcardContent], { type: "text/vcard" });
-  const url = URL.createObjectURL(blob);
+  // נורמליזציה של טלפון ל־+972XXXXXXXXX (ללא תוצאה אם אין ספרות)
+  const normalizeILPhone = (digits) => {
+    const raw = String(digits || "").replace(/\D/g, "");
+    const noLeadingZeros = raw.replace(/^0+/, "");
+    if (!noLeadingZeros) return ""; // ← חשוב: לא להחזיר +972 ריק
+    return noLeadingZeros.startsWith("972") ? `+${noLeadingZeros}` : `+972${noLeadingZeros}`;
+  };
 
-  const vcardLink = document.getElementById("vcardDownload");
-  if (vcardLink) {
-    vcardLink.href = url;
-    vcardLink.download = "contact.vcf";
+  // בניית טקסט vCard מ־window.cardData
+  function buildVCard(data) {
+    if (!data) return null;
+
+    const fullName = esc(data.fullName || "");
+    const parts    = fullName.split(/\s+/);
+    const first    = esc(parts[0] || "");
+    const last     = esc(parts.slice(1).join(" "));
+    const phone    = normalizeILPhone(data.phoneDigits || data.phone || "");
+    const email    = esc(data.email || "");
+    const role     = esc(data.role || data.jobTitle || "");
+    const company  = esc(data.company || data.org || "");
+    const cardUrl  = esc(data.cardUrl || location.href);
+
+    // שדות אופציונליים ייכנסו רק אם מולאו
+    const lines = [
+      "BEGIN:VCARD",
+      "VERSION:3.0",
+      fullName ? `FN:${fullName}` : "",
+      (first || last) ? `N:${last};${first};;;` : "",
+      phone ? `TEL;TYPE=CELL:${phone}` : "",
+      email ? `EMAIL:${email}` : "",
+      role ? `TITLE:${role}` : "",
+      company ? `ORG:${company}` : "",
+      cardUrl ? `URL:${cardUrl}` : "",
+      "END:VCARD",
+    ].filter(Boolean);
+
+    return lines.join("\n");
   }
-}
-window.addEventListener("load", generateVCard);
+
+  // יצירת Blob ו־URL (עם ניקוי משאבים קודמים)
+  function createVCardBlobAndURL(data) {
+    const content = buildVCard(data);
+    if (!content) return { blob: null, url: null };
+
+    if (vcardURL) URL.revokeObjectURL(vcardURL);
+    vcardBlob = new Blob([content], { type: "text/vcard;charset=utf-8" });
+    vcardURL  = URL.createObjectURL(vcardBlob);
+    return { blob: vcardBlob, url: vcardURL };
+  }
+
+  // הצמדה אוטומטית לכל אלמנט רלוונטי בדף
+  function attachVCardToAnchors(url) {
+    if (!url) return;
+
+    // 1) עוגן מפורש אם קיים (תמיכה לאחור)
+    const legacy = document.getElementById("vcardDownload");
+    if (legacy) {
+      legacy.href = url;
+      legacy.download = "contact.vcf";
+    }
+
+    // 2) כל כפתור/קישור שמוגדר כ"הוסף איש קשר"
+    //    - לפי data-field="addContact" או data-action="addContact"
+    document.querySelectorAll('[data-field="addContact"], [data-action="addContact"]').forEach(a => {
+      if (a.tagName === "A") {
+        a.href = url;
+        a.setAttribute("download", "contact.vcf");
+      }
+    });
+  }
+
+  // הורדה מיידית תכנותית (לא תלויה ב־DOM)
+  function triggerVCardDownload(filename = "contact.vcf") {
+    if (!vcardURL) return false;
+    const a = document.createElement("a");
+    a.href = vcardURL;
+    a.download = filename;
+    a.style.display = "none";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    return true;
+  }
+
+  // רענון מלא: יצירה + הצמדה + עדכון cardData.vcardLink
+  function refreshVCard() {
+    if (!window.cardData) return { url: null, blob: null };
+    const { blob, url } = createVCardBlobAndURL(window.cardData);
+    if (url) {
+      // נעדכן גם במבנה הנתונים לשימוש כללי (תואם ל-replaceAll הקיים)
+      window.cardData.vcardLink = url;
+      attachVCardToAnchors(url);
+    }
+    return { blob, url };
+  }
+
+  // חשיפת API גלובלי לשימוש חיצוני
+  window.VCardAPI = {
+    refresh: refreshVCard,
+    getURL: () => vcardURL,
+    getBlob: () => vcardBlob,
+    download: (filename) => triggerVCardDownload(filename),
+  };
+
+  // אתחול אוטומטי כשהעמוד מוכן ו־cardData קיים
+  const init = () => {
+    if (!window.cardData) return;
+    refreshVCard();
+  };
+
+  // תמיכה גם ב־DOMContentLoaded וגם ב־load (כיסוי החזרות מהיסטוריה)
+  document.addEventListener("DOMContentLoaded", init);
+  window.addEventListener("pageshow", init);
+  window.addEventListener("load", init);
+})();
 
 // ✅ טעינה גם כשחוזרים מהיסטוריה
 window.addEventListener("pageshow", function () {
