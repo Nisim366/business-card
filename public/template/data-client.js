@@ -1,39 +1,52 @@
 window.cardData = {
-fullName: "הילה סבן <br>מטפלת רגשית ומדריכת הורים",
+fullName: " דמו",
+role: "אומנות הציפורניים סטודיו ואקדמיה",
 
 // שדה ייעודי לכותרת האתר
-pageTitle: "הילה סבן | כרטיס ביקור",
+pageTitle: " דמו | כרטיס ביקור",
 
-  phone: "052-939-5776",
-  email: "nisimelec77@gmail.com",
-  phoneDigits: "0529395776",
+  phone: "054-8787-702",
+  email: "yaelartgallery@gmail.com",
+  phoneDigits: "548787702",
   vcardLink: "./contact.vcf",
-
+  company: "Cardly",
+  cardUrl: "https://www.clix-marketing.co.il/cards/yaelNails/yael.html#",
+  vcard: { filename: "contact.vcf" },
   wazeLink: "https://waze.com/ul/hsv8wxcjtf",
-  instagramLink: "https://www.instagram.com/yael_art_gallery?igsh=MTJuNzh4NTQ5aDV4YQ%3D%3D&utm_source=qr",
-  facebookLink: "https://www.facebook.com/share/178LGRDcLN/?mibextid=wwXIfr",
+  instagramLink: "https://www.instagram.com/yael_artgallery?igsh=MTJuNzh4NTQ5aDV4YQ%3D%3D&utm_source=qr",
 
   logoSrc: "/assets/media/test/logo-ortopok.png",
   profileImage: "/assets/media/test/profile.jpg",
   videoSrc: "/assets/media/test/mov_bbb.mp4",
+ facebookLink: "https://www.facebook.com/share/178LGRDcLN/?mibextid=wwXIfr",
+
+ customFormMessage: true, // ✅ מפעיל את הסקריפט
+  formMessageTemplate: "היי, קוראים לי {fullName}{agePart}. {msg}",
 
 features: {
+  
+
+    secondaryField: {
+      key: "city",
+      label: "עיר",              // כאן אתה קובע איזה טקסט יוצג (label + בהודעה)
+      type: "text",
+      placeholder: "הכנס עיר",
+      inputMode: "text",
+      required: true
+    },
   video: true,
   about: true,
   recommendations: true,
-  contactWhatsapp: true, // ← החדש
 
-
-
-  sendEmail: false,
-  sendWhatsApp: true,
-
-  contactWhatsApp: true,
+  contactWhatsApp: true, 
   facebookLink: true,
   waze: true,
   phone: true,
   instagram: true,
-  mail: true
+  mail : true,
+
+  sendEmail: false,
+  sendWhatsApp: true,
 },
     shareOptions: {
     email: true,
@@ -43,7 +56,6 @@ features: {
     facebook: true,
     telegram: true
   },
-
 
 
   aboutParagraphs: `
