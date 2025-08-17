@@ -503,7 +503,6 @@ function handleAccordionToggle(element) {
     tabContent.removeAttribute('hidden');
   }
 }
-
 /* =========================
    Share Buttons – script-generic.js
    ========================= */
@@ -511,7 +510,7 @@ function handleAccordionToggle(element) {
   const PROD_ORIGIN = "https://www.clix-marketing.co.il";
 
   function buildPublicUrlFromLocal(href){
-    try{
+    try {
       if (location.protocol === "file:") {
         return PROD_ORIGIN + href.replace(/^file:\/\//, "").replace(/^[^/]+/, "");
       }
@@ -533,6 +532,7 @@ function handleAccordionToggle(element) {
 
   document.querySelectorAll('.share-buttons a').forEach(button => {
     const type = button.dataset.type;
+    if (!type) return; // ← הוספתי שמירה: חייב type
     const shareOptions = window.cardData?.shareOptions || {};
     if (shareOptions[type] === false) {
       button.style.display = 'none';
@@ -567,6 +567,7 @@ function handleAccordionToggle(element) {
           break;
 
         case "linkedin":
+          // LinkedIn בפועל מתחשב בעיקר ב-url; השאר לא מזיק
           shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${safeUrl}&summary=${safeShareText}`;
           break;
 
@@ -585,7 +586,9 @@ function handleAccordionToggle(element) {
           break;
       }
 
-      window.open(shareUrl, '_blank', 'noopener,noreferrer');
+      if (shareUrl && shareUrl !== '#') {
+        window.open(shareUrl, '_blank', 'noopener,noreferrer');
+      }
     });
   });
 })();

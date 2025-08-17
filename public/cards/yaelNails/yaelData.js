@@ -25,7 +25,7 @@ features: {
   about: true,
   recommendations: true,
 
-  contactWhatsApp: true, // ← החדש
+  contactWhatsApp: true, 
   facebookLink: true,
   waze: true,
   phone: true,
@@ -114,5 +114,7 @@ features: {
 
 
 };
+Object.freeze(window.cardData);
+
 
 console.log("📦 data-client.js loaded OK");
