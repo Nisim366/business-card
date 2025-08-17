@@ -191,7 +191,7 @@ img {
 .header-top,
 .top-section {
   width: var(--header-width, 100%);
-  height: var(--header-height, 280px);
+  height: var(--header-height, auto);
   margin: var(--header-margin, 0);
   padding: var(--header-padding, 0);
   border-radius: var(--header-radius, 0);
@@ -204,6 +204,7 @@ img {
   object-fit: var(--header-img-fit, contain);
   border-radius: var(--header-img-radius, 0);
   display: block;
+  margin-left: var(--header-img-offset-x, 0); 
   background-color: var(--header-img-bg, var(--color-white));
 }
 
@@ -324,6 +325,7 @@ strong {
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
 }
+
 
 
 

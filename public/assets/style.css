@@ -4,16 +4,7 @@
 :root {
 
     --name-role-font-family: var(--font-family-display);
-
-}
-.name-role .main-title {
-  text-align: var(--name-role-text-align, center);
-  margin: var(--name-role-margin, 0 0 var(--spacing-small) 0);
-  padding: var(--name-role-padding, 0);
-  margin-top: var(--name-role-margin-top, 10px);
-  font-family: var(--name-role-font-family, var(--global-font-family));
-  color: var(--name-role-color, var(--color-gray-dark));
-font-size: var(--name-role-font-size, var(--font-size-title-XLL));
-  font-weight: var(--name-role-font-weight, var(--font-weight-bold));
-  line-height: var(--name-role-line-height, 1.1); /* ✅ ברירת מחדל חדשה */
+  --header-height: 200px; /* לדוגמה */
+  --header-img-bg : #fffaf2;
+  --header-img-offset-x : 3px;
 }
