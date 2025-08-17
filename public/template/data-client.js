@@ -29,14 +29,15 @@ features: {
 
 
 
-  sendEmail: true,
+  sendEmail: false,
   sendWhatsApp: true,
 
   contactWhatsApp: true,
   facebookLink: true,
   waze: true,
   phone: true,
-  instagram: true
+  instagram: true,
+  mail: true
 },
     shareOptions: {
     email: true,

@@ -433,8 +433,8 @@ if (recommendationsSwiper) {
     if (emailButton) emailButton.style.display = 'none';
   }
 
-  if (!data.features?.sendWhatsapp) {
-    const whatsappButton = document.querySelector('[data-action="sendWhatsapp"]');
+  if (!data.features?.sendWhatsApp) {
+    const whatsappButton = document.querySelector('[data-action="sendWhatsApp"]');
     if (whatsappButton) whatsappButton.style.display = 'none';
   }
   const videoContainer = document.querySelector('[data-field="videoSrc"]');

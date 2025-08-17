@@ -27,18 +27,16 @@ features: {
   video: true,
   about: true,
   recommendations: true,
-  contactWhatsapp: true, // ← החדש
 
-
-
-  sendEmail: true,
-  sendWhatsApp: true,
-
-  contactWhatsApp: true,
+  contactWhatsApp: true, // ← החדש
   facebookLink: true,
   waze: true,
   phone: true,
-  instagram: true
+  instagram: true,
+  mail : true,
+
+  sendEmail: false,
+  sendWhatsApp: true,
 },
     shareOptions: {
     email: true,
