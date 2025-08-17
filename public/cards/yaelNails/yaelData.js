@@ -12,17 +12,14 @@ pageTitle: " יעל חן | כרטיס ביקור",
   company: "Cardly",
   cardUrl: "https://www.clix-marketing.co.il/cards/yaelNails/yael.html#",
   vcard: { filename: "contact.vcf" },
-  wazeLink: "https://waze.com/ul/hsv8ybptzp",
-  instagramLink: "https://www.instagram.com/username",
+  wazeLink: "https://waze.com/ul/hsv8wxcjtf",
+  instagramLink: "https://www.instagram.com/yael_artgallery?igsh=MTJuNzh4NTQ5aDV4YQ%3D%3D&utm_source=qr",
 
   logoSrc: "/assets/media/test/logo-ortopok.png",
   profileImage: "/assets/media/test/profile.jpg",
   videoSrc: "/assets/media/test/mov_bbb.mp4",
- facebookLink: "https://www.facebook.com/share/1HjZkESvSX/?mibextid=wwXIfr",
+ facebookLink: "https://www.facebook.com/share/178LGRDcLN/?mibextid=wwXIfr",
 
-  // 📌 לינק דינמי ל-Telegram (כותרת + תיאור מתוך הנתונים)
-  telegramLink: `https://t.me/share/url?url=${encodeURIComponent("https://example.com")}&text=${encodeURIComponent("הילה לוי - מטפלת רגשית והדרכת הורים")}`,
-   
 features: {
   video: true,
   about: true,
