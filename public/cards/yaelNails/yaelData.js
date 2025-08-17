@@ -24,6 +24,16 @@ pageTitle: " יעל חן | כרטיס ביקור",
   formMessageTemplate: "היי, קוראים לי {fullName}{agePart}. {msg}",
 
 features: {
+  
+
+    secondaryField: {
+      key: "city",
+      label: "עיר",              // כאן אתה קובע איזה טקסט יוצג (label + בהודעה)
+      type: "text",
+      placeholder: "הכנס עיר",
+      inputMode: "text",
+      required: true
+    },
   video: true,
   about: true,
   recommendations: true,

@@ -402,100 +402,146 @@ if (recommendationsSwiper) {
     });
   }
 /* =========================
-   Channel ⇄ Form Field Sync
+   Channel ⇄ Form Field Sync (Dynamic Secondary Field)
    ========================= */
+// script-generic.js
 
 (function initChannelFormSync() {
   const data = window.cardData || window.data || {};
   const features = data.features || {};
 
+  // תאימות sendWhatsapp / sendWhatsApp
   const FLAG_SEND_WHATSAPP = (features.sendWhatsapp === true || features.sendWhatsApp === true);
   const FLAG_SEND_EMAIL    = (features.sendEmail === true);
 
+  // ✅ תצורת שדה משני דינמי מתוך DATA (ברירת מחדל = גיל)
+  const secondary = Object.assign({
+    key: 'age',
+    label: 'גיל',
+    type: 'number',
+    placeholder: 'גיל',
+    inputMode: 'numeric',
+    min: 1,
+    max: 120,
+    pattern: '\\d{1,3}',
+    maxLength: 3,
+    required: true
+  }, features.secondaryField || {});
+
+  // ערוץ ברירת מחדל
   const channel =
     (typeof features.formChannel === "string" && features.formChannel.toLowerCase()) ||
     (FLAG_SEND_WHATSAPP ? "whatsapp" : "email");
 
-  const nameEl  = document.getElementById('fullName');
-  const phoneEl = document.getElementById('phoneNumber');
-  const ageEl   = document.getElementById('age');
-  const msgEl   = document.getElementById('message');
+  // אלמנטים
+  const nameEl   = document.getElementById('fullName');
+  const phoneEl  = document.getElementById('phoneNumber');
+  const secEl    = document.getElementById('secondaryField');
+  const msgEl    = document.getElementById('message');
 
-  const wrapperPhone = phoneEl?.closest('.form-field') || phoneEl?.parentElement || null;
-  const wrapperAge   = ageEl?.closest('.form-field')   || ageEl?.parentElement   || null;
+  const wrapPhone = document.getElementById('wrapperPhone') || phoneEl?.closest('.form-field') || null;
+  const wrapSec   = document.getElementById('wrapperSecondary') || secEl?.closest('.form-field') || null;
 
+  const labelPhone = document.querySelector('label[for="phoneNumber"]');
+  const labelSec   = document.querySelector('label[for="secondaryField"].label-secondary') || document.querySelector('.label-secondary');
+
+  // ▶️ החלת מטא על טלפון
+  function applyPhoneMeta() {
+    if (!phoneEl) return;
+    phoneEl.type = 'tel';
+    phoneEl.placeholder = 'טלפון';
+    phoneEl.setAttribute('aria-label', 'טלפון');
+    phoneEl.setAttribute('inputmode', 'tel');
+    phoneEl.removeAttribute('pattern');
+    phoneEl.removeAttribute('maxlength');
+    if (labelPhone) labelPhone.textContent = (data.labels?.phone || 'טלפון');
+  }
+
+  // ▶️ החלת מטא על השדה המשני לפי DATA
+  function applySecondaryMeta() {
+    if (!secEl) return;
+
+    secEl.type = secondary.type || 'text';
+    secEl.placeholder = secondary.placeholder || secondary.label || '';
+    secEl.setAttribute('aria-label', secondary.label || '');
+    secEl.setAttribute('aria-required', String(!!secondary.required));
+    secEl.required = !!secondary.required;
+
+    // ניקוי קודם
+    secEl.removeAttribute('min'); secEl.removeAttribute('max');
+    secEl.removeAttribute('pattern'); secEl.removeAttribute('maxlength');
+    secEl.removeAttribute('inputmode');
+
+    if (secondary.inputMode) secEl.setAttribute('inputmode', secondary.inputMode);
+    if (typeof secondary.min !== 'undefined') secEl.setAttribute('min', String(secondary.min));
+    if (typeof secondary.max !== 'undefined') secEl.setAttribute('max', String(secondary.max));
+    if (secondary.pattern) secEl.setAttribute('pattern', secondary.pattern);
+    if (secondary.maxLength) secEl.setAttribute('maxlength', String(secondary.maxLength));
+
+    if (labelSec) labelSec.textContent = secondary.label || '';
+  }
+
+  // ▶️ הצגה/הסתרה והחלת מטא לפי ערוץ
   function applyFormChannelUI(nextChannel) {
     const useWhatsapp = nextChannel === 'whatsapp';
 
-    // הצגה/הסתרה של השדה המשני
-    if (ageEl) {
-      if (wrapperPhone) wrapperPhone.style.display = useWhatsapp ? 'none' : '';
-      if (wrapperAge)   wrapperAge.style.display   = useWhatsapp ? '' : 'none';
-    } else if (phoneEl) {
-      // מחזור phoneEl לגיל במקרה שאין שדה גיל נפרד
-      if (useWhatsapp) {
-        phoneEl.setAttribute('inputmode', 'numeric');
-        phoneEl.setAttribute('pattern', '\\d{1,3}');
-        phoneEl.setAttribute('maxlength', '3');
-        phoneEl.setAttribute('aria-label', 'גיל');
-        phoneEl.placeholder = 'גיל';
-        phoneEl.dataset.role = 'age';
-      } else {
-        phoneEl.removeAttribute('pattern');
-        phoneEl.removeAttribute('maxlength');
-        phoneEl.setAttribute('inputmode', 'tel');
-        phoneEl.setAttribute('aria-label', 'טלפון');
-        phoneEl.placeholder = 'טלפון';
-        phoneEl.dataset.role = 'phone';
-      }
+    if (wrapSec)   wrapSec.style.display   = useWhatsapp ? '' : 'none';
+    if (wrapPhone) wrapPhone.style.display = useWhatsapp ? 'none' : '';
+
+    if (useWhatsapp) {
+      applySecondaryMeta();
+    } else {
+      applyPhoneMeta();
     }
   }
 
-  function getAgeValue() {
-    if (ageEl && (wrapperAge?.style.display !== 'none')) return (ageEl.value || '').trim();
-    if (phoneEl?.dataset.role === 'age') return (phoneEl.value || '').trim();
+  // ערכים
+  function getSecondaryValue() {
+    if (secEl && wrapSec && wrapSec.style.display !== 'none') return (secEl.value || '').trim();
     return '';
   }
   function getPhoneValue() {
-    if (phoneEl && phoneEl.dataset.role !== 'age' && (wrapperPhone?.style.display !== 'none')) {
-      return (phoneEl.value || '').trim();
-    }
+    if (phoneEl && wrapPhone && wrapPhone.style.display !== 'none') return (phoneEl.value || '').trim();
     return '';
   }
 
-  // החלה מיידית + DOMContentLoaded (למקרה שהסקריפט נטען אחרי ה־DOM)
+  // החלה ראשונית בטוחה
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => applyFormChannelUI(channel));
+    document.addEventListener('DOMContentLoaded', () => {
+      applyPhoneMeta();
+      applySecondaryMeta();
+      applyFormChannelUI(channel);
+    });
   } else {
+    applyPhoneMeta();
+    applySecondaryMeta();
     applyFormChannelUI(channel);
   }
 
-  /* ============ שליחה ל־WhatsApp ============ */
+  /* ========= שליחה ל־WhatsApp ========= */
   window.sendToWhatsapp = function(event) {
     event?.preventDefault?.();
-
-    // סנכרון UI לפני שליחה כדי שהמשתמש יראה "גיל"
     window.setFormChannel?.('whatsapp');
     applyFormChannelUI('whatsapp');
 
     if (features.formChannel && features.formChannel.toLowerCase() !== 'whatsapp') return;
 
     const name = (nameEl?.value || '').trim();
-    const age  = getAgeValue();
+    const secondaryVal = getSecondaryValue();
     const msg  = (msgEl?.value || '').trim();
 
     const esc = (v) => encodeURIComponent(v);
     const number = String(data.phoneDigits || '').replace(/\D/g, '') || "0000000000";
-    const fullMsg = `שם: ${name}%0Aגיל: ${esc(age)}%0Aהודעה: ${esc(msg)}`;
-    const url = `https://wa.me/972${number}?text=${fullMsg}`;
-    window.open(url, '_blank');
+
+    const line = `${secondary.label || 'שדה'}: ${esc(secondaryVal)}`;
+    const fullMsg = `שם: ${esc(name)}%0A${line}%0Aהודעה: ${esc(msg)}`;
+
+    window.open(`https://wa.me/972${number}?text=${fullMsg}`, '_blank');
   };
 
-  /* ============ שליחה לאימייל ============ */
+  /* ========= שליחה לאימייל ========= */
   window.sendToEmail = function(event) {
     event?.preventDefault?.();
-
-    // סנכרון UI לפני שליחה כדי שהמשתמש יראה "טלפון"
     window.setFormChannel?.('email');
     applyFormChannelUI('email');
 
@@ -509,8 +555,7 @@ if (recommendationsSwiper) {
 
     const subject = encodeURIComponent(`פניה מכרטיס ביקור – ${name}`);
     const body = encodeURIComponent(`שם: ${name}\nטלפון: ${phone}\nהודעה: ${msg}`);
-    const mailto = `mailto:${email}?subject=${subject}&body=${body}`;
-    window.location.href = mailto;
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
   };
 
   // סוויצ'ר ידני
@@ -532,7 +577,7 @@ if (recommendationsSwiper) {
   if (waBtn && !(features.sendWhatsapp || features.sendWhatsApp)) waBtn.style.display = 'none';
 })();
 
-/* ============ אינטראקציות וידאו ============ */
+/* ============ אינטראקציות וידאו (אופציונלי) ============ */
 const videoContainer = document.querySelector('[data-field="videoSrc"]');
 if (videoContainer) {
   videoContainer.addEventListener('click', function (event) {
@@ -541,15 +586,12 @@ if (videoContainer) {
     if (event.target.tagName.toLowerCase() === 'video') return;
     if (video.paused) video.play(); else video.pause();
   });
-
   videoContainer.setAttribute('tabindex', '0');
   videoContainer.addEventListener('keydown', function (event) {
     if (event.key === 'Enter' || event.key === ' ' || event.code === 'Space') {
       event.preventDefault();
       const video = videoContainer.querySelector('video');
-      if (video) {
-        if (video.paused) video.play(); else video.pause();
-      }
+      if (video) { if (video.paused) video.play(); else video.pause(); }
     }
   });
 }

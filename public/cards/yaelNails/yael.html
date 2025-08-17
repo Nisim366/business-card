@@ -289,13 +289,15 @@
              aria-label="טלפון" aria-required="true" aria-invalid="false" tabindex="0" />
       <div id="errorPhone" class="error-message" aria-live="polite"></div>
     </div>
+   <!-- שדה משני דינמי (מוסתר כברירת מחדל; נחשף כשערוץ = WhatsApp) -->
+<div class="form-field" id="wrapperSecondary" style="display:none;">
+  <input id="secondaryField" placeholder="גיל" type="number" min="1" max="120"
+         aria-label="גיל" aria-required="true" aria-invalid="false" tabindex="0" />
+  <div id="errorSecondary" class="error-message" aria-live="polite"></div>
+</div>
 
-    <!-- גיל (ברירת מחדל מוסתר, מוצג כשעוברים ל־WhatsApp) -->
-    <div class="form-field" style="display:none;">
-      <input id="age" placeholder="גיל" required type="number" min="1" max="120"
-             aria-label="גיל" aria-required="true" aria-invalid="false" tabindex="0" />
-      <div id="errorAge" class="error-message" aria-live="polite"></div>
-    </div>
+
+    
 
     <!-- הודעה -->
     <div class="form-field">
