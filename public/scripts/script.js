@@ -67,8 +67,7 @@ function formatForWa(phoneDigits = "") {
   const raw = String(phoneDigits).replace(/\D/g, "");
   const noLeadingZeros = raw.replace(/^0+/, "");
   return noLeadingZeros.startsWith("972") ? noLeadingZeros : `972${noLeadingZeros}`;
-}
-/* =========================
+}/* =========================
    vCard Auto from DATA – no anchor required
    ========================= */
 (() => {
@@ -88,7 +87,7 @@ function formatForWa(phoneDigits = "") {
   const normalizeILPhone = (digits) => {
     const raw = String(digits || "").replace(/\D/g, "");
     const noLeadingZeros = raw.replace(/^0+/, "");
-    if (!noLeadingZeros) return ""; // ← חשוב: לא להחזיר +972 ריק
+    if (!noLeadingZeros) return ""; // לא להחזיר +972 ריק
     return noLeadingZeros.startsWith("972") ? `+${noLeadingZeros}` : `+972${noLeadingZeros}`;
   };
 
@@ -142,7 +141,7 @@ function formatForWa(phoneDigits = "") {
     const legacy = document.getElementById("vcardDownload");
     if (legacy) {
       legacy.href = url;
-      legacy.download = "contact.vcf";
+      legacy.download = (window.cardData?.vcard?.filename || "contact.vcf");
     }
 
     // 2) כל כפתור/קישור שמוגדר כ"הוסף איש קשר"
@@ -150,7 +149,7 @@ function formatForWa(phoneDigits = "") {
     document.querySelectorAll('[data-field="addContact"], [data-action="addContact"]').forEach(a => {
       if (a.tagName === "A") {
         a.href = url;
-        a.setAttribute("download", "contact.vcf");
+        a.setAttribute("download", (window.cardData?.vcard?.filename || "contact.vcf"));
       }
     });
   }
