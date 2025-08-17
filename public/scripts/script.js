@@ -593,6 +593,7 @@ function handleAccordionToggle(element) {
   });
 })();
 
+
 const mediaContainer = document.querySelector('[data-field="videoSrc"]');
 if (mediaContainer) {
   if (data.features?.video === true && window.cardData.videoSrc) {
