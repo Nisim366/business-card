@@ -235,15 +235,27 @@ img {
    👤 NAME & ROLE - שם ותפקיד
    ========================================== */
 
-.name-role .main-title  {
+/* base.css */
+.name-role .main-title {
   text-align: var(--name-role-text-align, center);
-  margin: var(--name-role-margin, var(--spacing-large));
+  margin: var(--name-role-margin, 0 0 var(--spacing-small) 0);
   padding: var(--name-role-padding, 0);
+  margin-top: var(--name-role-margin-top, 10px);
   font-family: var(--name-role-font-family, var(--global-font-family));
   color: var(--name-role-color, var(--color-gray-dark));
-  font-size: var(--name-role-font-size, var(--font-size-title-large));
+font-size: var(--name-role-font-size, var(--font-size-title-XLL));
   font-weight: var(--name-role-font-weight, var(--font-weight-bold));
+  line-height: var(--name-role-line-height, 1.1); /* ✅ ברירת מחדל חדשה */
 }
+/* ברירת מחדל לשורה השנייה */
+.name-role .secondary-title {
+  font-size: var(--secondary-title-font-size, 20px);
+  font-weight: var(--secondary-title-font-weight, 600);
+  margin-top: var(--secondary-title-margin-top, 4px);
+  line-height: var(--secondary-title-line-height, 1.2);
+}
+
+
 
 /* ==========================================
    📖 TYPOGRAPHY - טיפוגרפיה
@@ -256,11 +268,6 @@ img {
   color: var(--main-title-bg, var(--main-title-color));
   margin-bottom: var(--main-title-margin-bottom, var(--spacing-tiny));
   margin-top: var(--main-title-margin-top, var(--spacing-xxl));
-}
-.name-role .main-title {
-  font-size: var(--name-role-title-size, 24px);
-  font-weight: var(--font-weight-bold);
-  color: var(--name-role-title-color, var(--main-title-color));
 }
 
 
