@@ -401,57 +401,146 @@ if (recommendationsSwiper) {
       }
     });
   }
-}
+/* =========================
+   Channel ⇄ Form Field Sync
+   ========================= */
 
+(function initChannelFormSync() {
+  const data = window.cardData || window.data || {};
+  const features = data.features || {};
 
+  const FLAG_SEND_WHATSAPP = (features.sendWhatsapp === true || features.sendWhatsApp === true);
+  const FLAG_SEND_EMAIL    = (features.sendEmail === true);
+
+  const channel =
+    (typeof features.formChannel === "string" && features.formChannel.toLowerCase()) ||
+    (FLAG_SEND_WHATSAPP ? "whatsapp" : "email");
+
+  const nameEl  = document.getElementById('fullName');
+  const phoneEl = document.getElementById('phoneNumber');
+  const ageEl   = document.getElementById('age');
+  const msgEl   = document.getElementById('message');
+
+  const wrapperPhone = phoneEl?.closest('.form-field') || phoneEl?.parentElement || null;
+  const wrapperAge   = ageEl?.closest('.form-field')   || ageEl?.parentElement   || null;
+
+  function applyFormChannelUI(nextChannel) {
+    const useWhatsapp = nextChannel === 'whatsapp';
+
+    // הצגה/הסתרה של השדה המשני
+    if (ageEl) {
+      if (wrapperPhone) wrapperPhone.style.display = useWhatsapp ? 'none' : '';
+      if (wrapperAge)   wrapperAge.style.display   = useWhatsapp ? '' : 'none';
+    } else if (phoneEl) {
+      // מחזור phoneEl לגיל במקרה שאין שדה גיל נפרד
+      if (useWhatsapp) {
+        phoneEl.setAttribute('inputmode', 'numeric');
+        phoneEl.setAttribute('pattern', '\\d{1,3}');
+        phoneEl.setAttribute('maxlength', '3');
+        phoneEl.setAttribute('aria-label', 'גיל');
+        phoneEl.placeholder = 'גיל';
+        phoneEl.dataset.role = 'age';
+      } else {
+        phoneEl.removeAttribute('pattern');
+        phoneEl.removeAttribute('maxlength');
+        phoneEl.setAttribute('inputmode', 'tel');
+        phoneEl.setAttribute('aria-label', 'טלפון');
+        phoneEl.placeholder = 'טלפון';
+        phoneEl.dataset.role = 'phone';
+      }
+    }
+  }
+
+  function getAgeValue() {
+    if (ageEl && (wrapperAge?.style.display !== 'none')) return (ageEl.value || '').trim();
+    if (phoneEl?.dataset.role === 'age') return (phoneEl.value || '').trim();
+    return '';
+  }
+  function getPhoneValue() {
+    if (phoneEl && phoneEl.dataset.role !== 'age' && (wrapperPhone?.style.display !== 'none')) {
+      return (phoneEl.value || '').trim();
+    }
+    return '';
+  }
+
+  // החלה מיידית + DOMContentLoaded (למקרה שהסקריפט נטען אחרי ה־DOM)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => applyFormChannelUI(channel));
+  } else {
+    applyFormChannelUI(channel);
+  }
+
+  /* ============ שליחה ל־WhatsApp ============ */
   window.sendToWhatsapp = function(event) {
-    event.preventDefault();
-    const name = document.getElementById('fullName')?.value.trim();
-    const phone = document.getElementById('phoneNumber')?.value.trim();
-    const msg = document.getElementById('message')?.value.trim();
-    const fullMsg = `שם: ${name}%0Aטלפון: ${phone}%0Aהודעה: ${msg}`;
-    const number = data.phoneDigits || "0000000000";
+    event?.preventDefault?.();
+
+    // סנכרון UI לפני שליחה כדי שהמשתמש יראה "גיל"
+    window.setFormChannel?.('whatsapp');
+    applyFormChannelUI('whatsapp');
+
+    if (features.formChannel && features.formChannel.toLowerCase() !== 'whatsapp') return;
+
+    const name = (nameEl?.value || '').trim();
+    const age  = getAgeValue();
+    const msg  = (msgEl?.value || '').trim();
+
+    const esc = (v) => encodeURIComponent(v);
+    const number = String(data.phoneDigits || '').replace(/\D/g, '') || "0000000000";
+    const fullMsg = `שם: ${name}%0Aגיל: ${esc(age)}%0Aהודעה: ${esc(msg)}`;
     const url = `https://wa.me/972${number}?text=${fullMsg}`;
     window.open(url, '_blank');
   };
 
+  /* ============ שליחה לאימייל ============ */
   window.sendToEmail = function(event) {
-    event.preventDefault();
-    if (!data.features?.sendEmail) return;
-    const name = document.getElementById('fullName')?.value.trim();
-    const phone = document.getElementById('phoneNumber')?.value.trim();
-    const msg = document.getElementById('message')?.value.trim();
-    const subject = encodeURIComponent(`פניה מכרטיס ביקור - ${name}`);
+    event?.preventDefault?.();
+
+    // סנכרון UI לפני שליחה כדי שהמשתמש יראה "טלפון"
+    window.setFormChannel?.('email');
+    applyFormChannelUI('email');
+
+    if (features.formChannel && features.formChannel.toLowerCase() !== 'email') return;
+    if (!FLAG_SEND_EMAIL) return;
+
+    const name  = (nameEl?.value || '').trim();
+    const phone = getPhoneValue();
+    const msg   = (msgEl?.value || '').trim();
+    const email = (data.email || '').trim();
+
+    const subject = encodeURIComponent(`פניה מכרטיס ביקור – ${name}`);
     const body = encodeURIComponent(`שם: ${name}\nטלפון: ${phone}\nהודעה: ${msg}`);
-    const emailAddress = data.email || "info@example.com";
-    window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+    const mailto = `mailto:${email}?subject=${subject}&body=${body}`;
+    window.location.href = mailto;
   };
 
-  if (!data.features?.sendEmail) {
-    const emailButton = document.querySelector('[data-action="sendEmail"]');
-    if (emailButton) emailButton.style.display = 'none';
-  }
+  // סוויצ'ר ידני
+  window.setFormChannel = function(nextChannel) {
+    const nc = String(nextChannel || '').toLowerCase();
+    if (!['whatsapp','email'].includes(nc)) return;
+    features.formChannel = nc;
+    applyFormChannelUI(nc);
+  };
+})();
 
-  if (!data.features?.sendWhatsApp) {
-    const whatsappButton = document.querySelector('[data-action="sendWhatsApp"]');
-    if (whatsappButton) whatsappButton.style.display = 'none';
-  }
-  const videoContainer = document.querySelector('[data-field="videoSrc"]');
+/* ============ הסתרת כפתורים לפי פיצ'רים ============ */
+(function toggleActionButtons() {
+  const data = window.cardData || window.data || {};
+  const features = data.features || {};
+  const emailBtn = document.querySelector('[data-action="sendEmail"]');
+  const waBtn    = document.querySelector('[data-action="sendWhatsApp"], [data-action="sendWhatsapp"]');
+  if (emailBtn && !features.sendEmail) emailBtn.style.display = 'none';
+  if (waBtn && !(features.sendWhatsapp || features.sendWhatsApp)) waBtn.style.display = 'none';
+})();
+
+/* ============ אינטראקציות וידאו ============ */
+const videoContainer = document.querySelector('[data-field="videoSrc"]');
 if (videoContainer) {
-  // הפעלה בנגיעה/לחיצה עם עכבר
   videoContainer.addEventListener('click', function (event) {
-  const video = videoContainer.querySelector('video');
-  if (!video) return;
-
-  // אל תפעיל אם לחצו ישירות על כפתור הפליי של הוידאו
-  if (event.target.tagName.toLowerCase() === 'video') return;
-
-  if (video.paused) {
-    video.play();
-  } else {
-    video.pause();
-  }
-});
+    const video = videoContainer.querySelector('video');
+    if (!video) return;
+    if (event.target.tagName.toLowerCase() === 'video') return;
+    if (video.paused) video.play(); else video.pause();
+  });
 
   videoContainer.setAttribute('tabindex', '0');
   videoContainer.addEventListener('keydown', function (event) {
@@ -459,11 +548,19 @@ if (videoContainer) {
       event.preventDefault();
       const video = videoContainer.querySelector('video');
       if (video) {
-        if (video.paused) {
-          video.play();
-        } else {
-          video.pause();
-        }
+        if (video.paused) video.play(); else video.pause();
+      }
+    }
+  });
+}
+
+  videoContainer.setAttribute('tabindex', '0');
+  videoContainer.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter' || event.key === ' ' || event.code === 'Space') {
+      event.preventDefault();
+      const video = videoContainer.querySelector('video');
+      if (video) {
+        if (video.paused) video.play(); else video.pause();
       }
     }
   });

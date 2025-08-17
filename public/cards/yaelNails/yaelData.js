@@ -20,6 +20,9 @@ pageTitle: " יעל חן | כרטיס ביקור",
   videoSrc: "/assets/media/test/mov_bbb.mp4",
  facebookLink: "https://www.facebook.com/share/178LGRDcLN/?mibextid=wwXIfr",
 
+ customFormMessage: true, // ✅ מפעיל את הסקריפט
+  formMessageTemplate: "היי, קוראים לי {fullName}{agePart}. {msg}",
+
 features: {
   video: true,
   about: true,

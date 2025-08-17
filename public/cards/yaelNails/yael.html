@@ -269,25 +269,54 @@
               <div class="swiper-pagination recommendations-pagination"></div>
             </div>
           </section>
+<!-- ✅ טופס יצירת קשר -->
+<h3 class="main-title" id="contactFormTitle" tabindex="0" data-field="contactFormTitle"></h3>
 
-          <!-- ✅ טופס יצירת קשר -->
-          <h3 class="main-title" id="contactFormTitle" tabindex="0" data-field="contactFormTitle"></h3>
+<div id="contactForm" class="contact-form" role="form" aria-labelledby="contactFormTitle" tabindex="0">
+  <div class="form-description" aria-live="polite"></div>
+  <form onsubmit="return validateForm(event)">
+    
+    <!-- שם מלא -->
+    <div class="form-field">
+      <input id="fullName" placeholder="שם מלא" required type="text"
+             aria-label="שם מלא" aria-required="true" aria-invalid="false" tabindex="0" />
+      <div id="errorFullName" class="error-message" aria-live="polite"></div>
+    </div>
 
-          <div id="contactForm" class="contact-form" role="form" aria-labelledby="contactFormTitle" tabindex="0">
-            <div class="form-description" aria-live="polite"></div>
-            <form onsubmit="return validateForm(event)">
-              <div class="input-row">
-                <input id="fullName" placeholder="שם מלא" required type="text" aria-label="שם מלא" aria-required="true" aria-invalid="false" tabindex="0" />
-                <div id="errorFullName" class="error-message" aria-live="polite"></div>
-                <input id="phoneNumber" placeholder="מספר טלפון" required type="tel" aria-label="מספר טלפון" aria-required="true" aria-invalid="false" tabindex="0" />
-                <div id="errorPhone" class="error-message" aria-live="polite"></div>
-              </div>
-              <textarea id="message" placeholder="הודעה חופשית" aria-label="הודעה חופשית" tabindex="0"></textarea>
-              <button type="button" onclick="sendToWhatsapp(event)" data-action="sendWhatsapp" aria-label="שלח לוואטסאפ" tabindex="0">שלח לוואטסאפ</button>
-              <button type="button" class="btn" onclick="sendToEmail(event)" data-action="sendEmail" aria-label="שלח למייל" tabindex="0">
-          דברו איתי !     </button>
-            </form>
-          </div>
+    <!-- טלפון (ברירת מחדל מוצג, מוסתר כשעוברים ל־WhatsApp) -->
+    <div class="form-field">
+      <input id="phoneNumber" placeholder="טלפון" type="tel"
+             aria-label="טלפון" aria-required="true" aria-invalid="false" tabindex="0" />
+      <div id="errorPhone" class="error-message" aria-live="polite"></div>
+    </div>
+
+    <!-- גיל (ברירת מחדל מוסתר, מוצג כשעוברים ל־WhatsApp) -->
+    <div class="form-field" style="display:none;">
+      <input id="age" placeholder="גיל" required type="number" min="1" max="120"
+             aria-label="גיל" aria-required="true" aria-invalid="false" tabindex="0" />
+      <div id="errorAge" class="error-message" aria-live="polite"></div>
+    </div>
+
+    <!-- הודעה -->
+    <div class="form-field">
+      <textarea id="message" placeholder="הודעה חופשית"
+                aria-label="הודעה חופשית" tabindex="0"></textarea>
+    </div>
+
+    <!-- כפתורים -->
+    <button type="button" onclick="sendToWhatsapp(event)"
+            data-action="sendWhatsapp" aria-label="שלח לוואטסאפ" tabindex="0">
+      שלח לוואטסאפ
+    </button>
+
+    <button type="button" class="btn" onclick="sendToEmail(event)"
+            data-action="sendEmail" aria-label="שלח למייל" tabindex="0">
+      דברו איתי !
+    </button>
+  </form>
+</div>
+
+
 <!-- ✅ שיתוף -->
 <div class="share-section is-brand-blue" role="region" aria-label="שיתוף כרטיס הביקור" tabindex="0">
   <h3 class="main-title" id="shareCardTitle" tabindex="0" data-field="shareCardTitle">
