@@ -95,6 +95,7 @@
   --gradient-turquoise: linear-gradient(135deg, #40E0D0, #008B8B);
   --gradient-multi: linear-gradient(45deg, #33cc99, #00aaff, #33cc99);
 
+
 }
 
 /* ===== base.css ===== */
@@ -237,6 +238,7 @@ img {
 
 /* base.css */
 .name-role .main-title {
+  text-shadow: var(--name-role-shadow, 3px 3px 6px rgba(0, 0, 0, 0.25));
   text-align: var(--name-role-text-align, center);
   margin: var(--name-role-margin, 0 0 var(--spacing-small) 0);
   padding: var(--name-role-padding, 0);
@@ -249,6 +251,8 @@ font-size: var(--name-role-font-size, var(--font-size-title-XLL));
 }
 /* ברירת מחדל לשורה השנייה */
 .name-role .secondary-title {
+    color: var(--secondary-title-color, var(--color-gray-dark));
+  text-shadow: var(--secondary-title-shadow, 3px 3px 6px rgba(0, 0, 0, 0.25));
   font-size: var(--secondary-title-font-size, 20px);
   font-weight: var(--secondary-title-font-weight, 600);
   margin-top: var(--secondary-title-margin-top, 4px);

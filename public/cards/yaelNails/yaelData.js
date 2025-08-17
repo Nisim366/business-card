@@ -15,7 +15,7 @@ pageTitle: " יעל חן | כרטיס ביקור",
   wazeLink: "https://waze.com/ul/hsv8wxcjtf",
   instagramLink: "https://www.instagram.com/yael_artgallery?igsh=MTJuNzh4NTQ5aDV4YQ%3D%3D&utm_source=qr",
 
-  logoSrc: "/assets/media/test/logo-ortopok.png",
+  logoSrc: "/assets/media/yaelNails/yaelLogo.pdf",
   profileImage: "/assets/media/test/profile.jpg",
   videoSrc: "/assets/media/test/mov_bbb.mp4",
  facebookLink: "https://www.facebook.com/share/178LGRDcLN/?mibextid=wwXIfr",

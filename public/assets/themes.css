@@ -168,3 +168,111 @@
   --main-title-color: #f6d97a; 
   --main-title-bg: #f6d97a; 
 }
+
+/* ============================
+   ♿ Accessibility High-Contrast (uses existing .accessibility-mode)
+   ============================ */
+body.accessibility-mode{
+  /* בסיס */
+  --card-bg: #ffffff !important;
+  --main-background-color: #ffffff !important;
+  --about-section-bg: #ffffff !important;
+  --recommendations-section-bg: #ffffff !important;
+
+  /* טקסטים */
+  --main-title-color: #000000 !important;
+  --about-text-color: #000000 !important;
+  --about-section-p-text-color: #000000 !important;
+  --name-role-color: #000000 !important;
+
+  /* כפתורים */
+  --contact-btn-bg: #000000 !important;
+  --btn-border-bg-color: #000000 !important;
+  --contact-btn-hover-bg: #333333 !important;
+
+  /* אייקונים כלליים + שיתוף */
+  --icon-color: #000000 !important;
+  --s-color: #000000 !important;
+  --s-bg: #ffffff !important;
+
+  /* טפסים */
+  --contact-form-bg: #ffffff !important;
+
+  /* קישורים – הבטחת זיהוי */
+  --link-color: #000000 !important;
+}
+
+/* טקסט וקישורים */
+body.accessibility-mode, 
+body.accessibility-mode *{
+  color: #000 !important;
+  text-shadow: none !important;
+}
+
+body.accessibility-mode a{
+  color: #000 !important;
+  text-decoration: underline !important;
+}
+
+/* רקעים והסחות */
+body.accessibility-mode .card,
+body.accessibility-mode .about-section,
+body.accessibility-mode .recommendations-section,
+body.accessibility-mode .share-section,
+body.accessibility-mode .contact-form{
+  background: #fff !important;
+  box-shadow: none !important;
+  background-image: none !important;
+}
+
+/* אייקוני SVG – איפוס צבעים למשתנה (שחור) */
+body.accessibility-mode .icon-svg{
+  color: var(--icon-color) !important;            /* מקור ל-currentColor */
+}
+body.accessibility-mode .icon-svg *,
+body.accessibility-mode .share-buttons .icon-svg *{
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* נקודות/חצים ב-Swiper */
+body.accessibility-mode .swiper-pagination-bullet{
+  background: #000 !important;
+  opacity: 1 !important;
+}
+body.accessibility-mode .swiper-pagination-bullet-active{
+  background: #000 !important;
+}
+
+/* כפתור "הוסף לאנשי קשר" ויתר כפתורים */
+body.accessibility-mode .btn,
+body.accessibility-mode [role="button"],
+body.accessibility-mode button{
+  background: #000 !important;
+  color: #fff !important;   /* ← טקסט לבן על רקע שחור */
+  border-color: #000 !important;
+}
+
+/* גבולות שדות טופס */
+body.accessibility-mode input,
+body.accessibility-mode textarea,
+body.accessibility-mode select{
+  background: #fff !important;
+  color: #000 !important;
+  border: 2px solid #000 !important;
+  outline: 0 !important;
+}
+
+/* מצבי פוקוס ברורים */
+body.accessibility-mode :focus{
+  outline: 3px solid #000 !important;
+  outline-offset: 2px !important;
+  box-shadow: none !important;
+}
+
+/* קישורי שיתוף – רקע נייטרלי ואייקון שחור */
+body.accessibility-mode .share-buttons a{
+  background: var(--s-bg) !important;
+  border: 2px solid #000 !important;
+  color: #000 !important;
+}
