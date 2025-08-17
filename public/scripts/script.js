@@ -231,13 +231,14 @@ if (!swiperEl || recData.length === 0) {
   `).join('');
 
   recommendationsSwiper = new Swiper('.recommendations-swiper', {
-    slidesPerView: 1,
-    spaceBetween: 16,
-    loop: true,
-    threshold: 10,
-    touchRatio: 1.2,
-    allowSlidePrev: true,
-    allowSlideNext: true,
+  slidesPerView: 1,
+  spaceBetween: 16,
+  loop: true,
+  threshold: 5,     // ✅ קל יותר להתחיל גרירה
+  touchRatio: 1.5,  // ✅ רגישות גבוהה יותר לגרירה
+  allowSlidePrev: true,
+  allowSlideNext: true,
+
   pagination: {
   el: '.recommendations-pagination',
   clickable: true,
